@@ -1,0 +1,410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C6E1458E-7194-4CB7-8738-7681A24B689B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>QuanLyHotel</RootNamespace>
+    <AssemblyName>QuanLyHotel</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ACCOUNT\FormAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ACCOUNT\FormAccount.Designer.cs">
+      <DependentUpon>FormAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BILL\FormHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BILL\FormHoaDon.Designer.cs">
+      <DependentUpon>FormHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EMPLOYEE\EMP.cs" />
+    <Compile Include="EMPLOYEE\FormNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EMPLOYEE\FormNhanVien.Designer.cs">
+      <DependentUpon>FormNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HotelManagementDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HotelManagementDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HotelManagementDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HotelManagementDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MAIN\FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MAIN\FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PHONG\FormPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PHONG\FormPhong.Designer.cs">
+      <DependentUpon>FormPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PHONG\PH.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MyDB.cs" />
+    <Compile Include="RoundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="ACCOUNT\FormAccount.resx">
+      <DependentUpon>FormAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EMPLOYEE\FormNhanVien.resx">
+      <DependentUpon>FormNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MAIN\FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PHONG\FormPhong.resx">
+      <DependentUpon>FormPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="HotelManagementDataSet.xsc">
+      <DependentUpon>HotelManagementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HotelManagementDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HotelManagementDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HotelManagementDataSet.xss">
+      <DependentUpon>HotelManagementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HotelManagementDataSet1.xsc">
+      <DependentUpon>HotelManagementDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="HotelManagementDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HotelManagementDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HotelManagementDataSet1.xss">
+      <DependentUpon>HotelManagementDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="KHACHHANG\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6u2ywY.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-document.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\badge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bill %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\businessman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calamviec32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\call.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\computer32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\computer32px_03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dangxuat32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\employee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\employeeden.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\employeetrang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filedownload32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\freelancer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\headphone32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hình_ảnh_2023-11-20_175846690-transformed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\homeden.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\homeden1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hometrang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hometrang1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invoice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keyboard32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keyboard32px_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\khachhangden.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\khachhangtrang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\laptop16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\laptop32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left-arrow %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\location %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\location.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifying-glass-16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\monitor32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mouse32px_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OIP.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\online-shop-icon-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\online-shop-icon-64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phong1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phong2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phong3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus32px_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus-symbol-button-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ready-stock %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save32px_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scheduler.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teamwork.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thongke32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thongke32px_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toppng.com-lock-login-key-password-protected-safe-security-icon-login-password-343x370.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\userden.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usertrang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bill32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\room32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\service32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

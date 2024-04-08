@@ -1,0 +1,13 @@
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.csproj.AssemblyReference.cache
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.ACCOUNT.FormAccount.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.Properties.Resources.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.csproj.GenerateResource.cache
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.csproj.CoreCompileInputs.cache
+D:\github\QuanLyHotel\QuanLyHotel\bin\Debug\QuanLyHotel.exe.config
+D:\github\QuanLyHotel\QuanLyHotel\bin\Debug\QuanLyHotel.exe
+D:\github\QuanLyHotel\QuanLyHotel\bin\Debug\QuanLyHotel.pdb
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.exe
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.pdb
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormMain.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormNhanVien.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.PHONG.FormPhong.resources
