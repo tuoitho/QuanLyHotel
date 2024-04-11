@@ -15,24 +15,23 @@ namespace QuanLyHotel.EMPLOYEE
         public DataTable getDSNhanVien()
         {
             mydb.OpenConnection();
-            SqlCommand command = new SqlCommand("SELECT * FROM Employees", mydb.GetConnection);
+            SqlCommand command = new SqlCommand("SELECT * FROM NhanVien", mydb.GetConnection);
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);
             mydb.CloseConnection();
             return table;
         }
-        public bool insertNhanVien(int EmployeeID, string Name, string Gender, DateTime DOB, string Address, string Phone, int Position)
+        public bool insertNhanVien( string Name, string Gender, DateTime DOB, string Address, string Phone, string Position)
         {
 
-            SqlCommand command = new SqlCommand("INSERT INTO Employees (EmployeeID, Name, Gender, DOB, Address, Phone, PositionID) VALUES (@eid, @name, @gender, @dob, @address, @phone, @position)", mydb.GetConnection);
-            command.Parameters.Add("@eid", SqlDbType.Int).Value = EmployeeID;
+            SqlCommand command = new SqlCommand("INSERT INTO NhanVien (Hoten, phai, ngaysinh, diachi, sdt, machucvu) VALUES ( @name, @gender, @dob, @address, @phone, @position)", mydb.GetConnection);
             command.Parameters.Add("@name", SqlDbType.NVarChar).Value = Name;
             command.Parameters.Add("@gender", SqlDbType.NVarChar).Value = Gender;
             command.Parameters.Add("@dob", SqlDbType.Date).Value = DOB;
             command.Parameters.Add("@address", SqlDbType.NVarChar).Value = Address;
             command.Parameters.Add("@phone", SqlDbType.VarChar).Value = Phone;
-            command.Parameters.Add("@position", SqlDbType.Int).Value = Position;
+            command.Parameters.Add("@position", SqlDbType.VarChar).Value = Position;
             mydb.OpenConnection();
             if (command.ExecuteNonQuery() == 1)
             {
@@ -46,18 +45,18 @@ namespace QuanLyHotel.EMPLOYEE
             }
 
         }
-        public bool updateNhanVien(int EmployeeID, string Name, string Gender, DateTime DOB, string Address, string Phone, int Position)
+        public bool updateNhanVien(string EmployeeID, string Name, string Gender, DateTime DOB, string Address, string Phone, string Position)
         {
             //update nhanvien theo id
-            SqlCommand command = new SqlCommand("UPDATE Employees SET Name = @name, Gender = @gender, DOB = @dob, Address = @address, Phone = @phone, PositionID = @position WHERE EmployeeID = @employeeID", mydb.GetConnection);
-            command.Parameters.Add("@employeeID", SqlDbType.Int).Value = EmployeeID;
+            SqlCommand command = new SqlCommand("UPDATE NhanVien SET hoten = @name, phai = @gender, Ngaysinh = @dob, diachi = @address, sdt = @phone, machucvu = @position WHERE manv = @employeeID", mydb.GetConnection);
+            command.Parameters.Add("@employeeID", SqlDbType.VarChar).Value = EmployeeID;
             command.Parameters.Add("@name", SqlDbType.NVarChar).Value = Name;
             command.Parameters.Add("@gender", SqlDbType.NVarChar
                 ).Value = Gender;
             command.Parameters.Add("@dob", SqlDbType.Date).Value = DOB;
             command.Parameters.Add("@address", SqlDbType.NVarChar).Value = Address;
             command.Parameters.Add("@phone", SqlDbType.VarChar).Value = Phone;
-            command.Parameters.Add("@position", SqlDbType.Int).Value = Position;
+            command.Parameters.Add("@position", SqlDbType.VarChar).Value = Position;
             mydb.OpenConnection();
             if (command.ExecuteNonQuery() == 1)
             {
@@ -73,10 +72,10 @@ namespace QuanLyHotel.EMPLOYEE
 
         }
 
-        public bool deleteNhanVien(int employeeID)
+        public bool deleteNhanVien(string employeeID)
         {
-            SqlCommand sqlCommand = new SqlCommand("DELETE FROM Employees WHERE EmployeeID = @eid", mydb.GetConnection);
-            sqlCommand.Parameters.Add("@eid", SqlDbType.Int).Value = employeeID;
+            SqlCommand sqlCommand = new SqlCommand("DELETE FROM NhanVien WHERE manv = @eid", mydb.GetConnection);
+            sqlCommand.Parameters.Add("@eid", SqlDbType.VarChar).Value = employeeID;
             mydb.OpenConnection();
             if (sqlCommand.ExecuteNonQuery() == 1)
             {

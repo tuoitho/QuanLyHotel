@@ -9,7 +9,7 @@ namespace QuanLyHotel.Resources
 {
     public class MyDB
     {
-        SqlConnection conn = new SqlConnection(@"Data Source=TUOITHO\SQLEXPRESS;Initial Catalog=HotelManagement;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=TUOITHO\SQLEXPRESS;Initial Catalog=tt4;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True");
         public SqlConnection GetConnection
         {
             get

@@ -18,6 +18,7 @@ namespace QuanLyHotel.EMPLOYEE
         public FormNhanVien()
         {
             InitializeComponent();
+
         }
 
         private void FormNhanVien_Load(object sender, EventArgs e)
@@ -38,56 +39,55 @@ namespace QuanLyHotel.EMPLOYEE
             //display data from datagridview to textbox
             txt_MaNV.Text = dataGridView_employee.CurrentRow.Cells[0].Value.ToString();
             txt_HoTen.Text = dataGridView_employee.CurrentRow.Cells[1].Value.ToString();
-            if (dataGridView_employee.CurrentRow.Cells[2].Value.ToString() == "Male")
+            if (dataGridView_employee.CurrentRow.Cells[2].Value.ToString() == "Nam")
             {
-                rdmale.Checked = true;
+                rdnam.Checked = true;
             }
             else
             {
-                rdfemale.Checked = true;
+                rdnu.Checked = true;
             }
             datetimePicker_NgaySinh.Text = dataGridView_employee.CurrentRow.Cells[3].Value.ToString();
 
             txt_DiaChi.Text = dataGridView_employee.CurrentRow.Cells[4].Value.ToString();
             txt_SDT.Text = dataGridView_employee.CurrentRow.Cells[5].Value.ToString();
-            if (dataGridView_employee.CurrentRow.Cells[6].Value.ToString() == "1")
+            if (dataGridView_employee.CurrentRow.Cells[6].Value.ToString() == "CV001")
             {
                 radioButton_ql.Checked = true;
             }
-            else if (dataGridView_employee.CurrentRow.Cells[6].Value.ToString() == "2")
+            else if (dataGridView_employee.CurrentRow.Cells[6].Value.ToString() == "CV002")
             {
                 radioButton_tt.Checked = true;
             }
             else
             {
-                radioButton_lc.Checked = false;
+                radioButton_lc.Checked = true;
             }
         }
         private void btn_add_Click(object sender, EventArgs e)
         {
-            int EmployeeID = Convert.ToInt32(txt_MaNV.Text);
             string Name = txt_HoTen.Text;
             string gender=null;
-            if (rdmale.Checked)
+            if (rdnam.Checked)
             {
-                gender = "Male";
+                gender = "Nam";
             }
-            else { gender = "Female"; }
+            else { gender = "Nữ"; }
             DateTime DOB = datetimePicker_NgaySinh.Value;
             string Address = txt_DiaChi.Text;
             string Phone = txt_SDT.Text;
-            int Position = 1;
+            string Position = "CV001";
             if (radioButton_tt.Checked)
             {
-                Position = 2;
+                Position = "CV002";
             }
-            else
+            else if (radioButton_lc.Checked)
             {
-                Position = 3;
+                Position = "CV003";
             }
             try
             {
-                emp.insertNhanVien(EmployeeID, Name, gender, DOB, Address, Phone, Position);
+                emp.insertNhanVien(Name, gender, DOB, Address, Phone, Position);
                 MessageBox.Show("New Employee Added", "Add Employee", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dataGridView_employee.DataSource = emp.getDSNhanVien();
             }catch(Exception ex)
@@ -99,30 +99,31 @@ namespace QuanLyHotel.EMPLOYEE
 
         private void btn_modify_Click(object sender, EventArgs e)
         {
-            int EmployeeID = Convert.ToInt32(txt_MaNV.Text);
+            string EmployeeID = (txt_MaNV.Text);
             string Name = txt_HoTen.Text;
             string gender = null;
-            if (rdmale.Checked)
+            if (rdnam.Checked)
             {
-                gender = "Male";
+                gender = "Nam";
             }
-            else { gender = "Female"; }
+            else { gender = "Nữ"; }
             DateTime DOB = datetimePicker_NgaySinh.Value;
             string Address = txt_DiaChi.Text;
             string Phone = txt_SDT.Text;
-            int Position = 1;
+            string Position = "CV001";
             if (radioButton_tt.Checked)
             {
-                Position = 2;
+                Position = "CV002";
             }
-            else
+            else if (radioButton_lc.Checked)
             {
-                Position = 3;
+                Position = "CV003";
             }
             try
             {
                 emp.updateNhanVien(EmployeeID, Name, gender, DOB, Address, Phone, Position);
                 MessageBox.Show("Employee Information Updated", "Update Employee", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnLoad_Click(sender, e);
             }
             catch (Exception ex)
             {
@@ -141,7 +142,7 @@ namespace QuanLyHotel.EMPLOYEE
             //delete employee
             try
             {
-                int EmployeeID = Convert.ToInt32(txt_MaNV.Text);
+                string EmployeeID = (txt_MaNV.Text);
                 if (MessageBox.Show("Are you sure you want to delete this employee?", "Delete Employee", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (emp.deleteNhanVien(EmployeeID))
@@ -151,7 +152,7 @@ namespace QuanLyHotel.EMPLOYEE
                         txt_HoTen.Text = "";
                         txt_DiaChi.Text = "";
                         txt_SDT.Text = "";
-                        rdmale.Checked = true;
+                        rdnam.Checked = true;
                         radioButton_ql.Checked = true;
                         datetimePicker_NgaySinh.Value = DateTime.Now;
                         dataGridView_employee.DataSource = emp.getDSNhanVien();
@@ -166,6 +167,16 @@ namespace QuanLyHotel.EMPLOYEE
             {
                 MessageBox.Show(ex.Message, "Delete Employee", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dataGridView_employee_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -108,5 +108,16 @@ namespace QuanLyHotel.PHONG
                 mydb.CloseConnection();
             }
         }
+
+        public DataTable getDSPhong()
+        {
+            using (SqlCommand command = new SqlCommand("SELECT * FROM Phong", mydb.GetConnection))
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                return table;
+            }
+        }
     }
 }
