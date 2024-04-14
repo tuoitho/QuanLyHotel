@@ -26,7 +26,7 @@ namespace QuanLyHotel.PHONG
         {
             SqlCommand command = new SqlCommand("INSERT INTO Phong (maphong, tenphong, tinhtrangphong, maloaiphong) VALUES (@mp, @tp, @stt, @ml)",mydb.GetConnection);
             command.Parameters.Add("@mp", SqlDbType.VarChar).Value = maphong;
-            command.Parameters.Add("@tp", SqlDbType.VarChar).Value = tenphong;
+            command.Parameters.Add("@tp", SqlDbType.NVarChar).Value = tenphong;
             command.Parameters.Add("@stt", SqlDbType.Bit).Value = stt;
             command.Parameters.Add("@ml", SqlDbType.VarChar).Value = maloai;
             mydb.OpenConnection();
@@ -56,10 +56,10 @@ namespace QuanLyHotel.PHONG
         {
             SqlCommand command = new SqlCommand("INSERT INTO LoaiPhong (maloaiphong, tenloaiphong, trangthietbi, gialoaiphong, mota) VALUES (@ml, @tlp, @ttb, @g, @mt)", mydb.GetConnection);
             command.Parameters.Add("@ml", SqlDbType.VarChar).Value = maloaiphong;
-            command.Parameters.Add("@tlp", SqlDbType.VarChar).Value = tenloaiphong;
-            command.Parameters.Add("@ttb", SqlDbType.VarChar).Value = trangthietbi;
+            command.Parameters.Add("@tlp", SqlDbType.NVarChar).Value = tenloaiphong;
+            command.Parameters.Add("@ttb", SqlDbType.NVarChar).Value = trangthietbi;
             command.Parameters.Add("@g", SqlDbType.Money).Value = gialoaiphong;
-            command.Parameters.Add("@mt", SqlDbType.VarChar).Value = mota;
+            command.Parameters.Add("@mt", SqlDbType.NVarChar).Value = mota;
             mydb.OpenConnection();
             if (command.ExecuteNonQuery() == 1)
             {
@@ -78,10 +78,10 @@ namespace QuanLyHotel.PHONG
             //update loai phong
             SqlCommand command = new SqlCommand("UPDATE LoaiPhong SET tenloaiphong = @tlp, trangthietbi = @ttb, gialoaiphong = @g, mota = @mt WHERE maloaiphong = @ml", mydb.GetConnection);
             command.Parameters.Add("@ml", SqlDbType.VarChar).Value = maloaiphong;
-            command.Parameters.Add("@tlp", SqlDbType.VarChar).Value = tenloaiphong;
-            command.Parameters.Add("@ttb", SqlDbType.VarChar).Value = trangthietbi;
+            command.Parameters.Add("@tlp", SqlDbType.NVarChar).Value = tenloaiphong;
+            command.Parameters.Add("@ttb", SqlDbType.NVarChar).Value = trangthietbi;
             command.Parameters.Add("@g", SqlDbType.Money).Value = gia;
-            command.Parameters.Add("@mt", SqlDbType.VarChar).Value = mota;
+            command.Parameters.Add("@mt", SqlDbType.NVarChar).Value = mota;
             mydb.OpenConnection();
             if (command.ExecuteNonQuery() == 1)
             {
@@ -117,6 +117,70 @@ namespace QuanLyHotel.PHONG
                 DataTable table = new DataTable();
                 adapter.Fill(table);
                 return table;
+            }
+        }
+
+        public bool themLoaiPhong(string tenloaiphong, string trangthietbi, double gia, string mota)
+        {
+            SqlCommand command = new SqlCommand("INSERT INTO LoaiPhong ( tenloaiphong, trangthietbi, gialoaiphong, mota) VALUES ( @tlp, @ttb, @g, @mt)", mydb.GetConnection);
+            command.Parameters.Add("@tlp", SqlDbType.NVarChar).Value = tenloaiphong;
+            command.Parameters.Add("@ttb", SqlDbType.NVarChar).Value = trangthietbi;
+            command.Parameters.Add("@g", SqlDbType.Money).Value = gia;
+            command.Parameters.Add("@mt", SqlDbType.NVarChar).Value = mota;
+            mydb.OpenConnection();
+            if (command.ExecuteNonQuery() == 1)
+            {
+                mydb.CloseConnection();
+                return true;
+            }
+            else
+            {
+                mydb.CloseConnection();
+                return false;
+            }
+        }
+
+        public void updatePhong(string maphong, string tenphong, bool stt, string maloai)
+        {
+            using (SqlCommand command = new SqlCommand("UPDATE Phong SET tenphong = @tp, tinhtrangphong = @stt, maloaiphong = @ml WHERE maphong = @mp", mydb.GetConnection))
+            {
+                command.Parameters.Add("@mp", SqlDbType.VarChar).Value = maphong;
+                command.Parameters.Add("@tp", SqlDbType.NVarChar).Value = tenphong;
+                command.Parameters.Add("@stt", SqlDbType.Bit).Value = stt;
+                command.Parameters.Add("@ml", SqlDbType.VarChar).Value = maloai;
+                mydb.OpenConnection();
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    mydb.CloseConnection();
+                }
+                else
+                {
+                    mydb.CloseConnection();
+                }
+            }
+        }
+
+        public DataTable getDSPhongTrong()
+        {
+            using (SqlCommand command = new SqlCommand("SELECT * FROM Phong WHERE tinhtrangphong=0", mydb.GetConnection))
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                return table;
+            }
+        }
+
+        public void danhDauPhong(string maphong,int stt)
+        {
+            //
+            using (SqlCommand command = new SqlCommand("UPDATE Phong SET tinhtrangphong = @stt WHERE maphong = @mp", mydb.GetConnection))
+            {
+                command.Parameters.Add("@mp", SqlDbType.VarChar).Value = maphong;
+                command.Parameters.Add("@stt", SqlDbType.Bit).Value = stt;
+                mydb.OpenConnection();
+                command.ExecuteNonQuery();
+                mydb.CloseConnection();
             }
         }
     }
