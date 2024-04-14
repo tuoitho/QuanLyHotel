@@ -1,5 +1,4 @@
 ﻿using QuanLyHotel.EMPLOYEE;
-using QuanLyHotel.THUETRA;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +17,11 @@ namespace QuanLyHotel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormNhanVien());
+<<<<<<< Updated upstream
+=======
+            //Application.Run(new FormMain());
+>>>>>>> Stashed changes
+            Application.Run(new FormMain());
         }
     }
 }
