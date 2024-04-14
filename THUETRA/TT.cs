@@ -16,7 +16,7 @@ namespace QuanLyHotel.THUETRA
         MyDB mydb = new MyDB();
         public DataTable getDSPhieuDangKy()
         {
-            string sql = "select * from PhieuDangKy";
+            string sql = "select MaPhieuDK as 'Mã Phiếu Đăng Ký', DuKienDen as 'Dự Kiến Đến', DuKienDi as 'Dự Kiến Đi', TienDatCoc as 'Tiền Đặt Cọc', MaNV as 'Mã Nhân Viên', MaKH as 'Mã Khách Hàng', MaPhong as 'Mã Phòng', TrangThai as 'Trạng Thái' from PhieuDangKy";
             SqlCommand cmd = new SqlCommand(sql, mydb.GetConnection);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable table = new DataTable();

@@ -18,6 +18,8 @@ namespace QuanLyHotel.THUETRA
         public FormPhieuDangKy()
         {
             InitializeComponent();
+            dataGridView_pdk.DefaultCellStyle.SelectionBackColor = Color.Purple;
+
         }
         TT tt= new TT();
         KH kh = new KH();
@@ -203,12 +205,15 @@ namespace QuanLyHotel.THUETRA
             //    MessageBox.Show(ex.Message, "Thêm phiếu đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //}
             FormThemMoiPDK formThemMoiPDK = new FormThemMoiPDK();
+            //center the form
+            formThemMoiPDK.StartPosition = FormStartPosition.CenterParent;
+            formThemMoiPDK.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+
             if (formThemMoiPDK.ShowDialog() == DialogResult.OK)
             {
                 reload(dataGridView_pdk.Rows.Count);
 
             }
-
         }
         private void reload(int index=0)
         {
