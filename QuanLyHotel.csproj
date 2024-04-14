@@ -118,11 +118,17 @@
     <Compile Include="RoundedButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="THUETRA\FormHoaDon.cs">
+    <Compile Include="THUETRA\FormThemMoiPDK.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="THUETRA\FormHoaDon.Designer.cs">
-      <DependentUpon>FormHoaDon.cs</DependentUpon>
+    <Compile Include="THUETRA\FormThemMoiPDK.Designer.cs">
+      <DependentUpon>FormThemMoiPDK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="THUETRA\FormThongTinHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="THUETRA\FormThongTinHoaDon.Designer.cs">
+      <DependentUpon>FormThongTinHoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="THUETRA\FormPhieuDangKy.cs">
       <SubType>Form</SubType>
@@ -133,6 +139,9 @@
     <Compile Include="THUETRA\TT.cs" />
     <EmbeddedResource Include="ACCOUNT\FormAccount.resx">
       <DependentUpon>FormAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BILL\FormHoaDon.resx">
+      <DependentUpon>FormHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EMPLOYEE\FormNhanVien.resx">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
@@ -153,8 +162,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="THUETRA\FormHoaDon.resx">
-      <DependentUpon>FormHoaDon.cs</DependentUpon>
+    <EmbeddedResource Include="THUETRA\FormThemMoiPDK.resx">
+      <DependentUpon>FormThemMoiPDK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="THUETRA\FormThongTinHoaDon.resx">
+      <DependentUpon>FormThongTinHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="THUETRA\FormPhieuDangKy.resx">
       <DependentUpon>FormPhieuDangKy.cs</DependentUpon>
