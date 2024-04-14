@@ -94,8 +94,33 @@
     <Compile Include="RoundedButton.cs">
       <SubType>Component</SubType>
     </Compile>
+<<<<<<< Updated upstream
+=======
+    <Compile Include="THUETRA\FormThemMoiPDK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="THUETRA\FormThemMoiPDK.Designer.cs">
+      <DependentUpon>FormThemMoiPDK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="THUETRA\FormThongTinHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="THUETRA\FormThongTinHoaDon.Designer.cs">
+      <DependentUpon>FormThongTinHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="THUETRA\FormPhieuDangKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="THUETRA\FormPhieuDangKy.Designer.cs">
+      <DependentUpon>FormPhieuDangKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="THUETRA\TT.cs" />
+>>>>>>> Stashed changes
     <EmbeddedResource Include="ACCOUNT\FormAccount.resx">
       <DependentUpon>FormAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BILL\FormHoaDon.resx">
+      <DependentUpon>FormHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EMPLOYEE\FormNhanVien.resx">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
@@ -116,6 +141,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+<<<<<<< Updated upstream
+=======
+    <EmbeddedResource Include="THUETRA\FormThemMoiPDK.resx">
+      <DependentUpon>FormThemMoiPDK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="THUETRA\FormThongTinHoaDon.resx">
+      <DependentUpon>FormThongTinHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="THUETRA\FormPhieuDangKy.resx">
+      <DependentUpon>FormPhieuDangKy.cs</DependentUpon>
+    </EmbeddedResource>
+>>>>>>> Stashed changes
     <None Include="HotelManagementDataSet.xsc">
       <DependentUpon>HotelManagementDataSet.xsd</DependentUpon>
     </None>

@@ -11,3 +11,18 @@ D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.pdb
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormMain.resources
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormNhanVien.resources
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.PHONG.FormPhong.resources
+<<<<<<< Updated upstream
+=======
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.THUETRA.FormPhieuDangKy.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.csproj.SuggestedBindingRedirects.cache
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.exe.config
+D:\github\QuanLyHotel\QuanLyHotel\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+D:\github\QuanLyHotel\QuanLyHotel\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+D:\github\QuanLyHotel\QuanLyHotel\bin\Debug\Microsoft.VisualStudio.Interop.dll
+D:\github\QuanLyHotel\QuanLyHotel\bin\Debug\Microsoft.mshtml.dll
+D:\github\QuanLyHotel\QuanLyHotel\bin\Debug\Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.csproj.CopyComplete
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.THUETRA.FormThongTinHoaDon.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.BILL.FormHoaDon.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.THUETRA.FormThemMoiPDK.resources
+>>>>>>> Stashed changes
