@@ -108,6 +108,8 @@ namespace QuanLyHotel.PHONG
                 mydb.CloseConnection();
             }
         }
+<<<<<<< Updated upstream
+=======
 
         public DataTable getDSPhong()
         {
@@ -183,5 +185,6 @@ namespace QuanLyHotel.PHONG
                 mydb.CloseConnection();
             }
         }
+>>>>>>> Stashed changes
     }
 }
