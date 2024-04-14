@@ -1,4 +1,5 @@
 ﻿using QuanLyHotel.PHONG;
+using QuanLyHotel.THUETRA;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -121,6 +122,18 @@ namespace QuanLyHotel.EMPLOYEE
             FormPhong formPhong = new FormPhong();
             OpenChildForm(formPhong, sender);
             lblTiltle.Text = "Phòng";
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_dangkythuetra_Click(object sender, EventArgs e)
+        {
+            FormPhieuDangKy formPhieuDangKy = new FormPhieuDangKy();
+            OpenChildForm(formPhieuDangKy, sender);
+            lblTiltle.Text = "Phiếu đăng ký";
         }
     }
 }

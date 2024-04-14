@@ -96,7 +96,7 @@ namespace QuanLyHotel.DICHVU
 
         public DataTable getDSDichVuByMaHD(string mhd)
         {
-            using (SqlCommand cmd = new SqlCommand("select MaDichVu,TenDV,SoLuong,Gia as TongTienDV from ChiTietHoaDonDichVu ct join DichVu dv on ct.MaDichVu=dv.MaDV where MaHoaDon=@mhd", mydb.GetConnection))
+            using (SqlCommand cmd = new SqlCommand("select MaDichVu as [Mã Dịch Vụ],TenDV [Tên DV],SoLuong SL,Gia as [Tổng Tiền DV] from ChiTietHoaDonDichVu ct join DichVu dv on ct.MaDichVu=dv.MaDV where MaHoaDon=@mhd", mydb.GetConnection))
             {
                 cmd.Parameters.Add("@mhd", SqlDbType.VarChar).Value = mhd;
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);

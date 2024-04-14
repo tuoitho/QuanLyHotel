@@ -21,7 +21,8 @@ namespace QuanLyHotel.PHONG
         private void FormPhong_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'hotelManagementDataSet1.Phong' table. You can move, or remove it, as needed.
-            this.phongTableAdapter.Fill(this.hotelManagementDataSet1.Phong);
+            //this.phongTableAdapter.Fill(this.hotelManagementDataSet1.Phong);
+            dataGridView_phong.DataSource = ph.getDSPhong();
             comboBox_maloai.DataSource=comboBox_maloaiphong.DataSource = ph.getAllMaLoaiPhong();
             comboBox_maloaiphong.DisplayMember = "maloaiphong";
             comboBox_maloaiphong.ValueMember = "maloaiphong";
@@ -40,6 +41,11 @@ namespace QuanLyHotel.PHONG
 
         private void dataGridView_phong_Click(object sender, EventArgs e)
         {
+            //neu ko co row nao thi return
+            if (dataGridView_phong.Rows.Count == 0)
+            {
+                return;
+            }
             txt_tenphong.Text = dataGridView_phong.CurrentRow.Cells[1].Value.ToString();
             txt_maphong.Text = dataGridView_phong.CurrentRow.Cells[0].Value.ToString();
             checkBox_stt.Text = "Đã thuê";
@@ -74,7 +80,8 @@ namespace QuanLyHotel.PHONG
         private void btnLoad_Click(object sender, EventArgs e)
         {
             //
-            this.phongTableAdapter.Fill(this.hotelManagementDataSet1.Phong);
+            //this.phongTableAdapter.Fill(this.hotelManagementDataSet1.Phong);
+            dataGridView_phong.DataSource = ph.getDSPhong();
             
         }
 
@@ -87,6 +94,15 @@ namespace QuanLyHotel.PHONG
         {
             //chuyen tab
             tabControl_phong.SelectedTab = tabPage_qlloaiphong ;
+            comboBox_p2_loai.Text = dataGridView_phong.CurrentRow.Cells[3].Value.ToString();
+            //display loai phong
+            DataTable table = ph.getLoaiPhongByMaLoai(comboBox_p2_loai.Text);
+            comboBox_p2_loai.Text = table.Rows[0][0].ToString();
+            textBox_p2_tenloai.Text = table.Rows[0][1].ToString();
+            textBox_p2_trangthietbi.Text = table.Rows[0][2].ToString();
+            textBox_p2_gia.Text = table.Rows[0][3].ToString();
+            textBox_p2_mota.Text = table.Rows[0][4].ToString();
+
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -98,7 +114,8 @@ namespace QuanLyHotel.PHONG
                 string trangthietbi = textBox_p2_trangthietbi.Text;
                 double gia = Convert.ToDouble(textBox_p2_gia.Text);
                 string mota = textBox_p2_mota.Text;
-                ph.themLoaiPhong(maloaiphong, tenloaiphong, trangthietbi, gia, mota);
+                //ph.themLoaiPhong(maloaiphong, tenloaiphong, trangthietbi, gia, mota);
+                ph.themLoaiPhong(tenloaiphong, trangthietbi, gia, mota);
                 MessageBox.Show("Thêm loại phòng thành công", "Thêm loại phòng", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -160,6 +177,34 @@ namespace QuanLyHotel.PHONG
             {
                 MessageBox.Show(ex.Message, "Xóa loại phòng", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void comboBox_p2_loai_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_modify_Click(object sender, EventArgs e)
+        {
+            string maphong = txt_maphong.Text;
+            string tenphong = txt_tenphong.Text;
+            bool stt = checkBox_stt.Checked ? true : false;
+            string maloai = comboBox_maloai.Text;
+            try
+            {
+                ph.updatePhong(maphong, tenphong, stt, maloai);
+                MessageBox.Show("Sửa phòng thành công", "Sửa phòng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnLoad_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Sửa phòng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
