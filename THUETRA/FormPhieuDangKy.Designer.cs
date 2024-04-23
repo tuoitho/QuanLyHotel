@@ -38,21 +38,21 @@ namespace QuanLyHotel.THUETRA
             this.cboRoom = new System.Windows.Forms.ComboBox();
             this.dataGridView_pdk = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tb_mapdk = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label_phongmuonchuyen = new System.Windows.Forms.Label();
-            this.comboBox_phongmuonchyyen = new System.Windows.Forms.ComboBox();
-            this.button_chuyenphong = new System.Windows.Forms.Button();
             this.button_hethan = new System.Windows.Forms.Button();
             this.button_xemhd = new System.Windows.Forms.Button();
             this.button_hoanthanh = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_modify = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tb_mapdk = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.comboBox_phongmuonchyyen = new System.Windows.Forms.ComboBox();
+            this.label_phongmuonchuyen = new System.Windows.Forms.Label();
             this.btn_add = new System.Windows.Forms.Button();
+            this.button_chuyenphong = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_pdk)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -208,99 +208,6 @@ namespace QuanLyHotel.THUETRA
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tác vụ";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 75);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 17);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Mã PĐK";
-            // 
-            // tb_mapdk
-            // 
-            this.tb_mapdk.Enabled = false;
-            this.tb_mapdk.Location = new System.Drawing.Point(176, 75);
-            this.tb_mapdk.Name = "tb_mapdk";
-            this.tb_mapdk.Size = new System.Drawing.Size(220, 24);
-            this.tb_mapdk.TabIndex = 5;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(108)))), ((int)(((byte)(225)))));
-            this.panel1.Controls.Add(this.dataGridView_pdk);
-            this.panel1.Location = new System.Drawing.Point(466, 53);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(883, 551);
-            this.panel1.TabIndex = 15;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.tb_mapdk);
-            this.panel2.Controls.Add(this.comboBox_phongmuonchyyen);
-            this.panel2.Controls.Add(this.label_phongmuonchuyen);
-            this.panel2.Controls.Add(this.btn_add);
-            this.panel2.Controls.Add(this.cboRoom);
-            this.panel2.Controls.Add(this.lblRoom);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.button_chuyenphong);
-            this.panel2.Controls.Add(this.cboCustomer);
-            this.panel2.Controls.Add(this.lblExpectedArrival);
-            this.panel2.Controls.Add(this.lblCustomer);
-            this.panel2.Controls.Add(this.dtpExpectedArrival);
-            this.panel2.Controls.Add(this.cboEmployee);
-            this.panel2.Controls.Add(this.lblExpectedDeparture);
-            this.panel2.Controls.Add(this.lblEmployee);
-            this.panel2.Controls.Add(this.dtpExpectedDeparture);
-            this.panel2.Controls.Add(this.txtDepositAmount);
-            this.panel2.Controls.Add(this.lblDepositAmount);
-            this.panel2.Location = new System.Drawing.Point(3, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(414, 551);
-            this.panel2.TabIndex = 16;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(108)))), ((int)(((byte)(225)))));
-            this.panel3.Controls.Add(this.panel2);
-            this.panel3.Location = new System.Drawing.Point(18, 53);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(417, 551);
-            this.panel3.TabIndex = 17;
-            // 
-            // label_phongmuonchuyen
-            // 
-            this.label_phongmuonchuyen.AutoSize = true;
-            this.label_phongmuonchuyen.Location = new System.Drawing.Point(31, 410);
-            this.label_phongmuonchuyen.Name = "label_phongmuonchuyen";
-            this.label_phongmuonchuyen.Size = new System.Drawing.Size(138, 17);
-            this.label_phongmuonchuyen.TabIndex = 10;
-            this.label_phongmuonchuyen.Text = "Phòng muốn chuyển";
-            // 
-            // comboBox_phongmuonchyyen
-            // 
-            this.comboBox_phongmuonchyyen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_phongmuonchyyen.FormattingEnabled = true;
-            this.comboBox_phongmuonchyyen.Location = new System.Drawing.Point(176, 407);
-            this.comboBox_phongmuonchyyen.Name = "comboBox_phongmuonchyyen";
-            this.comboBox_phongmuonchyyen.Size = new System.Drawing.Size(176, 24);
-            this.comboBox_phongmuonchyyen.TabIndex = 11;
-            // 
-            // button_chuyenphong
-            // 
-            this.button_chuyenphong.Image = global::QuanLyHotel.Properties.Resources.plus;
-            this.button_chuyenphong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_chuyenphong.Location = new System.Drawing.Point(132, 481);
-            this.button_chuyenphong.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.button_chuyenphong.Name = "button_chuyenphong";
-            this.button_chuyenphong.Padding = new System.Windows.Forms.Padding(4);
-            this.button_chuyenphong.Size = new System.Drawing.Size(175, 46);
-            this.button_chuyenphong.TabIndex = 1;
-            this.button_chuyenphong.Text = "   Chuyển phòng";
-            this.button_chuyenphong.UseVisualStyleBackColor = true;
-            this.button_chuyenphong.Click += new System.EventHandler(this.button_chuyenphong_Click);
-            // 
             // button_hethan
             // 
             this.button_hethan.Image = global::QuanLyHotel.Properties.Resources.plus;
@@ -386,6 +293,76 @@ namespace QuanLyHotel.THUETRA
             this.btn_modify.UseVisualStyleBackColor = true;
             this.btn_modify.Click += new System.EventHandler(this.btn_modify_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(32, 75);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 17);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Mã PĐK";
+            // 
+            // tb_mapdk
+            // 
+            this.tb_mapdk.Enabled = false;
+            this.tb_mapdk.Location = new System.Drawing.Point(176, 75);
+            this.tb_mapdk.Name = "tb_mapdk";
+            this.tb_mapdk.Size = new System.Drawing.Size(220, 24);
+            this.tb_mapdk.TabIndex = 5;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(108)))), ((int)(((byte)(225)))));
+            this.panel1.Controls.Add(this.dataGridView_pdk);
+            this.panel1.Location = new System.Drawing.Point(466, 53);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(883, 551);
+            this.panel1.TabIndex = 15;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.tb_mapdk);
+            this.panel2.Controls.Add(this.comboBox_phongmuonchyyen);
+            this.panel2.Controls.Add(this.label_phongmuonchuyen);
+            this.panel2.Controls.Add(this.btn_add);
+            this.panel2.Controls.Add(this.cboRoom);
+            this.panel2.Controls.Add(this.lblRoom);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.button_chuyenphong);
+            this.panel2.Controls.Add(this.cboCustomer);
+            this.panel2.Controls.Add(this.lblExpectedArrival);
+            this.panel2.Controls.Add(this.lblCustomer);
+            this.panel2.Controls.Add(this.dtpExpectedArrival);
+            this.panel2.Controls.Add(this.cboEmployee);
+            this.panel2.Controls.Add(this.lblExpectedDeparture);
+            this.panel2.Controls.Add(this.lblEmployee);
+            this.panel2.Controls.Add(this.dtpExpectedDeparture);
+            this.panel2.Controls.Add(this.txtDepositAmount);
+            this.panel2.Controls.Add(this.lblDepositAmount);
+            this.panel2.Location = new System.Drawing.Point(3, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(414, 551);
+            this.panel2.TabIndex = 16;
+            // 
+            // comboBox_phongmuonchyyen
+            // 
+            this.comboBox_phongmuonchyyen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_phongmuonchyyen.FormattingEnabled = true;
+            this.comboBox_phongmuonchyyen.Location = new System.Drawing.Point(176, 407);
+            this.comboBox_phongmuonchyyen.Name = "comboBox_phongmuonchyyen";
+            this.comboBox_phongmuonchyyen.Size = new System.Drawing.Size(176, 24);
+            this.comboBox_phongmuonchyyen.TabIndex = 11;
+            // 
+            // label_phongmuonchuyen
+            // 
+            this.label_phongmuonchuyen.AutoSize = true;
+            this.label_phongmuonchuyen.Location = new System.Drawing.Point(31, 410);
+            this.label_phongmuonchuyen.Name = "label_phongmuonchuyen";
+            this.label_phongmuonchuyen.Size = new System.Drawing.Size(138, 17);
+            this.label_phongmuonchuyen.TabIndex = 10;
+            this.label_phongmuonchuyen.Text = "Phòng muốn chuyển";
+            // 
             // btn_add
             // 
             this.btn_add.Image = global::QuanLyHotel.Properties.Resources.plus;
@@ -399,6 +376,29 @@ namespace QuanLyHotel.THUETRA
             this.btn_add.Text = "   Thêm mới PĐK";
             this.btn_add.UseVisualStyleBackColor = true;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
+            // 
+            // button_chuyenphong
+            // 
+            this.button_chuyenphong.Image = global::QuanLyHotel.Properties.Resources.plus;
+            this.button_chuyenphong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_chuyenphong.Location = new System.Drawing.Point(132, 481);
+            this.button_chuyenphong.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.button_chuyenphong.Name = "button_chuyenphong";
+            this.button_chuyenphong.Padding = new System.Windows.Forms.Padding(4);
+            this.button_chuyenphong.Size = new System.Drawing.Size(175, 46);
+            this.button_chuyenphong.TabIndex = 1;
+            this.button_chuyenphong.Text = "   Chuyển phòng";
+            this.button_chuyenphong.UseVisualStyleBackColor = true;
+            this.button_chuyenphong.Click += new System.EventHandler(this.button_chuyenphong_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(108)))), ((int)(((byte)(225)))));
+            this.panel3.Controls.Add(this.panel2);
+            this.panel3.Location = new System.Drawing.Point(18, 53);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(417, 551);
+            this.panel3.TabIndex = 17;
             // 
             // FormPhieuDangKy
             // 

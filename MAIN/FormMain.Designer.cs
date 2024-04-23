@@ -245,6 +245,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.button_account.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_account.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button_account.UseVisualStyleBackColor = true;
+            this.button_account.Click += new System.EventHandler(this.button_account_Click);
             // 
             // button_khachhang
             // 
@@ -265,6 +266,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.button_khachhang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_khachhang.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button_khachhang.UseVisualStyleBackColor = true;
+            this.button_khachhang.Click += new System.EventHandler(this.button_khachhang_Click);
             // 
             // button_nv
             // 

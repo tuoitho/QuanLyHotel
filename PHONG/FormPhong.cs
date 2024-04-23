@@ -22,13 +22,13 @@ namespace QuanLyHotel.PHONG
         {
             // TODO: This line of code loads data into the 'hotelManagementDataSet1.Phong' table. You can move, or remove it, as needed.
             //this.phongTableAdapter.Fill(this.hotelManagementDataSet1.Phong);
-            dataGridView_phong.DataSource = ph.getDSPhong();
-            comboBox_maloai.DataSource=comboBox_maloaiphong.DataSource = ph.getAllMaLoaiPhong();
+            dataGridView_phong.DataSource = PH.getDSPhong();
+            comboBox_maloai.DataSource=comboBox_maloaiphong.DataSource = PH.getAllMaLoaiPhong();
             comboBox_maloaiphong.DisplayMember = "maloaiphong";
             comboBox_maloaiphong.ValueMember = "maloaiphong";
             comboBox_maloai.DisplayMember = "maloaiphong";
             comboBox_maloai.ValueMember = "maloaiphong";
-            comboBox_p2_loai.DataSource = ph.getAllMaLoaiPhong();
+            comboBox_p2_loai.DataSource = PH.getAllMaLoaiPhong();
             comboBox_p2_loai.DisplayMember = "maloaiphong";
             comboBox_p2_loai.ValueMember = "maloaiphong";
 
@@ -52,7 +52,7 @@ namespace QuanLyHotel.PHONG
             checkBox_stt.Checked = dataGridView_phong.CurrentRow.Cells[2].Value.ToString() == "True" ? true : false;
             comboBox_maloai.Text = dataGridView_phong.CurrentRow.Cells[3].Value.ToString();
 
-            DataTable table = ph.getLoaiPhongByMaLoai(comboBox_maloai.Text);
+            DataTable table = PH.getLoaiPhongByMaLoai(comboBox_maloai.Text);
             textBox_tenloaiphong.Text = table.Rows[0][1].ToString();
             textBox_trangthietbi.Text = table.Rows[0][2].ToString();
             textBox_gia.Text = table.Rows[0][3].ToString();
@@ -67,7 +67,7 @@ namespace QuanLyHotel.PHONG
             string maloai = comboBox_maloai.Text;
             try
             {
-                ph.insertPhong(maphong, tenphong, stt, maloai);
+                PH.insertPhong(maphong, tenphong, stt, maloai);
                 MessageBox.Show("Thêm phòng thành công", "Thêm phòng", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnLoad_Click(sender, e);
             }
@@ -81,7 +81,7 @@ namespace QuanLyHotel.PHONG
         {
             //
             //this.phongTableAdapter.Fill(this.hotelManagementDataSet1.Phong);
-            dataGridView_phong.DataSource = ph.getDSPhong();
+            dataGridView_phong.DataSource = PH.getDSPhong();
             
         }
 
@@ -96,7 +96,7 @@ namespace QuanLyHotel.PHONG
             tabControl_phong.SelectedTab = tabPage_qlloaiphong ;
             comboBox_p2_loai.Text = dataGridView_phong.CurrentRow.Cells[3].Value.ToString();
             //display loai phong
-            DataTable table = ph.getLoaiPhongByMaLoai(comboBox_p2_loai.Text);
+            DataTable table = PH.getLoaiPhongByMaLoai(comboBox_p2_loai.Text);
             comboBox_p2_loai.Text = table.Rows[0][0].ToString();
             textBox_p2_tenloai.Text = table.Rows[0][1].ToString();
             textBox_p2_trangthietbi.Text = table.Rows[0][2].ToString();
@@ -115,7 +115,7 @@ namespace QuanLyHotel.PHONG
                 double gia = Convert.ToDouble(textBox_p2_gia.Text);
                 string mota = textBox_p2_mota.Text;
                 //ph.themLoaiPhong(maloaiphong, tenloaiphong, trangthietbi, gia, mota);
-                ph.themLoaiPhong(tenloaiphong, trangthietbi, gia, mota);
+                PH.themLoaiPhong(tenloaiphong, trangthietbi, gia, mota);
                 MessageBox.Show("Thêm loại phòng thành công", "Thêm loại phòng", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -127,7 +127,11 @@ namespace QuanLyHotel.PHONG
         private void comboBox_p2_loai_SelectedIndexChanged(object sender, EventArgs e)
         {
             //display loai phong
-            DataTable table = ph.getLoaiPhongByMaLoai(comboBox_p2_loai.Text);
+            DataTable table = PH.getLoaiPhongByMaLoai(comboBox_p2_loai.Text);
+            if (table.Rows.Count == 0)
+            {
+                return;
+            }
             comboBox_p2_loai.Text = table.Rows[0][0].ToString();
             textBox_p2_tenloai.Text = table.Rows[0][1].ToString();
             textBox_p2_trangthietbi.Text = table.Rows[0][2].ToString();
@@ -139,7 +143,7 @@ namespace QuanLyHotel.PHONG
         private void button_p2_reload_Click(object sender, EventArgs e)
         {
             //reload loai phong
-            comboBox_p2_loai.DataSource = ph.getAllMaLoaiPhong();
+            comboBox_p2_loai.DataSource = PH.getAllMaLoaiPhong();
             comboBox_p2_loai.DisplayMember = "maloaiphong";
             comboBox_p2_loai.ValueMember = "maloaiphong";
 
@@ -155,7 +159,7 @@ namespace QuanLyHotel.PHONG
                 string trangthietbi = textBox_p2_trangthietbi.Text;
                 double gia = Convert.ToDouble(textBox_p2_gia.Text);
                 string mota = textBox_p2_mota.Text;
-                ph.updateLoaiPhong(maloaiphong, tenloaiphong, trangthietbi, gia, mota);
+                PH.updateLoaiPhong(maloaiphong, tenloaiphong, trangthietbi, gia, mota);
                 MessageBox.Show("Sửa loại phòng thành công", "Sửa loại phòng", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -170,7 +174,7 @@ namespace QuanLyHotel.PHONG
             try
             {
                 string maloaiphong = comboBox_p2_loai.Text;
-                ph.deleteLoaiPhong(maloaiphong);
+                PH.deleteLoaiPhong(maloaiphong);
                 MessageBox.Show("Xóa loại phòng thành công", "Xóa loại phòng", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -192,7 +196,7 @@ namespace QuanLyHotel.PHONG
             string maloai = comboBox_maloai.Text;
             try
             {
-                ph.updatePhong(maphong, tenphong, stt, maloai);
+                PH.updatePhong(maphong, tenphong, stt, maloai);
                 MessageBox.Show("Sửa phòng thành công", "Sửa phòng", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnLoad_Click(sender, e);
             }
@@ -205,6 +209,12 @@ namespace QuanLyHotel.PHONG
         private void label7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button_chitiet_Click(object sender, EventArgs e)
+        {
+            FormChiTietPhong formChiTietPhong = new FormChiTietPhong(txt_maphong.Text);
+            formChiTietPhong.Show();
         }
     }
 }

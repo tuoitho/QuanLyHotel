@@ -19,19 +19,16 @@ namespace QuanLyHotel.THUETRA
         {
             InitializeComponent();
         }
-        KH kh = new KH();
-        TT tt = new TT();
-        PH ph = new PH();
-        EMP emp = new EMP();
+
         private void FormThemMoiPDK_Load(object sender, EventArgs e)
         {
-            cboCustomer.DataSource = kh.getDSKhachHang();
+            cboCustomer.DataSource = KH.getDSKhachHang();
             cboCustomer.DisplayMember = "MaKH";
             cboCustomer.ValueMember = "MaKH";
-            cboRoom.DataSource = ph.getDSPhongTrong();
+            cboRoom.DataSource = PH.getDSPhongTrong();
             cboRoom.DisplayMember = "MaPhong";
             cboRoom.ValueMember = "MaPhong";
-            cboEmployee.DataSource = emp.getDSNhanVien();
+            cboEmployee.DataSource = EMP.getDSNhanVien();
             cboEmployee.DisplayMember = "MaNV";
             cboEmployee.ValueMember = "MaNV";
 
@@ -60,8 +57,8 @@ namespace QuanLyHotel.THUETRA
             //them
             try
             {
-                tt.themPhieuDangKy(expectedArrival, expectedDeparture, depositAmount, employee, customer, room);
-                ph.danhDauPhong(room, 1);
+                TT.themPhieuDangKy(expectedArrival, expectedDeparture, depositAmount, employee, customer, room);
+                PH.danhDauPhong(room, 1);
                 //tra ve dialog result
                 MessageBox.Show("Thêm phiếu đăng ký thành công", "Thêm phiếu đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;

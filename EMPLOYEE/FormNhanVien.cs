@@ -13,8 +13,6 @@ namespace QuanLyHotel.EMPLOYEE
 {
     public partial class FormNhanVien : Form
     {
-        MyDB mydb = new MyDB();
-        EMP emp = new EMP();
         public FormNhanVien()
         {
             InitializeComponent();
@@ -25,8 +23,11 @@ namespace QuanLyHotel.EMPLOYEE
         {
             // TODO: This line of code loads data into the 'hotelManagementDataSet.Employees' table. You can move, or remove it, as needed.
             //this.employeesTableAdapter.Fill(this.hotelManagementDataSet.Employees);
+            comboBox_manql.DataSource = EMP.getDSNQL();
+            comboBox_manql.DisplayMember = "manv";
+            comboBox_manql.ValueMember = "manv";
             dataGridView_employee.AllowUserToAddRows = false;
-            dataGridView_employee.DataSource = emp.getDSNhanVien();
+            dataGridView_employee.DataSource = EMP.getDSNhanVien();
         }
 
         private void FormNhanVien_Click(object sender, EventArgs e)
@@ -77,6 +78,7 @@ namespace QuanLyHotel.EMPLOYEE
             string Address = txt_DiaChi.Text;
             string Phone = txt_SDT.Text;
             string Position = "CV001";
+            String manql = comboBox_manql.Text;
             if (radioButton_tt.Checked)
             {
                 Position = "CV002";
@@ -85,11 +87,13 @@ namespace QuanLyHotel.EMPLOYEE
             {
                 Position = "CV003";
             }
+            if (comboBox_manql.Enabled == false)
+                manql = null;
             try
             {
-                emp.insertNhanVien(Name, gender, DOB, Address, Phone, Position);
+                EMP.insertNhanVien(Name, gender, DOB, Address, Phone, Position,manql);
                 MessageBox.Show("New Employee Added", "Add Employee", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                dataGridView_employee.DataSource = emp.getDSNhanVien();
+                dataGridView_employee.DataSource = EMP.getDSNhanVien();
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Add Employee", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -121,7 +125,7 @@ namespace QuanLyHotel.EMPLOYEE
             }
             try
             {
-                emp.updateNhanVien(EmployeeID, Name, gender, DOB, Address, Phone, Position);
+                EMP.updateNhanVien(EmployeeID, Name, gender, DOB, Address, Phone, Position);
                 MessageBox.Show("Employee Information Updated", "Update Employee", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnLoad_Click(sender, e);
             }
@@ -134,7 +138,7 @@ namespace QuanLyHotel.EMPLOYEE
         private void btnLoad_Click(object sender, EventArgs e)
         {
             //refresh datagridview
-            dataGridView_employee.DataSource = emp.getDSNhanVien();
+            dataGridView_employee.DataSource = EMP.getDSNhanVien();
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
@@ -145,7 +149,7 @@ namespace QuanLyHotel.EMPLOYEE
                 string EmployeeID = (txt_MaNV.Text);
                 if (MessageBox.Show("Are you sure you want to delete this employee?", "Delete Employee", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (emp.deleteNhanVien(EmployeeID))
+                    if (EMP.deleteNhanVien(EmployeeID))
                     {
                         MessageBox.Show("Employee Deleted", "Delete Employee", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txt_MaNV.Text = "";
@@ -155,7 +159,7 @@ namespace QuanLyHotel.EMPLOYEE
                         rdnam.Checked = true;
                         radioButton_ql.Checked = true;
                         datetimePicker_NgaySinh.Value = DateTime.Now;
-                        dataGridView_employee.DataSource = emp.getDSNhanVien();
+                        dataGridView_employee.DataSource = EMP.getDSNhanVien();
                     }
                     else
                     {
@@ -178,5 +182,24 @@ namespace QuanLyHotel.EMPLOYEE
         {
 
         }
+
+        private void groupBox2_EnabledChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void radioButton_ql_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton_ql.Checked)
+            {
+                comboBox_manql.Enabled = false;
+            }
+            else
+            {
+                comboBox_manql.Enabled = true;
+            }
+        }
+        //su kien thay doi radio button trong groupbox2
+
     }
 }

@@ -1,4 +1,6 @@
-﻿using QuanLyHotel.PHONG;
+﻿using QuanLyHotel.ACCOUNT;
+using QuanLyHotel.KHACHHANG;
+using QuanLyHotel.PHONG;
 using QuanLyHotel.THUETRA;
 using System;
 using System.Collections.Generic;
@@ -134,6 +136,20 @@ namespace QuanLyHotel.EMPLOYEE
             FormPhieuDangKy formPhieuDangKy = new FormPhieuDangKy();
             OpenChildForm(formPhieuDangKy, sender);
             lblTiltle.Text = "Phiếu đăng ký";
+        }
+
+        private void button_account_Click(object sender, EventArgs e)
+        {
+            FormAccount formAccount = new FormAccount();    
+            OpenChildForm(formAccount, sender);
+            lblTiltle.Text = "Tài khoản";
+        }
+
+        private void button_khachhang_Click(object sender, EventArgs e)
+        {
+            FormKhachHang formKhachHang = new FormKhachHang();
+            OpenChildForm(formKhachHang, sender);
+            lblTiltle.Text = "Khách hàng";
         }
     }
 }

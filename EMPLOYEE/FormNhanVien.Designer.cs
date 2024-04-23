@@ -32,7 +32,15 @@ namespace QuanLyHotel.EMPLOYEE
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.hotelManagementDataSet = new QuanLyHotel.HotelManagementDataSet();
+            this.employeesTableAdapter = new QuanLyHotel.HotelManagementDataSetTableAdapters.EmployeesTableAdapter();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage_quanlynv = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.dataGridView_employee = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox_manql = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioButton_lc = new System.Windows.Forms.RadioButton();
             this.radioButton_tt = new System.Windows.Forms.RadioButton();
@@ -46,6 +54,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.txt_HoTen = new System.Windows.Forms.TextBox();
             this.txt_MaNV = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,29 +64,88 @@ namespace QuanLyHotel.EMPLOYEE
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_modify = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
-            this.dataGridView_employee = new System.Windows.Forms.DataGridView();
-            this.hotelManagementDataSet = new QuanLyHotel.HotelManagementDataSet();
-            this.employeesTableAdapter = new QuanLyHotel.HotelManagementDataSetTableAdapters.EmployeesTableAdapter();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl_nhanvien = new System.Windows.Forms.TabControl();
-            this.tabPage_quanlynv = new System.Windows.Forms.TabPage();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage_capacc = new System.Windows.Forms.TabPage();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelManagementDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.tabPage_quanlynv.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_employee)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_employee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelManagementDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.tabControl_nhanvien.SuspendLayout();
-            this.tabPage_quanlynv.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // hotelManagementDataSet
+            // 
+            this.hotelManagementDataSet.DataSetName = "HotelManagementDataSet";
+            this.hotelManagementDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // employeesTableAdapter
+            // 
+            this.employeesTableAdapter.ClearBeforeFill = true;
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataMember = "Employees";
+            this.bindingSource1.DataSource = this.hotelManagementDataSet;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 31);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tabPage2.Size = new System.Drawing.Size(1191, 765);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Ca làm việc";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage_quanlynv
+            // 
+            this.tabPage_quanlynv.Controls.Add(this.groupBox5);
+            this.tabPage_quanlynv.Controls.Add(this.groupBox1);
+            this.tabPage_quanlynv.Controls.Add(this.groupBox3);
+            this.tabPage_quanlynv.Location = new System.Drawing.Point(4, 31);
+            this.tabPage_quanlynv.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tabPage_quanlynv.Name = "tabPage_quanlynv";
+            this.tabPage_quanlynv.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tabPage_quanlynv.Size = new System.Drawing.Size(1336, 917);
+            this.tabPage_quanlynv.TabIndex = 0;
+            this.tabPage_quanlynv.Text = "Quản lý nhân viên";
+            this.tabPage_quanlynv.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.dataGridView_employee);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox5.Location = new System.Drawing.Point(4, 259);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.groupBox5.Size = new System.Drawing.Size(1328, 500);
+            this.groupBox5.TabIndex = 7;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Danh sách nhân viên:";
+            // 
+            // dataGridView_employee
+            // 
+            this.dataGridView_employee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_employee.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView_employee.Location = new System.Drawing.Point(4, 24);
+            this.dataGridView_employee.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.dataGridView_employee.Name = "dataGridView_employee";
+            this.dataGridView_employee.RowHeadersWidth = 51;
+            this.dataGridView_employee.RowTemplate.Height = 26;
+            this.dataGridView_employee.Size = new System.Drawing.Size(1320, 474);
+            this.dataGridView_employee.TabIndex = 6;
+            this.dataGridView_employee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_employee_CellContentClick);
+            this.dataGridView_employee.Click += new System.EventHandler(this.dataGridView_employee_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox_manql);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.datetimePicker_NgaySinh);
@@ -86,6 +154,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.groupBox1.Controls.Add(this.txt_HoTen);
             this.groupBox1.Controls.Add(this.txt_MaNV);
             this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -93,13 +162,21 @@ namespace QuanLyHotel.EMPLOYEE
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(4, 2);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(950, 257);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(1328, 257);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin nhân viên";
+            // 
+            // comboBox_manql
+            // 
+            this.comboBox_manql.FormattingEnabled = true;
+            this.comboBox_manql.Location = new System.Drawing.Point(643, 209);
+            this.comboBox_manql.Name = "comboBox_manql";
+            this.comboBox_manql.Size = new System.Drawing.Size(121, 31);
+            this.comboBox_manql.TabIndex = 19;
             // 
             // groupBox2
             // 
@@ -114,6 +191,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Loại Nhân Viên";
+            this.groupBox2.EnabledChanged += new System.EventHandler(this.groupBox2_EnabledChanged);
             // 
             // radioButton_lc
             // 
@@ -150,6 +228,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.radioButton_ql.TabStop = true;
             this.radioButton_ql.Text = "Quản lý";
             this.radioButton_ql.UseVisualStyleBackColor = true;
+            this.radioButton_ql.CheckedChanged += new System.EventHandler(this.radioButton_ql_CheckedChanged);
             // 
             // groupBox4
             // 
@@ -192,7 +271,7 @@ namespace QuanLyHotel.EMPLOYEE
             // 
             this.datetimePicker_NgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.datetimePicker_NgaySinh.Location = new System.Drawing.Point(140, 113);
-            this.datetimePicker_NgaySinh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.datetimePicker_NgaySinh.Margin = new System.Windows.Forms.Padding(4);
             this.datetimePicker_NgaySinh.Name = "datetimePicker_NgaySinh";
             this.datetimePicker_NgaySinh.Size = new System.Drawing.Size(176, 30);
             this.datetimePicker_NgaySinh.TabIndex = 15;
@@ -247,6 +326,17 @@ namespace QuanLyHotel.EMPLOYEE
             this.label5.Text = "Địa chỉ:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(525, 211);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(77, 23);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Mã NQL:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -299,11 +389,11 @@ namespace QuanLyHotel.EMPLOYEE
             this.groupBox3.Controls.Add(this.btn_add);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(4, 656);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Location = new System.Drawing.Point(4, 765);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox3.Size = new System.Drawing.Size(950, 107);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(1328, 150);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tác vụ";
@@ -330,7 +420,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.btn_delete.Location = new System.Drawing.Point(626, 38);
             this.btn_delete.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_delete.Padding = new System.Windows.Forms.Padding(4);
             this.btn_delete.Size = new System.Drawing.Size(113, 46);
             this.btn_delete.TabIndex = 4;
             this.btn_delete.Text = "   Xóa";
@@ -344,7 +434,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.btn_modify.Location = new System.Drawing.Point(472, 38);
             this.btn_modify.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_modify.Name = "btn_modify";
-            this.btn_modify.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_modify.Padding = new System.Windows.Forms.Padding(4);
             this.btn_modify.Size = new System.Drawing.Size(113, 46);
             this.btn_modify.TabIndex = 3;
             this.btn_modify.Text = "   Sửa";
@@ -358,114 +448,42 @@ namespace QuanLyHotel.EMPLOYEE
             this.btn_add.Location = new System.Drawing.Point(163, 38);
             this.btn_add.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_add.Padding = new System.Windows.Forms.Padding(4);
             this.btn_add.Size = new System.Drawing.Size(113, 46);
             this.btn_add.TabIndex = 1;
             this.btn_add.Text = "   Thêm";
             this.btn_add.UseVisualStyleBackColor = true;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
-            // dataGridView_employee
-            // 
-            this.dataGridView_employee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_employee.Location = new System.Drawing.Point(7, 27);
-            this.dataGridView_employee.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.dataGridView_employee.Name = "dataGridView_employee";
-            this.dataGridView_employee.RowHeadersWidth = 51;
-            this.dataGridView_employee.RowTemplate.Height = 26;
-            this.dataGridView_employee.Size = new System.Drawing.Size(925, 329);
-            this.dataGridView_employee.TabIndex = 6;
-            this.dataGridView_employee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_employee_CellContentClick);
-            this.dataGridView_employee.Click += new System.EventHandler(this.dataGridView_employee_Click);
-            // 
-            // hotelManagementDataSet
-            // 
-            this.hotelManagementDataSet.DataSetName = "HotelManagementDataSet";
-            this.hotelManagementDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // employeesTableAdapter
-            // 
-            this.employeesTableAdapter.ClearBeforeFill = true;
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataMember = "Employees";
-            this.bindingSource1.DataSource = this.hotelManagementDataSet;
-            // 
             // tabControl_nhanvien
             // 
             this.tabControl_nhanvien.Controls.Add(this.tabPage_quanlynv);
             this.tabControl_nhanvien.Controls.Add(this.tabPage2);
-            this.tabControl_nhanvien.Controls.Add(this.tabPage_capacc);
             this.tabControl_nhanvien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl_nhanvien.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl_nhanvien.Location = new System.Drawing.Point(0, 0);
             this.tabControl_nhanvien.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.tabControl_nhanvien.Name = "tabControl_nhanvien";
             this.tabControl_nhanvien.SelectedIndex = 0;
-            this.tabControl_nhanvien.Size = new System.Drawing.Size(966, 800);
+            this.tabControl_nhanvien.Size = new System.Drawing.Size(1344, 952);
             this.tabControl_nhanvien.TabIndex = 7;
-            // 
-            // tabPage_quanlynv
-            // 
-            this.tabPage_quanlynv.Controls.Add(this.groupBox5);
-            this.tabPage_quanlynv.Controls.Add(this.groupBox1);
-            this.tabPage_quanlynv.Controls.Add(this.groupBox3);
-            this.tabPage_quanlynv.Location = new System.Drawing.Point(4, 31);
-            this.tabPage_quanlynv.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.tabPage_quanlynv.Name = "tabPage_quanlynv";
-            this.tabPage_quanlynv.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.tabPage_quanlynv.Size = new System.Drawing.Size(958, 765);
-            this.tabPage_quanlynv.TabIndex = 0;
-            this.tabPage_quanlynv.Text = "Quản lý nhân viên";
-            this.tabPage_quanlynv.UseVisualStyleBackColor = true;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.dataGridView_employee);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox5.Location = new System.Drawing.Point(4, 259);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.groupBox5.Size = new System.Drawing.Size(950, 361);
-            this.groupBox5.TabIndex = 7;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Danh sách nhân viên:";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 31);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.tabPage2.Size = new System.Drawing.Size(958, 765);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Ca làm việc";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage_capacc
-            // 
-            this.tabPage_capacc.Location = new System.Drawing.Point(4, 31);
-            this.tabPage_capacc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage_capacc.Name = "tabPage_capacc";
-            this.tabPage_capacc.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage_capacc.Size = new System.Drawing.Size(958, 765);
-            this.tabPage_capacc.TabIndex = 2;
-            this.tabPage_capacc.Text = "Cấp Tài Khoản";
-            this.tabPage_capacc.UseVisualStyleBackColor = true;
             // 
             // FormNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(966, 800);
+            this.ClientSize = new System.Drawing.Size(1344, 952);
             this.Controls.Add(this.tabControl_nhanvien);
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "FormNhanVien";
             this.Text = "FormNhanVien";
             this.Load += new System.EventHandler(this.FormNhanVien_Load);
             this.Click += new System.EventHandler(this.FormNhanVien_Click);
+            ((System.ComponentModel.ISupportInitialize)(this.hotelManagementDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            this.tabPage_quanlynv.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_employee)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -473,16 +491,41 @@ namespace QuanLyHotel.EMPLOYEE
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_employee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelManagementDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.tabControl_nhanvien.ResumeLayout(false);
-            this.tabPage_quanlynv.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
+        #endregion
+        private BindingSource employeesBindingSource;
+        private DataGridViewTextBoxColumn employeeIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn doBDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn positionIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn accountIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn EmployeeName;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private HotelManagementDataSet hotelManagementDataSet;
+        private HotelManagementDataSetTableAdapters.EmployeesTableAdapter employeesTableAdapter;
+        private BindingSource bindingSource1;
+        private TabPage tabPage2;
+        private TabPage tabPage_quanlynv;
+        private GroupBox groupBox5;
+        private DataGridView dataGridView_employee;
         private GroupBox groupBox1;
+        private GroupBox groupBox2;
+        private RadioButton radioButton_lc;
+        private RadioButton radioButton_tt;
+        private RadioButton radioButton_ql;
         private GroupBox groupBox4;
         private RadioButton rdnu;
         private RadioButton rdnam;
@@ -496,42 +539,13 @@ namespace QuanLyHotel.EMPLOYEE
         private Label label3;
         private Label label2;
         private Label label1;
-        private GroupBox groupBox2;
-        private RadioButton radioButton_lc;
-        private RadioButton radioButton_tt;
-        private RadioButton radioButton_ql;
         private GroupBox groupBox3;
         private Button btnLoad;
         private Button btn_delete;
         private Button btn_modify;
         private Button btn_add;
-        #endregion
-        private BindingSource employeesBindingSource;
-        private DataGridViewTextBoxColumn employeeIDDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn doBDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn positionIDDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn accountIDDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn EmployeeName;
-        private DataGridView dataGridView_employee;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private HotelManagementDataSet hotelManagementDataSet;
-        private HotelManagementDataSetTableAdapters.EmployeesTableAdapter employeesTableAdapter;
-        private BindingSource bindingSource1;
         private TabControl tabControl_nhanvien;
-        private TabPage tabPage_quanlynv;
-        private TabPage tabPage2;
-        private GroupBox groupBox5;
-        private TabPage tabPage_capacc;
+        private ComboBox comboBox_manql;
+        private Label label6;
     }
 }

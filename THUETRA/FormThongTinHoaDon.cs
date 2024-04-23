@@ -18,15 +18,11 @@ namespace QuanLyHotel.THUETRA
 {
     public partial class FormThongTinHoaDon : Form
     {
-        TT tt = new TT();
-        KH kh = new KH();
-        EMP emp = new EMP();
-        PH ph = new PH();
-        DV dv = new DV();
+
         public FormThongTinHoaDon()
         {
             InitializeComponent();
-            comboBox_loaidv.DataSource = dv.getDSLoaiDichVu();
+            comboBox_loaidv.DataSource = DV.getDSLoaiDichVu();
             comboBox_loaidv.DisplayMember = "TenLDV";
             comboBox_loaidv.ValueMember = "MaLDV";
             comboBox_dv.DisplayMember = "TenDV";
@@ -40,7 +36,7 @@ namespace QuanLyHotel.THUETRA
 
         private void loadData(string mahoadon)
         {
-            DataTable thongtinhoadondaydu = tt.getThongTinHoaDonTuMaHD(mahoadon);
+            DataTable thongtinhoadondaydu = TT.getThongTinHoaDonTuMaHD(mahoadon);
             txtMaHoaDon.Text = thongtinhoadondaydu.Rows[0]["MaHD"].ToString();
             txtTenHoaDon.Text = thongtinhoadondaydu.Rows[0]["TenHD"].ToString();
             txtTongTien.Text = thongtinhoadondaydu.Rows[0]["TongTien"].ToString();
@@ -59,12 +55,12 @@ namespace QuanLyHotel.THUETRA
         private void FormHoaDon_Load(object sender, EventArgs e)
         {
             string mhd = txtMaHoaDon.Text;
-            dataGridView_dv.DataSource = dv.getDSDichVuByMaHD(mhd);
+            dataGridView_dv.DataSource = DV.getDSDichVuByMaHD(mhd);
         }
 
         private void comboBox_loaidv_SelectedValueChanged(object sender, EventArgs e)
         {
-            comboBox_dv.DataSource = dv.getDSDichVu(comboBox_loaidv.SelectedValue.ToString());
+            comboBox_dv.DataSource = DV.getDSDichVu(comboBox_loaidv.SelectedValue.ToString());
             //comboBox_dv.DisplayMember = "TenDV";
             //comboBox_dv.ValueMember = "MaDV";
         }
@@ -77,7 +73,7 @@ namespace QuanLyHotel.THUETRA
         private void comboBox_dv_SelectedValueChanged(object sender, EventArgs e)
         {
             string madv = comboBox_dv.SelectedValue.ToString();
-            double dv = this.dv.getGiaDV(madv);
+            double dv = DV.getGiaDV(madv);
             textBox_giadv.Text = dv.ToString();
         }
 
@@ -94,7 +90,7 @@ namespace QuanLyHotel.THUETRA
             double gia = Convert.ToDouble(textBox_giadv.Text);
             try
             {
-                dv.themChiTietHDDV(madv, mhd, sl, gia);
+                DV.themChiTietHDDV(madv, mhd, sl, gia);
                 MessageBox.Show("Đăng ký dịch vụ thành công", "Đăng ký dịch vụ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 reload();
                 loadData(mhd);
@@ -106,7 +102,7 @@ namespace QuanLyHotel.THUETRA
         }
         private void reload()
         {
-            dataGridView_dv.DataSource = dv.getDSDichVuByMaHD(txtMaHoaDon.Text);
+            dataGridView_dv.DataSource = DV.getDSDichVuByMaHD(txtMaHoaDon.Text);
             //txtTongTien= dv.getTongTienHoaDon(txtMaHoaDon.Text);
         }
 

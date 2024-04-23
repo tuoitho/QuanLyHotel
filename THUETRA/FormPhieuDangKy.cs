@@ -21,26 +21,23 @@ namespace QuanLyHotel.THUETRA
             dataGridView_pdk.DefaultCellStyle.SelectionBackColor = Color.Purple;
 
         }
-        TT tt= new TT();
-        KH kh = new KH();
-        EMP emp = new EMP();
-        PH ph= new PH();
+
         private void FormPhieuDangKy_Load(object sender, EventArgs e)
         {
-            dataGridView_pdk.DataSource=tt.getDSPhieuDangKy();
+            dataGridView_pdk.DataSource=TT.getDSPhieuDangKy();
             dataGridView_pdk.Columns[1].AutoSizeMode = dataGridView_pdk.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
-            cboCustomer.DataSource = kh.getDSKhachHang();
+            cboCustomer.DataSource = KH.getDSKhachHang();
             cboCustomer.DisplayMember = "MaKH";
             cboCustomer.ValueMember = "MaKH";
-            cboEmployee.DataSource = emp.getDSNhanVien();
+            cboEmployee.DataSource = EMP.getDSNhanVien();
             cboEmployee.DisplayMember = "MaNV";
             cboEmployee.ValueMember = "MaNV";
-            cboRoom.DataSource = ph.getDSPhong();
+            cboRoom.DataSource = PH.getDSPhong();
             cboRoom.Enabled = false;
             cboRoom.DisplayMember = "MaPhong";
             cboRoom.ValueMember = "MaPhong";
-            comboBox_phongmuonchyyen.DataSource = ph.getDSPhongTrong();
+            comboBox_phongmuonchyyen.DataSource = PH.getDSPhongTrong();
             comboBox_phongmuonchyyen.DisplayMember = "MaPhong";
             comboBox_phongmuonchyyen.ValueMember = "MaPhong";
             //select row 0 if there is any row in datagridview
@@ -73,7 +70,7 @@ namespace QuanLyHotel.THUETRA
                     button_hethan.Enabled = true;
                 }
 
-                if (tt.kiemTraHoaDonDaTao(tb_mapdk.Text) == true)
+                if (TT.kiemTraHoaDonDaTao(tb_mapdk.Text) == true)
                 {
                     button_xemhd.Enabled = true;
                 }
@@ -91,10 +88,10 @@ namespace QuanLyHotel.THUETRA
                 string mapdk = tb_mapdk.Text;
                 try
                 {
-                    tt.danhDauPDKHoanThanh(mapdk);
+                    TT.danhDauPDKHoanThanh(mapdk);
                     //kiem tra hoa don da tao chua
-                    if (tt.kiemTraHoaDonDaTao(mapdk) == false)
-                        tt.taoHoaDon(mapdk);
+                    if (TT.kiemTraHoaDonDaTao(mapdk) == false)
+                        TT.taoHoaDon(mapdk);
                     MessageBox.Show("Hoàn thành phiếu đăng ký thành công", "Hoàn thành phiếu đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     int index = dataGridView_pdk.SelectedRows[0].Index;
                     reload(index);
@@ -151,7 +148,7 @@ namespace QuanLyHotel.THUETRA
                     button_hethan.Enabled = true;
                 }
 
-                if (tt.kiemTraHoaDonDaTao(tb_mapdk.Text) == true)
+                if (TT.kiemTraHoaDonDaTao(tb_mapdk.Text) == true)
                 {
                     button_xemhd.Enabled = true;
                 }
@@ -217,7 +214,7 @@ namespace QuanLyHotel.THUETRA
         }
         private void reload(int index=0)
         {
-            dataGridView_pdk.DataSource = tt.getDSPhieuDangKy();
+            dataGridView_pdk.DataSource = TT.getDSPhieuDangKy();
             if (dataGridView_pdk.Rows.Count==0)
             {
                 return;
@@ -234,7 +231,7 @@ namespace QuanLyHotel.THUETRA
             cboRoom.SelectedValue = dataGridView_pdk.SelectedCells[6].Value.ToString();
 
 
-            string stt=tt.getTrangThaiByMaPDK(mapdk);
+            string stt= TT.getTrangThaiByMaPDK(mapdk);
             if (stt == "Hoàn thành")
             {
                 button_hoanthanh.Enabled = false;
@@ -257,7 +254,7 @@ namespace QuanLyHotel.THUETRA
         }
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            dataGridView_pdk.DataSource = tt.getDSPhieuDangKy();
+            dataGridView_pdk.DataSource = TT.getDSPhieuDangKy();
         }
 
         private void btn_modify_Click(object sender, EventArgs e)
@@ -272,7 +269,7 @@ namespace QuanLyHotel.THUETRA
             string room = cboRoom.SelectedValue.ToString();
             try
             {
-                                tt.updatePhieuDangKy(mapdk, expectedArrival,expectedDeparture, depositAmount, employee, customer, room);
+                TT.updatePhieuDangKy(mapdk, expectedArrival,expectedDeparture, depositAmount, employee, customer, room);
                 MessageBox.Show("Cập nhật thành công", "Cập nhật phiếu đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 reload();
             }
@@ -287,7 +284,7 @@ namespace QuanLyHotel.THUETRA
             string mapdk = tb_mapdk.Text;
             try
             {
-                tt.deletePhieuDangKy(mapdk);
+                TT.deletePhieuDangKy(mapdk);
                 MessageBox.Show("Xóa thành công", "Xóa phiếu đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 reload();
             }
@@ -302,13 +299,13 @@ namespace QuanLyHotel.THUETRA
             string mapdk = tb_mapdk.Text;
             try
             {
-                tt.danhDauPDKHetHan(mapdk);
+                TT.danhDauPDKHetHan(mapdk);
                 MessageBox.Show("Đánh dấu phiếu đăng ký hết hạn thành công", "Đánh dấu phiếu đăng ký hết hạn", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 int index = dataGridView_pdk.CurrentRow.Index;
                 try
                 {
                     string room=cboRoom.SelectedValue.ToString();
-                    ph.danhDauPhong(room, 0);
+                    PH.danhDauPhong(room, 0);
                 }
                 catch (Exception ex)
                 {
@@ -325,7 +322,7 @@ namespace QuanLyHotel.THUETRA
 
         private void button_xemhd_Click(object sender, EventArgs e)
         {
-            string mahoadon = tt.getMaHoaDonbyMaPDK(tb_mapdk.Text);
+            string mahoadon = TT.getMaHoaDonbyMaPDK(tb_mapdk.Text);
             FormThongTinHoaDon formHoaDon = new FormThongTinHoaDon(mahoadon);
             formHoaDon.ShowDialog();
 

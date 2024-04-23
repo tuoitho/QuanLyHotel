@@ -11,8 +11,8 @@ namespace QuanLyHotel.DICHVU
 {
     public class DV
     {
-        MyDB mydb = new MyDB();
-        public DataTable getDSDichVu()
+        static MyDB mydb = new MyDB();
+        public static DataTable getDSDichVu()
         {
             using (SqlCommand cmd = new SqlCommand("select * from DichVu", mydb.GetConnection))
             {
@@ -25,7 +25,7 @@ namespace QuanLyHotel.DICHVU
             }
         }
 
-        public DataTable getDSLoaiDichVu()
+        public static DataTable getDSLoaiDichVu()
         {
             using (SqlCommand cmd = new SqlCommand("select * from LoaiDichVu", mydb.GetConnection))
             {
@@ -38,7 +38,7 @@ namespace QuanLyHotel.DICHVU
             }
         }
 
-        public DataTable getDSDichVu(string text)
+        public static DataTable getDSDichVu(string text)
         {
             using (SqlCommand cmd = new SqlCommand("select * from DichVu where MaLDV=@maldv", mydb.GetConnection))
             {
@@ -52,7 +52,7 @@ namespace QuanLyHotel.DICHVU
             }
         }
 
-        public double getGiaDV(string madv)
+        public static double getGiaDV(string madv)
         {
             using (SqlCommand cmd = new SqlCommand("select GiaDV from DichVu where MaDV=@madv", mydb.GetConnection))
             {
@@ -64,7 +64,7 @@ namespace QuanLyHotel.DICHVU
             }
         }
 
-        public void themChiTietHDDV(string madv, string mhd, int sl, double gia)
+        public static void themChiTietHDDV(string madv, string mhd, int sl, double gia)
         {
             //kiem tra xem dich vu da co trong hoa don chua, neu co thi tang so luong, neu chua thi them moi
             SqlCommand cmd = new SqlCommand("select count(*) from ChiTietHoaDonDichVu where MaHoaDon=@mhd and MaDichVu=@madv", mydb.GetConnection);
@@ -94,7 +94,7 @@ namespace QuanLyHotel.DICHVU
 
         }
 
-        public DataTable getDSDichVuByMaHD(string mhd)
+        public static DataTable getDSDichVuByMaHD(string mhd)
         {
             using (SqlCommand cmd = new SqlCommand("select MaDichVu as [Mã Dịch Vụ],TenDV [Tên DV],SoLuong SL,Gia as [Tổng Tiền DV] from ChiTietHoaDonDichVu ct join DichVu dv on ct.MaDichVu=dv.MaDV where MaHoaDon=@mhd", mydb.GetConnection))
             {
