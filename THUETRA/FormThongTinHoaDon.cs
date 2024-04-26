@@ -29,12 +29,12 @@ namespace QuanLyHotel.THUETRA
             comboBox_dv.ValueMember = "MaDV";
             
         }
-        public FormThongTinHoaDon(string mahoadon):this()
+        public FormThongTinHoaDon(int mahoadon):this()
         {
             loadData(mahoadon);
         }
 
-        private void loadData(string mahoadon)
+        private void loadData(int mahoadon)
         {
             DataTable thongtinhoadondaydu = TT.getThongTinHoaDonTuMaHD(mahoadon);
             txtMaHoaDon.Text = thongtinhoadondaydu.Rows[0]["MaHD"].ToString();
@@ -54,13 +54,13 @@ namespace QuanLyHotel.THUETRA
         }
         private void FormHoaDon_Load(object sender, EventArgs e)
         {
-            string mhd = txtMaHoaDon.Text;
+            int mhd = Convert.ToInt32(txtMaHoaDon.Text);
             dataGridView_dv.DataSource = DV.getDSDichVuByMaHD(mhd);
         }
 
         private void comboBox_loaidv_SelectedValueChanged(object sender, EventArgs e)
         {
-            comboBox_dv.DataSource = DV.getDSDichVu(comboBox_loaidv.SelectedValue.ToString());
+            comboBox_dv.DataSource = DV.getDSDichVu(Convert.ToInt32(comboBox_loaidv.SelectedValue.ToString()));
             //comboBox_dv.DisplayMember = "TenDV";
             //comboBox_dv.ValueMember = "MaDV";
         }
@@ -72,7 +72,7 @@ namespace QuanLyHotel.THUETRA
 
         private void comboBox_dv_SelectedValueChanged(object sender, EventArgs e)
         {
-            string madv = comboBox_dv.SelectedValue.ToString();
+            int madv = Convert.ToInt32(comboBox_dv.SelectedValue.ToString());
             double dv = DV.getGiaDV(madv);
             textBox_giadv.Text = dv.ToString();
         }
@@ -84,8 +84,8 @@ namespace QuanLyHotel.THUETRA
                 MessageBox.Show("Số lượng dịch vụ phải lớn hơn 0", "Đăng ký dịch vụ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            string madv = comboBox_dv.SelectedValue.ToString();
-            string mhd = txtMaHoaDon.Text;
+            int madv = Convert.ToInt32( comboBox_dv.SelectedValue.ToString());
+            int mhd = Convert.ToInt32(txtMaHoaDon.Text);
             int sl = Convert.ToInt32(numericUpDown_sldv.Value);
             double gia = Convert.ToDouble(textBox_giadv.Text);
             try
@@ -102,7 +102,7 @@ namespace QuanLyHotel.THUETRA
         }
         private void reload()
         {
-            dataGridView_dv.DataSource = DV.getDSDichVuByMaHD(txtMaHoaDon.Text);
+            dataGridView_dv.DataSource = DV.getDSDichVuByMaHD(Convert.ToInt32(txtMaHoaDon.Text));
             //txtTongTien= dv.getTongTienHoaDon(txtMaHoaDon.Text);
         }
 

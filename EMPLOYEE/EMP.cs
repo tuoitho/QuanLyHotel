@@ -96,7 +96,7 @@ namespace QuanLyHotel.EMPLOYEE
             }
         }
 
-        public static DataTable getDSNQL()
+        public static DataTable getDSNVQuanLy()
         {
             SqlCommand sqlCommand = new SqlCommand("SELECT manv FROM NhanVien WHERE machucvu = 'CV001'", mydb.GetConnection);
             SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand);
@@ -105,6 +105,7 @@ namespace QuanLyHotel.EMPLOYEE
             return table;
 
         }
+        
 
         public static bool insertNhanVien(string Name, string Gender, DateTime DOB, string Address, string Phone, string Position, String manql)
         {
@@ -127,6 +128,52 @@ namespace QuanLyHotel.EMPLOYEE
             {
                 mydb.CloseConnection();
                 return false;
+            }
+        }
+        public static DataTable getDSCa()
+        {
+            SqlCommand sqlCommand = new SqlCommand("SELECT * FROM Ca", mydb.GetConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
+
+        internal static DataTable getDSNVTiepTan()
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM NhanVien WHERE machucvu = 'CV002'", mydb.GetConnection))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+                {
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+            }
+        }
+
+        internal static DataTable getDSNVLaoCong()
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM NhanVien WHERE machucvu = 'CV003'", mydb.GetConnection))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+                {
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+            }
+        }
+        public static void insertPhanCa(string maca,string manhanvien,DateTime ngay)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("INSERT INTO PhanCa (maca, manv, ngay) VALUES (@maca, @manv, @ngay)", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@maca", SqlDbType.VarChar).Value = maca;
+                sqlCommand.Parameters.Add("@manv", SqlDbType.VarChar).Value = manhanvien;
+                sqlCommand.Parameters.Add("@ngay", SqlDbType.Date).Value = ngay;
+                mydb.OpenConnection();
+                sqlCommand.ExecuteNonQuery();
+                mydb.CloseConnection();
             }
         }
     }

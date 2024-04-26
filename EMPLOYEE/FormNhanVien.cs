@@ -23,7 +23,7 @@ namespace QuanLyHotel.EMPLOYEE
         {
             // TODO: This line of code loads data into the 'hotelManagementDataSet.Employees' table. You can move, or remove it, as needed.
             //this.employeesTableAdapter.Fill(this.hotelManagementDataSet.Employees);
-            comboBox_manql.DataSource = EMP.getDSNQL();
+            comboBox_manql.DataSource = EMP.getDSNVQuanLy();
             comboBox_manql.DisplayMember = "manv";
             comboBox_manql.ValueMember = "manv";
             dataGridView_employee.AllowUserToAddRows = false;
@@ -199,7 +199,32 @@ namespace QuanLyHotel.EMPLOYEE
                 comboBox_manql.Enabled = true;
             }
         }
-        //su kien thay doi radio button trong groupbox2
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabControl_nhanvien_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl_nhanvien.SelectedIndex == 1)
+            {
+                dataGridView_calamviec.DataSource = EMP.getDSCa();
+            }
+        }
+
+        private void button_phanca_Click(object sender, EventArgs e)
+        {
+            DataTable ca= EMP.getDSCa();
+            int soquanly=EMP.getDSNVQuanLy().Rows.Count;
+            int sotieptan = EMP.getDSNVTiepTan().Rows.Count;
+            int solaocong = EMP.getDSNVLaoCong().Rows.Count;
+            int s1=1,s2=2,s3=4,c1=1,c2=2,c3=3,c32=4;
+            PhanCa phanCa = new PhanCa(soquanly, sotieptan, solaocong,s1,s2,s3,c1,c2,c3,c32);
+            PhanCa.ThucHien();
+        }
+        //su kien  chuyen tab
+
 
     }
 }

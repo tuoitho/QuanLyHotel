@@ -51,9 +51,9 @@ namespace QuanLyHotel.THUETRA
             }
 
             string depositAmount = txtDepositAmount.Text;
-            string employee = cboEmployee.SelectedValue.ToString();
-            string customer = cboCustomer.SelectedValue.ToString();
-            string room = cboRoom.SelectedValue.ToString();
+            int employee = Convert.ToInt32(cboEmployee.SelectedValue.ToString());
+            int customer = Convert.ToInt32(cboCustomer.SelectedValue.ToString());
+            int room = Convert.ToInt32(cboRoom.SelectedValue.ToString());
             //them
             try
             {

@@ -177,12 +177,12 @@ namespace QuanLyHotel.PHONG
             }
         }
 
-        public static void danhDauPhong(string maphong,int stt)
+        public static void danhDauPhong(int maphong,int stt)
         {
             //
             using (SqlCommand command = new SqlCommand("UPDATE Phong SET tinhtrangphong = @stt WHERE maphong = @mp", mydb.GetConnection))
             {
-                command.Parameters.Add("@mp", SqlDbType.VarChar).Value = maphong;
+                command.Parameters.Add("@mp", SqlDbType.Int).Value = maphong;
                 command.Parameters.Add("@stt", SqlDbType.Bit).Value = stt;
                 mydb.OpenConnection();
                 command.ExecuteNonQuery();

@@ -70,7 +70,7 @@ namespace QuanLyHotel.THUETRA
                     button_hethan.Enabled = true;
                 }
 
-                if (TT.kiemTraHoaDonDaTao(tb_mapdk.Text) == true)
+                if (TT.kiemTraHoaDonDaTao(Convert.ToInt32(tb_mapdk.Text)) == true)
                 {
                     button_xemhd.Enabled = true;
                 }
@@ -85,7 +85,7 @@ namespace QuanLyHotel.THUETRA
         private void button_hoanthanh_Click(object sender, EventArgs e)
         {
             {
-                string mapdk = tb_mapdk.Text;
+                int mapdk = Convert.ToInt32(tb_mapdk.Text);
                 try
                 {
                     TT.danhDauPDKHoanThanh(mapdk);
@@ -148,7 +148,7 @@ namespace QuanLyHotel.THUETRA
                     button_hethan.Enabled = true;
                 }
 
-                if (TT.kiemTraHoaDonDaTao(tb_mapdk.Text) == true)
+                if (TT.kiemTraHoaDonDaTao(Convert.ToInt32(tb_mapdk.Text)) == true)
                 {
                     button_xemhd.Enabled = true;
                 }
@@ -222,7 +222,7 @@ namespace QuanLyHotel.THUETRA
             dataGridView_pdk.Rows[index].Selected = true;
             tb_mapdk.Text = dataGridView_pdk.SelectedCells[0].Value.ToString();
             //display data
-            string mapdk = tb_mapdk.Text;
+            int mapdk = Convert.ToInt32(tb_mapdk.Text);
             dtpExpectedArrival.Text = dataGridView_pdk.SelectedCells[1].Value.ToString();
             dtpExpectedDeparture.Text = dataGridView_pdk.SelectedCells[2].Value.ToString();
             txtDepositAmount.Text = dataGridView_pdk.SelectedCells[3].Value.ToString();
@@ -264,9 +264,9 @@ namespace QuanLyHotel.THUETRA
             DateTime expectedArrival = dtpExpectedArrival.Value;
             DateTime expectedDeparture = dtpExpectedDeparture.Value;
             double depositAmount = Convert.ToDouble(txtDepositAmount.Text);
-            string employee = cboEmployee.SelectedValue.ToString();
-            string customer = cboCustomer.SelectedValue.ToString();
-            string room = cboRoom.SelectedValue.ToString();
+            int employee = Convert.ToInt32(cboEmployee.SelectedValue.ToString());
+            int customer = Convert.ToInt32(cboCustomer.SelectedValue.ToString());
+            int room = Convert.ToInt32(cboRoom.SelectedValue.ToString());
             try
             {
                 TT.updatePhieuDangKy(mapdk, expectedArrival,expectedDeparture, depositAmount, employee, customer, room);
@@ -281,7 +281,7 @@ namespace QuanLyHotel.THUETRA
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-            string mapdk = tb_mapdk.Text;
+            int mapdk = Convert.ToInt32(tb_mapdk.Text);
             try
             {
                 TT.deletePhieuDangKy(mapdk);
@@ -296,7 +296,7 @@ namespace QuanLyHotel.THUETRA
 
         private void button_hethan_Click(object sender, EventArgs e)
         {
-            string mapdk = tb_mapdk.Text;
+            int mapdk = Convert.ToInt32(tb_mapdk.Text);
             try
             {
                 TT.danhDauPDKHetHan(mapdk);
@@ -304,7 +304,7 @@ namespace QuanLyHotel.THUETRA
                 int index = dataGridView_pdk.CurrentRow.Index;
                 try
                 {
-                    string room=cboRoom.SelectedValue.ToString();
+                    int room = Convert.ToInt32(cboRoom.SelectedValue.ToString());
                     PH.danhDauPhong(room, 0);
                 }
                 catch (Exception ex)
@@ -322,7 +322,7 @@ namespace QuanLyHotel.THUETRA
 
         private void button_xemhd_Click(object sender, EventArgs e)
         {
-            string mahoadon = TT.getMaHoaDonbyMaPDK(tb_mapdk.Text);
+            int mahoadon = Convert.ToInt32(TT.getMaHoaDonbyMaPDK(Convert.ToInt32(tb_mapdk.Text)));
             FormThongTinHoaDon formHoaDon = new FormThongTinHoaDon(mahoadon);
             formHoaDon.ShowDialog();
 

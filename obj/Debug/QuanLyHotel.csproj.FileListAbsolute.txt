@@ -96,7 +96,6 @@ D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.csproj.CoreCompileInputs
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.csproj.CopyComplete
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.exe
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.pdb
-D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.PHONG.Form1.resources
 D:\github\QuanLyHotel\QuanLyHotel\bin\Debug\SqlServerTypes\x64\msvcr120.dll
 D:\github\QuanLyHotel\QuanLyHotel\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 D:\github\QuanLyHotel\QuanLyHotel\bin\Debug\SqlServerTypes\x86\msvcr120.dll
