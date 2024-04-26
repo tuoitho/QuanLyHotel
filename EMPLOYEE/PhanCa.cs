@@ -16,47 +16,47 @@ namespace QuanLyHotel.EMPLOYEE
         static int s1 = 1, s2 = 2, s3 = 4;
         static int c1 = 1, c2 = 2, c3 = 2;
         static int c32 = 4;
-        static List<String> ql;
-        static List<String> tt;
-        static List<String> lc;
+        static List<int> ql;
+        static List<int> tt;
+        static List<int> lc;
 
-        static Dictionary<String, int> socasangdalam;
-        static Dictionary<String, int> socatoidalam;
-        static Queue<String> queue_ngay_ql;
-        static Queue<String> queue_ngay_tt;
-        static Queue<String> queue_ngay_lc;
+        static Dictionary<int, int> socasangdalam;
+        static Dictionary<int, int> socatoidalam;
+        static Queue<int> queue_ngay_ql;
+        static Queue<int> queue_ngay_tt;
+        static Queue<int> queue_ngay_lc;
 
-        static Dictionary<String, int> ca_sang;
-        static Dictionary<String, int> ca_toi;
-        static Dictionary<String, int> ca_toi_thuong;
-        static Dictionary<String, int> ca_toi_chu_nhat;
+        static Dictionary<string, int> ca_sang;
+        static Dictionary<string, int> ca_toi;
+        static Dictionary<string, int> ca_toi_thuong;
+        static Dictionary<string, int> ca_toi_chu_nhat;
         //contructer
         public PhanCa()
         {
-            socasangdalam = new Dictionary<String, int>();
-            socatoidalam = new Dictionary<String, int>();
+            socasangdalam = new Dictionary<int, int>();
+            socatoidalam = new Dictionary<int, int>();
 
             DataTable table_ql = EMP.getDSNVQuanLy();
-            ql = new List<String>();
+            ql = new List<int>();
             foreach (DataRow row in table_ql.Rows)
             {
-                ql.Add(row["manv"].ToString());
+                ql.Add(Convert.ToInt32(row["manv"].ToString()));
             }
             DataTable table_tt = EMP.getDSNVTiepTan();
-            tt = new List<String>();
+            tt = new List<int>();
             foreach (DataRow row in table_tt.Rows)
             {
-                tt.Add(row["manv"].ToString());
+                tt.Add(Convert.ToInt32(row["manv"].ToString()));
             }
             DataTable table_lc = EMP.getDSNVLaoCong();
-            lc = new List<String>();
+            lc = new List<int>();
             foreach (DataRow row in table_lc.Rows)
             {
-                lc.Add(row["manv"].ToString());
+                lc.Add(Convert.ToInt32(row["manv"].ToString()));
             }
-            queue_ngay_ql = new Queue<String>(ql);
-            queue_ngay_tt = new Queue<String>(tt);
-            queue_ngay_lc = new Queue<String>(lc);
+            queue_ngay_ql = new Queue<int>(ql);
+            queue_ngay_tt = new Queue<int>(tt);
+            queue_ngay_lc = new Queue<int>(lc);
         }
         public PhanCa(int sql, int stt, int slc, int s1, int s2, int s3, int c1, int c2, int c3, int c32) : this()
         {
@@ -70,25 +70,25 @@ namespace QuanLyHotel.EMPLOYEE
             c2 = c2;
             c3 = c3;
             c32 = c32;
-            ca_sang = new Dictionary<String, int>()
+            ca_sang = new Dictionary<string, int>()
     {
         { "quan_li", s1 },
         { "tiep_tan", s2 },
         { "lao_cong", s3 }
     };
-            ca_toi = new Dictionary<String, int>()
+            ca_toi = new Dictionary<string, int>()
             {
                 { "quan_li", c1 },
                 { "tiep_tan", c2 },
                 { "lao_cong", c3 }
             };
-            ca_toi_thuong = new Dictionary<String, int>()
+            ca_toi_thuong = new Dictionary<string, int>()
             {
                 { "quan_li", c1 },
                 { "tiep_tan", c2 },
                 { "lao_cong", c3 }
             };
-            ca_toi_chu_nhat = new Dictionary<String, int>()
+            ca_toi_chu_nhat = new Dictionary<string, int>()
             {
                 { "quan_li", c1 },
                 { "tiep_tan", c2 },
@@ -100,7 +100,7 @@ namespace QuanLyHotel.EMPLOYEE
 
 
 
-        static bool check(List<String> q1, List<String> q2, List<String> q3)
+        static bool check(List<int> q1, List<int> q2, List<int> q3)
         {
             int socasangdalamql = socasangdalam[ql[0]];
             int socatoidalamql = socatoidalam[ql[0]];
@@ -133,13 +133,13 @@ namespace QuanLyHotel.EMPLOYEE
         }
 
 
-        static int calsocasang(String x)
+        static int calsocasang(int x)
         {
             return socasangdalam[x];
         }
-        static Queue<String> DoubleQueue(Queue<String> originalQueue)
+        static Queue<int> DoubleQueue(Queue<int> originalQueue)
         {
-            Queue<String> newQueue = new Queue<String>(originalQueue);
+            Queue<int> newQueue = new Queue<int>(originalQueue);
             foreach (var item in originalQueue)
             {
                 newQueue.Enqueue(item);
@@ -151,7 +151,7 @@ namespace QuanLyHotel.EMPLOYEE
             queue_ngay_ql = DoubleQueue(queue_ngay_ql);
             queue_ngay_tt = DoubleQueue(queue_ngay_tt);
             queue_ngay_lc = DoubleQueue(queue_ngay_lc);
-            foreach (String s in ql.Concat(tt).Concat(lc))
+            foreach (int s in ql.Concat(tt).Concat(lc))
             {
                 socasangdalam[s] = 0;
                 socatoidalam[s] = 0;
@@ -160,22 +160,22 @@ namespace QuanLyHotel.EMPLOYEE
             int thu = (int)DateTime.Now.DayOfWeek;
             for (int i = thu; i < 10000; i++)
             {
-                //List<String> lichngayql = new List<String>();
-                List<String> ca_sang_ql = new List<String>();
-                List<String> ca_toi_ql = new List<String>();
-                List<String> ca_sang_tt = new List<String>();
-                List<String> ca_toi_tt = new List<String>();
-                List<String> ca_sang_lc = new List<String>();
-                List<String> ca_toi_lc = new List<String>();
+                //List<String> lichngayql = new List<int>();
+                List<int> ca_sang_ql = new List<int>();
+                List<int> ca_toi_ql = new List<int>();
+                List<int> ca_sang_tt = new List<int>();
+                List<int> ca_toi_tt = new List<int>();
+                List<int> ca_sang_lc = new List<int>();
+                List<int> ca_toi_lc = new List<int>();
 
 
-                List<String> x = queue_ngay_ql.Take(ca_sang["quan_li"]).ToList();
-                foreach (String j in x)
+                List<int> x = queue_ngay_ql.Take(ca_sang["quan_li"]).ToList();
+                foreach (int j in x)
                 {
                     socasangdalam[j]++;
                 }
-                List<String> y = queue_ngay_ql.Skip(ca_sang["quan_li"]).Take(ca_toi["quan_li"]).ToList();
-                foreach (String j in y)
+                List<int> y = queue_ngay_ql.Skip(ca_sang["quan_li"]).Take(ca_toi["quan_li"]).ToList();
+                foreach (int j in y)
                 {
                     socatoidalam[j]++;
                 }
@@ -185,12 +185,12 @@ namespace QuanLyHotel.EMPLOYEE
 
 
                 x = queue_ngay_tt.Take(ca_sang["tiep_tan"]).ToList();
-                foreach (String j in x)
+                foreach (int j in x)
                 {
                     socasangdalam[j]++;
                 }
                 y = queue_ngay_tt.Skip(ca_sang["tiep_tan"]).Take(ca_toi["tiep_tan"]).ToList();
-                foreach (String j in y)
+                foreach (int j in y)
                 {
                     socatoidalam[j]++;
                 }
@@ -199,13 +199,13 @@ namespace QuanLyHotel.EMPLOYEE
                 queue_ngay_tt.Enqueue(queue_ngay_tt.Dequeue());
 
                 x = queue_ngay_lc.Take(ca_sang["lao_cong"]).ToList();
-                foreach (String j in x)
+                foreach (int j in x)
                 {
                     socasangdalam[j]++;
                 }
                 ca_toi = (i % 7 == 0) ? ca_toi_chu_nhat : ca_toi_thuong;
                 y = queue_ngay_lc.Skip(ca_sang["lao_cong"]).Take(ca_toi["lao_cong"]).ToList();
-                foreach (String j in y)
+                foreach (int j in y)
                 {
                     socatoidalam[j]++;
                 }
@@ -213,14 +213,13 @@ namespace QuanLyHotel.EMPLOYEE
                 ca_toi_lc.AddRange(y);
                 queue_ngay_lc.Enqueue(queue_ngay_lc.Dequeue());
 
-                capnhatlichlamviec(ca_sang_ql, ca_toi_ql, ca_sang_tt, ca_toi_tt, ca_sang_lc, ca_toi_lc);
-                foreach (String s in ca_sang_ql.Concat(ca_sang_tt).Concat(ca_sang_lc))
+                foreach (int s in ca_sang_ql.Concat(ca_sang_tt).Concat(ca_sang_lc))
                 {
-                    EMP.insertPhanCa("CA001", s, DateTime.Now.AddDays(i - thu));
+                    EMP.insertPhanCa(1, s, DateTime.Now.AddDays(i - thu));
                 }
-                foreach (String s in ca_toi_ql.Concat(ca_toi_tt).Concat(ca_toi_lc))
+                foreach (int s in ca_toi_ql.Concat(ca_toi_tt).Concat(ca_toi_lc))
                 {
-                    EMP.insertPhanCa("CA002", s, DateTime.Now.AddDays(i - thu));
+                    EMP.insertPhanCa(2, s, DateTime.Now.AddDays(i - thu));
                 }
                 if (check(queue_ngay_ql.ToList(), queue_ngay_tt.ToList(), queue_ngay_lc.ToList()))
                 {

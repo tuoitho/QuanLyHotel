@@ -98,7 +98,7 @@ namespace QuanLyHotel.EMPLOYEE
 
         public static DataTable getDSNVQuanLy()
         {
-            SqlCommand sqlCommand = new SqlCommand("SELECT manv FROM NhanVien WHERE machucvu = 'CV001'", mydb.GetConnection);
+            SqlCommand sqlCommand = new SqlCommand("SELECT manv FROM NhanVien WHERE machucvu = 1", mydb.GetConnection);
             SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand);
             DataTable table = new DataTable();
             adapter.Fill(table);
@@ -141,7 +141,7 @@ namespace QuanLyHotel.EMPLOYEE
 
         internal static DataTable getDSNVTiepTan()
         {
-            using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM NhanVien WHERE machucvu = 'CV002'", mydb.GetConnection))
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM NhanVien WHERE machucvu = 2", mydb.GetConnection))
             {
                 using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
                 {
@@ -154,7 +154,7 @@ namespace QuanLyHotel.EMPLOYEE
 
         internal static DataTable getDSNVLaoCong()
         {
-            using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM NhanVien WHERE machucvu = 'CV003'", mydb.GetConnection))
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM NhanVien WHERE machucvu = 3", mydb.GetConnection))
             {
                 using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
                 {
@@ -164,12 +164,12 @@ namespace QuanLyHotel.EMPLOYEE
                 }
             }
         }
-        public static void insertPhanCa(string maca,string manhanvien,DateTime ngay)
+        public static void insertPhanCa(int maca,int manhanvien,DateTime ngay)
         {
             using (SqlCommand sqlCommand = new SqlCommand("INSERT INTO PhanCa (maca, manv, ngay) VALUES (@maca, @manv, @ngay)", mydb.GetConnection))
             {
-                sqlCommand.Parameters.Add("@maca", SqlDbType.VarChar).Value = maca;
-                sqlCommand.Parameters.Add("@manv", SqlDbType.VarChar).Value = manhanvien;
+                sqlCommand.Parameters.Add("@maca", SqlDbType.Int).Value = maca;
+                sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = manhanvien;
                 sqlCommand.Parameters.Add("@ngay", SqlDbType.Date).Value = ngay;
                 mydb.OpenConnection();
                 sqlCommand.ExecuteNonQuery();
