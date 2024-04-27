@@ -58,6 +58,8 @@ namespace QuanLyHotel.PHONG
             else
             {
                 axWindowsMediaPlayer1.URL = myPhongModel.url;
+                //max volume
+                axWindowsMediaPlayer1.settings.volume = 100;
                 axWindowsMediaPlayer1.Ctlcontrols.play();
             }
         }

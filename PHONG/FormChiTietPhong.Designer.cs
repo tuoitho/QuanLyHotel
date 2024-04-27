@@ -68,7 +68,7 @@
             this.btn_delete.Location = new System.Drawing.Point(477, 715);
             this.btn_delete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.btn_delete.Padding = new System.Windows.Forms.Padding(3);
             this.btn_delete.Size = new System.Drawing.Size(153, 37);
             this.btn_delete.TabIndex = 13;
             this.btn_delete.Text = "   Gỡ";
@@ -82,7 +82,7 @@
             this.button_choose.Location = new System.Drawing.Point(273, 674);
             this.button_choose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_choose.Name = "button_choose";
-            this.button_choose.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.button_choose.Padding = new System.Windows.Forms.Padding(3);
             this.button_choose.Size = new System.Drawing.Size(222, 37);
             this.button_choose.TabIndex = 11;
             this.button_choose.Text = "   Choose & Preview";
@@ -96,7 +96,7 @@
             this.button_upload.Location = new System.Drawing.Point(565, 671);
             this.button_upload.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_upload.Name = "button_upload";
-            this.button_upload.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.button_upload.Padding = new System.Windows.Forms.Padding(3);
             this.button_upload.Size = new System.Drawing.Size(239, 37);
             this.button_upload.TabIndex = 11;
             this.button_upload.Text = "   Upload to server ";
