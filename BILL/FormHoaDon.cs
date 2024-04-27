@@ -16,5 +16,13 @@ namespace QuanLyHotel.BILL
         {
             InitializeComponent();
         }
+
+        private void bt_timkiem_Click(object sender, EventArgs e)
+        {
+            
+            string inp= textBox_inputkhachhang.Text;
+            dataGridView_hoadon.DataSource = HD.getDSHoaDonKH(inp);
+
+        }
     }
 }

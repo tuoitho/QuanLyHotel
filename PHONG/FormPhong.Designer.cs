@@ -33,6 +33,7 @@
             this.tabPage_qlphong = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button_editloaiphong = new System.Windows.Forms.Button();
             this.comboBox_maloai = new System.Windows.Forms.ComboBox();
             this.checkBox_stt = new System.Windows.Forms.CheckBox();
             this.txt_tenphong = new System.Windows.Forms.TextBox();
@@ -41,22 +42,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.btnLoad = new System.Windows.Forms.Button();
+            this.button_chitiet = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
+            this.btn_modify = new System.Windows.Forms.Button();
+            this.btn_add = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox_mota = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox_gia = new System.Windows.Forms.TextBox();
-            this.textBox_trangthietbi = new System.Windows.Forms.TextBox();
-            this.textBox_tenloaiphong = new System.Windows.Forms.TextBox();
-            this.comboBox_maloaiphong = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView_phong = new System.Windows.Forms.DataGridView();
             this.maPhongDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,6 +61,10 @@
             this.tabPage_qlloaiphong = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.button_p2_reload = new System.Windows.Forms.Button();
+            this.button_p2_xoa = new System.Windows.Forms.Button();
+            this.button_p2_sua = new System.Windows.Forms.Button();
+            this.button_p2_them = new System.Windows.Forms.Button();
             this.textBox_p2_mota = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox_p2_gia = new System.Windows.Forms.TextBox();
@@ -80,22 +77,10 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.phongTableAdapter = new QuanLyHotel.HotelManagementDataSet1TableAdapters.PhongTableAdapter();
-            this.btnLoad = new System.Windows.Forms.Button();
-            this.button_chitiet = new System.Windows.Forms.Button();
-            this.btn_delete = new System.Windows.Forms.Button();
-            this.btn_modify = new System.Windows.Forms.Button();
-            this.btn_add = new System.Windows.Forms.Button();
-            this.button_editloaiphong = new System.Windows.Forms.Button();
-            this.button_p2_reload = new System.Windows.Forms.Button();
-            this.button_p2_xoa = new System.Windows.Forms.Button();
-            this.button_p2_sua = new System.Windows.Forms.Button();
-            this.button_p2_them = new System.Windows.Forms.Button();
             this.tabControl_phong.SuspendLayout();
             this.tabPage_qlphong.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_phong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phongBindingSource)).BeginInit();
@@ -129,11 +114,10 @@
             this.tabPage_qlphong.Controls.Add(this.checkBox1);
             this.tabPage_qlphong.Controls.Add(this.button1);
             this.tabPage_qlphong.Controls.Add(this.textBox6);
-            this.tabPage_qlphong.Controls.Add(this.panel2);
             this.tabPage_qlphong.Controls.Add(this.panel1);
             this.tabPage_qlphong.Location = new System.Drawing.Point(4, 27);
             this.tabPage_qlphong.Name = "tabPage_qlphong";
-            this.tabPage_qlphong.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage_qlphong.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_qlphong.Size = new System.Drawing.Size(983, 690);
             this.tabPage_qlphong.TabIndex = 0;
             this.tabPage_qlphong.Text = "Quản lý phòng";
@@ -144,12 +128,13 @@
             this.panel4.Controls.Add(this.groupBox1);
             this.panel4.Location = new System.Drawing.Point(4, 5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(489, 190);
+            this.panel4.Size = new System.Drawing.Size(947, 190);
             this.panel4.TabIndex = 12;
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.button_editloaiphong);
             this.groupBox1.Controls.Add(this.comboBox_maloai);
             this.groupBox1.Controls.Add(this.checkBox_stt);
             this.groupBox1.Controls.Add(this.txt_tenphong);
@@ -161,10 +146,24 @@
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(5, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(483, 190);
+            this.groupBox1.Size = new System.Drawing.Size(942, 190);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin phòng";
+            // 
+            // button_editloaiphong
+            // 
+            this.button_editloaiphong.Image = global::QuanLyHotel.Properties.Resources.edit;
+            this.button_editloaiphong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_editloaiphong.Location = new System.Drawing.Point(410, 135);
+            this.button_editloaiphong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_editloaiphong.Name = "button_editloaiphong";
+            this.button_editloaiphong.Padding = new System.Windows.Forms.Padding(3);
+            this.button_editloaiphong.Size = new System.Drawing.Size(175, 37);
+            this.button_editloaiphong.TabIndex = 9;
+            this.button_editloaiphong.Text = "    Vào Chỉnh Sửa";
+            this.button_editloaiphong.UseVisualStyleBackColor = true;
+            this.button_editloaiphong.Click += new System.EventHandler(this.button_editloaiphong_Click);
             // 
             // comboBox_maloai
             // 
@@ -196,6 +195,7 @@
             // txt_maphong
             // 
             this.txt_maphong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_maphong.Enabled = false;
             this.txt_maphong.Location = new System.Drawing.Point(120, 32);
             this.txt_maphong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_maphong.Name = "txt_maphong";
@@ -242,10 +242,79 @@
             this.label10.Text = "Mã Phòng";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // btnLoad
+            // 
+            this.btnLoad.Image = global::QuanLyHotel.Properties.Resources.loading;
+            this.btnLoad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLoad.Location = new System.Drawing.Point(241, 602);
+            this.btnLoad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLoad.Size = new System.Drawing.Size(98, 37);
+            this.btnLoad.TabIndex = 10;
+            this.btnLoad.Text = "   Reload";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
+            // button_chitiet
+            // 
+            this.button_chitiet.Image = global::QuanLyHotel.Properties.Resources.trash;
+            this.button_chitiet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_chitiet.Location = new System.Drawing.Point(652, 602);
+            this.button_chitiet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_chitiet.Name = "button_chitiet";
+            this.button_chitiet.Padding = new System.Windows.Forms.Padding(3);
+            this.button_chitiet.Size = new System.Drawing.Size(249, 37);
+            this.button_chitiet.TabIndex = 9;
+            this.button_chitiet.Text = "   Xem video gới thiệu";
+            this.button_chitiet.UseVisualStyleBackColor = true;
+            this.button_chitiet.Click += new System.EventHandler(this.button_chitiet_Click);
+            // 
+            // btn_delete
+            // 
+            this.btn_delete.Image = global::QuanLyHotel.Properties.Resources.trash;
+            this.btn_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_delete.Location = new System.Drawing.Point(506, 602);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Padding = new System.Windows.Forms.Padding(3);
+            this.btn_delete.Size = new System.Drawing.Size(97, 37);
+            this.btn_delete.TabIndex = 9;
+            this.btn_delete.Text = "   Xóa";
+            this.btn_delete.UseVisualStyleBackColor = true;
+            // 
+            // btn_modify
+            // 
+            this.btn_modify.Image = global::QuanLyHotel.Properties.Resources.edit;
+            this.btn_modify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_modify.Location = new System.Drawing.Point(374, 602);
+            this.btn_modify.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_modify.Name = "btn_modify";
+            this.btn_modify.Padding = new System.Windows.Forms.Padding(3);
+            this.btn_modify.Size = new System.Drawing.Size(97, 37);
+            this.btn_modify.TabIndex = 8;
+            this.btn_modify.Text = "   Sửa";
+            this.btn_modify.UseVisualStyleBackColor = true;
+            this.btn_modify.Click += new System.EventHandler(this.btn_modify_Click);
+            // 
+            // btn_add
+            // 
+            this.btn_add.Image = global::QuanLyHotel.Properties.Resources.plus;
+            this.btn_add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_add.Location = new System.Drawing.Point(109, 602);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Padding = new System.Windows.Forms.Padding(3);
+            this.btn_add.Size = new System.Drawing.Size(97, 37);
+            this.btn_add.TabIndex = 7;
+            this.btn_add.Text = "   Thêm";
+            this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
+            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(309, 208);
+            this.checkBox1.Location = new System.Drawing.Point(396, 224);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(91, 22);
             this.checkBox1.TabIndex = 4;
@@ -254,7 +323,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(81, 236);
+            this.button1.Location = new System.Drawing.Point(510, 219);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(319, 27);
             this.button1.TabIndex = 3;
@@ -263,135 +332,10 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(81, 206);
+            this.textBox6.Location = new System.Drawing.Point(168, 222);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(213, 26);
             this.textBox6.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(141)))), ((int)(((byte)(255)))));
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Location = new System.Drawing.Point(550, 6);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(395, 467);
-            this.panel2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.button_editloaiphong);
-            this.panel3.Controls.Add(this.textBox_mota);
-            this.panel3.Controls.Add(this.textBox4);
-            this.panel3.Controls.Add(this.textBox_gia);
-            this.panel3.Controls.Add(this.textBox_trangthietbi);
-            this.panel3.Controls.Add(this.textBox_tenloaiphong);
-            this.panel3.Controls.Add(this.comboBox_maloaiphong);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(3, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(393, 467);
-            this.panel3.TabIndex = 2;
-            // 
-            // textBox_mota
-            // 
-            this.textBox_mota.Enabled = false;
-            this.textBox_mota.Location = new System.Drawing.Point(147, 238);
-            this.textBox_mota.Multiline = true;
-            this.textBox_mota.Name = "textBox_mota";
-            this.textBox_mota.Size = new System.Drawing.Size(212, 161);
-            this.textBox_mota.TabIndex = 2;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(147, 233);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(212, 26);
-            this.textBox4.TabIndex = 2;
-            // 
-            // textBox_gia
-            // 
-            this.textBox_gia.Enabled = false;
-            this.textBox_gia.Location = new System.Drawing.Point(147, 190);
-            this.textBox_gia.Name = "textBox_gia";
-            this.textBox_gia.Size = new System.Drawing.Size(212, 26);
-            this.textBox_gia.TabIndex = 2;
-            // 
-            // textBox_trangthietbi
-            // 
-            this.textBox_trangthietbi.Enabled = false;
-            this.textBox_trangthietbi.Location = new System.Drawing.Point(147, 98);
-            this.textBox_trangthietbi.Multiline = true;
-            this.textBox_trangthietbi.Name = "textBox_trangthietbi";
-            this.textBox_trangthietbi.Size = new System.Drawing.Size(212, 82);
-            this.textBox_trangthietbi.TabIndex = 2;
-            // 
-            // textBox_tenloaiphong
-            // 
-            this.textBox_tenloaiphong.Enabled = false;
-            this.textBox_tenloaiphong.Location = new System.Drawing.Point(147, 53);
-            this.textBox_tenloaiphong.Name = "textBox_tenloaiphong";
-            this.textBox_tenloaiphong.Size = new System.Drawing.Size(212, 26);
-            this.textBox_tenloaiphong.TabIndex = 2;
-            // 
-            // comboBox_maloaiphong
-            // 
-            this.comboBox_maloaiphong.Enabled = false;
-            this.comboBox_maloaiphong.FormattingEnabled = true;
-            this.comboBox_maloaiphong.Location = new System.Drawing.Point(147, 11);
-            this.comboBox_maloaiphong.Name = "comboBox_maloaiphong";
-            this.comboBox_maloaiphong.Size = new System.Drawing.Size(212, 26);
-            this.comboBox_maloaiphong.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 238);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 18);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Mô tả";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 195);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 18);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Giá";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 98);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 18);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Trang thiết bị";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 18);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Tên Loại Phòng";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Mã Loại Phòng";
             // 
             // panel1
             // 
@@ -399,13 +343,17 @@
             this.panel1.Controls.Add(this.dataGridView_phong);
             this.panel1.Location = new System.Drawing.Point(6, 269);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(510, 304);
+            this.panel1.Size = new System.Drawing.Size(943, 304);
             this.panel1.TabIndex = 0;
             // 
             // dataGridView_phong
             // 
             this.dataGridView_phong.AllowUserToAddRows = false;
+            this.dataGridView_phong.AllowUserToDeleteRows = false;
+            this.dataGridView_phong.AllowUserToResizeColumns = false;
+            this.dataGridView_phong.AllowUserToResizeRows = false;
             this.dataGridView_phong.AutoGenerateColumns = false;
+            this.dataGridView_phong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_phong.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView_phong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_phong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -416,11 +364,15 @@
             this.dataGridView_phong.DataSource = this.phongBindingSource;
             this.dataGridView_phong.Location = new System.Drawing.Point(3, 0);
             this.dataGridView_phong.Name = "dataGridView_phong";
+            this.dataGridView_phong.ReadOnly = true;
             this.dataGridView_phong.RowHeadersVisible = false;
             this.dataGridView_phong.RowHeadersWidth = 51;
-            this.dataGridView_phong.Size = new System.Drawing.Size(517, 304);
+            this.dataGridView_phong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_phong.Size = new System.Drawing.Size(942, 304);
             this.dataGridView_phong.TabIndex = 0;
+            this.dataGridView_phong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_phong_CellClick);
             this.dataGridView_phong.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_phong_CellContentClick);
+            this.dataGridView_phong.SelectionChanged += new System.EventHandler(this.dataGridView_phong_SelectionChanged);
             this.dataGridView_phong.Click += new System.EventHandler(this.dataGridView_phong_Click);
             // 
             // maPhongDataGridViewTextBoxColumn
@@ -429,7 +381,7 @@
             this.maPhongDataGridViewTextBoxColumn.HeaderText = "MaPhong";
             this.maPhongDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.maPhongDataGridViewTextBoxColumn.Name = "maPhongDataGridViewTextBoxColumn";
-            this.maPhongDataGridViewTextBoxColumn.Width = 125;
+            this.maPhongDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // tenPhongDataGridViewTextBoxColumn
             // 
@@ -437,7 +389,7 @@
             this.tenPhongDataGridViewTextBoxColumn.HeaderText = "TenPhong";
             this.tenPhongDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.tenPhongDataGridViewTextBoxColumn.Name = "tenPhongDataGridViewTextBoxColumn";
-            this.tenPhongDataGridViewTextBoxColumn.Width = 125;
+            this.tenPhongDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // tinhTrangPhongDataGridViewCheckBoxColumn
             // 
@@ -445,7 +397,7 @@
             this.tinhTrangPhongDataGridViewCheckBoxColumn.HeaderText = "TinhTrangPhong";
             this.tinhTrangPhongDataGridViewCheckBoxColumn.MinimumWidth = 6;
             this.tinhTrangPhongDataGridViewCheckBoxColumn.Name = "tinhTrangPhongDataGridViewCheckBoxColumn";
-            this.tinhTrangPhongDataGridViewCheckBoxColumn.Width = 125;
+            this.tinhTrangPhongDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // maLoaiPhongDataGridViewTextBoxColumn
             // 
@@ -453,7 +405,7 @@
             this.maLoaiPhongDataGridViewTextBoxColumn.HeaderText = "MaLoaiPhong";
             this.maLoaiPhongDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.maLoaiPhongDataGridViewTextBoxColumn.Name = "maLoaiPhongDataGridViewTextBoxColumn";
-            this.maLoaiPhongDataGridViewTextBoxColumn.Width = 125;
+            this.maLoaiPhongDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // phongBindingSource
             // 
@@ -467,10 +419,14 @@
             // 
             // tabPage_qlloaiphong
             // 
+            this.tabPage_qlloaiphong.Controls.Add(this.button_p2_reload);
             this.tabPage_qlloaiphong.Controls.Add(this.panel5);
+            this.tabPage_qlloaiphong.Controls.Add(this.button_p2_xoa);
+            this.tabPage_qlloaiphong.Controls.Add(this.button_p2_them);
+            this.tabPage_qlloaiphong.Controls.Add(this.button_p2_sua);
             this.tabPage_qlloaiphong.Location = new System.Drawing.Point(4, 27);
             this.tabPage_qlloaiphong.Name = "tabPage_qlloaiphong";
-            this.tabPage_qlloaiphong.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage_qlloaiphong.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_qlloaiphong.Size = new System.Drawing.Size(983, 690);
             this.tabPage_qlloaiphong.TabIndex = 1;
             this.tabPage_qlloaiphong.Text = "Loại phòng";
@@ -488,10 +444,6 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.Controls.Add(this.button_p2_reload);
-            this.panel6.Controls.Add(this.button_p2_xoa);
-            this.panel6.Controls.Add(this.button_p2_sua);
-            this.panel6.Controls.Add(this.button_p2_them);
             this.panel6.Controls.Add(this.textBox_p2_mota);
             this.panel6.Controls.Add(this.textBox2);
             this.panel6.Controls.Add(this.textBox_p2_gia);
@@ -503,196 +455,16 @@
             this.panel6.Controls.Add(this.label12);
             this.panel6.Controls.Add(this.label13);
             this.panel6.Controls.Add(this.label14);
-            this.panel6.Location = new System.Drawing.Point(13, 0);
+            this.panel6.Location = new System.Drawing.Point(3, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(698, 467);
+            this.panel6.Size = new System.Drawing.Size(724, 467);
             this.panel6.TabIndex = 2;
-            // 
-            // textBox_p2_mota
-            // 
-            this.textBox_p2_mota.Location = new System.Drawing.Point(250, 230);
-            this.textBox_p2_mota.Multiline = true;
-            this.textBox_p2_mota.Name = "textBox_p2_mota";
-            this.textBox_p2_mota.Size = new System.Drawing.Size(212, 161);
-            this.textBox_p2_mota.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(250, 225);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(212, 26);
-            this.textBox2.TabIndex = 2;
-            // 
-            // textBox_p2_gia
-            // 
-            this.textBox_p2_gia.Location = new System.Drawing.Point(250, 182);
-            this.textBox_p2_gia.Name = "textBox_p2_gia";
-            this.textBox_p2_gia.Size = new System.Drawing.Size(212, 26);
-            this.textBox_p2_gia.TabIndex = 2;
-            // 
-            // textBox_p2_trangthietbi
-            // 
-            this.textBox_p2_trangthietbi.Location = new System.Drawing.Point(250, 89);
-            this.textBox_p2_trangthietbi.Multiline = true;
-            this.textBox_p2_trangthietbi.Name = "textBox_p2_trangthietbi";
-            this.textBox_p2_trangthietbi.Size = new System.Drawing.Size(212, 82);
-            this.textBox_p2_trangthietbi.TabIndex = 2;
-            // 
-            // textBox_p2_tenloai
-            // 
-            this.textBox_p2_tenloai.Location = new System.Drawing.Point(250, 45);
-            this.textBox_p2_tenloai.Name = "textBox_p2_tenloai";
-            this.textBox_p2_tenloai.Size = new System.Drawing.Size(212, 26);
-            this.textBox_p2_tenloai.TabIndex = 2;
-            // 
-            // comboBox_p2_loai
-            // 
-            this.comboBox_p2_loai.FormattingEnabled = true;
-            this.comboBox_p2_loai.Location = new System.Drawing.Point(250, 3);
-            this.comboBox_p2_loai.Name = "comboBox_p2_loai";
-            this.comboBox_p2_loai.Size = new System.Drawing.Size(212, 26);
-            this.comboBox_p2_loai.TabIndex = 1;
-            this.comboBox_p2_loai.SelectedIndexChanged += new System.EventHandler(this.comboBox_p2_loai_SelectedIndexChanged);
-            this.comboBox_p2_loai.SelectedValueChanged += new System.EventHandler(this.comboBox_p2_loai_SelectedValueChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(124, 236);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 18);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Mô tả";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(124, 193);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(28, 18);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Giá";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(124, 96);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(95, 18);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Trang thiết bị";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(124, 52);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(109, 18);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Tên Loại Phòng";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(124, 10);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(103, 18);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Mã Loại Phòng";
-            // 
-            // phongTableAdapter
-            // 
-            this.phongTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnLoad
-            // 
-            this.btnLoad.Image = global::QuanLyHotel.Properties.Resources.loading;
-            this.btnLoad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLoad.Location = new System.Drawing.Point(154, 596);
-            this.btnLoad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnLoad.Size = new System.Drawing.Size(98, 37);
-            this.btnLoad.TabIndex = 10;
-            this.btnLoad.Text = "   Reload";
-            this.btnLoad.UseVisualStyleBackColor = true;
-            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
-            // 
-            // button_chitiet
-            // 
-            this.button_chitiet.Image = global::QuanLyHotel.Properties.Resources.trash;
-            this.button_chitiet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_chitiet.Location = new System.Drawing.Point(565, 596);
-            this.button_chitiet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button_chitiet.Name = "button_chitiet";
-            this.button_chitiet.Padding = new System.Windows.Forms.Padding(3);
-            this.button_chitiet.Size = new System.Drawing.Size(97, 37);
-            this.button_chitiet.TabIndex = 9;
-            this.button_chitiet.Text = "   Xem chi tiết";
-            this.button_chitiet.UseVisualStyleBackColor = true;
-            this.button_chitiet.Click += new System.EventHandler(this.button_chitiet_Click);
-            // 
-            // btn_delete
-            // 
-            this.btn_delete.Image = global::QuanLyHotel.Properties.Resources.trash;
-            this.btn_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_delete.Location = new System.Drawing.Point(419, 596);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Padding = new System.Windows.Forms.Padding(3);
-            this.btn_delete.Size = new System.Drawing.Size(97, 37);
-            this.btn_delete.TabIndex = 9;
-            this.btn_delete.Text = "   Xóa";
-            this.btn_delete.UseVisualStyleBackColor = true;
-            // 
-            // btn_modify
-            // 
-            this.btn_modify.Image = global::QuanLyHotel.Properties.Resources.edit;
-            this.btn_modify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_modify.Location = new System.Drawing.Point(287, 596);
-            this.btn_modify.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_modify.Name = "btn_modify";
-            this.btn_modify.Padding = new System.Windows.Forms.Padding(3);
-            this.btn_modify.Size = new System.Drawing.Size(97, 37);
-            this.btn_modify.TabIndex = 8;
-            this.btn_modify.Text = "   Sửa";
-            this.btn_modify.UseVisualStyleBackColor = true;
-            this.btn_modify.Click += new System.EventHandler(this.btn_modify_Click);
-            // 
-            // btn_add
-            // 
-            this.btn_add.Image = global::QuanLyHotel.Properties.Resources.plus;
-            this.btn_add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_add.Location = new System.Drawing.Point(22, 596);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Padding = new System.Windows.Forms.Padding(3);
-            this.btn_add.Size = new System.Drawing.Size(97, 37);
-            this.btn_add.TabIndex = 7;
-            this.btn_add.Text = "   Thêm";
-            this.btn_add.UseVisualStyleBackColor = true;
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
-            // 
-            // button_editloaiphong
-            // 
-            this.button_editloaiphong.Image = global::QuanLyHotel.Properties.Resources.edit;
-            this.button_editloaiphong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_editloaiphong.Location = new System.Drawing.Point(108, 412);
-            this.button_editloaiphong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button_editloaiphong.Name = "button_editloaiphong";
-            this.button_editloaiphong.Padding = new System.Windows.Forms.Padding(3);
-            this.button_editloaiphong.Size = new System.Drawing.Size(175, 37);
-            this.button_editloaiphong.TabIndex = 9;
-            this.button_editloaiphong.Text = "    Vào Chỉnh Sửa";
-            this.button_editloaiphong.UseVisualStyleBackColor = true;
-            this.button_editloaiphong.Click += new System.EventHandler(this.button_editloaiphong_Click);
             // 
             // button_p2_reload
             // 
             this.button_p2_reload.Image = global::QuanLyHotel.Properties.Resources.loading;
             this.button_p2_reload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_p2_reload.Location = new System.Drawing.Point(219, 412);
+            this.button_p2_reload.Location = new System.Drawing.Point(316, 568);
             this.button_p2_reload.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_p2_reload.Name = "button_p2_reload";
             this.button_p2_reload.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -706,7 +478,7 @@
             // 
             this.button_p2_xoa.Image = global::QuanLyHotel.Properties.Resources.trash;
             this.button_p2_xoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_p2_xoa.Location = new System.Drawing.Point(483, 412);
+            this.button_p2_xoa.Location = new System.Drawing.Point(580, 568);
             this.button_p2_xoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_p2_xoa.Name = "button_p2_xoa";
             this.button_p2_xoa.Padding = new System.Windows.Forms.Padding(3);
@@ -720,7 +492,7 @@
             // 
             this.button_p2_sua.Image = global::QuanLyHotel.Properties.Resources.edit;
             this.button_p2_sua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_p2_sua.Location = new System.Drawing.Point(351, 412);
+            this.button_p2_sua.Location = new System.Drawing.Point(448, 568);
             this.button_p2_sua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_p2_sua.Name = "button_p2_sua";
             this.button_p2_sua.Padding = new System.Windows.Forms.Padding(3);
@@ -734,7 +506,7 @@
             // 
             this.button_p2_them.Image = global::QuanLyHotel.Properties.Resources.plus;
             this.button_p2_them.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_p2_them.Location = new System.Drawing.Point(87, 412);
+            this.button_p2_them.Location = new System.Drawing.Point(184, 568);
             this.button_p2_them.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_p2_them.Name = "button_p2_them";
             this.button_p2_them.Padding = new System.Windows.Forms.Padding(3);
@@ -743,6 +515,103 @@
             this.button_p2_them.Text = "   Thêm";
             this.button_p2_them.UseVisualStyleBackColor = true;
             this.button_p2_them.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // textBox_p2_mota
+            // 
+            this.textBox_p2_mota.Location = new System.Drawing.Point(300, 249);
+            this.textBox_p2_mota.Multiline = true;
+            this.textBox_p2_mota.Name = "textBox_p2_mota";
+            this.textBox_p2_mota.Size = new System.Drawing.Size(212, 161);
+            this.textBox_p2_mota.TabIndex = 2;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(300, 244);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(212, 26);
+            this.textBox2.TabIndex = 2;
+            // 
+            // textBox_p2_gia
+            // 
+            this.textBox_p2_gia.Location = new System.Drawing.Point(300, 201);
+            this.textBox_p2_gia.Name = "textBox_p2_gia";
+            this.textBox_p2_gia.Size = new System.Drawing.Size(212, 26);
+            this.textBox_p2_gia.TabIndex = 2;
+            // 
+            // textBox_p2_trangthietbi
+            // 
+            this.textBox_p2_trangthietbi.Location = new System.Drawing.Point(300, 108);
+            this.textBox_p2_trangthietbi.Multiline = true;
+            this.textBox_p2_trangthietbi.Name = "textBox_p2_trangthietbi";
+            this.textBox_p2_trangthietbi.Size = new System.Drawing.Size(212, 82);
+            this.textBox_p2_trangthietbi.TabIndex = 2;
+            // 
+            // textBox_p2_tenloai
+            // 
+            this.textBox_p2_tenloai.Location = new System.Drawing.Point(300, 64);
+            this.textBox_p2_tenloai.Name = "textBox_p2_tenloai";
+            this.textBox_p2_tenloai.Size = new System.Drawing.Size(212, 26);
+            this.textBox_p2_tenloai.TabIndex = 2;
+            // 
+            // comboBox_p2_loai
+            // 
+            this.comboBox_p2_loai.FormattingEnabled = true;
+            this.comboBox_p2_loai.Location = new System.Drawing.Point(300, 22);
+            this.comboBox_p2_loai.Name = "comboBox_p2_loai";
+            this.comboBox_p2_loai.Size = new System.Drawing.Size(212, 26);
+            this.comboBox_p2_loai.TabIndex = 1;
+            this.comboBox_p2_loai.SelectedIndexChanged += new System.EventHandler(this.comboBox_p2_loai_SelectedIndexChanged);
+            this.comboBox_p2_loai.SelectedValueChanged += new System.EventHandler(this.comboBox_p2_loai_SelectedValueChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(174, 255);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(46, 18);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Mô tả";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(174, 212);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(28, 18);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Giá";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(174, 115);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(95, 18);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Trang thiết bị";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(174, 71);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(109, 18);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Tên Loại Phòng";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(174, 29);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(103, 18);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Mã Loại Phòng";
+            // 
+            // phongTableAdapter
+            // 
+            this.phongTableAdapter.ClearBeforeFill = true;
             // 
             // FormPhong
             // 
@@ -759,9 +628,6 @@
             this.panel4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_phong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phongBindingSource)).EndInit();
@@ -784,25 +650,12 @@
         private HotelManagementDataSet1 hotelManagementDataSet1;
         private System.Windows.Forms.BindingSource phongBindingSource;
         private HotelManagementDataSet1TableAdapters.PhongTableAdapter phongTableAdapter;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn maPhongDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenPhongDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn tinhTrangPhongDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maLoaiPhongDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox_mota;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox_gia;
-        private System.Windows.Forms.TextBox textBox_trangthietbi;
-        private System.Windows.Forms.TextBox textBox_tenloaiphong;
-        private System.Windows.Forms.ComboBox comboBox_maloaiphong;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button btn_delete;

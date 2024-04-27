@@ -26,7 +26,6 @@ namespace QuanLyHotel.THUETRA
         {
             dataGridView_pdk.DataSource=TT.getDSPhieuDangKy();
             dataGridView_pdk.Columns[1].AutoSizeMode = dataGridView_pdk.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
             cboCustomer.DataSource = KH.getDSKhachHang();
             cboCustomer.DisplayMember = "MaKH";
             cboCustomer.ValueMember = "MaKH";
@@ -37,9 +36,7 @@ namespace QuanLyHotel.THUETRA
             cboRoom.Enabled = false;
             cboRoom.DisplayMember = "MaPhong";
             cboRoom.ValueMember = "MaPhong";
-            comboBox_phongmuonchyyen.DataSource = PH.getDSPhongTrong();
-            comboBox_phongmuonchyyen.DisplayMember = "MaPhong";
-            comboBox_phongmuonchyyen.ValueMember = "MaPhong";
+
             //select row 0 if there is any row in datagridview
             if (dataGridView_pdk.Rows.Count > 0)
             {
@@ -78,7 +75,9 @@ namespace QuanLyHotel.THUETRA
                 {
                     button_xemhd.Enabled = false;
                 }
-            }
+
+            }            
+
 
         }
 
@@ -338,7 +337,14 @@ namespace QuanLyHotel.THUETRA
 
         private void button_chuyenphong_Click(object sender, EventArgs e)
         {
+            int mapdk = Convert.ToInt32(tb_mapdk.Text);
+            int maphonghientai = Convert.ToInt32(cboRoom.SelectedValue.ToString());
             
+            FormChuyenPhong formChuyenPhong = new FormChuyenPhong(mapdk, maphonghientai);
+            if (formChuyenPhong.ShowDialog() == DialogResult.OK)
+            {
+                reload();
+            }
 
         }
 

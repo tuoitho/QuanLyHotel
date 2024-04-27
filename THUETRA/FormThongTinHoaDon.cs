@@ -18,7 +18,7 @@ namespace QuanLyHotel.THUETRA
 {
     public partial class FormThongTinHoaDon : Form
     {
-
+        bool isLoaded=false;
         public FormThongTinHoaDon()
         {
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace QuanLyHotel.THUETRA
             comboBox_loaidv.ValueMember = "MaLDV";
             comboBox_dv.DisplayMember = "TenDV";
             comboBox_dv.ValueMember = "MaDV";
-            
+            isLoaded=true;
         }
         public FormThongTinHoaDon(int mahoadon):this()
         {
@@ -54,28 +54,14 @@ namespace QuanLyHotel.THUETRA
         }
         private void FormHoaDon_Load(object sender, EventArgs e)
         {
+           
             int mhd = Convert.ToInt32(txtMaHoaDon.Text);
             dataGridView_dv.DataSource = DV.getDSDichVuByMaHD(mhd);
+            dataGridView_dv.DefaultCellStyle.SelectionBackColor = Color.Purple;
+
         }
 
-        private void comboBox_loaidv_SelectedValueChanged(object sender, EventArgs e)
-        {
-            comboBox_dv.DataSource = DV.getDSDichVu(Convert.ToInt32(comboBox_loaidv.SelectedValue.ToString()));
-            //comboBox_dv.DisplayMember = "TenDV";
-            //comboBox_dv.ValueMember = "MaDV";
-        }
 
-        private void comboBox_loaidv_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void comboBox_dv_SelectedValueChanged(object sender, EventArgs e)
-        {
-            int madv = Convert.ToInt32(comboBox_dv.SelectedValue.ToString());
-            double dv = DV.getGiaDV(madv);
-            textBox_giadv.Text = dv.ToString();
-        }
 
         private void btn_dangkidv_Click(object sender, EventArgs e)
         {
@@ -107,6 +93,33 @@ namespace QuanLyHotel.THUETRA
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void comboBox_loaidv_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (!isLoaded) return;
+            comboBox_dv.DataSource = DV.getDSDichVu(Convert.ToInt32(comboBox_loaidv.SelectedValue.ToString()));
+            comboBox_dv.SelectedIndex = 0;
+
+        }
+
+        private void comboBox_loaidv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox_dv_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (!isLoaded) return;
+            int madv = Convert.ToInt32(comboBox_dv.SelectedValue.ToString());
+            double dv = DV.getGiaDV(madv);
+            textBox_giadv.Text = dv.ToString();
+
+        }
+
+        private void comboBox_dv_SelectionChangeCommitted(object sender, EventArgs e)
         {
 
         }

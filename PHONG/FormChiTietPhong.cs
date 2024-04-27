@@ -26,14 +26,14 @@ namespace QuanLyHotel.PHONG
         public FormChiTietPhong(string maphong) : this()
         {
             phong = new PhongModel();
-            id = maphong;
+            id = maphong.ToString();
         }
 
         private void button_choose_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             //mp4
-            //openFileDialog.Filter = "Video files (*.mp4)|*.mp4";
+            openFileDialog.Filter = "Video files (*.mp4)|*.mp4";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 filePath = openFileDialog.FileName;
@@ -65,6 +65,7 @@ namespace QuanLyHotel.PHONG
         {
             try
             {
+                label1.Visible=true;
                 Task t = firebase.createVideoRoomAsync(id, filePath, videoFileName);
 
             }

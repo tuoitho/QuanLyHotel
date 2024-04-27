@@ -189,5 +189,18 @@ namespace QuanLyHotel.PHONG
                 mydb.CloseConnection();
             }
         }
+
+        internal static void insertPhong(string tenphong, bool stt, string maloai)
+        {
+            using (SqlCommand command = new SqlCommand("INSERT INTO Phong (tenphong, tinhtrangphong, maloaiphong) VALUES (@tp, @stt, @ml)", mydb.GetConnection))
+            {
+                command.Parameters.Add("@tp", SqlDbType.NVarChar).Value = tenphong;
+                command.Parameters.Add("@stt", SqlDbType.Bit).Value = stt;
+                command.Parameters.Add("@ml", SqlDbType.VarChar).Value = maloai;
+                mydb.OpenConnection();
+                command.ExecuteNonQuery();
+                mydb.CloseConnection();
+            }
+        }
     }
 }

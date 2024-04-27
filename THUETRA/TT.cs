@@ -1,4 +1,5 @@
-﻿using QuanLyHotel.Resources;
+﻿using QuanLyHotel.PHONG;
+using QuanLyHotel.Resources;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Telerik.WinForms.Documents.RichTextBoxCommands;
 
 namespace QuanLyHotel.THUETRA
@@ -118,8 +120,8 @@ namespace QuanLyHotel.THUETRA
             adapter.Fill(table);
             mydb.CloseConnection();
             return table;
-
         }
+
         public static string getMaHoaDonbyMaPDK(int mapdk)
         {
             SqlCommand cmd = new SqlCommand("select MaHoaDon from HoaDon where MaPhieuDK=@mapdk", mydb.GetConnection);
@@ -164,6 +166,56 @@ namespace QuanLyHotel.THUETRA
                 string maphong = cmd.ExecuteScalar().ToString();
                 mydb.CloseConnection();
                 return maphong;
+            }
+        }
+
+        internal static void chuyenPhong(int mapdk, int maphonghientai, int maphongmuonchuyen)
+        {
+            try
+            {
+                PH.danhDauPhong(maphonghientai, 0);
+                PH.danhDauPhong(maphongmuonchuyen, 1);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Chuyển phòng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            using (SqlCommand cmd = new SqlCommand("update PhieuDangKy set MaPhong=@maphongmuonchuyen where MaPhieuDK=@mapdk", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@mapdk", SqlDbType.Int).Value = mapdk;
+                cmd.Parameters.Add("@maphongmuonchuyen", SqlDbType.Int).Value = maphongmuonchuyen;
+                mydb.OpenConnection();
+                cmd.ExecuteNonQuery();
+                mydb.CloseConnection();
+            }
+        }
+
+        internal static DataTable getPPKTuMaHD(int mahoadon)
+        {
+            using (SqlCommand cmd = new SqlCommand("select * from PhieuDangKy where MaPhieuDK = (select MaPhieuDK from HoaDon where MaHoaDon=@mahd)", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@mahd", SqlDbType.Int).Value = mahoadon;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                mydb.OpenConnection();
+                adapter.Fill(table);
+                mydb.CloseConnection();
+                return table;
+            }
+        }
+
+        internal static void InsertThanhToan(int mahoadon, DateTime now, double v1, double v2, double v3)
+        {
+            using (SqlCommand cmd = new SqlCommand("insert into ThanhToan(MaHoaDon,NgayThanhToan,TongTienHoaDon,GiamGia,SoTien) values (@mahd,@ngaytt,@tongtien,@sotiengiamgia,@sotiencantra)", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@mahd", SqlDbType.Int).Value = mahoadon;
+                cmd.Parameters.Add("@ngaytt", SqlDbType.DateTime).Value = now;
+                cmd.Parameters.Add("@tongtien", SqlDbType.Money).Value = v1;
+                cmd.Parameters.Add("@sotiengiamgia", SqlDbType.Money).Value = v2;
+                cmd.Parameters.Add("@sotiencantra", SqlDbType.Money).Value = v3;
+                mydb.OpenConnection();
+                cmd.ExecuteNonQuery();
+                mydb.CloseConnection();
             }
         }
     }

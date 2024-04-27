@@ -20,6 +20,8 @@ namespace QuanLyHotel.ACCOUNT
         private void FormAccount_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = ACC.getListAcc();
+            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.Purple;
+
         }
         //reload
         private void reload()

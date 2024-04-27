@@ -148,3 +148,6 @@ D:\github\QuanLyHotel\QuanLyHotel\bin\Debug\pt\Microsoft.ReportViewer.WinForms.r
 D:\github\QuanLyHotel\QuanLyHotel\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 D:\github\QuanLyHotel\QuanLyHotel\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 D:\github\QuanLyHotel\QuanLyHotel\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.THUETRA.FormChuyenPhong.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.THUETRA.FormTraPhong.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.THUETRA.FormThanhToan.resources

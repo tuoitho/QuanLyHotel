@@ -1,4 +1,5 @@
 ﻿using QuanLyHotel.ACCOUNT;
+using QuanLyHotel.BILL;
 using QuanLyHotel.KHACHHANG;
 using QuanLyHotel.PHONG;
 using QuanLyHotel.THUETRA;
@@ -99,7 +100,6 @@ namespace QuanLyHotel.EMPLOYEE
             {
                 panel_menu.Size = panel_menu.MaximumSize;
                 isCollapsed = false;
-                button_lich.Text = "  Lịch làm việc";
                 btn_dangxuat.Text = "Đăng xuất";
                 button_account.Text = "  Quản lý tài khoản";
                 button_khachhang.Text = "  Khách hàng";
@@ -116,7 +116,9 @@ namespace QuanLyHotel.EMPLOYEE
 
         private void button_bill_Click(object sender, EventArgs e)
         {
-
+            FormHoaDon formHoaDon = new FormHoaDon();
+            OpenChildForm(formHoaDon, sender);
+            lblTiltle.Text = "Hóa đơn";
         }
 
         private void button_phong_Click(object sender, EventArgs e)
@@ -150,6 +152,11 @@ namespace QuanLyHotel.EMPLOYEE
             FormKhachHang formKhachHang = new FormKhachHang();
             OpenChildForm(formKhachHang, sender);
             lblTiltle.Text = "Khách hàng";
+        }
+
+        private void button_lich_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

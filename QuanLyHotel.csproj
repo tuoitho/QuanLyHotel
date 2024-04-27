@@ -330,6 +330,7 @@
     <Compile Include="BILL\FormHoaDon.Designer.cs">
       <DependentUpon>FormHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="BILL\HD.cs" />
     <Compile Include="DICHVU\DV.cs" />
     <Compile Include="EMPLOYEE\EMP.cs" />
     <Compile Include="EMPLOYEE\FormNhanVien.cs">
@@ -384,6 +385,18 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="THUETRA\FormChuyenPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="THUETRA\FormChuyenPhong.Designer.cs">
+      <DependentUpon>FormChuyenPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="THUETRA\FormThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="THUETRA\FormThanhToan.Designer.cs">
+      <DependentUpon>FormThanhToan.cs</DependentUpon>
+    </Compile>
     <Compile Include="THUETRA\FormThemMoiPDK.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -401,6 +414,12 @@
     </Compile>
     <Compile Include="THUETRA\FormPhieuDangKy.Designer.cs">
       <DependentUpon>FormPhieuDangKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="THUETRA\FormTraPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="THUETRA\FormTraPhong.Designer.cs">
+      <DependentUpon>FormTraPhong.cs</DependentUpon>
     </Compile>
     <Compile Include="THUETRA\TT.cs" />
     <EmbeddedResource Include="ACCOUNT\FormAccount.resx">
@@ -434,6 +453,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="THUETRA\FormChuyenPhong.resx">
+      <DependentUpon>FormChuyenPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="THUETRA\FormThanhToan.resx">
+      <DependentUpon>FormThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="THUETRA\FormThemMoiPDK.resx">
       <DependentUpon>FormThemMoiPDK.cs</DependentUpon>
     </EmbeddedResource>
@@ -442,6 +467,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="THUETRA\FormPhieuDangKy.resx">
       <DependentUpon>FormPhieuDangKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="THUETRA\FormTraPhong.resx">
+      <DependentUpon>FormTraPhong.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="HotelManagementDataSet.xsc">
       <DependentUpon>HotelManagementDataSet.xsd</DependentUpon>

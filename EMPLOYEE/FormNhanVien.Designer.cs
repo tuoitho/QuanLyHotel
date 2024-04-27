@@ -36,6 +36,9 @@ namespace QuanLyHotel.EMPLOYEE
             this.employeesTableAdapter = new QuanLyHotel.HotelManagementDataSetTableAdapters.EmployeesTableAdapter();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button_phanca = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridView_calamviec = new System.Windows.Forms.DataGridView();
             this.tabPage_quanlynv = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dataGridView_employee = new System.Windows.Forms.DataGridView();
@@ -65,15 +68,14 @@ namespace QuanLyHotel.EMPLOYEE
             this.btn_modify = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.tabControl_nhanvien = new System.Windows.Forms.TabControl();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView_calamviec = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button_phanca = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.hotelManagementDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_calamviec)).BeginInit();
             this.tabPage_quanlynv.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_employee)).BeginInit();
@@ -82,8 +84,6 @@ namespace QuanLyHotel.EMPLOYEE
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabControl_nhanvien.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_calamviec)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -117,6 +117,47 @@ namespace QuanLyHotel.EMPLOYEE
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
+            // button_phanca
+            // 
+            this.button_phanca.Location = new System.Drawing.Point(156, 592);
+            this.button_phanca.Name = "button_phanca";
+            this.button_phanca.Size = new System.Drawing.Size(207, 51);
+            this.button_phanca.TabIndex = 17;
+            this.button_phanca.Text = "Phân Ca";
+            this.button_phanca.UseVisualStyleBackColor = true;
+            this.button_phanca.Click += new System.EventHandler(this.button_phanca_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(108)))), ((int)(((byte)(225)))));
+            this.panel1.Controls.Add(this.dataGridView_calamviec);
+            this.panel1.Location = new System.Drawing.Point(156, 107);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(757, 448);
+            this.panel1.TabIndex = 16;
+            // 
+            // dataGridView_calamviec
+            // 
+            this.dataGridView_calamviec.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.dataGridView_calamviec.AllowUserToAddRows = false;
+            this.dataGridView_calamviec.AllowUserToDeleteRows = false;
+            this.dataGridView_calamviec.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_calamviec.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView_calamviec.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dataGridView_calamviec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_calamviec.Location = new System.Drawing.Point(3, 0);
+            this.dataGridView_calamviec.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView_calamviec.MultiSelect = false;
+            this.dataGridView_calamviec.Name = "dataGridView_calamviec";
+            this.dataGridView_calamviec.ReadOnly = true;
+            this.dataGridView_calamviec.RowHeadersVisible = false;
+            this.dataGridView_calamviec.RowHeadersWidth = 51;
+            this.dataGridView_calamviec.RowTemplate.Height = 26;
+            this.dataGridView_calamviec.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_calamviec.Size = new System.Drawing.Size(754, 448);
+            this.dataGridView_calamviec.TabIndex = 13;
+            // 
             // tabPage_quanlynv
             // 
             this.tabPage_quanlynv.Controls.Add(this.groupBox5);
@@ -146,6 +187,7 @@ namespace QuanLyHotel.EMPLOYEE
             // 
             // dataGridView_employee
             // 
+            this.dataGridView_employee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_employee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_employee.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_employee.Location = new System.Drawing.Point(3, 20);
@@ -153,6 +195,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.dataGridView_employee.Name = "dataGridView_employee";
             this.dataGridView_employee.RowHeadersWidth = 51;
             this.dataGridView_employee.RowTemplate.Height = 26;
+            this.dataGridView_employee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_employee.Size = new System.Drawing.Size(1132, 393);
             this.dataGridView_employee.TabIndex = 6;
             this.dataGridView_employee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_employee_CellContentClick);
@@ -425,7 +468,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.btn_delete.Location = new System.Drawing.Point(537, 31);
             this.btn_delete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.btn_delete.Padding = new System.Windows.Forms.Padding(3);
             this.btn_delete.Size = new System.Drawing.Size(97, 37);
             this.btn_delete.TabIndex = 4;
             this.btn_delete.Text = "   Xóa";
@@ -439,7 +482,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.btn_modify.Location = new System.Drawing.Point(405, 31);
             this.btn_modify.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_modify.Name = "btn_modify";
-            this.btn_modify.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.btn_modify.Padding = new System.Windows.Forms.Padding(3);
             this.btn_modify.Size = new System.Drawing.Size(97, 37);
             this.btn_modify.TabIndex = 3;
             this.btn_modify.Text = "   Sửa";
@@ -453,7 +496,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.btn_add.Location = new System.Drawing.Point(140, 31);
             this.btn_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.btn_add.Padding = new System.Windows.Forms.Padding(3);
             this.btn_add.Size = new System.Drawing.Size(97, 37);
             this.btn_add.TabIndex = 1;
             this.btn_add.Text = "   Thêm";
@@ -474,37 +517,6 @@ namespace QuanLyHotel.EMPLOYEE
             this.tabControl_nhanvien.Size = new System.Drawing.Size(1152, 774);
             this.tabControl_nhanvien.TabIndex = 7;
             this.tabControl_nhanvien.SelectedIndexChanged += new System.EventHandler(this.tabControl_nhanvien_SelectedIndexChanged);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(108)))), ((int)(((byte)(225)))));
-            this.panel1.Controls.Add(this.dataGridView_calamviec);
-            this.panel1.Location = new System.Drawing.Point(156, 107);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(757, 448);
-            this.panel1.TabIndex = 16;
-            // 
-            // dataGridView_calamviec
-            // 
-            this.dataGridView_calamviec.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.dataGridView_calamviec.AllowUserToAddRows = false;
-            this.dataGridView_calamviec.AllowUserToDeleteRows = false;
-            this.dataGridView_calamviec.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView_calamviec.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView_calamviec.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dataGridView_calamviec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_calamviec.Location = new System.Drawing.Point(3, 0);
-            this.dataGridView_calamviec.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView_calamviec.MultiSelect = false;
-            this.dataGridView_calamviec.Name = "dataGridView_calamviec";
-            this.dataGridView_calamviec.ReadOnly = true;
-            this.dataGridView_calamviec.RowHeadersVisible = false;
-            this.dataGridView_calamviec.RowHeadersWidth = 51;
-            this.dataGridView_calamviec.RowTemplate.Height = 26;
-            this.dataGridView_calamviec.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_calamviec.Size = new System.Drawing.Size(754, 448);
-            this.dataGridView_calamviec.TabIndex = 13;
             // 
             // tabPage1
             // 
@@ -548,16 +560,6 @@ namespace QuanLyHotel.EMPLOYEE
             this.dataGridView1.Size = new System.Drawing.Size(754, 448);
             this.dataGridView1.TabIndex = 13;
             // 
-            // button_phanca
-            // 
-            this.button_phanca.Location = new System.Drawing.Point(156, 592);
-            this.button_phanca.Name = "button_phanca";
-            this.button_phanca.Size = new System.Drawing.Size(207, 51);
-            this.button_phanca.TabIndex = 17;
-            this.button_phanca.Text = "Phân Ca";
-            this.button_phanca.UseVisualStyleBackColor = true;
-            this.button_phanca.Click += new System.EventHandler(this.button_phanca_Click);
-            // 
             // FormNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -572,6 +574,8 @@ namespace QuanLyHotel.EMPLOYEE
             ((System.ComponentModel.ISupportInitialize)(this.hotelManagementDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_calamviec)).EndInit();
             this.tabPage_quanlynv.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_employee)).EndInit();
@@ -583,8 +587,6 @@ namespace QuanLyHotel.EMPLOYEE
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.tabControl_nhanvien.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_calamviec)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

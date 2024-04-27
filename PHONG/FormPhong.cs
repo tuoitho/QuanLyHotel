@@ -22,15 +22,16 @@ namespace QuanLyHotel.PHONG
         {
             // TODO: This line of code loads data into the 'hotelManagementDataSet1.Phong' table. You can move, or remove it, as needed.
             //this.phongTableAdapter.Fill(this.hotelManagementDataSet1.Phong);
+
             dataGridView_phong.DataSource = PH.getDSPhong();
-            comboBox_maloai.DataSource=comboBox_maloaiphong.DataSource = PH.getAllMaLoaiPhong();
-            comboBox_maloaiphong.DisplayMember = "maloaiphong";
-            comboBox_maloaiphong.ValueMember = "maloaiphong";
+            comboBox_maloai.DataSource = PH.getAllMaLoaiPhong();
             comboBox_maloai.DisplayMember = "maloaiphong";
             comboBox_maloai.ValueMember = "maloaiphong";
             comboBox_p2_loai.DataSource = PH.getAllMaLoaiPhong();
             comboBox_p2_loai.DisplayMember = "maloaiphong";
             comboBox_p2_loai.ValueMember = "maloaiphong";
+            dataGridView_phong.DefaultCellStyle.SelectionBackColor = Color.Purple;
+            
 
         }
 
@@ -41,33 +42,17 @@ namespace QuanLyHotel.PHONG
 
         private void dataGridView_phong_Click(object sender, EventArgs e)
         {
-            //neu ko co row nao thi return
-            if (dataGridView_phong.Rows.Count == 0)
-            {
-                return;
-            }
-            txt_tenphong.Text = dataGridView_phong.CurrentRow.Cells[1].Value.ToString();
-            txt_maphong.Text = dataGridView_phong.CurrentRow.Cells[0].Value.ToString();
-            checkBox_stt.Text = "Đã thuê";
-            checkBox_stt.Checked = dataGridView_phong.CurrentRow.Cells[2].Value.ToString() == "True" ? true : false;
-            comboBox_maloai.Text = dataGridView_phong.CurrentRow.Cells[3].Value.ToString();
-
-            DataTable table = PH.getLoaiPhongByMaLoai(comboBox_maloai.Text);
-            textBox_tenloaiphong.Text = table.Rows[0][1].ToString();
-            textBox_trangthietbi.Text = table.Rows[0][2].ToString();
-            textBox_gia.Text = table.Rows[0][3].ToString();
-            textBox_mota.Text = table.Rows[0][4].ToString();
+            
         }
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            string maphong = txt_maphong.Text;
             string tenphong = txt_tenphong.Text;
             bool stt = checkBox_stt.Checked?true:false;
             string maloai = comboBox_maloai.Text;
             try
             {
-                PH.insertPhong(maphong, tenphong, stt, maloai);
+                PH.insertPhong( tenphong, stt, maloai);
                 MessageBox.Show("Thêm phòng thành công", "Thêm phòng", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnLoad_Click(sender, e);
             }
@@ -87,7 +72,7 @@ namespace QuanLyHotel.PHONG
 
         private void dataGridView_phong_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
         private void button_editloaiphong_Click(object sender, EventArgs e)
@@ -215,6 +200,31 @@ namespace QuanLyHotel.PHONG
         {
             FormChiTietPhong formChiTietPhong = new FormChiTietPhong(txt_maphong.Text);
             formChiTietPhong.Show();
+        }
+
+        private void dataGridView_phong_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //neu ko co row nao thi return
+            if (dataGridView_phong.Rows.Count == 0)
+            {
+                return;
+            }
+            txt_tenphong.Text = dataGridView_phong.CurrentRow.Cells[1].Value.ToString();
+            txt_maphong.Text = dataGridView_phong.CurrentRow.Cells[0].Value.ToString();
+            checkBox_stt.Text = "Đã thuê";
+            checkBox_stt.Checked = dataGridView_phong.CurrentRow.Cells[2].Value.ToString() == "True" ? true : false;
+            comboBox_maloai.Text = dataGridView_phong.CurrentRow.Cells[3].Value.ToString();
+
+            DataTable table = PH.getLoaiPhongByMaLoai(comboBox_maloai.Text);
+
+        }
+
+        private void dataGridView_phong_SelectionChanged(object sender, EventArgs e)
+        {
+            txt_tenphong.Text = dataGridView_phong.CurrentRow.Cells[1].Value.ToString();
+            txt_maphong.Text = dataGridView_phong.CurrentRow.Cells[0].Value.ToString();
+            checkBox_stt.Checked = dataGridView_phong.CurrentRow.Cells[2].Value.ToString() == "True" ? true : false;
+            comboBox_maloai.Text = dataGridView_phong.CurrentRow.Cells[3].Value.ToString();
         }
     }
 }

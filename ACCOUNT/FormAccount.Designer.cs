@@ -37,19 +37,22 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(143, 85);
+            this.dataGridView1.Location = new System.Drawing.Point(123, 69);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 26;
-            this.dataGridView1.Size = new System.Drawing.Size(1149, 536);
+            this.dataGridView1.Size = new System.Drawing.Size(985, 436);
             this.dataGridView1.TabIndex = 0;
             // 
             // roundedButton_tuchoi
             // 
-            this.roundedButton_tuchoi.Location = new System.Drawing.Point(601, 676);
+            this.roundedButton_tuchoi.Location = new System.Drawing.Point(515, 549);
+            this.roundedButton_tuchoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.roundedButton_tuchoi.Name = "roundedButton_tuchoi";
-            this.roundedButton_tuchoi.Size = new System.Drawing.Size(239, 81);
+            this.roundedButton_tuchoi.Size = new System.Drawing.Size(205, 66);
             this.roundedButton_tuchoi.TabIndex = 1;
             this.roundedButton_tuchoi.Text = "Từ chối";
             this.roundedButton_tuchoi.UseVisualStyleBackColor = true;
@@ -57,9 +60,10 @@
             // 
             // roundedButton_duyet
             // 
-            this.roundedButton_duyet.Location = new System.Drawing.Point(304, 676);
+            this.roundedButton_duyet.Location = new System.Drawing.Point(261, 549);
+            this.roundedButton_duyet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.roundedButton_duyet.Name = "roundedButton_duyet";
-            this.roundedButton_duyet.Size = new System.Drawing.Size(239, 81);
+            this.roundedButton_duyet.Size = new System.Drawing.Size(205, 66);
             this.roundedButton_duyet.TabIndex = 1;
             this.roundedButton_duyet.Text = "Duyệt";
             this.roundedButton_duyet.UseVisualStyleBackColor = true;
@@ -67,9 +71,10 @@
             // 
             // roundedButton_xoa
             // 
-            this.roundedButton_xoa.Location = new System.Drawing.Point(891, 676);
+            this.roundedButton_xoa.Location = new System.Drawing.Point(764, 549);
+            this.roundedButton_xoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.roundedButton_xoa.Name = "roundedButton_xoa";
-            this.roundedButton_xoa.Size = new System.Drawing.Size(239, 81);
+            this.roundedButton_xoa.Size = new System.Drawing.Size(205, 66);
             this.roundedButton_xoa.TabIndex = 1;
             this.roundedButton_xoa.Text = "Xoá";
             this.roundedButton_xoa.UseVisualStyleBackColor = true;
@@ -77,13 +82,14 @@
             // 
             // FormAccount
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1394, 802);
+            this.ClientSize = new System.Drawing.Size(1195, 652);
             this.Controls.Add(this.roundedButton_xoa);
             this.Controls.Add(this.roundedButton_tuchoi);
             this.Controls.Add(this.roundedButton_duyet);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormAccount";
             this.Text = "FormAccount";
             this.Load += new System.EventHandler(this.FormAccount_Load);

@@ -28,6 +28,8 @@ namespace QuanLyHotel.EMPLOYEE
             comboBox_manql.ValueMember = "manv";
             dataGridView_employee.AllowUserToAddRows = false;
             dataGridView_employee.DataSource = EMP.getDSNhanVien();
+            dataGridView_employee.DefaultCellStyle.SelectionBackColor = Color.Purple;
+
         }
 
         private void FormNhanVien_Click(object sender, EventArgs e)

@@ -104,5 +104,29 @@ namespace QuanLyHotel.KHACHHANG
                 }
             }
         }
+        public static DataTable getMaGiamGiaChuaSuDungByMaKH(string makh)
+        {
+            using (SqlCommand cmd = new SqlCommand("select * from MaGiamGia where makh = @makh and DaSuDung=0", myDB.GetConnection))
+            {
+                cmd.Parameters.Add("@makh", SqlDbType.NVarChar).Value = makh;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                myDB.OpenConnection();
+                adapter.Fill(table);
+                myDB.CloseConnection();
+                return table;
+            }
+        }
+
+        internal static void updateMaGiamGiaDaSuDung(int magiamgia)
+        {
+            using (SqlCommand cmd = new SqlCommand("update [MaGiamGia] set DaSuDung=1 where MaGiamGia.MaGiamGia = @magiamgia", myDB.GetConnection))
+            {
+                cmd.Parameters.Add("@magiamgia", SqlDbType.Int).Value = magiamgia;
+                myDB.OpenConnection();
+                cmd.ExecuteNonQuery();
+                myDB.CloseConnection();
+            }
+        }
     }
 }
