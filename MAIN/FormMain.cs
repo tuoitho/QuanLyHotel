@@ -23,6 +23,23 @@ namespace QuanLyHotel.EMPLOYEE
         public FormMain()
         {
             InitializeComponent();
+            if (Info.chucvu == 1)
+            {
+                button_account.Visible = false;
+            }
+            else
+            if (Info.chucvu == 2)
+            {
+                button_nv.Visible = false;
+                button_account.Visible = false;
+            }
+            else if (Info.chucvu == 3)
+            {
+                button_nv.Visible = false;
+                button_account.Visible = false;
+                button_bill.Visible = false;
+                button_phong.Visible = false;
+            }
         }
 
         private void button_nv_Click(object sender, EventArgs e)
@@ -155,6 +172,16 @@ namespace QuanLyHotel.EMPLOYEE
         }
 
         private void button_lich_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_qlthanhtoan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_dichvu_Click(object sender, EventArgs e)
         {
 
         }

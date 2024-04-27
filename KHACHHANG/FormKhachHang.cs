@@ -16,7 +16,12 @@ namespace QuanLyHotel.KHACHHANG
         public FormKhachHang()
         {
             InitializeComponent();
-            dataGridView_kh.DefaultCellStyle.SelectionBackColor = Color.Purple;
+            if (Info.role == "nhanvien" && Info.chucvu == 3)
+            {
+                groupBox_tacvu.Enabled = false;
+            }
+            
+                dataGridView_kh.DefaultCellStyle.SelectionBackColor = Color.Purple;
             textBox_input.Text = "Nhập thông tin cần tìm kiếm";
             //chu mo
             textBox_input.ForeColor = Color.Gray;
@@ -72,15 +77,9 @@ namespace QuanLyHotel.KHACHHANG
                 string quoctich = textBox_quoctich.Text;
                 MemoryStream pic = new MemoryStream();
                 pictureBox1.Image.Save(pic, pictureBox1.Image.RawFormat);
-                if (KH.insertKhachHang(hoten, sdt, diachi, quoctich, pic))
-                {
+                KH.insertKhachHang(hoten, sdt, diachi, quoctich, pic);
                     MessageBox.Show("Thêm khách hàng thành công", "Thêm khách hàng", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    load();
-                }
-                else
-                {
-                    MessageBox.Show("Thêm khách hàng thất bại", "Thêm khách hàng", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                load();
             }
             catch (Exception ex)
             {
@@ -107,7 +106,7 @@ namespace QuanLyHotel.KHACHHANG
                 pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             }
             else
-            pictureBox1.Image = null;
+                pictureBox1.Image = null;
         }
 
         private void btn_modify_Click(object sender, EventArgs e)
@@ -186,7 +185,12 @@ namespace QuanLyHotel.KHACHHANG
         {
             //clear text
             textBox_input.Text = "";
-            textBox_input.ForeColor= Color.Black;
+            textBox_input.ForeColor = Color.Black;
+        }
+
+        private void button_xemphong_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

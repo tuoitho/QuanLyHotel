@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QuanLyHotel.KHACHHANG
 {
@@ -44,7 +45,7 @@ namespace QuanLyHotel.KHACHHANG
             }
         }
 
-        internal static bool insertKhachHang(string hoten, string sdt, string cccd, string quoctich, MemoryStream pic)
+        internal static void insertKhachHang(string hoten, string sdt, string cccd, string quoctich, MemoryStream pic)
         {
             using (SqlCommand cmd = new SqlCommand("insert into KhachHang (hoten, sdt, cccd, quoctich, hinhanh) values (@hoten, @sdt, @cccd, @quoctich, @pic)", myDB.GetConnection))
             {
@@ -54,15 +55,14 @@ namespace QuanLyHotel.KHACHHANG
                 cmd.Parameters.Add("@quoctich", SqlDbType.NVarChar).Value = quoctich;
                 cmd.Parameters.Add("@pic", SqlDbType.Image).Value = pic.ToArray();
                 myDB.OpenConnection();
-                if (cmd.ExecuteNonQuery() == 1)
+                try
                 {
-                    myDB.CloseConnection();
-                    return true;
+                    int k=cmd.ExecuteNonQuery();
+
                 }
-                else
+                catch (Exception ex)
                 {
-                    myDB.CloseConnection();
-                    return false;
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
@@ -126,6 +126,20 @@ namespace QuanLyHotel.KHACHHANG
                 myDB.OpenConnection();
                 cmd.ExecuteNonQuery();
                 myDB.CloseConnection();
+            }
+        }
+
+        internal static DataTable getMaGiamGia()
+        {
+            using (SqlCommand cmd = new SqlCommand("select * from MaGiamGia where MaKH=@makh", myDB.GetConnection))
+            {
+                cmd.Parameters.Add("@makh", SqlDbType.NVarChar).Value = Info.id;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                myDB.OpenConnection();
+                adapter.Fill(table);
+                myDB.CloseConnection();
+                return table;
             }
         }
     }

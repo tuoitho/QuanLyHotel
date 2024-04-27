@@ -37,7 +37,7 @@ namespace QuanLyHotel.THUETRA
             this.lblRoom = new System.Windows.Forms.Label();
             this.cboRoom = new System.Windows.Forms.ComboBox();
             this.dataGridView_pdk = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox_tacvu = new System.Windows.Forms.GroupBox();
             this.button_hethan = new System.Windows.Forms.Button();
             this.button_xemhd = new System.Windows.Forms.Button();
             this.button_hoanthanh = new System.Windows.Forms.Button();
@@ -52,7 +52,7 @@ namespace QuanLyHotel.THUETRA
             this.button_chuyenphong = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_pdk)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            this.groupBox_tacvu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -196,22 +196,22 @@ namespace QuanLyHotel.THUETRA
             this.dataGridView_pdk.SelectionChanged += new System.EventHandler(this.dataGridView_pdk_SelectionChanged);
             this.dataGridView_pdk.Click += new System.EventHandler(this.dataGridView_pdk_Click);
             // 
-            // groupBox3
+            // groupBox_tacvu
             // 
-            this.groupBox3.Controls.Add(this.button_hethan);
-            this.groupBox3.Controls.Add(this.button_xemhd);
-            this.groupBox3.Controls.Add(this.button_hoanthanh);
-            this.groupBox3.Controls.Add(this.btnLoad);
-            this.groupBox3.Controls.Add(this.btn_delete);
-            this.groupBox3.Controls.Add(this.btn_modify);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(0, 515);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1178, 184);
-            this.groupBox3.TabIndex = 14;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Tác vụ";
+            this.groupBox_tacvu.Controls.Add(this.button_hethan);
+            this.groupBox_tacvu.Controls.Add(this.button_xemhd);
+            this.groupBox_tacvu.Controls.Add(this.button_hoanthanh);
+            this.groupBox_tacvu.Controls.Add(this.btnLoad);
+            this.groupBox_tacvu.Controls.Add(this.btn_delete);
+            this.groupBox_tacvu.Controls.Add(this.btn_modify);
+            this.groupBox_tacvu.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox_tacvu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox_tacvu.Location = new System.Drawing.Point(0, 515);
+            this.groupBox_tacvu.Name = "groupBox_tacvu";
+            this.groupBox_tacvu.Size = new System.Drawing.Size(1178, 184);
+            this.groupBox_tacvu.TabIndex = 14;
+            this.groupBox_tacvu.TabStop = false;
+            this.groupBox_tacvu.Text = "Tác vụ";
             // 
             // button_hethan
             // 
@@ -397,13 +397,13 @@ namespace QuanLyHotel.THUETRA
             this.ClientSize = new System.Drawing.Size(1178, 699);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox_tacvu);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormPhieuDangKy";
             this.Text = "Tạo Phiếu Đăng Ký";
             this.Load += new System.EventHandler(this.FormPhieuDangKy_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_pdk)).EndInit();
-            this.groupBox3.ResumeLayout(false);
+            this.groupBox_tacvu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -425,7 +425,7 @@ namespace QuanLyHotel.THUETRA
         private System.Windows.Forms.Label lblRoom;
         private System.Windows.Forms.ComboBox cboRoom;
         private DataGridView dataGridView_pdk;
-        private GroupBox groupBox3;
+        private GroupBox groupBox_tacvu;
         private Button btnLoad;
         private Button btn_delete;
         private Button btn_modify;

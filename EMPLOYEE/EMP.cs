@@ -176,5 +176,25 @@ namespace QuanLyHotel.EMPLOYEE
                 mydb.CloseConnection();
             }
         }
+
+        internal static int getChucVu(int manv)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT machucvu FROM NhanVien WHERE manv = @manv", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = manv;
+                mydb.OpenConnection();
+                using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return reader.GetInt32(0);
+                    }
+                    else
+                    {
+                        return -1;
+                    }
+                }
+            }
+        }
     }
 }

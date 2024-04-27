@@ -56,5 +56,20 @@ namespace QuanLyHotel.ACCOUNT
                 }
             }
         }
+        public static DataTable getAcc(string username, string password)
+        {
+            using (SqlCommand cmd = new SqlCommand("SELECT * FROM TaiKhoan WHERE username = @user AND password = @pass", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@user", SqlDbType.VarChar).Value = username;
+                cmd.Parameters.Add("@pass", SqlDbType.VarChar).Value = password;
+                mydb.OpenConnection();
+                using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                {
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+            }
+        }
     }
 }

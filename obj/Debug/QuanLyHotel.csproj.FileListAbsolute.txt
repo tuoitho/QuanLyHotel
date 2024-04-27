@@ -151,3 +151,5 @@ D:\github\QuanLyHotel\QuanLyHotel\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinFor
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.THUETRA.FormChuyenPhong.resources
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.THUETRA.FormTraPhong.resources
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.THUETRA.FormThanhToan.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.KHACHHANG.FormMain_KhachHang.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.FormLogin.resources
