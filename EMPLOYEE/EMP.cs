@@ -25,7 +25,7 @@ namespace QuanLyHotel.EMPLOYEE
             mydb.CloseConnection();
             return table;
         }
-        public static bool insertNhanVien( string Name, string Gender, DateTime DOB, string Address, string Phone, string Position)
+        public static bool insertNhanVien(string Name, string Gender, DateTime DOB, string Address, string Phone, string Position)
         {
 
             SqlCommand command = new SqlCommand("INSERT INTO NhanVien (Hoten, phai, ngaysinh, diachi, sdt, machucvu) VALUES ( @name, @gender, @dob, @address, @phone, @position)", mydb.GetConnection);
@@ -79,7 +79,7 @@ namespace QuanLyHotel.EMPLOYEE
         {
             //cap nhat ma nguoi quan ly cua nhung nhan vien thuoc nhan vien nay = NULL
             SqlCommand sqlCommand = new SqlCommand("UPDATE NhanVien SET manql = NULL WHERE manql = @eid;"
-                +"DELETE FROM NhanVien WHERE manv = @eid", mydb.GetConnection);
+                + "DELETE FROM NhanVien WHERE manv = @eid", mydb.GetConnection);
             //SqlCommand sqlCommand = new SqlCommand("DELETE FROM NhanVien WHERE manv = @eid", mydb.GetConnection);
             sqlCommand.Parameters.Add("@eid", SqlDbType.VarChar).Value = employeeID;
             mydb.OpenConnection();
@@ -105,7 +105,7 @@ namespace QuanLyHotel.EMPLOYEE
             return table;
 
         }
-        
+
 
         public static bool insertNhanVien(string Name, string Gender, DateTime DOB, string Address, string Phone, string Position, String manql)
         {
@@ -164,7 +164,7 @@ namespace QuanLyHotel.EMPLOYEE
                 }
             }
         }
-        public static void insertPhanCa(int maca,int manhanvien,DateTime ngay)
+        public static void insertPhanCa(int maca, int manhanvien, DateTime ngay)
         {
             using (SqlCommand sqlCommand = new SqlCommand("INSERT INTO PhanCa (maca, manv, ngay) VALUES (@maca, @manv, @ngay)", mydb.GetConnection))
             {
@@ -193,6 +193,50 @@ namespace QuanLyHotel.EMPLOYEE
                     {
                         return -1;
                     }
+                }
+            }
+        }
+
+        internal static DataTable getAllLichLamViec()
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM PhanCa", mydb.GetConnection))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+                {
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+            }
+        }
+
+        internal static DataTable getAllLichTheoNgay(DateTime date)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM PhanCa WHERE ngay = @date", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@date", SqlDbType.Date).Value = date;
+                using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+                {
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+            }
+        }
+
+        internal static void updateCa(DataTable dataTable)
+        {
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                using (SqlCommand sqlCommand = new SqlCommand("UPDATE Ca SET ql = @ql, tt = @tt, lc = @lc WHERE maca = @maca", mydb.GetConnection))
+                {
+                    sqlCommand.Parameters.Add("@ql", SqlDbType.Int).Value = dataTable.Rows[i]["ql"];
+                    sqlCommand.Parameters.Add("@tt", SqlDbType.Int).Value = dataTable.Rows[i]["tt"];
+                    sqlCommand.Parameters.Add("@lc", SqlDbType.Int).Value = dataTable.Rows[i]["lc"];
+                    sqlCommand.Parameters.Add("@maca", SqlDbType.Int).Value = dataTable.Rows[i]["maca"];
+                        mydb.OpenConnection();
+                    sqlCommand.ExecuteNonQuery();
+                    mydb.CloseConnection();
                 }
             }
         }

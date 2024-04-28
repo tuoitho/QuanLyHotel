@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QuanLyHotel.BILL;
+using QuanLyHotel.THUETRA;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,8 +22,8 @@ namespace QuanLyHotel.KHACHHANG
             {
                 groupBox_tacvu.Enabled = false;
             }
-            
-                dataGridView_kh.DefaultCellStyle.SelectionBackColor = Color.Purple;
+
+            dataGridView_kh.DefaultCellStyle.SelectionBackColor = Color.Purple;
             textBox_input.Text = "Nhập thông tin cần tìm kiếm";
             //chu mo
             textBox_input.ForeColor = Color.Gray;
@@ -78,7 +80,7 @@ namespace QuanLyHotel.KHACHHANG
                 MemoryStream pic = new MemoryStream();
                 pictureBox1.Image.Save(pic, pictureBox1.Image.RawFormat);
                 KH.insertKhachHang(hoten, sdt, diachi, quoctich, pic);
-                    MessageBox.Show("Thêm khách hàng thành công", "Thêm khách hàng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Thêm khách hàng thành công", "Thêm khách hàng", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 load();
             }
             catch (Exception ex)
@@ -142,17 +144,34 @@ namespace QuanLyHotel.KHACHHANG
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
+            string maKH = textBox_makh.Text;
+            //kiem tra co phieu dang ky nao chua
+            DataTable pdk = TT.getPDKByMaKH(Convert.ToInt32(maKH));
+            if (pdk.Rows.Count > 0)
+            {
+                //lay trang thai phieu dang ky
+                if (pdk.Rows[0]["TrangThai"] == DBNull.Value)
+                {
+                    MessageBox.Show("Khách hàng này có phiếu đăng ký chưa xử lí, không thể xóa", "Xóa khách hàng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (pdk.Rows[0]["TrangThai"].ToString() == "Hoàn thành")
+                {
+
+                    if (HD.getTrangThaiHDByMaKH(Convert.ToInt32(maKH)) == "Chưa thanh toán")
+                    {
+                        MessageBox.Show("Khách hàng này chưa thanh toán hóa đơn, không thể xóa", "Xóa khách hàng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
             try
             {
-                string maKH = textBox_makh.Text;
-                if (KH.deleteKhachHang(maKH))
+                if (MessageBox.Show("Bạn có chắc chắn muốn xóa khách hàng này?", "Xóa khách hàng", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    KH.deleteKhachHang(maKH);
                     MessageBox.Show("Xóa khách hàng thành công", "Xóa khách hàng", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     load();
-                }
-                else
-                {
-                    MessageBox.Show("Xóa khách hàng thất bại", "Xóa khách hàng", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)

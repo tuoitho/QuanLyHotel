@@ -153,3 +153,4 @@ D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.THUETRA.FormTraPhong.res
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.THUETRA.FormThanhToan.resources
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.KHACHHANG.FormMain_KhachHang.resources
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.FormLogin.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.LamVieic.FormCaLamViec.resources

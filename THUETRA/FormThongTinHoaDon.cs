@@ -51,6 +51,15 @@ namespace QuanLyHotel.THUETRA
             textBox_maphong.Text = thongtinhoadondaydu.Rows[0]["MaPhong"].ToString();
             textBox_tenphong.Text = thongtinhoadondaydu.Rows[0]["TenPhong"].ToString();
             textBox_giaphong.Text = thongtinhoadondaydu.Rows[0]["GiaPhong"].ToString();
+            textBox_tthd.Text = thongtinhoadondaydu.Rows[0]["TrangThaiHoaDon"].ToString();
+            if (textBox_tthd.Text == "Đã thanh toán")
+            {
+                btn_dangkidv.Enabled = false;
+                button_traphong.Enabled = false;
+                label_ngaythanhtoan.Visible = true;
+                dateTimePicker_ngaythanhtoan.Visible = true;
+                dateTimePicker_ngaythanhtoan.Value = Convert.ToDateTime(thongtinhoadondaydu.Rows[0]["NgayThanhToan"].ToString());
+            }
         }
         private void FormHoaDon_Load(object sender, EventArgs e)
         {
@@ -120,6 +129,18 @@ namespace QuanLyHotel.THUETRA
         }
 
         private void comboBox_dv_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormThanhToan ftt = new FormThanhToan(Convert.ToInt32(txtMaHoaDon.Text));
+            ftt.ShowDialog();
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }

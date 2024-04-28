@@ -20,22 +20,22 @@ namespace QuanLyHotel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            FormLogin formLogin = new FormLogin();
-            if (formLogin.ShowDialog() == DialogResult.OK)
-            {
-                if (Info.role == "admin")
-                {
-                    Application.Run(new FormMain());
-                }
-                else if (Info.role == "employee")
-                {
-                    Application.Run(new FormMain());
-                }
-                else
-                {
-                    Application.Run(new FormKhachHang());
-                }
-            }
+            //FormLogin formLogin = new FormLogin();
+            //if (formLogin.ShowDialog() == DialogResult.OK)
+            //{
+            //    if (Info.role == "admin")
+            //    {
+            //        Application.Run(new FormMain());
+            //    }
+            //    else if (Info.role == "employee")
+            //    {
+            //        Application.Run(new FormMain());
+            //    }
+            //    else
+            //    {
+            //        Application.Run(new FormKhachHang());
+            //    }
+            //}
             Application.Run(new FormMain());
             //Application.Run(new Form1());
         }

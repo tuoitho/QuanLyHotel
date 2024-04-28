@@ -13,7 +13,7 @@ namespace QuanLyHotel.KHACHHANG
 {
     public class KH
     {
-        static MyDB myDB= new MyDB();
+        static MyDB myDB = new MyDB();
         public static DataTable getDSKhachHang()
         {
             string sql = "select * from KhachHang";
@@ -26,22 +26,14 @@ namespace QuanLyHotel.KHACHHANG
             return table;
         }
 
-        internal static bool deleteKhachHang(string maKH)
+        internal static void deleteKhachHang(string maKH)
         {
             using (SqlCommand cmd = new SqlCommand("delete from KhachHang where makh = @makh", myDB.GetConnection))
             {
                 cmd.Parameters.Add("@makh", SqlDbType.NVarChar).Value = maKH;
                 myDB.OpenConnection();
-                if (cmd.ExecuteNonQuery() == 1)
-                {
-                    myDB.CloseConnection();
-                    return true;
-                }
-                else
-                {
-                    myDB.CloseConnection();
-                    return false;
-                }
+                cmd.ExecuteNonQuery();
+                myDB.CloseConnection();
             }
         }
 
@@ -57,7 +49,7 @@ namespace QuanLyHotel.KHACHHANG
                 myDB.OpenConnection();
                 try
                 {
-                    int k=cmd.ExecuteNonQuery();
+                    int k = cmd.ExecuteNonQuery();
 
                 }
                 catch (Exception ex)
@@ -67,7 +59,7 @@ namespace QuanLyHotel.KHACHHANG
             }
         }
 
-        internal static DataTable  searchKhachHang(string input)
+        internal static DataTable searchKhachHang(string input)
         {
             using (SqlCommand cmd = new SqlCommand("select * from KhachHang where makh like @input or hoten like @input or sdt like @input or cccd like @input", myDB.GetConnection))
             {

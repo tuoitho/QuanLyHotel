@@ -202,5 +202,28 @@ namespace QuanLyHotel.PHONG
                 mydb.CloseConnection();
             }
         }
+
+        internal static bool getTrangThai(int map)
+        {
+            using (SqlCommand command = new SqlCommand("SELECT tinhtrangphong FROM Phong WHERE maphong = @mp", mydb.GetConnection))
+            {
+                command.Parameters.Add("@mp", SqlDbType.Int).Value = map;
+                mydb.OpenConnection();
+                bool trangthai = (bool)command.ExecuteScalar();
+                mydb.CloseConnection();
+                return trangthai;
+            }
+        }
+
+        internal static void deletePhong(int map)
+        {
+           using (SqlCommand command = new SqlCommand("DELETE FROM Phong WHERE maphong = @mp", mydb.GetConnection))
+            {
+                command.Parameters.Add("@mp", SqlDbType.Int).Value = map;
+                mydb.OpenConnection();
+                command.ExecuteNonQuery();
+                mydb.CloseConnection();
+            }
+        }
     }
 }

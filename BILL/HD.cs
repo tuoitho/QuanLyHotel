@@ -11,7 +11,7 @@ namespace QuanLyHotel.BILL
         internal static DataTable getDSHoaDonKH(string inp)
         {
             //tim theo ma hoa don, ma khach hang, ten khach hang
-            string query = "select * from HoaDon join KhachHang on HoaDon.makh=KhachHang.makh where concat(HoaDon.makh, hoten, cccd,sdt) like @inp";
+            string query = "select HoaDon.* from HoaDon join KhachHang on HoaDon.makh=KhachHang.makh where concat(HoaDon.makh, hoten, cccd,sdt) like @inp";
             {
                 SqlCommand command = new SqlCommand(query, mydb.GetConnection);
                 command.Parameters.Add("@inp", SqlDbType.NVarChar).Value = "%" + inp + "%";
@@ -39,6 +39,18 @@ namespace QuanLyHotel.BILL
             using (SqlCommand cmd = new SqlCommand("select TrangThai from HoaDon where MaHoaDon=@mahd", mydb.GetConnection))
             {
                 cmd.Parameters.Add("@mahd", SqlDbType.Int).Value = mahoadon;
+                mydb.OpenConnection();
+                string trangthai = cmd.ExecuteScalar().ToString();
+                mydb.CloseConnection();
+                return trangthai;
+            }
+        }
+
+        internal static string getTrangThaiHDByMaKH(int v)
+        {
+            using (SqlCommand cmd = new SqlCommand("select TrangThai from HoaDon where MaKH=@makh", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@makh", SqlDbType.Int).Value = v;
                 mydb.OpenConnection();
                 string trangthai = cmd.ExecuteScalar().ToString();
                 mydb.CloseConnection();

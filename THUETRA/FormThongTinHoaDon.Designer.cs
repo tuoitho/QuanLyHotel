@@ -58,7 +58,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.textBox_giaphong = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_traphong = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.numericUpDown_sldv = new System.Windows.Forms.NumericUpDown();
@@ -71,6 +71,10 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox_tthd = new System.Windows.Forms.TextBox();
+            this.label_ngaythanhtoan = new System.Windows.Forms.Label();
+            this.dateTimePicker_ngaythanhtoan = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_dv)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -104,7 +108,7 @@
             // lblTenHoaDon
             // 
             this.lblTenHoaDon.AutoSize = true;
-            this.lblTenHoaDon.Location = new System.Drawing.Point(21, 61);
+            this.lblTenHoaDon.Location = new System.Drawing.Point(21, 57);
             this.lblTenHoaDon.Name = "lblTenHoaDon";
             this.lblTenHoaDon.Size = new System.Drawing.Size(70, 13);
             this.lblTenHoaDon.TabIndex = 3;
@@ -113,7 +117,7 @@
             // txtTenHoaDon
             // 
             this.txtTenHoaDon.Enabled = false;
-            this.txtTenHoaDon.Location = new System.Drawing.Point(123, 61);
+            this.txtTenHoaDon.Location = new System.Drawing.Point(123, 57);
             this.txtTenHoaDon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTenHoaDon.Name = "txtTenHoaDon";
             this.txtTenHoaDon.ReadOnly = true;
@@ -123,7 +127,7 @@
             // lblTongTien
             // 
             this.lblTongTien.AutoSize = true;
-            this.lblTongTien.Location = new System.Drawing.Point(21, 94);
+            this.lblTongTien.Location = new System.Drawing.Point(21, 90);
             this.lblTongTien.Name = "lblTongTien";
             this.lblTongTien.Size = new System.Drawing.Size(54, 13);
             this.lblTongTien.TabIndex = 7;
@@ -132,7 +136,7 @@
             // txtTongTien
             // 
             this.txtTongTien.Enabled = false;
-            this.txtTongTien.Location = new System.Drawing.Point(123, 94);
+            this.txtTongTien.Location = new System.Drawing.Point(123, 90);
             this.txtTongTien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.ReadOnly = true;
@@ -144,14 +148,14 @@
             this.dataGridView_dv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_dv.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView_dv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_dv.Location = new System.Drawing.Point(16, 295);
+            this.dataGridView_dv.Location = new System.Drawing.Point(16, 329);
             this.dataGridView_dv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView_dv.Name = "dataGridView_dv";
             this.dataGridView_dv.RowHeadersVisible = false;
             this.dataGridView_dv.RowHeadersWidth = 51;
             this.dataGridView_dv.RowTemplate.Height = 26;
             this.dataGridView_dv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_dv.Size = new System.Drawing.Size(431, 332);
+            this.dataGridView_dv.Size = new System.Drawing.Size(431, 298);
             this.dataGridView_dv.TabIndex = 8;
             // 
             // panel1
@@ -160,20 +164,24 @@
             this.panel1.Location = new System.Drawing.Point(12, 10);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(316, 210);
+            this.panel1.Size = new System.Drawing.Size(316, 270);
             this.panel1.TabIndex = 9;
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.dateTimePicker_ngaythanhtoan);
             this.groupBox1.Controls.Add(this.lblMaHoaDon);
             this.groupBox1.Controls.Add(this.txtTenHoaDon);
             this.groupBox1.Controls.Add(this.txtMaHoaDon);
+            this.groupBox1.Controls.Add(this.label_ngaythanhtoan);
+            this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.lblTongTien);
             this.groupBox1.Controls.Add(this.lblTenHoaDon);
+            this.groupBox1.Controls.Add(this.textBox_tthd);
             this.groupBox1.Controls.Add(this.txt_tiendv);
             this.groupBox1.Controls.Add(this.txt_tienphong);
             this.groupBox1.Controls.Add(this.txt_tiencoc);
@@ -182,7 +190,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(311, 223);
+            this.groupBox1.Size = new System.Drawing.Size(311, 274);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin hoá đơn";
@@ -190,7 +198,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(21, 186);
+            this.label16.Location = new System.Drawing.Point(21, 182);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(43, 13);
             this.label16.TabIndex = 7;
@@ -199,7 +207,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(21, 155);
+            this.label15.Location = new System.Drawing.Point(21, 151);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(60, 13);
             this.label15.TabIndex = 7;
@@ -208,7 +216,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(21, 126);
+            this.label14.Location = new System.Drawing.Point(21, 122);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(48, 13);
             this.label14.TabIndex = 7;
@@ -217,7 +225,7 @@
             // txt_tiendv
             // 
             this.txt_tiendv.Enabled = false;
-            this.txt_tiendv.Location = new System.Drawing.Point(123, 186);
+            this.txt_tiendv.Location = new System.Drawing.Point(123, 182);
             this.txt_tiendv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_tiendv.Name = "txt_tiendv";
             this.txt_tiendv.ReadOnly = true;
@@ -227,7 +235,7 @@
             // txt_tienphong
             // 
             this.txt_tienphong.Enabled = false;
-            this.txt_tienphong.Location = new System.Drawing.Point(123, 155);
+            this.txt_tienphong.Location = new System.Drawing.Point(123, 151);
             this.txt_tienphong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_tienphong.Name = "txt_tienphong";
             this.txt_tienphong.ReadOnly = true;
@@ -237,7 +245,7 @@
             // txt_tiencoc
             // 
             this.txt_tiencoc.Enabled = false;
-            this.txt_tiencoc.Location = new System.Drawing.Point(123, 126);
+            this.txt_tiencoc.Location = new System.Drawing.Point(123, 122);
             this.txt_tiencoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_tiencoc.Name = "txt_tiencoc";
             this.txt_tiencoc.ReadOnly = true;
@@ -376,7 +384,7 @@
             this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel3.Controls.Add(this.groupBox3);
             this.panel3.Controls.Add(this.panel5);
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.button_traphong);
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Controls.Add(this.panel1);
             this.panel3.Controls.Add(this.panel2);
@@ -384,7 +392,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1022, 263);
+            this.panel3.Size = new System.Drawing.Size(1022, 301);
             this.panel3.TabIndex = 14;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -472,19 +480,19 @@
             this.panel5.Size = new System.Drawing.Size(315, 223);
             this.panel5.TabIndex = 14;
             // 
-            // button1
+            // button_traphong
             // 
-            this.button1.Image = global::QuanLyHotel.Properties.Resources.plus;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(416, 213);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(3);
-            this.button1.Size = new System.Drawing.Size(152, 37);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Trả Phòng";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btn_dangkidv_Click);
+            this.button_traphong.Image = global::QuanLyHotel.Properties.Resources.plus;
+            this.button_traphong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_traphong.Location = new System.Drawing.Point(416, 213);
+            this.button_traphong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_traphong.Name = "button_traphong";
+            this.button_traphong.Padding = new System.Windows.Forms.Padding(3);
+            this.button_traphong.Size = new System.Drawing.Size(152, 37);
+            this.button_traphong.TabIndex = 9;
+            this.button_traphong.Text = "Trả Phòng";
+            this.button_traphong.UseVisualStyleBackColor = true;
+            this.button_traphong.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel4
             // 
@@ -511,11 +519,11 @@
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.label12);
-            this.groupBox4.Location = new System.Drawing.Point(463, 295);
+            this.groupBox4.Location = new System.Drawing.Point(463, 329);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(524, 332);
+            this.groupBox4.Size = new System.Drawing.Size(524, 298);
             this.groupBox4.TabIndex = 14;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Đăng Kí Dịch Vụ";
@@ -613,11 +621,52 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 265);
+            this.label6.Location = new System.Drawing.Point(14, 303);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(140, 13);
             this.label6.TabIndex = 7;
             this.label6.Text = "Danh Sách Dịch Vụ Sử Dụng";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(21, 215);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(58, 13);
+            this.label17.TabIndex = 7;
+            this.label17.Text = "Tinh Trạng";
+            // 
+            // textBox_tthd
+            // 
+            this.textBox_tthd.Enabled = false;
+            this.textBox_tthd.Location = new System.Drawing.Point(123, 210);
+            this.textBox_tthd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox_tthd.Name = "textBox_tthd";
+            this.textBox_tthd.ReadOnly = true;
+            this.textBox_tthd.Size = new System.Drawing.Size(172, 20);
+            this.textBox_tthd.TabIndex = 6;
+            // 
+            // label_ngaythanhtoan
+            // 
+            this.label_ngaythanhtoan.AutoSize = true;
+            this.label_ngaythanhtoan.Location = new System.Drawing.Point(21, 248);
+            this.label_ngaythanhtoan.Name = "label_ngaythanhtoan";
+            this.label_ngaythanhtoan.Size = new System.Drawing.Size(92, 13);
+            this.label_ngaythanhtoan.TabIndex = 7;
+            this.label_ngaythanhtoan.Text = "Ngày thanh toán:";
+            this.label_ngaythanhtoan.Visible = false;
+            // 
+            // dateTimePicker_ngaythanhtoan
+            // 
+            this.dateTimePicker_ngaythanhtoan.CustomFormat = "HH:mm dd/MM/yyyy";
+            this.dateTimePicker_ngaythanhtoan.Enabled = false;
+            this.dateTimePicker_ngaythanhtoan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_ngaythanhtoan.Location = new System.Drawing.Point(123, 242);
+            this.dateTimePicker_ngaythanhtoan.Name = "dateTimePicker_ngaythanhtoan";
+            this.dateTimePicker_ngaythanhtoan.Size = new System.Drawing.Size(172, 20);
+            this.dateTimePicker_ngaythanhtoan.TabIndex = 8;
+            this.dateTimePicker_ngaythanhtoan.Visible = false;
             // 
             // FormThongTinHoaDon
             // 
@@ -698,6 +747,10 @@
         private System.Windows.Forms.TextBox txt_tiendv;
         private System.Windows.Forms.TextBox txt_tienphong;
         private System.Windows.Forms.TextBox txt_tiencoc;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_traphong;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox textBox_tthd;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_ngaythanhtoan;
+        private System.Windows.Forms.Label label_ngaythanhtoan;
     }
 }

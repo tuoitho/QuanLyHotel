@@ -54,6 +54,7 @@
             this.textBox_input = new System.Windows.Forms.TextBox();
             this.button_timkiem = new System.Windows.Forms.Button();
             this.groupBox_tacvu = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -266,7 +267,7 @@
             this.btn_delete.Location = new System.Drawing.Point(400, 62);
             this.btn_delete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.btn_delete.Padding = new System.Windows.Forms.Padding(3);
             this.btn_delete.Size = new System.Drawing.Size(97, 37);
             this.btn_delete.TabIndex = 22;
             this.btn_delete.Text = "   Xóa";
@@ -280,7 +281,7 @@
             this.btn_modify.Location = new System.Drawing.Point(268, 62);
             this.btn_modify.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_modify.Name = "btn_modify";
-            this.btn_modify.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.btn_modify.Padding = new System.Windows.Forms.Padding(3);
             this.btn_modify.Size = new System.Drawing.Size(97, 37);
             this.btn_modify.TabIndex = 21;
             this.btn_modify.Text = "   Sửa";
@@ -294,7 +295,7 @@
             this.btn_add.Location = new System.Drawing.Point(3, 62);
             this.btn_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.btn_add.Padding = new System.Windows.Forms.Padding(3);
             this.btn_add.Size = new System.Drawing.Size(97, 37);
             this.btn_add.TabIndex = 20;
             this.btn_add.Text = "   Thêm";
@@ -305,10 +306,10 @@
             // 
             this.button_xemhd.Image = global::QuanLyHotel.Properties.Resources.plus;
             this.button_xemhd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_xemhd.Location = new System.Drawing.Point(135, 9);
+            this.button_xemhd.Location = new System.Drawing.Point(211, 18);
             this.button_xemhd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_xemhd.Name = "button_xemhd";
-            this.button_xemhd.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.button_xemhd.Padding = new System.Windows.Forms.Padding(3);
             this.button_xemhd.Size = new System.Drawing.Size(127, 37);
             this.button_xemhd.TabIndex = 20;
             this.button_xemhd.Text = "   Xem hoá đơn";
@@ -318,10 +319,10 @@
             // 
             this.button_xemphong.Image = global::QuanLyHotel.Properties.Resources.plus;
             this.button_xemphong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_xemphong.Location = new System.Drawing.Point(286, 9);
+            this.button_xemphong.Location = new System.Drawing.Point(362, 18);
             this.button_xemphong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_xemphong.Name = "button_xemphong";
-            this.button_xemphong.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.button_xemphong.Padding = new System.Windows.Forms.Padding(3);
             this.button_xemphong.Size = new System.Drawing.Size(116, 37);
             this.button_xemphong.TabIndex = 20;
             this.button_xemphong.Text = "   Tra phong";
@@ -345,7 +346,7 @@
             this.button_timkiem.Location = new System.Drawing.Point(639, 1);
             this.button_timkiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_timkiem.Name = "button_timkiem";
-            this.button_timkiem.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.button_timkiem.Padding = new System.Windows.Forms.Padding(3);
             this.button_timkiem.Size = new System.Drawing.Size(108, 37);
             this.button_timkiem.TabIndex = 25;
             this.button_timkiem.Text = "   Tìm kiếm";
@@ -354,6 +355,7 @@
             // 
             // groupBox_tacvu
             // 
+            this.groupBox_tacvu.Controls.Add(this.button2);
             this.groupBox_tacvu.Controls.Add(this.button_xemhd);
             this.groupBox_tacvu.Controls.Add(this.btn_add);
             this.groupBox_tacvu.Controls.Add(this.button_xemphong);
@@ -365,7 +367,20 @@
             this.groupBox_tacvu.Size = new System.Drawing.Size(575, 100);
             this.groupBox_tacvu.TabIndex = 26;
             this.groupBox_tacvu.TabStop = false;
-            this.groupBox_tacvu.Text = "groupBox_tacvu";
+            this.groupBox_tacvu.Text = "Tác vụ";
+            // 
+            // button2
+            // 
+            this.button2.Image = global::QuanLyHotel.Properties.Resources.plus;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(59, 18);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(3);
+            this.button2.Size = new System.Drawing.Size(127, 37);
+            this.button2.TabIndex = 20;
+            this.button2.Text = "   Xem DS PDK";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // FormKhachHang
             // 
@@ -421,5 +436,6 @@
         private System.Windows.Forms.TextBox textBox_input;
         private System.Windows.Forms.Button button_timkiem;
         private System.Windows.Forms.GroupBox groupBox_tacvu;
+        private System.Windows.Forms.Button button2;
     }
 }

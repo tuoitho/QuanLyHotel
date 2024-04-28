@@ -27,7 +27,18 @@ namespace QuanLyHotel.THUETRA
             mydb.CloseConnection();
             return table;
         }
-
+        public static DataTable getPDKByMaKH(int makh)
+        {
+            string sql = "select * from PhieuDangKy where MaKH=@makh";
+            SqlCommand cmd = new SqlCommand(sql, mydb.GetConnection);
+            cmd.Parameters.Add("@makh", SqlDbType.Int).Value = makh;
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable table = new DataTable();
+            mydb.OpenConnection();
+            adapter.Fill(table);
+            mydb.CloseConnection();
+            return table;
+        }
         public static bool themPhieuDangKy(DateTime expectedArrival, DateTime expectedDeparture, string depositAmount, int employee, int customer, int room)
         {
             using (SqlCommand cmd = new SqlCommand("insert into PhieuDangKy(DuKienDen, DuKienDi, TienDatCoc, MaNV, MaKH, MaPhong) values (@ngayden, @ngaydi, @sotien, @manv, @makh, @maphong)", mydb.GetConnection))
@@ -71,6 +82,9 @@ namespace QuanLyHotel.THUETRA
 
         public static void deletePhieuDangKy(int mapdk)
         {
+            //danh dau phong da tra (0)
+            string maphong = getMaPhongByMaPDK(mapdk);
+            PH.danhDauPhong(Convert.ToInt32(maphong), 0);
             using (SqlCommand cmd = new SqlCommand("delete from PhieuDangKy where MaPhieuDK=@mapdk", mydb.GetConnection))
             {
                 cmd.Parameters.Add("@mapdk", SqlDbType.Int).Value = mapdk;
@@ -112,7 +126,7 @@ namespace QuanLyHotel.THUETRA
 
         public static DataTable getThongTinHoaDonTuMaHD(int mahoadon)
         {
-            SqlCommand cmd = new SqlCommand("SELECT HoaDon.MaHoaDon as MaHD,HoaDon.TenHoaDon as TenHD,HoaDon.TongTienHoaDon as TongTien, HoaDon.TienDatCoc as TienCoc,HoaDon.TienPhong as TienPhong,HoaDon.TienDichVu as TienDichVu,\r\n    KhachHang.MaKH as MaKH, KhachHang.HoTen as HoTen,KhachHang.SDT as SDT,KhachHang.CCCD as CCCD,KhachHang.QuocTich as QuocTich,\r\n    Phong.MaPhong as MaPhong,Phong.TenPhong TenPhong, LoaiPhong.GiaLoaiPhong GiaPhong\r\nfrom HoaDon\r\n    JOIN KhachHang ON HoaDon.MaKH = KhachHang.MaKH\r\n    JOIN Phong ON HoaDon.MaPhong = Phong.MaPhong\r\n    JOIN LoaiPhong ON Phong.MaLoaiPhong = LoaiPhong.MaLoaiPhong\r\nwhere HoaDon.MaHoaDon = @mahd", mydb.GetConnection);
+            SqlCommand cmd = new SqlCommand("SELECT HoaDon.MaHoaDon as MaHD,HoaDon.TenHoaDon as TenHD,HoaDon.TongTienHoaDon as TongTien, HoaDon.TienDatCoc as TienCoc,HoaDon.TienPhong as TienPhong,HoaDon.TienDichVu as TienDichVu,HoaDon.TrangThai TrangThaiHoaDon, HoaDon.NgayThanhToanHoanTat NgayThanhToan,   KhachHang.MaKH as MaKH, KhachHang.HoTen as HoTen,KhachHang.SDT as SDT,KhachHang.CCCD as CCCD,KhachHang.QuocTich as QuocTich,\r\n    Phong.MaPhong as MaPhong,Phong.TenPhong TenPhong, LoaiPhong.GiaLoaiPhong GiaPhong\r\nfrom HoaDon\r\n    JOIN KhachHang ON HoaDon.MaKH = KhachHang.MaKH\r\n    JOIN Phong ON HoaDon.MaPhong = Phong.MaPhong\r\n    JOIN LoaiPhong ON Phong.MaLoaiPhong = LoaiPhong.MaLoaiPhong\r\nwhere HoaDon.MaHoaDon = @mahd", mydb.GetConnection);
             cmd.Parameters.Add("@mahd", SqlDbType.Int).Value = mahoadon;
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable table = new DataTable();
@@ -216,6 +230,18 @@ namespace QuanLyHotel.THUETRA
                 mydb.OpenConnection();
                 cmd.ExecuteNonQuery();
                 mydb.CloseConnection();
+            }
+        }
+
+        internal static string getTrangThaiHoaDonByMaPDK(int mapdk)
+        {
+            using (SqlCommand cmd = new SqlCommand("select TrangThai from HoaDon where MaPhieuDK=@mapdk", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@mapdk", SqlDbType.Int).Value = mapdk;
+                mydb.OpenConnection();
+                string trangthai = cmd.ExecuteScalar().ToString();
+                mydb.CloseConnection();
+                return trangthai;
             }
         }
     }

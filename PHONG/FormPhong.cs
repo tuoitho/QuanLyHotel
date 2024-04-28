@@ -226,5 +226,29 @@ namespace QuanLyHotel.PHONG
             checkBox_stt.Checked = dataGridView_phong.CurrentRow.Cells[2].Value.ToString() == "True" ? true : false;
             comboBox_maloai.Text = dataGridView_phong.CurrentRow.Cells[3].Value.ToString();
         }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            int map = Convert.ToInt32(txt_maphong.Text);
+            //neu phong da co khach thi ko xoa
+            if (PH.getTrangThai(map))
+            {
+                MessageBox.Show("Phòng đã có khách, không thể xóa", "Xóa phòng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                try
+                {
+                    PH.deletePhong(map);
+                    MessageBox.Show("Xóa phòng thành công", "Xóa phòng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnLoad_Click(sender, e);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Xóa phòng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

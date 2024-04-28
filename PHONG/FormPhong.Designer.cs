@@ -59,12 +59,9 @@
             this.phongBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelManagementDataSet1 = new QuanLyHotel.HotelManagementDataSet1();
             this.tabPage_qlloaiphong = new System.Windows.Forms.TabPage();
+            this.button_p2_reload = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.button_p2_reload = new System.Windows.Forms.Button();
-            this.button_p2_xoa = new System.Windows.Forms.Button();
-            this.button_p2_sua = new System.Windows.Forms.Button();
-            this.button_p2_them = new System.Windows.Forms.Button();
             this.textBox_p2_mota = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox_p2_gia = new System.Windows.Forms.TextBox();
@@ -76,6 +73,9 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.button_p2_xoa = new System.Windows.Forms.Button();
+            this.button_p2_them = new System.Windows.Forms.Button();
+            this.button_p2_sua = new System.Windows.Forms.Button();
             this.phongTableAdapter = new QuanLyHotel.HotelManagementDataSet1TableAdapters.PhongTableAdapter();
             this.tabControl_phong.SuspendLayout();
             this.tabPage_qlphong.SuspendLayout();
@@ -282,6 +282,7 @@
             this.btn_delete.TabIndex = 9;
             this.btn_delete.Text = "   Xóa";
             this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_modify
             // 
@@ -432,6 +433,20 @@
             this.tabPage_qlloaiphong.Text = "Loại phòng";
             this.tabPage_qlloaiphong.UseVisualStyleBackColor = true;
             // 
+            // button_p2_reload
+            // 
+            this.button_p2_reload.Image = global::QuanLyHotel.Properties.Resources.loading;
+            this.button_p2_reload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_p2_reload.Location = new System.Drawing.Point(316, 568);
+            this.button_p2_reload.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_p2_reload.Name = "button_p2_reload";
+            this.button_p2_reload.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_p2_reload.Size = new System.Drawing.Size(98, 37);
+            this.button_p2_reload.TabIndex = 14;
+            this.button_p2_reload.Text = "   Reload";
+            this.button_p2_reload.UseVisualStyleBackColor = true;
+            this.button_p2_reload.Click += new System.EventHandler(this.button_p2_reload_Click);
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(141)))), ((int)(((byte)(255)))));
@@ -459,62 +474,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(724, 467);
             this.panel6.TabIndex = 2;
-            // 
-            // button_p2_reload
-            // 
-            this.button_p2_reload.Image = global::QuanLyHotel.Properties.Resources.loading;
-            this.button_p2_reload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_p2_reload.Location = new System.Drawing.Point(316, 568);
-            this.button_p2_reload.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button_p2_reload.Name = "button_p2_reload";
-            this.button_p2_reload.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button_p2_reload.Size = new System.Drawing.Size(98, 37);
-            this.button_p2_reload.TabIndex = 14;
-            this.button_p2_reload.Text = "   Reload";
-            this.button_p2_reload.UseVisualStyleBackColor = true;
-            this.button_p2_reload.Click += new System.EventHandler(this.button_p2_reload_Click);
-            // 
-            // button_p2_xoa
-            // 
-            this.button_p2_xoa.Image = global::QuanLyHotel.Properties.Resources.trash;
-            this.button_p2_xoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_p2_xoa.Location = new System.Drawing.Point(580, 568);
-            this.button_p2_xoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button_p2_xoa.Name = "button_p2_xoa";
-            this.button_p2_xoa.Padding = new System.Windows.Forms.Padding(3);
-            this.button_p2_xoa.Size = new System.Drawing.Size(97, 37);
-            this.button_p2_xoa.TabIndex = 13;
-            this.button_p2_xoa.Text = "   Xóa";
-            this.button_p2_xoa.UseVisualStyleBackColor = true;
-            this.button_p2_xoa.Click += new System.EventHandler(this.button_p2_xoa_Click);
-            // 
-            // button_p2_sua
-            // 
-            this.button_p2_sua.Image = global::QuanLyHotel.Properties.Resources.edit;
-            this.button_p2_sua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_p2_sua.Location = new System.Drawing.Point(448, 568);
-            this.button_p2_sua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button_p2_sua.Name = "button_p2_sua";
-            this.button_p2_sua.Padding = new System.Windows.Forms.Padding(3);
-            this.button_p2_sua.Size = new System.Drawing.Size(97, 37);
-            this.button_p2_sua.TabIndex = 12;
-            this.button_p2_sua.Text = "   Sửa";
-            this.button_p2_sua.UseVisualStyleBackColor = true;
-            this.button_p2_sua.Click += new System.EventHandler(this.button_p2_sua_Click);
-            // 
-            // button_p2_them
-            // 
-            this.button_p2_them.Image = global::QuanLyHotel.Properties.Resources.plus;
-            this.button_p2_them.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_p2_them.Location = new System.Drawing.Point(184, 568);
-            this.button_p2_them.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button_p2_them.Name = "button_p2_them";
-            this.button_p2_them.Padding = new System.Windows.Forms.Padding(3);
-            this.button_p2_them.Size = new System.Drawing.Size(97, 37);
-            this.button_p2_them.TabIndex = 11;
-            this.button_p2_them.Text = "   Thêm";
-            this.button_p2_them.UseVisualStyleBackColor = true;
-            this.button_p2_them.Click += new System.EventHandler(this.button5_Click);
             // 
             // textBox_p2_mota
             // 
@@ -608,6 +567,48 @@
             this.label14.Size = new System.Drawing.Size(103, 18);
             this.label14.TabIndex = 0;
             this.label14.Text = "Mã Loại Phòng";
+            // 
+            // button_p2_xoa
+            // 
+            this.button_p2_xoa.Image = global::QuanLyHotel.Properties.Resources.trash;
+            this.button_p2_xoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_p2_xoa.Location = new System.Drawing.Point(580, 568);
+            this.button_p2_xoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_p2_xoa.Name = "button_p2_xoa";
+            this.button_p2_xoa.Padding = new System.Windows.Forms.Padding(3);
+            this.button_p2_xoa.Size = new System.Drawing.Size(97, 37);
+            this.button_p2_xoa.TabIndex = 13;
+            this.button_p2_xoa.Text = "   Xóa";
+            this.button_p2_xoa.UseVisualStyleBackColor = true;
+            this.button_p2_xoa.Click += new System.EventHandler(this.button_p2_xoa_Click);
+            // 
+            // button_p2_them
+            // 
+            this.button_p2_them.Image = global::QuanLyHotel.Properties.Resources.plus;
+            this.button_p2_them.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_p2_them.Location = new System.Drawing.Point(184, 568);
+            this.button_p2_them.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_p2_them.Name = "button_p2_them";
+            this.button_p2_them.Padding = new System.Windows.Forms.Padding(3);
+            this.button_p2_them.Size = new System.Drawing.Size(97, 37);
+            this.button_p2_them.TabIndex = 11;
+            this.button_p2_them.Text = "   Thêm";
+            this.button_p2_them.UseVisualStyleBackColor = true;
+            this.button_p2_them.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button_p2_sua
+            // 
+            this.button_p2_sua.Image = global::QuanLyHotel.Properties.Resources.edit;
+            this.button_p2_sua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_p2_sua.Location = new System.Drawing.Point(448, 568);
+            this.button_p2_sua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_p2_sua.Name = "button_p2_sua";
+            this.button_p2_sua.Padding = new System.Windows.Forms.Padding(3);
+            this.button_p2_sua.Size = new System.Drawing.Size(97, 37);
+            this.button_p2_sua.TabIndex = 12;
+            this.button_p2_sua.Text = "   Sửa";
+            this.button_p2_sua.UseVisualStyleBackColor = true;
+            this.button_p2_sua.Click += new System.EventHandler(this.button_p2_sua_Click);
             // 
             // phongTableAdapter
             // 

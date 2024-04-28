@@ -280,7 +280,35 @@ namespace QuanLyHotel.THUETRA
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
+            if (dataGridView_pdk.CurrentRow.Cells[7].Value.ToString() == "")
+            {
+                if (MessageBox.Show("PDK chưa xử lí, bạn có chắc chắn muốn xóa?", "Xóa phiếu đăng ký", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    return;
+                }
+            }
             int mapdk = Convert.ToInt32(tb_mapdk.Text);
+
+            //neu phieu dang ky da hoan thanh thi kiem tra trang thai hoa don, neu hoa don chua thanh toan thi khong the xoa
+            if (TT.getTrangThaiByMaPDK(mapdk) == "Hoàn thành")
+            {
+                if (TT.getTrangThaiHoaDonByMaPDK(mapdk) != "Đã thanh toán")
+                {
+                    MessageBox.Show("Không thể xóa phiếu đăng ký vì hoá đơn liên kết chưa thanh toán", "Xóa phiếu đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (MessageBox.Show("Phiếu đăng ký đã hoàn thành, bạn có chắc chắn muốn xóa?", "Xóa phiếu đăng ký", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    return;
+                }
+            }
+            else
+            {
+                if (MessageBox.Show("Bạn có chắc chắn muốn xóa phiếu đăng ký này?", "Xóa phiếu đăng ký", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    return;
+                }
+            }
             try
             {
                 TT.deletePhieuDangKy(mapdk);

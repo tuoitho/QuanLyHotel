@@ -1,6 +1,7 @@
 ﻿using QuanLyHotel.ACCOUNT;
 using QuanLyHotel.BILL;
 using QuanLyHotel.KHACHHANG;
+using QuanLyHotel.LamVieic;
 using QuanLyHotel.PHONG;
 using QuanLyHotel.THUETRA;
 using System;
@@ -184,6 +185,13 @@ namespace QuanLyHotel.EMPLOYEE
         private void button_dichvu_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void roundedButton2_Click(object sender, EventArgs e)
+        {
+            FormCaLamViec formCaLamViec = new FormCaLamViec();
+            OpenChildForm(formCaLamViec, sender);
+            lblTiltle.Text = "Ca làm việc";
         }
     }
 }
