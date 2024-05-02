@@ -36,8 +36,8 @@ namespace QuanLyHotel
             //        Application.Run(new FormKhachHang());
             //    }
             //}
-            Application.Run(new FormMain());
-            //Application.Run(new Form1());
+            //Application.Run(new FormMain());
+            Application.Run(new FormRegister());
         }
     }
 }

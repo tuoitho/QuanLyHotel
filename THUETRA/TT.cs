@@ -18,7 +18,7 @@ namespace QuanLyHotel.THUETRA
         static MyDB mydb = new MyDB();
         public static DataTable getDSPhieuDangKy()
         {
-            string sql = "select MaPhieuDK as 'Mã Phiếu Đăng Ký', DuKienDen as 'Dự Kiến Đến', DuKienDi as 'Dự Kiến Đi', TienDatCoc as 'Tiền Đặt Cọc', MaNV as 'Mã Nhân Viên', MaKH as 'Mã Khách Hàng', MaPhong as 'Mã Phòng', TrangThai as 'Trạng Thái' from PhieuDangKy";
+            string sql = "select MaPhieuDK as 'Mã Phiếu Đăng Ký', DuKienDen as 'Dự Kiến Đến', DuKienDi as 'Dự Kiến Đi', TienDatCoc as 'Tiền Đặt Cọc',  MaKH as 'Mã Khách Hàng', MaPhong as 'Mã Phòng', TrangThai as 'Trạng Thái' from PhieuDangKy";
             SqlCommand cmd = new SqlCommand(sql, mydb.GetConnection);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable table = new DataTable();
@@ -39,14 +39,13 @@ namespace QuanLyHotel.THUETRA
             mydb.CloseConnection();
             return table;
         }
-        public static bool themPhieuDangKy(DateTime expectedArrival, DateTime expectedDeparture, string depositAmount, int employee, int customer, int room)
+        public static bool themPhieuDangKy(DateTime expectedArrival, DateTime expectedDeparture, string depositAmount, int customer, int room)
         {
-            using (SqlCommand cmd = new SqlCommand("insert into PhieuDangKy(DuKienDen, DuKienDi, TienDatCoc, MaNV, MaKH, MaPhong) values (@ngayden, @ngaydi, @sotien, @manv, @makh, @maphong)", mydb.GetConnection))
+            using (SqlCommand cmd = new SqlCommand("insert into PhieuDangKy(DuKienDen, DuKienDi, TienDatCoc, MaKH, MaPhong) values (@ngayden, @ngaydi, @sotien, @makh, @maphong)", mydb.GetConnection))
             {
                 cmd.Parameters.Add("@ngayden", SqlDbType.DateTime).Value = expectedArrival;
                 cmd.Parameters.Add("@ngaydi", SqlDbType.DateTime).Value = expectedDeparture;
                 cmd.Parameters.Add("@sotien", SqlDbType.Money).Value = depositAmount;
-                cmd.Parameters.Add("@manv", SqlDbType.Int).Value = employee;
                 cmd.Parameters.Add("@makh", SqlDbType.Int).Value = customer;
                 cmd.Parameters.Add("@maphong", SqlDbType.Int).Value = room;
                 mydb.OpenConnection();
@@ -63,15 +62,14 @@ namespace QuanLyHotel.THUETRA
             }
         }
 
-        public static void updatePhieuDangKy(string mapdk, DateTime expectedArrival, DateTime expectedDeparture, double depositAmount, int employee, int customer, int room)
+        public static void updatePhieuDangKy(string mapdk, DateTime expectedArrival, DateTime expectedDeparture, double depositAmount, int customer, int room)
         {
-            using (SqlCommand cmd = new SqlCommand("update PhieuDangKy set DuKienDen=@ngayden, DuKienDi=@ngaydi, TienDatCoc=@sotien, MaNV=@manv, MaKH=@makh, MaPhong=@maphong where MaPhieuDK=@mapdk", mydb.GetConnection))
+            using (SqlCommand cmd = new SqlCommand("update PhieuDangKy set DuKienDen=@ngayden, DuKienDi=@ngaydi, TienDatCoc=@sotien, MaKH=@makh, MaPhong=@maphong where MaPhieuDK=@mapdk", mydb.GetConnection))
             {
                 cmd.Parameters.Add("@mapdk", SqlDbType.VarChar).Value = mapdk;
                 cmd.Parameters.Add("@ngayden", SqlDbType.DateTime).Value = expectedArrival;
                 cmd.Parameters.Add("@ngaydi", SqlDbType.DateTime).Value = expectedDeparture;
                 cmd.Parameters.Add("@sotien", SqlDbType.Money).Value = depositAmount;
-                cmd.Parameters.Add("@manv", SqlDbType.Int).Value = employee;
                 cmd.Parameters.Add("@makh", SqlDbType.Int).Value = customer;
                 cmd.Parameters.Add("@maphong", SqlDbType.Int).Value = room;
                 mydb.OpenConnection();
@@ -83,8 +81,9 @@ namespace QuanLyHotel.THUETRA
         public static void deletePhieuDangKy(int mapdk)
         {
             //danh dau phong da tra (0)
-            string maphong = getMaPhongByMaPDK(mapdk);
-            PH.danhDauPhong(Convert.ToInt32(maphong), 0);
+            int maphong = getMaPhongByMaPDK(mapdk);
+            if (maphong != -1)
+                PH.danhDauPhong(Convert.ToInt32(maphong), 0);
             using (SqlCommand cmd = new SqlCommand("delete from PhieuDangKy where MaPhieuDK=@mapdk", mydb.GetConnection))
             {
                 cmd.Parameters.Add("@mapdk", SqlDbType.Int).Value = mapdk;
@@ -126,7 +125,7 @@ namespace QuanLyHotel.THUETRA
 
         public static DataTable getThongTinHoaDonTuMaHD(int mahoadon)
         {
-            SqlCommand cmd = new SqlCommand("SELECT HoaDon.MaHoaDon as MaHD,HoaDon.TenHoaDon as TenHD,HoaDon.TongTienHoaDon as TongTien, HoaDon.TienDatCoc as TienCoc,HoaDon.TienPhong as TienPhong,HoaDon.TienDichVu as TienDichVu,HoaDon.TrangThai TrangThaiHoaDon, HoaDon.NgayThanhToanHoanTat NgayThanhToan,   KhachHang.MaKH as MaKH, KhachHang.HoTen as HoTen,KhachHang.SDT as SDT,KhachHang.CCCD as CCCD,KhachHang.QuocTich as QuocTich,\r\n    Phong.MaPhong as MaPhong,Phong.TenPhong TenPhong, LoaiPhong.GiaLoaiPhong GiaPhong\r\nfrom HoaDon\r\n    JOIN KhachHang ON HoaDon.MaKH = KhachHang.MaKH\r\n    JOIN Phong ON HoaDon.MaPhong = Phong.MaPhong\r\n    JOIN LoaiPhong ON Phong.MaLoaiPhong = LoaiPhong.MaLoaiPhong\r\nwhere HoaDon.MaHoaDon = @mahd", mydb.GetConnection);
+            SqlCommand cmd = new SqlCommand("SELECT HoaDon.MaHoaDon as MaHD,HoaDon.TenHoaDon as TenHD,HoaDon.TongTienHoaDon as TongTien, HoaDon.TienDatCoc as TienCoc,HoaDon.TienPhong as TienPhong,HoaDon.TienDichVu as TienDichVu,HoaDon.TrangThai TrangThaiHoaDon, HoaDon.NgayThanhToanHoanTat NgayThanhToan,   KhachHang.MaKH as MaKH, KhachHang.HoTen as HoTen,KhachHang.SDT as SDT,KhachHang.CCCD as CCCD,KhachHang.QuocTich as QuocTich,\r\n    Phong.MaPhong as MaPhong,Phong.TenPhong TenPhong, LoaiPhong.GiaLoaiPhong GiaPhong\r\nfrom HoaDon\r\n    left JOIN KhachHang ON HoaDon.MaKH = KhachHang.MaKH\r\n   left JOIN Phong ON HoaDon.MaPhong = Phong.MaPhong\r\n    left JOIN LoaiPhong ON Phong.MaLoaiPhong = LoaiPhong.MaLoaiPhong\r\nwhere HoaDon.MaHoaDon = @mahd", mydb.GetConnection);
             cmd.Parameters.Add("@mahd", SqlDbType.Int).Value = mahoadon;
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable table = new DataTable();
@@ -170,16 +169,20 @@ namespace QuanLyHotel.THUETRA
             }
         }
 
-        public static string getMaPhongByMaPDK(int mapdk)
+        public static int getMaPhongByMaPDK(int mapdk)
         {
             //
             using (SqlCommand cmd = new SqlCommand("select MaPhong from PhieuDangKy where MaPhieuDK=@mapdk", mydb.GetConnection))
             {
                 cmd.Parameters.Add("@mapdk", SqlDbType.Int).Value = mapdk;
                 mydb.OpenConnection();
-                string maphong = cmd.ExecuteScalar().ToString();
+                int maphong;
+                if (cmd.ExecuteScalar() == DBNull.Value)
+                    maphong = -1;
+                else
+                    maphong = Convert.ToInt32(cmd.ExecuteScalar());
                 mydb.CloseConnection();
-                return maphong;
+                return (int)maphong;
             }
         }
 

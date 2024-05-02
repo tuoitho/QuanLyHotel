@@ -38,9 +38,7 @@
             this.lblExpectedArrival = new System.Windows.Forms.Label();
             this.lblCustomer = new System.Windows.Forms.Label();
             this.dtpExpectedArrival = new System.Windows.Forms.DateTimePicker();
-            this.cboEmployee = new System.Windows.Forms.ComboBox();
             this.lblExpectedDeparture = new System.Windows.Forms.Label();
-            this.lblEmployee = new System.Windows.Forms.Label();
             this.dtpExpectedDeparture = new System.Windows.Forms.DateTimePicker();
             this.txtDepositAmount = new System.Windows.Forms.TextBox();
             this.lblDepositAmount = new System.Windows.Forms.Label();
@@ -59,49 +57,50 @@
             this.panel2.Controls.Add(this.lblExpectedArrival);
             this.panel2.Controls.Add(this.lblCustomer);
             this.panel2.Controls.Add(this.dtpExpectedArrival);
-            this.panel2.Controls.Add(this.cboEmployee);
             this.panel2.Controls.Add(this.lblExpectedDeparture);
-            this.panel2.Controls.Add(this.lblEmployee);
             this.panel2.Controls.Add(this.dtpExpectedDeparture);
             this.panel2.Controls.Add(this.txtDepositAmount);
             this.panel2.Controls.Add(this.lblDepositAmount);
-            this.panel2.Location = new System.Drawing.Point(216, 73);
+            this.panel2.Location = new System.Drawing.Point(185, 59);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(411, 541);
+            this.panel2.Size = new System.Drawing.Size(352, 440);
             this.panel2.TabIndex = 18;
             // 
             // tb_mapdk
             // 
             this.tb_mapdk.Enabled = false;
-            this.tb_mapdk.Location = new System.Drawing.Point(176, 75);
+            this.tb_mapdk.Location = new System.Drawing.Point(151, 61);
+            this.tb_mapdk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_mapdk.Name = "tb_mapdk";
-            this.tb_mapdk.Size = new System.Drawing.Size(220, 24);
+            this.tb_mapdk.Size = new System.Drawing.Size(189, 20);
             this.tb_mapdk.TabIndex = 5;
             // 
             // cboRoom
             // 
             this.cboRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboRoom.FormattingEnabled = true;
-            this.cboRoom.Location = new System.Drawing.Point(176, 365);
+            this.cboRoom.Location = new System.Drawing.Point(151, 266);
+            this.cboRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboRoom.Name = "cboRoom";
-            this.cboRoom.Size = new System.Drawing.Size(176, 24);
+            this.cboRoom.Size = new System.Drawing.Size(151, 21);
             this.cboRoom.TabIndex = 11;
             // 
             // lblRoom
             // 
             this.lblRoom.AutoSize = true;
-            this.lblRoom.Location = new System.Drawing.Point(32, 365);
+            this.lblRoom.Location = new System.Drawing.Point(27, 266);
             this.lblRoom.Name = "lblRoom";
-            this.lblRoom.Size = new System.Drawing.Size(48, 17);
+            this.lblRoom.Size = new System.Drawing.Size(37, 13);
             this.lblRoom.TabIndex = 10;
             this.lblRoom.Text = "Phòng";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 75);
+            this.label2.Location = new System.Drawing.Point(27, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 17);
+            this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã PĐK";
             // 
@@ -109,11 +108,11 @@
             // 
             this.button_add.Image = global::QuanLyHotel.Properties.Resources.plus;
             this.button_add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_add.Location = new System.Drawing.Point(123, 445);
-            this.button_add.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.button_add.Location = new System.Drawing.Point(105, 331);
+            this.button_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_add.Name = "button_add";
-            this.button_add.Padding = new System.Windows.Forms.Padding(4);
-            this.button_add.Size = new System.Drawing.Size(175, 46);
+            this.button_add.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.button_add.Size = new System.Drawing.Size(150, 37);
             this.button_add.TabIndex = 1;
             this.button_add.Text = "   Thêm";
             this.button_add.UseVisualStyleBackColor = true;
@@ -123,95 +122,82 @@
             // 
             this.cboCustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCustomer.FormattingEnabled = true;
-            this.cboCustomer.Location = new System.Drawing.Point(176, 315);
+            this.cboCustomer.Location = new System.Drawing.Point(151, 225);
+            this.cboCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboCustomer.Name = "cboCustomer";
-            this.cboCustomer.Size = new System.Drawing.Size(176, 24);
+            this.cboCustomer.Size = new System.Drawing.Size(151, 21);
             this.cboCustomer.TabIndex = 9;
             // 
             // lblExpectedArrival
             // 
             this.lblExpectedArrival.AutoSize = true;
-            this.lblExpectedArrival.Location = new System.Drawing.Point(32, 115);
+            this.lblExpectedArrival.Location = new System.Drawing.Point(27, 93);
             this.lblExpectedArrival.Name = "lblExpectedArrival";
-            this.lblExpectedArrival.Size = new System.Drawing.Size(85, 17);
+            this.lblExpectedArrival.Size = new System.Drawing.Size(67, 13);
             this.lblExpectedArrival.TabIndex = 0;
             this.lblExpectedArrival.Text = "Dự Kiến Đến";
             // 
             // lblCustomer
             // 
             this.lblCustomer.AutoSize = true;
-            this.lblCustomer.Location = new System.Drawing.Point(32, 315);
+            this.lblCustomer.Location = new System.Drawing.Point(27, 225);
             this.lblCustomer.Name = "lblCustomer";
-            this.lblCustomer.Size = new System.Drawing.Size(82, 17);
+            this.lblCustomer.Size = new System.Drawing.Size(64, 13);
             this.lblCustomer.TabIndex = 8;
             this.lblCustomer.Text = "Khách Hàng";
             // 
             // dtpExpectedArrival
             // 
             this.dtpExpectedArrival.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpExpectedArrival.Location = new System.Drawing.Point(176, 115);
+            this.dtpExpectedArrival.Location = new System.Drawing.Point(151, 93);
+            this.dtpExpectedArrival.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpExpectedArrival.Name = "dtpExpectedArrival";
-            this.dtpExpectedArrival.Size = new System.Drawing.Size(220, 24);
+            this.dtpExpectedArrival.Size = new System.Drawing.Size(189, 20);
             this.dtpExpectedArrival.TabIndex = 1;
-            // 
-            // cboEmployee
-            // 
-            this.cboEmployee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEmployee.FormattingEnabled = true;
-            this.cboEmployee.Location = new System.Drawing.Point(176, 265);
-            this.cboEmployee.Name = "cboEmployee";
-            this.cboEmployee.Size = new System.Drawing.Size(176, 24);
-            this.cboEmployee.TabIndex = 7;
             // 
             // lblExpectedDeparture
             // 
             this.lblExpectedDeparture.AutoSize = true;
-            this.lblExpectedDeparture.Location = new System.Drawing.Point(32, 165);
+            this.lblExpectedDeparture.Location = new System.Drawing.Point(27, 134);
             this.lblExpectedDeparture.Name = "lblExpectedDeparture";
-            this.lblExpectedDeparture.Size = new System.Drawing.Size(72, 17);
+            this.lblExpectedDeparture.Size = new System.Drawing.Size(57, 13);
             this.lblExpectedDeparture.TabIndex = 2;
             this.lblExpectedDeparture.Text = "Dự Kiến Đi";
-            // 
-            // lblEmployee
-            // 
-            this.lblEmployee.AutoSize = true;
-            this.lblEmployee.Location = new System.Drawing.Point(32, 265);
-            this.lblEmployee.Name = "lblEmployee";
-            this.lblEmployee.Size = new System.Drawing.Size(69, 17);
-            this.lblEmployee.TabIndex = 6;
-            this.lblEmployee.Text = "Nhân Viên";
             // 
             // dtpExpectedDeparture
             // 
             this.dtpExpectedDeparture.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpExpectedDeparture.Location = new System.Drawing.Point(176, 165);
+            this.dtpExpectedDeparture.Location = new System.Drawing.Point(151, 134);
+            this.dtpExpectedDeparture.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpExpectedDeparture.Name = "dtpExpectedDeparture";
-            this.dtpExpectedDeparture.Size = new System.Drawing.Size(220, 24);
+            this.dtpExpectedDeparture.Size = new System.Drawing.Size(189, 20);
             this.dtpExpectedDeparture.TabIndex = 3;
             // 
             // txtDepositAmount
             // 
-            this.txtDepositAmount.Location = new System.Drawing.Point(176, 215);
+            this.txtDepositAmount.Location = new System.Drawing.Point(151, 175);
+            this.txtDepositAmount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDepositAmount.Name = "txtDepositAmount";
-            this.txtDepositAmount.Size = new System.Drawing.Size(220, 24);
+            this.txtDepositAmount.Size = new System.Drawing.Size(189, 20);
             this.txtDepositAmount.TabIndex = 5;
             // 
             // lblDepositAmount
             // 
             this.lblDepositAmount.AutoSize = true;
-            this.lblDepositAmount.Location = new System.Drawing.Point(32, 215);
+            this.lblDepositAmount.Location = new System.Drawing.Point(27, 175);
             this.lblDepositAmount.Name = "lblDepositAmount";
-            this.lblDepositAmount.Size = new System.Drawing.Size(87, 17);
+            this.lblDepositAmount.Size = new System.Drawing.Size(69, 13);
             this.lblDepositAmount.TabIndex = 4;
             this.lblDepositAmount.Text = "Tiền Đặt Cọc";
             // 
             // FormThemMoiPDK
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Navy;
-            this.ClientSize = new System.Drawing.Size(842, 686);
+            this.ClientSize = new System.Drawing.Size(722, 557);
             this.Controls.Add(this.panel2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormThemMoiPDK";
             this.Text = "FormThemMoiPDK";
             this.Load += new System.EventHandler(this.FormThemMoiPDK_Load);
@@ -233,9 +219,7 @@
         private System.Windows.Forms.Label lblExpectedArrival;
         private System.Windows.Forms.Label lblCustomer;
         private System.Windows.Forms.DateTimePicker dtpExpectedArrival;
-        private System.Windows.Forms.ComboBox cboEmployee;
         private System.Windows.Forms.Label lblExpectedDeparture;
-        private System.Windows.Forms.Label lblEmployee;
         private System.Windows.Forms.DateTimePicker dtpExpectedDeparture;
         private System.Windows.Forms.TextBox txtDepositAmount;
         private System.Windows.Forms.Label lblDepositAmount;

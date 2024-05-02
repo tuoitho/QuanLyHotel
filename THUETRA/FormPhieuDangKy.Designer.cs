@@ -30,8 +30,6 @@ namespace QuanLyHotel.THUETRA
             this.dtpExpectedDeparture = new System.Windows.Forms.DateTimePicker();
             this.lblDepositAmount = new System.Windows.Forms.Label();
             this.txtDepositAmount = new System.Windows.Forms.TextBox();
-            this.lblEmployee = new System.Windows.Forms.Label();
-            this.cboEmployee = new System.Windows.Forms.ComboBox();
             this.lblCustomer = new System.Windows.Forms.Label();
             this.cboCustomer = new System.Windows.Forms.ComboBox();
             this.lblRoom = new System.Windows.Forms.Label();
@@ -113,29 +111,10 @@ namespace QuanLyHotel.THUETRA
             this.txtDepositAmount.Size = new System.Drawing.Size(189, 20);
             this.txtDepositAmount.TabIndex = 5;
             // 
-            // lblEmployee
-            // 
-            this.lblEmployee.AutoSize = true;
-            this.lblEmployee.Location = new System.Drawing.Point(27, 215);
-            this.lblEmployee.Name = "lblEmployee";
-            this.lblEmployee.Size = new System.Drawing.Size(55, 13);
-            this.lblEmployee.TabIndex = 6;
-            this.lblEmployee.Text = "Nhân Viên";
-            // 
-            // cboEmployee
-            // 
-            this.cboEmployee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEmployee.FormattingEnabled = true;
-            this.cboEmployee.Location = new System.Drawing.Point(151, 215);
-            this.cboEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cboEmployee.Name = "cboEmployee";
-            this.cboEmployee.Size = new System.Drawing.Size(151, 21);
-            this.cboEmployee.TabIndex = 7;
-            // 
             // lblCustomer
             // 
             this.lblCustomer.AutoSize = true;
-            this.lblCustomer.Location = new System.Drawing.Point(27, 256);
+            this.lblCustomer.Location = new System.Drawing.Point(27, 228);
             this.lblCustomer.Name = "lblCustomer";
             this.lblCustomer.Size = new System.Drawing.Size(64, 13);
             this.lblCustomer.TabIndex = 8;
@@ -145,7 +124,7 @@ namespace QuanLyHotel.THUETRA
             // 
             this.cboCustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCustomer.FormattingEnabled = true;
-            this.cboCustomer.Location = new System.Drawing.Point(151, 256);
+            this.cboCustomer.Location = new System.Drawing.Point(151, 228);
             this.cboCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboCustomer.Name = "cboCustomer";
             this.cboCustomer.Size = new System.Drawing.Size(151, 21);
@@ -154,7 +133,7 @@ namespace QuanLyHotel.THUETRA
             // lblRoom
             // 
             this.lblRoom.AutoSize = true;
-            this.lblRoom.Location = new System.Drawing.Point(27, 297);
+            this.lblRoom.Location = new System.Drawing.Point(27, 269);
             this.lblRoom.Name = "lblRoom";
             this.lblRoom.Size = new System.Drawing.Size(75, 13);
             this.lblRoom.TabIndex = 10;
@@ -164,7 +143,7 @@ namespace QuanLyHotel.THUETRA
             // 
             this.cboRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboRoom.FormattingEnabled = true;
-            this.cboRoom.Location = new System.Drawing.Point(151, 297);
+            this.cboRoom.Location = new System.Drawing.Point(151, 269);
             this.cboRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboRoom.Name = "cboRoom";
             this.cboRoom.Size = new System.Drawing.Size(151, 21);
@@ -339,9 +318,7 @@ namespace QuanLyHotel.THUETRA
             this.panel2.Controls.Add(this.lblExpectedArrival);
             this.panel2.Controls.Add(this.lblCustomer);
             this.panel2.Controls.Add(this.dtpExpectedArrival);
-            this.panel2.Controls.Add(this.cboEmployee);
             this.panel2.Controls.Add(this.lblExpectedDeparture);
-            this.panel2.Controls.Add(this.lblEmployee);
             this.panel2.Controls.Add(this.dtpExpectedDeparture);
             this.panel2.Controls.Add(this.txtDepositAmount);
             this.panel2.Controls.Add(this.lblDepositAmount);
@@ -369,7 +346,7 @@ namespace QuanLyHotel.THUETRA
             // 
             this.button_chuyenphong.Image = global::QuanLyHotel.Properties.Resources.plus;
             this.button_chuyenphong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_chuyenphong.Location = new System.Drawing.Point(110, 369);
+            this.button_chuyenphong.Location = new System.Drawing.Point(110, 341);
             this.button_chuyenphong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_chuyenphong.Name = "button_chuyenphong";
             this.button_chuyenphong.Padding = new System.Windows.Forms.Padding(3);
@@ -418,8 +395,6 @@ namespace QuanLyHotel.THUETRA
         private System.Windows.Forms.DateTimePicker dtpExpectedDeparture;
         private System.Windows.Forms.Label lblDepositAmount;
         private System.Windows.Forms.TextBox txtDepositAmount;
-        private System.Windows.Forms.Label lblEmployee;
-        private System.Windows.Forms.ComboBox cboEmployee;
         private System.Windows.Forms.Label lblCustomer;
         private System.Windows.Forms.ComboBox cboCustomer;
         private System.Windows.Forms.Label lblRoom;

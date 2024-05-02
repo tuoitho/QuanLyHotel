@@ -73,25 +73,34 @@ namespace QuanLyHotel.KHACHHANG
             }
         }
 
-        internal static bool updateKhachHang(string text, string hoten, string sdt, string diachi, string quoctich, MemoryStream pic)
+        internal static bool updateKhachHang(int makh, string hoten, string sdt, DateTime ngaysinh, string cccd, string email, string quoctich, MemoryStream pic)
         {
-            using (SqlCommand cmd = new SqlCommand("update KhachHang set hoten = @hoten, sdt = @sdt, cccd = @cccd, quoctich = @quoctich, hinhanh = @pic where makh = @makh", myDB.GetConnection))
+            using (SqlCommand cmd = new SqlCommand("update KhachHang set hoten=@hoten, sdt=@sdt, ngaysinh=@ngaysinh, cccd=@cccd, email=@email, quoctich=@quoctich, hinhanh=@pic where makh=@makh", myDB.GetConnection))
             {
-                cmd.Parameters.Add("@makh", SqlDbType.NVarChar).Value = text;
+                cmd.Parameters.Add("@makh", SqlDbType.Int).Value = makh;
                 cmd.Parameters.Add("@hoten", SqlDbType.NVarChar).Value = hoten;
                 cmd.Parameters.Add("@sdt", SqlDbType.VarChar).Value = sdt;
-                cmd.Parameters.Add("@cccd", SqlDbType.NVarChar).Value = diachi;
+                cmd.Parameters.Add("@ngaysinh", SqlDbType.DateTime).Value = ngaysinh;
+                cmd.Parameters.Add("@cccd", SqlDbType.NVarChar).Value = cccd;
+                cmd.Parameters.Add("@email", SqlDbType.NVarChar).Value = email;
                 cmd.Parameters.Add("@quoctich", SqlDbType.NVarChar).Value = quoctich;
                 cmd.Parameters.Add("@pic", SqlDbType.Image).Value = pic.ToArray();
                 myDB.OpenConnection();
-                if (cmd.ExecuteNonQuery() == 1)
+                try
                 {
-                    myDB.CloseConnection();
-                    return true;
+                    int k = cmd.ExecuteNonQuery();
+                    if (k > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    myDB.CloseConnection();
+                    MessageBox.Show(ex.Message);
                     return false;
                 }
             }

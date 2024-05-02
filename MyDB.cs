@@ -9,7 +9,7 @@ namespace QuanLyHotel.Resources
 {
     public class MyDB
     {
-        SqlConnection conn = new SqlConnection(@"Data Source=TUOITHO\SQLEXPRESS;Initial Catalog=l3;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=TUOITHO\SQLEXPRESS;Initial Catalog=l7;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True");
         //SqlConnection conn = new SqlConnection(@"Server=tcp:azureforwintt.database.windows.net,1433;Initial Catalog=QuanLyHotel;Persist Security Info=False;User ID=CloudSA18c3fa08;Password=83688436T@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         public SqlConnection GetConnection
         {

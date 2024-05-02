@@ -45,7 +45,7 @@ namespace QuanLyHotel.KHACHHANG
             dataGridView_kh.DataSource = KH.getDSKhachHang();
             //zoom datagridview
             DataGridViewImageColumn picCol = new DataGridViewImageColumn();
-            picCol = (DataGridViewImageColumn)dataGridView_kh.Columns[5];
+            picCol = (DataGridViewImageColumn)dataGridView_kh.Columns[7];
             picCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
             dataGridView_kh.AllowUserToAddRows = false;
 
@@ -95,13 +95,16 @@ namespace QuanLyHotel.KHACHHANG
             textBox_makh.Text = dataGridView_kh.CurrentRow.Cells[0].Value.ToString();
             textBox_hoten.Text = dataGridView_kh.CurrentRow.Cells[1].Value.ToString();
             textBox_sdt.Text = dataGridView_kh.CurrentRow.Cells[2].Value.ToString();
-            textBox_cccd.Text = dataGridView_kh.CurrentRow.Cells[3].Value.ToString();
-            textBox_quoctich.Text = dataGridView_kh.CurrentRow.Cells[4].Value.ToString();
-            if (dataGridView_kh.CurrentRow.Cells[5].Value != DBNull.Value)
+            textBox_cccd.Text = dataGridView_kh.CurrentRow.Cells[4].Value.ToString();
+            textBox_quoctich.Text = dataGridView_kh.CurrentRow.Cells[6].Value.ToString();
+            if (dataGridView_kh.CurrentRow.Cells[3].Value != DBNull.Value)
+            datetimePicker_NgaySinh.Value = Convert.ToDateTime(dataGridView_kh.CurrentRow.Cells[3].Value);
+            textBox_email.Text = dataGridView_kh.CurrentRow.Cells[5].Value.ToString();
+            if (dataGridView_kh.CurrentRow.Cells[7].Value != DBNull.Value)
 
             {
                 byte[] pic;
-                pic = (byte[])dataGridView_kh.CurrentRow.Cells[5].Value;
+                pic = (byte[])dataGridView_kh.CurrentRow.Cells[7].Value;
                 MemoryStream picture = new MemoryStream(pic);
                 pictureBox1.Image = Image.FromStream(picture);
                 //zoom
@@ -115,13 +118,22 @@ namespace QuanLyHotel.KHACHHANG
         {
             try
             {
+                int makh = Convert.ToInt32(textBox_makh.Text);
                 string hoten = textBox_hoten.Text;
                 string sdt = textBox_sdt.Text;
+                DateTime ngaysinh = datetimePicker_NgaySinh.Value;
+                string cccd = textBox_cccd.Text;
+                string email = textBox_email.Text;
                 string diachi = textBox_cccd.Text;
                 string quoctich = textBox_quoctich.Text;
                 MemoryStream pic = new MemoryStream();
+                if (pictureBox1.Image == null)
+                {
+                    MessageBox.Show("Chưa chọn ảnh", "Cập nhật khách hàng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 pictureBox1.Image.Save(pic, pictureBox1.Image.RawFormat);
-                if (KH.updateKhachHang(textBox_makh.Text, hoten, sdt, diachi, quoctich, pic))
+                if (KH.updateKhachHang(makh, hoten, sdt, ngaysinh, cccd, email, quoctich, pic))
                 {
                     MessageBox.Show("Cập nhật khách hàng thành công", "Cập nhật khách hàng", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     load();
@@ -208,6 +220,11 @@ namespace QuanLyHotel.KHACHHANG
         }
 
         private void button_xemphong_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDepositAmount_Click(object sender, EventArgs e)
         {
 
         }

@@ -29,9 +29,6 @@ namespace QuanLyHotel.THUETRA
             cboCustomer.DataSource = KH.getDSKhachHang();
             cboCustomer.DisplayMember = "MaKH";
             cboCustomer.ValueMember = "MaKH";
-            cboEmployee.DataSource = EMP.getDSNhanVien();
-            cboEmployee.DisplayMember = "MaNV";
-            cboEmployee.ValueMember = "MaNV";
             cboRoom.DataSource = PH.getDSPhong();
             cboRoom.Enabled = false;
             cboRoom.DisplayMember = "MaPhong";
@@ -47,23 +44,25 @@ namespace QuanLyHotel.THUETRA
                 dtpExpectedArrival.Text = row.Cells[1].Value.ToString();
                 dtpExpectedDeparture.Text = row.Cells[2].Value.ToString();
                 txtDepositAmount.Text = row.Cells[3].Value.ToString();
-                cboEmployee.SelectedItem = row.Cells[4].Value.ToString();
                 cboCustomer.SelectedItem = row.Cells[5].Value.ToString();
                 cboRoom.SelectedItem = row.Cells[6].Value.ToString();
-                if (row.Cells[7].Value.ToString() == "Hoàn thành")
+                if (row.Cells[6].Value.ToString() == "Hoàn thành")
                 {
                     button_hoanthanh.Enabled = false;
                     button_hethan.Enabled = false;
+                    btn_modify.Enabled = false;
                 }
-                else if (row.Cells[7].Value.ToString() == "Hết hạn")
+                else if (row.Cells[6].Value.ToString() == "Hết hạn")
                 {
                     button_hoanthanh.Enabled = false;
                     button_hethan.Enabled = false;
                     button_xemhd.Enabled = false;
+                    btn_modify.Enabled = false;
                 }
                 else
                 {
                     button_hoanthanh.Enabled = true;
+                    btn_modify.Enabled = true;
                     button_hethan.Enabled = true;
                 }
 
@@ -126,16 +125,39 @@ namespace QuanLyHotel.THUETRA
                 dtpExpectedArrival.Text = row.Cells[1].Value.ToString();
                 dtpExpectedDeparture.Text = row.Cells[2].Value.ToString();
                 txtDepositAmount.Text = row.Cells[3].Value.ToString();
-                cboEmployee.SelectedItem = row.Cells[4].Value.ToString();
-                cboCustomer.SelectedItem = row.Cells[5].Value.ToString();
+                if (cboCustomer.Items.Count > 0)
+                {
+                    if (row.Cells[4].Value.ToString() != "")
+                    cboCustomer.SelectedItem = row.Cells[4].Value.ToString();
+                    else
+                    {
+                        //ko co khach hang nao duoc chon
+                        cboCustomer.SelectedIndex = -1;
+                    }
+                }
+
                 //cboRoom.SelectedItem = row.Cells[6].Value.ToString();
-                cboRoom.SelectedValue = row.Cells[6].Value.ToString();
-                if (row.Cells[7].Value.ToString() == "Hoàn thành")
+                if (cboRoom.Items.Count > 0)
+                {
+                    cboRoom.Enabled = true;
+                    if (row.Cells[5].Value.ToString() != "")
+                    cboRoom.SelectedValue = row.Cells[5].Value.ToString();
+                    else
+                    {
+                        //ko co phong nao duoc chon
+                        cboRoom.SelectedIndex = -1;
+                    }
+                }
+                else
+                {
+                    cboRoom.Enabled = false;
+                }
+                if (row.Cells[6].Value.ToString() == "Hoàn thành")
                 {
                     button_hoanthanh.Enabled = false;
                     button_hethan.Enabled = false;
                 }
-                else if (row.Cells[7].Value.ToString() == "Hết hạn")
+                else if (row.Cells[6].Value.ToString() == "Hết hạn")
                 {
                     button_hoanthanh.Enabled = false;
                     button_hethan.Enabled = false;
@@ -225,9 +247,8 @@ namespace QuanLyHotel.THUETRA
             dtpExpectedArrival.Text = dataGridView_pdk.SelectedCells[1].Value.ToString();
             dtpExpectedDeparture.Text = dataGridView_pdk.SelectedCells[2].Value.ToString();
             txtDepositAmount.Text = dataGridView_pdk.SelectedCells[3].Value.ToString();
-            cboEmployee.SelectedValue = dataGridView_pdk.SelectedCells[4].Value.ToString();
-            cboCustomer.SelectedValue = dataGridView_pdk.SelectedCells[5].Value.ToString();
-            cboRoom.SelectedValue = dataGridView_pdk.SelectedCells[6].Value.ToString();
+            cboCustomer.SelectedValue = dataGridView_pdk.SelectedCells[4].Value.ToString();
+            cboRoom.SelectedValue = dataGridView_pdk.SelectedCells[5].Value.ToString();
 
 
             string stt= TT.getTrangThaiByMaPDK(mapdk);
@@ -263,12 +284,11 @@ namespace QuanLyHotel.THUETRA
             DateTime expectedArrival = dtpExpectedArrival.Value;
             DateTime expectedDeparture = dtpExpectedDeparture.Value;
             double depositAmount = Convert.ToDouble(txtDepositAmount.Text);
-            int employee = Convert.ToInt32(cboEmployee.SelectedValue.ToString());
             int customer = Convert.ToInt32(cboCustomer.SelectedValue.ToString());
             int room = Convert.ToInt32(cboRoom.SelectedValue.ToString());
             try
             {
-                TT.updatePhieuDangKy(mapdk, expectedArrival,expectedDeparture, depositAmount, employee, customer, room);
+                TT.updatePhieuDangKy(mapdk, expectedArrival,expectedDeparture, depositAmount, customer, room);
                 MessageBox.Show("Cập nhật thành công", "Cập nhật phiếu đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 reload();
             }
@@ -280,7 +300,7 @@ namespace QuanLyHotel.THUETRA
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-            if (dataGridView_pdk.CurrentRow.Cells[7].Value.ToString() == "")
+            if (dataGridView_pdk.CurrentRow.Cells[6].Value.ToString() == "")
             {
                 if (MessageBox.Show("PDK chưa xử lí, bạn có chắc chắn muốn xóa?", "Xóa phiếu đăng ký", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 {

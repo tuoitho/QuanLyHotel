@@ -28,9 +28,7 @@ namespace QuanLyHotel.THUETRA
             cboRoom.DataSource = PH.getDSPhongTrong();
             cboRoom.DisplayMember = "MaPhong";
             cboRoom.ValueMember = "MaPhong";
-            cboEmployee.DataSource = EMP.getDSNhanVien();
-            cboEmployee.DisplayMember = "MaNV";
-            cboEmployee.ValueMember = "MaNV";
+
 
         }
         private void button_add_Click(object sender, EventArgs e)
@@ -51,13 +49,12 @@ namespace QuanLyHotel.THUETRA
             }
 
             string depositAmount = txtDepositAmount.Text;
-            int employee = Convert.ToInt32(cboEmployee.SelectedValue.ToString());
             int customer = Convert.ToInt32(cboCustomer.SelectedValue.ToString());
             int room = Convert.ToInt32(cboRoom.SelectedValue.ToString());
             //them
             try
             {
-                TT.themPhieuDangKy(expectedArrival, expectedDeparture, depositAmount, employee, customer, room);
+                TT.themPhieuDangKy(expectedArrival, expectedDeparture, depositAmount, customer, room);
                 PH.danhDauPhong(room, 1);
                 //tra ve dialog result
                 MessageBox.Show("Thêm phiếu đăng ký thành công", "Thêm phiếu đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Information);

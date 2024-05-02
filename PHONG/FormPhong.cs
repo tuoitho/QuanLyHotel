@@ -17,7 +17,7 @@ namespace QuanLyHotel.PHONG
         {
             InitializeComponent();
         }
-
+        bool loaded = false;
         private void FormPhong_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'hotelManagementDataSet1.Phong' table. You can move, or remove it, as needed.
@@ -31,6 +31,7 @@ namespace QuanLyHotel.PHONG
             comboBox_p2_loai.DisplayMember = "maloaiphong";
             comboBox_p2_loai.ValueMember = "maloaiphong";
             dataGridView_phong.DefaultCellStyle.SelectionBackColor = Color.Purple;
+            loaded=true;
             
 
         }
@@ -49,7 +50,7 @@ namespace QuanLyHotel.PHONG
         {
             string tenphong = txt_tenphong.Text;
             bool stt = checkBox_stt.Checked?true:false;
-            string maloai = comboBox_maloai.Text;
+            int maloai = Convert.ToInt32(comboBox_maloai.Text);
             try
             {
                 PH.insertPhong( tenphong, stt, maloai);
@@ -81,7 +82,7 @@ namespace QuanLyHotel.PHONG
             tabControl_phong.SelectedTab = tabPage_qlloaiphong ;
             comboBox_p2_loai.Text = dataGridView_phong.CurrentRow.Cells[3].Value.ToString();
             //display loai phong
-            DataTable table = PH.getLoaiPhongByMaLoai(comboBox_p2_loai.Text);
+            DataTable table = PH.getLoaiPhongByMaLoai(Convert.ToInt32(comboBox_p2_loai.Text));
             comboBox_p2_loai.Text = table.Rows[0][0].ToString();
             textBox_p2_tenloai.Text = table.Rows[0][1].ToString();
             textBox_p2_trangthietbi.Text = table.Rows[0][2].ToString();
@@ -94,7 +95,7 @@ namespace QuanLyHotel.PHONG
         {
             try
             {
-                string maloaiphong = comboBox_p2_loai.Text;
+                int maloaiphong = Convert.ToInt32(comboBox_p2_loai.Text);
                 string tenloaiphong = textBox_p2_tenloai.Text;
                 string trangthietbi = textBox_p2_trangthietbi.Text;
                 double gia = Convert.ToDouble(textBox_p2_gia.Text);
@@ -111,8 +112,12 @@ namespace QuanLyHotel.PHONG
 
         private void comboBox_p2_loai_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (!loaded)
+            {
+                return;
+            }
             //display loai phong
-            DataTable table = PH.getLoaiPhongByMaLoai(comboBox_p2_loai.Text);
+            DataTable table = PH.getLoaiPhongByMaLoai(Convert.ToInt32(comboBox_p2_loai.Text));
             if (table.Rows.Count == 0)
             {
                 return;
@@ -139,7 +144,7 @@ namespace QuanLyHotel.PHONG
             //sua loai phong
             try
             {
-                string maloaiphong = comboBox_p2_loai.Text;
+                int maloaiphong = Convert.ToInt32(comboBox_p2_loai.Text);
                 string tenloaiphong = textBox_p2_tenloai.Text;
                 string trangthietbi = textBox_p2_trangthietbi.Text;
                 double gia = Convert.ToDouble(textBox_p2_gia.Text);
@@ -158,7 +163,7 @@ namespace QuanLyHotel.PHONG
             //xoa loai phong theo maloai
             try
             {
-                string maloaiphong = comboBox_p2_loai.Text;
+                int maloaiphong = Convert.ToInt32(comboBox_p2_loai.Text);
                 PH.deleteLoaiPhong(maloaiphong);
                 MessageBox.Show("Xóa loại phòng thành công", "Xóa loại phòng", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -175,7 +180,7 @@ namespace QuanLyHotel.PHONG
 
         private void btn_modify_Click(object sender, EventArgs e)
         {
-            string maphong = txt_maphong.Text;
+            int maphong = Convert.ToInt32(txt_maphong.Text);
             string tenphong = txt_tenphong.Text;
             bool stt = checkBox_stt.Checked ? true : false;
             string maloai = comboBox_maloai.Text;
@@ -215,7 +220,7 @@ namespace QuanLyHotel.PHONG
             checkBox_stt.Checked = dataGridView_phong.CurrentRow.Cells[2].Value.ToString() == "True" ? true : false;
             comboBox_maloai.Text = dataGridView_phong.CurrentRow.Cells[3].Value.ToString();
 
-            DataTable table = PH.getLoaiPhongByMaLoai(comboBox_maloai.Text);
+            DataTable table = PH.getLoaiPhongByMaLoai(Convert.ToInt32(comboBox_maloai.Text));
 
         }
 

@@ -55,6 +55,10 @@
             this.button_timkiem = new System.Windows.Forms.Button();
             this.groupBox_tacvu = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.datetimePicker_NgaySinh = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox_email = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -76,6 +80,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.datetimePicker_NgaySinh);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.textBox_email);
             this.panel2.Controls.Add(this.textBox_quoctich);
             this.panel2.Controls.Add(this.textBox_cccd);
             this.panel2.Controls.Add(this.textBox_sdt);
@@ -87,6 +94,7 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.lblExpectedArrival);
             this.panel2.Controls.Add(this.lblExpectedDeparture);
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.lblEmployee);
             this.panel2.Controls.Add(this.lblDepositAmount);
             this.panel2.Location = new System.Drawing.Point(3, 0);
@@ -98,7 +106,7 @@
             // 
             // textBox_quoctich
             // 
-            this.textBox_quoctich.Location = new System.Drawing.Point(100, 213);
+            this.textBox_quoctich.Location = new System.Drawing.Point(99, 259);
             this.textBox_quoctich.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_quoctich.Name = "textBox_quoctich";
             this.textBox_quoctich.Size = new System.Drawing.Size(198, 20);
@@ -106,7 +114,7 @@
             // 
             // textBox_cccd
             // 
-            this.textBox_cccd.Location = new System.Drawing.Point(100, 172);
+            this.textBox_cccd.Location = new System.Drawing.Point(100, 200);
             this.textBox_cccd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_cccd.Name = "textBox_cccd";
             this.textBox_cccd.Size = new System.Drawing.Size(198, 20);
@@ -141,7 +149,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(100, 383);
+            this.button1.Location = new System.Drawing.Point(100, 411);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(197, 25);
@@ -153,7 +161,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.GreenYellow;
-            this.pictureBox1.Location = new System.Drawing.Point(100, 269);
+            this.pictureBox1.Location = new System.Drawing.Point(100, 297);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(197, 109);
@@ -163,7 +171,7 @@
             // label_phongmuonchuyen
             // 
             this.label_phongmuonchuyen.AutoSize = true;
-            this.label_phongmuonchuyen.Location = new System.Drawing.Point(27, 269);
+            this.label_phongmuonchuyen.Location = new System.Drawing.Point(27, 297);
             this.label_phongmuonchuyen.Name = "label_phongmuonchuyen";
             this.label_phongmuonchuyen.Size = new System.Drawing.Size(49, 13);
             this.label_phongmuonchuyen.TabIndex = 10;
@@ -199,7 +207,7 @@
             // lblEmployee
             // 
             this.lblEmployee.AutoSize = true;
-            this.lblEmployee.Location = new System.Drawing.Point(27, 215);
+            this.lblEmployee.Location = new System.Drawing.Point(26, 261);
             this.lblEmployee.Name = "lblEmployee";
             this.lblEmployee.Size = new System.Drawing.Size(54, 13);
             this.lblEmployee.TabIndex = 6;
@@ -208,11 +216,12 @@
             // lblDepositAmount
             // 
             this.lblDepositAmount.AutoSize = true;
-            this.lblDepositAmount.Location = new System.Drawing.Point(27, 175);
+            this.lblDepositAmount.Location = new System.Drawing.Point(27, 203);
             this.lblDepositAmount.Name = "lblDepositAmount";
             this.lblDepositAmount.Size = new System.Drawing.Size(35, 13);
             this.lblDepositAmount.TabIndex = 4;
             this.lblDepositAmount.Text = "CCCD";
+            this.lblDepositAmount.Click += new System.EventHandler(this.lblDepositAmount_Click);
             // 
             // panel1
             // 
@@ -382,6 +391,42 @@
             this.button2.Text = "   Xem DS PDK";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // datetimePicker_NgaySinh
+            // 
+            this.datetimePicker_NgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datetimePicker_NgaySinh.Location = new System.Drawing.Point(100, 162);
+            this.datetimePicker_NgaySinh.Name = "datetimePicker_NgaySinh";
+            this.datetimePicker_NgaySinh.Size = new System.Drawing.Size(151, 20);
+            this.datetimePicker_NgaySinh.TabIndex = 17;
+            this.datetimePicker_NgaySinh.Value = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(27, 168);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(58, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Ngày sinh:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(26, 237);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Email";
+            // 
+            // textBox_email
+            // 
+            this.textBox_email.Location = new System.Drawing.Point(99, 235);
+            this.textBox_email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox_email.Name = "textBox_email";
+            this.textBox_email.Size = new System.Drawing.Size(198, 20);
+            this.textBox_email.TabIndex = 13;
+            // 
             // FormKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,5 +482,9 @@
         private System.Windows.Forms.Button button_timkiem;
         private System.Windows.Forms.GroupBox groupBox_tacvu;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DateTimePicker datetimePicker_NgaySinh;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox_email;
+        private System.Windows.Forms.Label label1;
     }
 }
