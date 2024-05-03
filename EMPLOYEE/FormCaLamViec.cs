@@ -18,8 +18,8 @@ namespace QuanLyHotel.LamVieic
         public FormCaLamViec()
         {
             InitializeComponent();
-        }
 
+        }
         private void FormCaLamViec_Load(object sender, EventArgs e)
         {
             dataGridView_calamviec.DataSource = EMP.getDSCa();
@@ -30,6 +30,12 @@ namespace QuanLyHotel.LamVieic
             //format
             dataGridView_calamviec.Columns[3].DefaultCellStyle.Format = "HH:mm";
             dataGridView_calamviec.Columns[2].DefaultCellStyle.Format = "HH:mm";
+            if (Info.role == "employee" && Info.chucvu != 1 || Info.role != "admin" && Info.role != "employee")
+            {
+                //hide tabpage
+                tabControl.TabPages.Remove(tabPage_ca);
+
+            }
         }
 
         private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)

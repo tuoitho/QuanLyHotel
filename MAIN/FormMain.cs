@@ -24,22 +24,26 @@ namespace QuanLyHotel.EMPLOYEE
         public FormMain()
         {
             InitializeComponent();
-            if (Info.chucvu == 1)
+            if (Info.role == "employee")
             {
-                button_account.Visible = false;
-            }
-            else
-            if (Info.chucvu == 2)
-            {
-                button_nv.Visible = false;
-                button_account.Visible = false;
-            }
-            else if (Info.chucvu == 3)
-            {
-                button_nv.Visible = false;
-                button_account.Visible = false;
-                button_bill.Visible = false;
-                button_phong.Visible = false;
+
+                if (Info.chucvu == 1)
+                {
+                    button_account.Visible = false;
+                }
+                else
+                if (Info.chucvu == 2)
+                {
+                    button_nv.Visible = false;
+                    button_account.Visible = false;
+                }
+                else if (Info.chucvu == 3)
+                {
+                    button_nv.Visible = false;
+                    button_account.Visible = false;
+                    button_bill.Visible = false;
+                    button_phong.Visible = false;
+                }
             }
         }
 
@@ -88,7 +92,7 @@ namespace QuanLyHotel.EMPLOYEE
         }
         private void DisableButton()
         {
-                        foreach (Control previousBtn in panel_menu.Controls)
+            foreach (Control previousBtn in panel_menu.Controls)
             {
                 if (previousBtn.GetType() == typeof(RoundedButton))
                 {
@@ -160,7 +164,7 @@ namespace QuanLyHotel.EMPLOYEE
 
         private void button_account_Click(object sender, EventArgs e)
         {
-            FormAccount formAccount = new FormAccount();    
+            FormAccount formAccount = new FormAccount();
             OpenChildForm(formAccount, sender);
             lblTiltle.Text = "Tài khoản";
         }

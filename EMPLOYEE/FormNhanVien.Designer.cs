@@ -64,6 +64,8 @@ namespace QuanLyHotel.EMPLOYEE
             this.btn_modify = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.tabControl_nhanvien = new System.Windows.Forms.TabControl();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox_email = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.hotelManagementDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.tabPage_quanlynv.SuspendLayout();
@@ -140,12 +142,14 @@ namespace QuanLyHotel.EMPLOYEE
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.datetimePicker_NgaySinh);
             this.groupBox1.Controls.Add(this.txt_DiaChi);
+            this.groupBox1.Controls.Add(this.textBox_email);
             this.groupBox1.Controls.Add(this.txt_SDT);
             this.groupBox1.Controls.Add(this.txt_HoTen);
             this.groupBox1.Controls.Add(this.txt_MaNV);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -161,7 +165,7 @@ namespace QuanLyHotel.EMPLOYEE
             // comboBox_manql
             // 
             this.comboBox_manql.FormattingEnabled = true;
-            this.comboBox_manql.Location = new System.Drawing.Point(551, 170);
+            this.comboBox_manql.Location = new System.Drawing.Point(889, 165);
             this.comboBox_manql.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox_manql.Name = "comboBox_manql";
             this.comboBox_manql.Size = new System.Drawing.Size(104, 27);
@@ -316,7 +320,7 @@ namespace QuanLyHotel.EMPLOYEE
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(450, 171);
+            this.label6.Location = new System.Drawing.Point(788, 166);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 19);
             this.label6.TabIndex = 4;
@@ -448,6 +452,26 @@ namespace QuanLyHotel.EMPLOYEE
             this.tabControl_nhanvien.TabIndex = 7;
             this.tabControl_nhanvien.SelectedIndexChanged += new System.EventHandler(this.tabControl_nhanvien_SelectedIndexChanged);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(458, 173);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(44, 19);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Email:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBox_email
+            // 
+            this.textBox_email.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox_email.Location = new System.Drawing.Point(508, 166);
+            this.textBox_email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox_email.MaxLength = 50;
+            this.textBox_email.Name = "textBox_email";
+            this.textBox_email.Size = new System.Drawing.Size(252, 26);
+            this.textBox_email.TabIndex = 10;
+            // 
             // FormNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -526,5 +550,7 @@ namespace QuanLyHotel.EMPLOYEE
         private TabControl tabControl_nhanvien;
         private ComboBox comboBox_manql;
         private Label label6;
+        private TextBox textBox_email;
+        private Label label7;
     }
 }

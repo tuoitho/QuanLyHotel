@@ -5,9 +5,11 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TheArtOfDev.HtmlRenderer.Adapters;
 
 namespace QuanLyHotel.KHACHHANG
 {
@@ -130,11 +132,11 @@ namespace QuanLyHotel.KHACHHANG
             }
         }
 
-        internal static DataTable getMaGiamGia()
+        internal static DataTable getMaGiamGia(int makh)
         {
             using (SqlCommand cmd = new SqlCommand("select * from MaGiamGia where MaKH=@makh", myDB.GetConnection))
             {
-                cmd.Parameters.Add("@makh", SqlDbType.NVarChar).Value = Info.id;
+                cmd.Parameters.Add("@makh", SqlDbType.Int).Value = makh;
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 DataTable table = new DataTable();
                 myDB.OpenConnection();
@@ -142,6 +144,107 @@ namespace QuanLyHotel.KHACHHANG
                 myDB.CloseConnection();
                 return table;
             }
+        }
+
+        internal static DataTable getPhongDaThue(int makh)
+        {
+            using (SqlCommand cmd = new SqlCommand("SELECT PhieuDangKy.[MaPhong]      , PhieuDangKy.DuKienDen  , [PhieuDangKy].DuKienDi  FROM phong join PhieuDangKy on phong.MaPhong = PhieuDangKy.MaPhong join KhachHang on PhieuDangKy.MaKH = KhachHang.MaKH join HoaDon on PhieuDangKy.Maphieudk = HoaDon.maphieudk and HoaDon.TrangThai like N'Chưa thanh toán' where KhachHang.MaKH = @makh", myDB.GetConnection))
+            {
+                myDB.OpenConnection();
+                cmd.Parameters.Add("@makh", SqlDbType.Int).Value = makh;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                DataTable table = new DataTable();
+                myDB.OpenConnection();
+                adapter.Fill(table);
+                myDB.CloseConnection();
+                return table;
+            }
+        }
+
+        internal static string getNameByID(int makh)
+        {
+            SqlCommand sqlCommand = new SqlCommand("SELECT hoten FROM KhachHang where MaKH = @makh", myDB.GetConnection);
+            sqlCommand.Parameters.Add("@makh", SqlDbType.Int).Value = makh;
+            myDB.OpenConnection();
+            string name = sqlCommand.ExecuteScalar().ToString();
+            myDB.CloseConnection();
+            return name;
+
+        }
+
+        internal static int getMaHoaDonHienTaiByMaKH(int id)
+        {
+            using (SqlCommand cmd = new SqlCommand("select MaHoaDon from HoaDon where MaKH = @id and TrangThai like N'Chưa thanh toán'", myDB.GetConnection))
+            {
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                myDB.OpenConnection();
+                int mahd = Convert.ToInt32(cmd.ExecuteScalar());
+                myDB.CloseConnection();
+                return mahd;
+            }
+        }
+
+        internal static DataTable getDSKhaiBaoByMaHD(int mahd)
+        {
+           using (SqlCommand cmd = new SqlCommand("select * from KhaiBao where MaHD = @mahd", myDB.GetConnection))
+            {
+                cmd.Parameters.Add("@mahd", SqlDbType.Int).Value = mahd;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                myDB.OpenConnection();
+                adapter.Fill(table);
+                myDB.CloseConnection();
+                return table;
+            }
+        }
+
+        internal static void insertKhaiBao(int id, int mahd, int madv, int soluong)
+        {
+            using (SqlCommand cmd = new SqlCommand("insert into KhaiBao (MaKH, MaHD, MaDV, SoLuong) values (@id, @mahd, @madv, @soluong)", myDB.GetConnection))
+            {
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                cmd.Parameters.Add("@mahd", SqlDbType.Int).Value = mahd;
+                cmd.Parameters.Add("@madv", SqlDbType.Int).Value = madv;
+                cmd.Parameters.Add("@soluong", SqlDbType.Int).Value = soluong;
+                myDB.OpenConnection();
+                cmd.ExecuteNonQuery();
+                myDB.CloseConnection();
+            }
+        }
+
+        internal static bool checkKhaiBao(int mahd, int madv)
+        {
+            using (SqlCommand cmd = new SqlCommand("select * from KhaiBao where MaHD = @mahd and MaDV = @madv", myDB.GetConnection))
+            {
+                cmd.Parameters.Add("@mahd", SqlDbType.Int).Value = mahd;
+                cmd.Parameters.Add("@madv", SqlDbType.Int).Value = madv;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                myDB.OpenConnection();
+                adapter.Fill(table);
+                myDB.CloseConnection();
+                if (table.Rows.Count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        internal static DataTable getDSKhaiBaoDayDu(int maHD)
+        {
+            SqlCommand cmd=new SqlCommand("SELECT ISNULL(ChiTietHoaDonDichVu.MaDichVu, KhaiBao.MaDV) [Mã DV], ChiTietHoaDonDichVu.SoLuong as [Số lượng nhân viên cập nhật], KhaiBao.SoLuong as [Số lượng khách hàng khai báo]\r\nFROM ChiTietHoaDonDichVu\r\nfull JOIN KhaiBao ON ChiTietHoaDonDichVu.MaHoaDon = KhaiBao.MaHD AND ChiTietHoaDonDichVu.MaDichVu = KhaiBao.MaDV\r\nwhere ChiTietHoaDonDichVu.MaHoaDon = @mhd or KhaiBao.MaHD=@mhd", myDB.GetConnection);
+            cmd.Parameters.Add("@mhd", SqlDbType.Int).Value = maHD;
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable table = new DataTable();
+            myDB.OpenConnection();
+            adapter.Fill(table);
+            myDB.CloseConnection();
+            return table;
         }
     }
 }

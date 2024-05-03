@@ -75,13 +75,13 @@ namespace QuanLyHotel.EMPLOYEE
 
         }
 
-        public static bool deleteNhanVien(string employeeID)
+        public static bool deleteNhanVien(int employeeID)
         {
             //cap nhat ma nguoi quan ly cua nhung nhan vien thuoc nhan vien nay = NULL
             SqlCommand sqlCommand = new SqlCommand("UPDATE NhanVien SET manql = NULL WHERE manql = @eid;"
                 + "DELETE FROM NhanVien WHERE manv = @eid", mydb.GetConnection);
             //SqlCommand sqlCommand = new SqlCommand("DELETE FROM NhanVien WHERE manv = @eid", mydb.GetConnection);
-            sqlCommand.Parameters.Add("@eid", SqlDbType.VarChar).Value = employeeID;
+            sqlCommand.Parameters.Add("@eid", SqlDbType.Int).Value = employeeID;
             mydb.OpenConnection();
             //THUC thi nhieu cau lenh sql trong cung 1 command
             if (sqlCommand.ExecuteNonQuery() > 0)
@@ -250,6 +250,45 @@ namespace QuanLyHotel.EMPLOYEE
                 mydb.OpenConnection();
                 sqlCommand.ExecuteNonQuery();
                 mydb.CloseConnection();
+            }
+        }
+
+        internal static void insertNhanVien(string name, string gender, DateTime dOB, string address, string phone, string position, string email, int manql)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("INSERT INTO NhanVien (hoten, phai, ngaysinh, diachi, sdt, machucvu, email, manql) VALUES (@name, @gender, @dob, @address, @phone, @position, @email, @manql)", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@name", SqlDbType.NVarChar).Value = name;
+                sqlCommand.Parameters.Add("@gender", SqlDbType.NVarChar).Value = gender;
+                sqlCommand.Parameters.Add("@dob", SqlDbType.Date).Value = dOB;
+                sqlCommand.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
+                sqlCommand.Parameters.Add("@phone", SqlDbType.VarChar).Value = phone;
+                sqlCommand.Parameters.Add("@position", SqlDbType.VarChar).Value = position;
+                sqlCommand.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
+                sqlCommand.Parameters.Add("@manql", SqlDbType.Int).Value = manql;
+                mydb.OpenConnection();
+                sqlCommand.ExecuteNonQuery();
+                mydb.CloseConnection();
+
+            }
+        }
+
+        internal static void updateNhanVien(int employeeID, string name, string gender, DateTime dOB, string address, string phone, string position, string email, int manql)
+        {
+           using (SqlCommand sqlCommand = new SqlCommand("UPDATE NhanVien SET hoten = @name, phai = @gender, ngaysinh = @dob, diachi = @address, sdt = @phone, machucvu = @position, email = @email, manql = @manql WHERE manv = @employeeID", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@employeeID", SqlDbType.Int).Value = employeeID;
+                sqlCommand.Parameters.Add("@name", SqlDbType.NVarChar).Value = name;
+                sqlCommand.Parameters.Add("@gender", SqlDbType.NVarChar).Value= gender;
+                sqlCommand.Parameters.Add("@dob", SqlDbType.Date).Value = dOB;
+                sqlCommand.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
+                sqlCommand.Parameters.Add("@phone", SqlDbType.VarChar).Value = phone;
+                sqlCommand.Parameters.Add("@position", SqlDbType.VarChar).Value = position;
+                sqlCommand.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
+                sqlCommand.Parameters.Add("@manql", SqlDbType.Int).Value = manql;
+                mydb.OpenConnection();
+                sqlCommand.ExecuteNonQuery();
+                mydb.CloseConnection();
+
             }
         }
     }

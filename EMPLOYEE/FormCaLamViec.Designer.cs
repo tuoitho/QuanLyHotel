@@ -31,16 +31,17 @@
             this.button_phanca = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView_calamviec = new System.Windows.Forms.DataGridView();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage_ca = new System.Windows.Forms.TabPage();
+            this.numericUpDown_sotuan = new System.Windows.Forms.NumericUpDown();
+            this.dateTimePicker_start = new System.Windows.Forms.DateTimePicker();
             this.textBox_tonglc = new System.Windows.Forms.TextBox();
             this.textBox_tongtt = new System.Windows.Forms.TextBox();
             this.textBox_tongql = new System.Windows.Forms.TextBox();
             this.textBox_tongnv = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -51,19 +52,14 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView_lich = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker_start = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown_sotuan = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_calamviec)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.tabControl2.SuspendLayout();
+            this.tabControl.SuspendLayout();
             this.tabPage_ca.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_sotuan)).BeginInit();
             this.tabPage_lich.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_lich)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_sotuan)).BeginInit();
             this.SuspendLayout();
             // 
             // button_phanca
@@ -105,36 +101,6 @@
             this.dataGridView_calamviec.Size = new System.Drawing.Size(530, 448);
             this.dataGridView_calamviec.TabIndex = 13;
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(26, 45);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(200, 100);
-            this.tabControl1.TabIndex = 20;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(192, 74);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 74);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(650, 457);
@@ -145,16 +111,16 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button_pc_Click);
             // 
-            // tabControl2
+            // tabControl
             // 
-            this.tabControl2.Controls.Add(this.tabPage_ca);
-            this.tabControl2.Controls.Add(this.tabPage_lich);
-            this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl2.Location = new System.Drawing.Point(0, 0);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(947, 569);
-            this.tabControl2.TabIndex = 20;
+            this.tabControl.Controls.Add(this.tabPage_ca);
+            this.tabControl.Controls.Add(this.tabPage_lich);
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(947, 569);
+            this.tabControl.TabIndex = 20;
             // 
             // tabPage_ca
             // 
@@ -180,6 +146,22 @@
             this.tabPage_ca.TabIndex = 0;
             this.tabPage_ca.Text = "Ca";
             this.tabPage_ca.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown_sotuan
+            // 
+            this.numericUpDown_sotuan.Location = new System.Drawing.Point(713, 390);
+            this.numericUpDown_sotuan.Name = "numericUpDown_sotuan";
+            this.numericUpDown_sotuan.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown_sotuan.TabIndex = 25;
+            // 
+            // dateTimePicker_start
+            // 
+            this.dateTimePicker_start.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker_start.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_start.Location = new System.Drawing.Point(713, 348);
+            this.dateTimePicker_start.Name = "dateTimePicker_start";
+            this.dateTimePicker_start.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_start.TabIndex = 24;
             // 
             // textBox_tonglc
             // 
@@ -212,6 +194,24 @@
             this.textBox_tongnv.Name = "textBox_tongnv";
             this.textBox_tongnv.Size = new System.Drawing.Size(100, 20);
             this.textBox_tongnv.TabIndex = 23;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(600, 390);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Chọn số tuần:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(600, 348);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(103, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Chọn ngày bắt đầu:";
             // 
             // label7
             // 
@@ -322,61 +322,25 @@
             this.dataGridView_lich.Size = new System.Drawing.Size(754, 450);
             this.dataGridView_lich.TabIndex = 13;
             // 
-            // dateTimePicker_start
-            // 
-            this.dateTimePicker_start.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker_start.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_start.Location = new System.Drawing.Point(713, 348);
-            this.dateTimePicker_start.Name = "dateTimePicker_start";
-            this.dateTimePicker_start.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker_start.TabIndex = 24;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(600, 348);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 13);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Chọn ngày bắt đầu:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(600, 390);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 13);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Chọn số tuần:";
-            // 
-            // numericUpDown_sotuan
-            // 
-            this.numericUpDown_sotuan.Location = new System.Drawing.Point(713, 390);
-            this.numericUpDown_sotuan.Name = "numericUpDown_sotuan";
-            this.numericUpDown_sotuan.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown_sotuan.TabIndex = 25;
-            // 
             // FormCaLamViec
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(947, 569);
-            this.Controls.Add(this.tabControl2);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControl);
             this.Controls.Add(this.button_phanca);
             this.Name = "FormCaLamViec";
             this.Text = "FormCaLamViec";
             this.Load += new System.EventHandler(this.FormCaLamViec_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_calamviec)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.tabControl2.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
             this.tabPage_ca.ResumeLayout(false);
             this.tabPage_ca.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_sotuan)).EndInit();
             this.tabPage_lich.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_lich)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_sotuan)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -386,11 +350,8 @@
         private System.Windows.Forms.Button button_phanca;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridView_calamviec;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage_ca;
         private System.Windows.Forms.TabPage tabPage_lich;
         private System.Windows.Forms.Panel panel3;

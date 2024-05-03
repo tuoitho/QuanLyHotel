@@ -11,5 +11,6 @@ namespace QuanLyHotel
         public static string role="";
         public static int chucvu=-1;
         public static int id=-1;
+        public static string form="admin";
     }
 }

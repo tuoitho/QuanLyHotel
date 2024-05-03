@@ -30,9 +30,11 @@
         {
             this.tabPage_qlhoadon = new System.Windows.Forms.TabPage();
             this.dataGridView_hoadon = new System.Windows.Forms.DataGridView();
-            this.bt_timkiem = new QuanLyHotel.RoundedButton();
             this.textBox_inputkhachhang = new System.Windows.Forms.TextBox();
             this.tabControl_hoadon = new System.Windows.Forms.TabControl();
+            this.bt_timkiem = new QuanLyHotel.RoundedButton();
+            this.roundedButton1 = new QuanLyHotel.RoundedButton();
+            this.roundedButton2 = new QuanLyHotel.RoundedButton();
             this.tabPage_qlhoadon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_hoadon)).BeginInit();
             this.tabControl_hoadon.SuspendLayout();
@@ -41,6 +43,8 @@
             // tabPage_qlhoadon
             // 
             this.tabPage_qlhoadon.Controls.Add(this.dataGridView_hoadon);
+            this.tabPage_qlhoadon.Controls.Add(this.roundedButton2);
+            this.tabPage_qlhoadon.Controls.Add(this.roundedButton1);
             this.tabPage_qlhoadon.Controls.Add(this.bt_timkiem);
             this.tabPage_qlhoadon.Controls.Add(this.textBox_inputkhachhang);
             this.tabPage_qlhoadon.Location = new System.Drawing.Point(4, 26);
@@ -55,13 +59,37 @@
             // dataGridView_hoadon
             // 
             this.dataGridView_hoadon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_hoadon.Location = new System.Drawing.Point(69, 145);
+            this.dataGridView_hoadon.Location = new System.Drawing.Point(69, 103);
             this.dataGridView_hoadon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView_hoadon.Name = "dataGridView_hoadon";
             this.dataGridView_hoadon.RowHeadersWidth = 51;
             this.dataGridView_hoadon.RowTemplate.Height = 26;
             this.dataGridView_hoadon.Size = new System.Drawing.Size(938, 413);
             this.dataGridView_hoadon.TabIndex = 2;
+            // 
+            // textBox_inputkhachhang
+            // 
+            this.textBox_inputkhachhang.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox_inputkhachhang.Location = new System.Drawing.Point(95, 39);
+            this.textBox_inputkhachhang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox_inputkhachhang.Name = "textBox_inputkhachhang";
+            this.textBox_inputkhachhang.Size = new System.Drawing.Size(420, 25);
+            this.textBox_inputkhachhang.TabIndex = 0;
+            this.textBox_inputkhachhang.Text = "Tìm theo tên khách hàng, mã khách hàng, số cmt, SĐT";
+            this.textBox_inputkhachhang.Click += new System.EventHandler(this.textBox_inputkhachhang_Click);
+            this.textBox_inputkhachhang.TextChanged += new System.EventHandler(this.textBox_inputkhachhang_TextChanged);
+            // 
+            // tabControl_hoadon
+            // 
+            this.tabControl_hoadon.Controls.Add(this.tabPage_qlhoadon);
+            this.tabControl_hoadon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl_hoadon.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl_hoadon.Location = new System.Drawing.Point(0, 0);
+            this.tabControl_hoadon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabControl_hoadon.Name = "tabControl_hoadon";
+            this.tabControl_hoadon.SelectedIndex = 0;
+            this.tabControl_hoadon.Size = new System.Drawing.Size(1086, 627);
+            this.tabControl_hoadon.TabIndex = 0;
             // 
             // bt_timkiem
             // 
@@ -75,26 +103,29 @@
             this.bt_timkiem.UseVisualStyleBackColor = false;
             this.bt_timkiem.Click += new System.EventHandler(this.bt_timkiem_Click);
             // 
-            // textBox_inputkhachhang
+            // roundedButton1
             // 
-            this.textBox_inputkhachhang.Location = new System.Drawing.Point(95, 39);
-            this.textBox_inputkhachhang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox_inputkhachhang.Name = "textBox_inputkhachhang";
-            this.textBox_inputkhachhang.Size = new System.Drawing.Size(420, 25);
-            this.textBox_inputkhachhang.TabIndex = 0;
-            this.textBox_inputkhachhang.Text = "Tìm theo tên khách hàng, mã khách hàng, số cmt, SĐT";
+            this.roundedButton1.BackColor = System.Drawing.Color.IndianRed;
+            this.roundedButton1.Location = new System.Drawing.Point(118, 532);
+            this.roundedButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.roundedButton1.Name = "roundedButton1";
+            this.roundedButton1.Size = new System.Drawing.Size(225, 58);
+            this.roundedButton1.TabIndex = 1;
+            this.roundedButton1.Text = "Xem chi tiết hoá đơn";
+            this.roundedButton1.UseVisualStyleBackColor = false;
+            this.roundedButton1.Click += new System.EventHandler(this.roundedButton1_Click);
             // 
-            // tabControl_hoadon
+            // roundedButton2
             // 
-            this.tabControl_hoadon.Controls.Add(this.tabPage_qlhoadon);
-            this.tabControl_hoadon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl_hoadon.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl_hoadon.Location = new System.Drawing.Point(0, 0);
-            this.tabControl_hoadon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabControl_hoadon.Name = "tabControl_hoadon";
-            this.tabControl_hoadon.SelectedIndex = 0;
-            this.tabControl_hoadon.Size = new System.Drawing.Size(1086, 627);
-            this.tabControl_hoadon.TabIndex = 0;
+            this.roundedButton2.BackColor = System.Drawing.Color.IndianRed;
+            this.roundedButton2.Location = new System.Drawing.Point(643, 532);
+            this.roundedButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.roundedButton2.Name = "roundedButton2";
+            this.roundedButton2.Size = new System.Drawing.Size(225, 58);
+            this.roundedButton2.TabIndex = 1;
+            this.roundedButton2.Text = "Xem khai báo";
+            this.roundedButton2.UseVisualStyleBackColor = false;
+            this.roundedButton2.Click += new System.EventHandler(this.roundedButton2_Click);
             // 
             // FormHoaDon
             // 
@@ -119,5 +150,7 @@
         private System.Windows.Forms.DataGridView dataGridView_hoadon;
         private RoundedButton bt_timkiem;
         private System.Windows.Forms.TextBox textBox_inputkhachhang;
+        private RoundedButton roundedButton2;
+        private RoundedButton roundedButton1;
     }
 }

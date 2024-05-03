@@ -25,7 +25,14 @@ namespace QuanLyHotel
             //{
             //    if (Info.role == "admin")
             //    {
-            //        Application.Run(new FormMain());
+            //        if ( Info.form =="employee")
+            //        {
+            //            Application.Run(new FormMain());
+            //        }
+            //        else if (Info.form == "customer")
+            //        {
+            //            Application.Run(new FormKhachHang());
+            //        }
             //    }
             //    else if (Info.role == "employee")
             //    {
@@ -36,7 +43,15 @@ namespace QuanLyHotel
             //        Application.Run(new FormKhachHang());
             //    }
             //}
+            Info.role = "employee";
+            Info.chucvu = 1;
+            Info.form = "employee";
+
+            //Info.form = "customer";
+            //Info.role = "customer";
+            //Info.id = 4;
             Application.Run(new FormMain());
+            //Application.Run(new FormMain_KhachHang());
             //Application.Run(new FormRegister());
         }
     }

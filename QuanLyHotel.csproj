@@ -339,8 +339,15 @@
     <Compile Include="EMPLOYEE\FormNhanVien.Designer.cs">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="EMPLOYEE\FormXuLyKhaiBao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EMPLOYEE\FormXuLyKhaiBao.Designer.cs">
+      <DependentUpon>FormXuLyKhaiBao.cs</DependentUpon>
+    </Compile>
     <Compile Include="EMPLOYEE\PhanCa.cs" />
     <Compile Include="EMPLOYEE\PhanCaCongBang.cs" />
+    <Compile Include="EMPLOYEE\PhanCaCongBang3Ca.cs" />
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -369,6 +376,12 @@
     </Compile>
     <Compile Include="KHACHHANG\FormKhachHang.Designer.cs">
       <DependentUpon>FormKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KHACHHANG\FormKhaiBao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KHACHHANG\FormKhaiBao.Designer.cs">
+      <DependentUpon>FormKhaiBao.cs</DependentUpon>
     </Compile>
     <Compile Include="KHACHHANG\FormMain_KhachHang.cs">
       <SubType>Form</SubType>
@@ -457,6 +470,9 @@
     <EmbeddedResource Include="EMPLOYEE\FormNhanVien.resx">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EMPLOYEE\FormXuLyKhaiBao.resx">
+      <DependentUpon>FormXuLyKhaiBao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -465,6 +481,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KHACHHANG\FormKhachHang.resx">
       <DependentUpon>FormKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KHACHHANG\FormKhaiBao.resx">
+      <DependentUpon>FormKhaiBao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KHACHHANG\FormMain_KhachHang.resx">
       <DependentUpon>FormMain_KhachHang.cs</DependentUpon>
