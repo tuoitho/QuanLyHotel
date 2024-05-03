@@ -340,6 +340,7 @@
       <DependentUpon>FormNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="EMPLOYEE\PhanCa.cs" />
+    <Compile Include="EMPLOYEE\PhanCaCongBang.cs" />
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>

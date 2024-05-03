@@ -51,8 +51,10 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView_lich = new System.Windows.Forms.DataGridView();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.checkBox_cn = new System.Windows.Forms.CheckBox();
+            this.dateTimePicker_start = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.numericUpDown_sotuan = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_calamviec)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -61,7 +63,7 @@
             this.tabPage_lich.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_lich)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_sotuan)).BeginInit();
             this.SuspendLayout();
             // 
             // button_phanca
@@ -135,13 +137,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(334, 479);
+            this.button1.Location = new System.Drawing.Point(650, 457);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(207, 51);
             this.button1.TabIndex = 19;
             this.button1.Text = "Phân Ca";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.button_pc_Click);
             // 
             // tabControl2
             // 
@@ -153,17 +155,17 @@
             this.tabControl2.SelectedIndex = 0;
             this.tabControl2.Size = new System.Drawing.Size(947, 569);
             this.tabControl2.TabIndex = 20;
-            this.tabControl2.SelectedIndexChanged += new System.EventHandler(this.tabControl2_SelectedIndexChanged);
-            this.tabControl2.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl2_Selecting);
             // 
             // tabPage_ca
             // 
-            this.tabPage_ca.Controls.Add(this.checkBox_cn);
-            this.tabPage_ca.Controls.Add(this.numericUpDown1);
+            this.tabPage_ca.Controls.Add(this.numericUpDown_sotuan);
+            this.tabPage_ca.Controls.Add(this.dateTimePicker_start);
             this.tabPage_ca.Controls.Add(this.textBox_tonglc);
             this.tabPage_ca.Controls.Add(this.textBox_tongtt);
             this.tabPage_ca.Controls.Add(this.textBox_tongql);
             this.tabPage_ca.Controls.Add(this.textBox_tongnv);
+            this.tabPage_ca.Controls.Add(this.label2);
+            this.tabPage_ca.Controls.Add(this.label1);
             this.tabPage_ca.Controls.Add(this.label7);
             this.tabPage_ca.Controls.Add(this.label6);
             this.tabPage_ca.Controls.Add(this.label5);
@@ -249,7 +251,7 @@
             // 
             // roundedButton_chinhsua
             // 
-            this.roundedButton_chinhsua.Location = new System.Drawing.Point(107, 476);
+            this.roundedButton_chinhsua.Location = new System.Drawing.Point(189, 471);
             this.roundedButton_chinhsua.Name = "roundedButton_chinhsua";
             this.roundedButton_chinhsua.Size = new System.Drawing.Size(175, 54);
             this.roundedButton_chinhsua.TabIndex = 20;
@@ -320,22 +322,39 @@
             this.dataGridView_lich.Size = new System.Drawing.Size(754, 450);
             this.dataGridView_lich.TabIndex = 13;
             // 
-            // numericUpDown1
+            // dateTimePicker_start
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(778, 253);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 24;
+            this.dateTimePicker_start.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker_start.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_start.Location = new System.Drawing.Point(713, 348);
+            this.dateTimePicker_start.Name = "dateTimePicker_start";
+            this.dateTimePicker_start.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_start.TabIndex = 24;
             // 
-            // checkBox_cn
+            // label1
             // 
-            this.checkBox_cn.AutoSize = true;
-            this.checkBox_cn.Location = new System.Drawing.Point(608, 256);
-            this.checkBox_cn.Name = "checkBox_cn";
-            this.checkBox_cn.Size = new System.Drawing.Size(155, 17);
-            this.checkBox_cn.TabIndex = 25;
-            this.checkBox_cn.Text = "Số lao công ca tối chủ nhật";
-            this.checkBox_cn.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(600, 348);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(103, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Chọn ngày bắt đầu:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(600, 390);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Chọn số tuần:";
+            // 
+            // numericUpDown_sotuan
+            // 
+            this.numericUpDown_sotuan.Location = new System.Drawing.Point(713, 390);
+            this.numericUpDown_sotuan.Name = "numericUpDown_sotuan";
+            this.numericUpDown_sotuan.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown_sotuan.TabIndex = 25;
             // 
             // FormCaLamViec
             // 
@@ -357,7 +376,7 @@
             this.tabPage_lich.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_lich)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_sotuan)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -387,7 +406,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.CheckBox checkBox_cn;
+        private System.Windows.Forms.NumericUpDown numericUpDown_sotuan;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_start;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -37,7 +37,7 @@ namespace QuanLyHotel.LamVieic
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_pc_Click(object sender, EventArgs e)
         {
             DataTable ca = EMP.getDSCa();
             int soquanly = EMP.getDSNVQuanLy().Rows.Count;
@@ -49,24 +49,10 @@ namespace QuanLyHotel.LamVieic
             int c1 = Convert.ToInt32(ca.Rows[1][4].ToString());
             int c2 = Convert.ToInt32(ca.Rows[1][5].ToString());
             int c3 = Convert.ToInt32(ca.Rows[1][6].ToString());
-            int c32 = Convert.ToInt32(ca.Rows[1][6].ToString());
-            if (checkBox_cn.Checked)
-            {
-                c32 = Convert.ToInt32(numericUpDown1.Value);
-            }
-            if (s3 + c32 < solaocong)
-            {
-                MessageBox.Show("Số lượng lao công trong ngày chủ nhật phải lớn hơn hoặc bằng số lượng lao công trong hệ thống");
-                return;
-            }
-            if (c32 > solaocong)
-            {
-                MessageBox.Show("Số lượng lao công trong ca tối chủ nhật không được lớn hơn số lượng lao công trong hệ thống");
-                return;
-            }
-            //int s1 = 1, s2 = 2, s3 = 4, c1 = 1, c2 = 2, c3 = 3, c32 = 4;
-            PhanCa phanCa = new PhanCa(soquanly, sotieptan, solaocong, s1, s2, s3, c1, c2, c3, c32);
-            PhanCa.ThucHien();
+            int sotuan = Convert.ToInt32(numericUpDown_sotuan.Value);
+            DateTime start= dateTimePicker_start.Value;
+            PhanCaCongBang phanCa = new PhanCaCongBang(soquanly, sotieptan, solaocong, s1, s2, s3, c1, c2, c3, start,sotuan);
+            PhanCaCongBang.ThucHien();
         }
 
         private void roundedButton_ok_Click(object sender, EventArgs e)

@@ -240,5 +240,17 @@ namespace QuanLyHotel.EMPLOYEE
                 }
             }
         }
+
+        internal static void deletePhanCa(DateTime batdau, int sotuan)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("DELETE FROM PhanCa WHERE ngay >= @batdau AND ngay < @ketthuc", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@batdau", SqlDbType.Date).Value = batdau;
+                sqlCommand.Parameters.Add("@ketthuc", SqlDbType.Date).Value = batdau.AddDays(sotuan * 7);
+                mydb.OpenConnection();
+                sqlCommand.ExecuteNonQuery();
+                mydb.CloseConnection();
+            }
+        }
     }
 }
