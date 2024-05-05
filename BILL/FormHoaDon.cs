@@ -19,11 +19,15 @@ namespace QuanLyHotel.BILL
         {
             InitializeComponent();
         }
-
+        bool daclick = false;
         private void bt_timkiem_Click(object sender, EventArgs e)
         {
-            
             string inp= textBox_inputkhachhang.Text;
+            if (!daclick)
+            {
+                inp = "";
+            }
+            daclick = true;
             dataGridView_hoadon.DataSource = HD.getDSHoaDonKH(inp);
 
         }
@@ -53,6 +57,16 @@ namespace QuanLyHotel.BILL
 
             FormXuLyKhaiBao f = new FormXuLyKhaiBao(maHD);
             f.ShowDialog();
+        }
+
+        private void FormHoaDon_Load(object sender, EventArgs e)
+        {
+            if (Info.role == "employee" && Info.chucvu != 1 || Info.role != "admin" && Info.role != "employee")
+            {
+                //hide tabpage
+                roundedButton_xemkhaibao.Visible = false;
+
+            }
         }
     }
 }

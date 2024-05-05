@@ -210,11 +210,12 @@ namespace QuanLyHotel.EMPLOYEE
             }
         }
 
-        internal static DataTable getAllLichTheoNgay(DateTime date)
+        internal static DataTable getAllLichTheoNgayByMaCa(DateTime date,int maca)
         {
-            using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM PhanCa WHERE ngay = @date", mydb.GetConnection))
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM PhanCa WHERE ngay = @date and MaCa=@mc", mydb.GetConnection))
             {
                 sqlCommand.Parameters.Add("@date", SqlDbType.Date).Value = date;
+                sqlCommand.Parameters.Add("@mc", SqlDbType.Int).Value = maca;
                 using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
                 {
                     DataTable table = new DataTable();
@@ -289,6 +290,185 @@ namespace QuanLyHotel.EMPLOYEE
                 sqlCommand.ExecuteNonQuery();
                 mydb.CloseConnection();
 
+            }
+        }
+
+        internal static int getMaPCHienTaiByMaNV(int manv)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT MaPC\r\nFROM PhanCa join Ca on PhanCa.MaCa = Ca.MaCa\r\nWHERE MaNV = @manv AND CAST(Ca.BatDau AS TIME)  <= CAST(GETDATE() AS TIME) AND CAST(Ca.KetThuc as time)>= CAST(GETDATE() AS TIME) AND Ngay = CAST(GETDATE() AS DATE)", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = manv;
+                mydb.OpenConnection();
+                if (sqlCommand.ExecuteScalar() != null)
+                {
+                    return Convert.ToInt32(sqlCommand.ExecuteScalar());
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+        }
+
+        internal static void checkInPC(int manv, int mapchientai)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("UPDATE PhanCa SET GioDen = GETDATE() WHERE MaNV = @manv AND MaPC = @mapc", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = manv;
+                sqlCommand.Parameters.Add("@mapc", SqlDbType.Int).Value = mapchientai;
+                mydb.OpenConnection();
+                sqlCommand.ExecuteNonQuery();
+                mydb.CloseConnection();
+            }
+        }
+        public static DateTime getGioDenByMaPC(int mapc)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT GioDen FROM PhanCa WHERE MaPC = @mapc", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@mapc", SqlDbType.Int).Value = mapc;
+                mydb.OpenConnection();
+                return Convert.ToDateTime(sqlCommand.ExecuteScalar());
+            }
+        }
+        internal static void checkOutPC(int manv, int mapchientai)
+        {
+            DateTime gioDi = DateTime.Now;
+            DateTime gioDen = getGioDenByMaPC(mapchientai);
+            if (gioDen.AddHours(8) < DateTime.Now)
+            {
+                throw new Exception("Không thể check out sau 8 tiếng kể từ giờ check in");
+                gioDi = gioDen.AddHours(8);
+            }
+            using (SqlCommand sqlCommand = new SqlCommand("UPDATE PhanCa SET GioDi =@giodi WHERE MaNV = @manv AND MaPC = @mapc", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@giodi", SqlDbType.DateTime).Value = gioDi;
+                sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = manv;
+                sqlCommand.Parameters.Add("@mapc", SqlDbType.Int).Value = mapchientai;
+                mydb.OpenConnection();
+                sqlCommand.ExecuteNonQuery();
+                mydb.CloseConnection();
+            }
+        }
+
+        internal static DataTable getAllLichTheoNgayByMaNV_MaCa(DateTime date, int manv,int maca)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT PhanCa.* FROM PhanCa  WHERE Ngay = @date AND MaNV = @manv and MaCa=@maca", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@date", SqlDbType.Date).Value = date;
+                sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = manv;
+                sqlCommand.Parameters.Add("@maca", SqlDbType.Int).Value = maca;
+                using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+                {
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+            }
+        }
+
+        internal static bool kiemtracheckInPC(int id, int mapchientai)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM PhanCa WHERE MaNV = @manv AND MaPC = @mapc AND GioDen IS NOT NULL", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = id;
+                sqlCommand.Parameters.Add("@mapc", SqlDbType.Int).Value = mapchientai;
+                mydb.OpenConnection();
+                using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        internal static bool kiemtracheckOutPC(int id, int mapchientai)
+        {
+           using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM PhanCa WHERE MaNV = @manv AND MaPC = @mapc AND GioDi IS NOT NULL", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = id;
+                sqlCommand.Parameters.Add("@mapc", SqlDbType.Int).Value = mapchientai;
+                mydb.OpenConnection();
+                using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        internal static DataTable getDSLuongNgayTheoMaNVTT_Ngay()
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT MaNV, Ngay, SUM(DATEDIFF(HOUR, GioDen, GioDi) * 60000) as [LuongNgay]\r\nFROM PhanCa\r\nwhere MaNV in (select MaNV from NhanVien where MaChucVu = 2)\r\nGROUP BY MaNV, Ngay\r\nHAVING Ngay = '2024-5-4'\r\n", mydb.GetConnection))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+                {
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+            }
+        }
+
+        internal static Dictionary<int, int> getDictSoGioLamViecTheoNgay(DateTime dateTime)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT MaNV, SUM(DATEDIFF(HOUR, GioDen, GioDi)) as [SoGio]\r\nFROM PhanCa\r\nWHERE Ngay = @date\r\nGROUP BY MaNV", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@date", SqlDbType.Date).Value = dateTime;
+                mydb.OpenConnection();
+                using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                {
+                    Dictionary<int, int> dict = new Dictionary<int, int>();
+                    while (reader.Read())
+                    {
+                        if (reader.IsDBNull(1))
+                        {
+                            dict.Add(reader.GetInt32(0), 0);
+                        }
+                        else
+                            dict.Add(reader.GetInt32(0), reader.GetInt32(1));
+                    }
+                    return dict;
+                }
+            }
+        }
+
+        internal static void insertLuongNV(int manv, DateTime ngay, double tienluong)
+        {
+            //insert vao bang luong
+            using (SqlCommand sqlCommand = new SqlCommand("INSERT INTO Luong (MaNV, Ngay, TienLuong) VALUES (@manv, @ngay, @tienluong)", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = manv;
+                sqlCommand.Parameters.Add("@ngay", SqlDbType.Date).Value = ngay;
+                sqlCommand.Parameters.Add("@tienluong", SqlDbType.Float).Value = tienluong;
+                mydb.OpenConnection();
+                sqlCommand.ExecuteNonQuery();
+                mydb.CloseConnection();
+
+            }
+        }
+
+        internal static void insertHinhPhat(int manv, DateTime dateTime, double tien)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("INSERT INTO Thuongphat (MaNV, Ngay, Tien) VALUES (@manv, @ngay, @tienphat)", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = manv;
+                sqlCommand.Parameters.Add("@ngay", SqlDbType.Date).Value = dateTime;
+                sqlCommand.Parameters.Add("@tienphat", SqlDbType.Float).Value = tien;
+                mydb.OpenConnection();
+                sqlCommand.ExecuteNonQuery();
+                mydb.CloseConnection();
             }
         }
     }

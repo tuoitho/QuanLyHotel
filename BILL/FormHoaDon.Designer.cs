@@ -32,9 +32,9 @@
             this.dataGridView_hoadon = new System.Windows.Forms.DataGridView();
             this.textBox_inputkhachhang = new System.Windows.Forms.TextBox();
             this.tabControl_hoadon = new System.Windows.Forms.TabControl();
-            this.bt_timkiem = new QuanLyHotel.RoundedButton();
+            this.roundedButton_xemkhaibao = new QuanLyHotel.RoundedButton();
             this.roundedButton1 = new QuanLyHotel.RoundedButton();
-            this.roundedButton2 = new QuanLyHotel.RoundedButton();
+            this.bt_timkiem = new QuanLyHotel.RoundedButton();
             this.tabPage_qlhoadon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_hoadon)).BeginInit();
             this.tabControl_hoadon.SuspendLayout();
@@ -43,7 +43,7 @@
             // tabPage_qlhoadon
             // 
             this.tabPage_qlhoadon.Controls.Add(this.dataGridView_hoadon);
-            this.tabPage_qlhoadon.Controls.Add(this.roundedButton2);
+            this.tabPage_qlhoadon.Controls.Add(this.roundedButton_xemkhaibao);
             this.tabPage_qlhoadon.Controls.Add(this.roundedButton1);
             this.tabPage_qlhoadon.Controls.Add(this.bt_timkiem);
             this.tabPage_qlhoadon.Controls.Add(this.textBox_inputkhachhang);
@@ -91,6 +91,30 @@
             this.tabControl_hoadon.Size = new System.Drawing.Size(1086, 627);
             this.tabControl_hoadon.TabIndex = 0;
             // 
+            // roundedButton_xemkhaibao
+            // 
+            this.roundedButton_xemkhaibao.BackColor = System.Drawing.Color.IndianRed;
+            this.roundedButton_xemkhaibao.Location = new System.Drawing.Point(643, 532);
+            this.roundedButton_xemkhaibao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.roundedButton_xemkhaibao.Name = "roundedButton_xemkhaibao";
+            this.roundedButton_xemkhaibao.Size = new System.Drawing.Size(225, 58);
+            this.roundedButton_xemkhaibao.TabIndex = 1;
+            this.roundedButton_xemkhaibao.Text = "Xem khai báo";
+            this.roundedButton_xemkhaibao.UseVisualStyleBackColor = false;
+            this.roundedButton_xemkhaibao.Click += new System.EventHandler(this.roundedButton2_Click);
+            // 
+            // roundedButton1
+            // 
+            this.roundedButton1.BackColor = System.Drawing.Color.IndianRed;
+            this.roundedButton1.Location = new System.Drawing.Point(186, 532);
+            this.roundedButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.roundedButton1.Name = "roundedButton1";
+            this.roundedButton1.Size = new System.Drawing.Size(225, 58);
+            this.roundedButton1.TabIndex = 1;
+            this.roundedButton1.Text = "Xem chi tiết hoá đơn";
+            this.roundedButton1.UseVisualStyleBackColor = false;
+            this.roundedButton1.Click += new System.EventHandler(this.roundedButton1_Click);
+            // 
             // bt_timkiem
             // 
             this.bt_timkiem.BackColor = System.Drawing.Color.IndianRed;
@@ -103,30 +127,6 @@
             this.bt_timkiem.UseVisualStyleBackColor = false;
             this.bt_timkiem.Click += new System.EventHandler(this.bt_timkiem_Click);
             // 
-            // roundedButton1
-            // 
-            this.roundedButton1.BackColor = System.Drawing.Color.IndianRed;
-            this.roundedButton1.Location = new System.Drawing.Point(118, 532);
-            this.roundedButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.roundedButton1.Name = "roundedButton1";
-            this.roundedButton1.Size = new System.Drawing.Size(225, 58);
-            this.roundedButton1.TabIndex = 1;
-            this.roundedButton1.Text = "Xem chi tiết hoá đơn";
-            this.roundedButton1.UseVisualStyleBackColor = false;
-            this.roundedButton1.Click += new System.EventHandler(this.roundedButton1_Click);
-            // 
-            // roundedButton2
-            // 
-            this.roundedButton2.BackColor = System.Drawing.Color.IndianRed;
-            this.roundedButton2.Location = new System.Drawing.Point(643, 532);
-            this.roundedButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.roundedButton2.Name = "roundedButton2";
-            this.roundedButton2.Size = new System.Drawing.Size(225, 58);
-            this.roundedButton2.TabIndex = 1;
-            this.roundedButton2.Text = "Xem khai báo";
-            this.roundedButton2.UseVisualStyleBackColor = false;
-            this.roundedButton2.Click += new System.EventHandler(this.roundedButton2_Click);
-            // 
             // FormHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -136,6 +136,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormHoaDon";
             this.Text = "FormHoaDon";
+            this.Load += new System.EventHandler(this.FormHoaDon_Load);
             this.tabPage_qlhoadon.ResumeLayout(false);
             this.tabPage_qlhoadon.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_hoadon)).EndInit();
@@ -150,7 +151,7 @@
         private System.Windows.Forms.DataGridView dataGridView_hoadon;
         private RoundedButton bt_timkiem;
         private System.Windows.Forms.TextBox textBox_inputkhachhang;
-        private RoundedButton roundedButton2;
+        private RoundedButton roundedButton_xemkhaibao;
         private RoundedButton roundedButton1;
     }
 }

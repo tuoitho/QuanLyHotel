@@ -46,20 +46,32 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.roundedButton_chinhsua = new QuanLyHotel.RoundedButton();
             this.tabPage_lich = new System.Windows.Forms.TabPage();
-            this.roundedButton_ok = new QuanLyHotel.RoundedButton();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.dataGridView_c3 = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridView_c2 = new System.Windows.Forms.DataGridView();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView_lich = new System.Windows.Forms.DataGridView();
+            this.dataGridView_c1 = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.roundedButton_chinhsua = new QuanLyHotel.RoundedButton();
+            this.roundedButton_co = new QuanLyHotel.RoundedButton();
+            this.roundedButton_ci = new QuanLyHotel.RoundedButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_calamviec)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabPage_ca.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_sotuan)).BeginInit();
             this.tabPage_lich.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_c3)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_c2)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_lich)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_c1)).BeginInit();
             this.SuspendLayout();
             // 
             // button_phanca
@@ -119,8 +131,9 @@
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(947, 569);
+            this.tabControl.Size = new System.Drawing.Size(1094, 741);
             this.tabControl.TabIndex = 20;
+            this.tabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl_Selected);
             // 
             // tabPage_ca
             // 
@@ -142,7 +155,7 @@
             this.tabPage_ca.Location = new System.Drawing.Point(4, 22);
             this.tabPage_ca.Name = "tabPage_ca";
             this.tabPage_ca.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_ca.Size = new System.Drawing.Size(939, 543);
+            this.tabPage_ca.Size = new System.Drawing.Size(1086, 715);
             this.tabPage_ca.TabIndex = 0;
             this.tabPage_ca.Text = "Ca";
             this.tabPage_ca.UseVisualStyleBackColor = true;
@@ -249,6 +262,155 @@
             this.label4.TabIndex = 21;
             this.label4.Text = "Tổng số NV:";
             // 
+            // tabPage_lich
+            // 
+            this.tabPage_lich.Controls.Add(this.label9);
+            this.tabPage_lich.Controls.Add(this.label8);
+            this.tabPage_lich.Controls.Add(this.label3);
+            this.tabPage_lich.Controls.Add(this.panel4);
+            this.tabPage_lich.Controls.Add(this.panel2);
+            this.tabPage_lich.Controls.Add(this.dateTimePicker1);
+            this.tabPage_lich.Controls.Add(this.panel3);
+            this.tabPage_lich.Controls.Add(this.roundedButton_co);
+            this.tabPage_lich.Controls.Add(this.roundedButton_ci);
+            this.tabPage_lich.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_lich.Name = "tabPage_lich";
+            this.tabPage_lich.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_lich.Size = new System.Drawing.Size(1086, 715);
+            this.tabPage_lich.TabIndex = 1;
+            this.tabPage_lich.Text = "Lịch";
+            this.tabPage_lich.UseVisualStyleBackColor = true;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(108)))), ((int)(((byte)(225)))));
+            this.panel4.Controls.Add(this.dataGridView_c3);
+            this.panel4.Location = new System.Drawing.Point(91, 479);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(686, 180);
+            this.panel4.TabIndex = 22;
+            // 
+            // dataGridView_c3
+            // 
+            this.dataGridView_c3.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.dataGridView_c3.AllowUserToAddRows = false;
+            this.dataGridView_c3.AllowUserToDeleteRows = false;
+            this.dataGridView_c3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_c3.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView_c3.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dataGridView_c3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_c3.Location = new System.Drawing.Point(3, -2);
+            this.dataGridView_c3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView_c3.MultiSelect = false;
+            this.dataGridView_c3.Name = "dataGridView_c3";
+            this.dataGridView_c3.ReadOnly = true;
+            this.dataGridView_c3.RowHeadersVisible = false;
+            this.dataGridView_c3.RowHeadersWidth = 51;
+            this.dataGridView_c3.RowTemplate.Height = 26;
+            this.dataGridView_c3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_c3.Size = new System.Drawing.Size(683, 182);
+            this.dataGridView_c3.TabIndex = 13;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(108)))), ((int)(((byte)(225)))));
+            this.panel2.Controls.Add(this.dataGridView_c2);
+            this.panel2.Location = new System.Drawing.Point(91, 261);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(686, 180);
+            this.panel2.TabIndex = 21;
+            // 
+            // dataGridView_c2
+            // 
+            this.dataGridView_c2.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.dataGridView_c2.AllowUserToAddRows = false;
+            this.dataGridView_c2.AllowUserToDeleteRows = false;
+            this.dataGridView_c2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_c2.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView_c2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dataGridView_c2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_c2.Location = new System.Drawing.Point(3, -2);
+            this.dataGridView_c2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView_c2.MultiSelect = false;
+            this.dataGridView_c2.Name = "dataGridView_c2";
+            this.dataGridView_c2.ReadOnly = true;
+            this.dataGridView_c2.RowHeadersVisible = false;
+            this.dataGridView_c2.RowHeadersWidth = 51;
+            this.dataGridView_c2.RowTemplate.Height = 26;
+            this.dataGridView_c2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_c2.Size = new System.Drawing.Size(683, 182);
+            this.dataGridView_c2.TabIndex = 13;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(136, 20);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(219, 20);
+            this.dateTimePicker1.TabIndex = 19;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(108)))), ((int)(((byte)(225)))));
+            this.panel3.Controls.Add(this.dataGridView_c1);
+            this.panel3.Location = new System.Drawing.Point(91, 47);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(686, 180);
+            this.panel3.TabIndex = 18;
+            // 
+            // dataGridView_c1
+            // 
+            this.dataGridView_c1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.dataGridView_c1.AllowUserToAddRows = false;
+            this.dataGridView_c1.AllowUserToDeleteRows = false;
+            this.dataGridView_c1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_c1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView_c1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dataGridView_c1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_c1.Location = new System.Drawing.Point(3, -2);
+            this.dataGridView_c1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView_c1.MultiSelect = false;
+            this.dataGridView_c1.Name = "dataGridView_c1";
+            this.dataGridView_c1.ReadOnly = true;
+            this.dataGridView_c1.RowHeadersVisible = false;
+            this.dataGridView_c1.RowHeadersWidth = 51;
+            this.dataGridView_c1.RowTemplate.Height = 26;
+            this.dataGridView_c1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_c1.Size = new System.Drawing.Size(683, 182);
+            this.dataGridView_c1.TabIndex = 13;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(23, 95);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 13);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Ca 1";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(23, 333);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(29, 13);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "Ca 2";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(23, 564);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(29, 13);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Ca 3";
+            // 
             // roundedButton_chinhsua
             // 
             this.roundedButton_chinhsua.Location = new System.Drawing.Point(189, 471);
@@ -259,74 +421,33 @@
             this.roundedButton_chinhsua.UseVisualStyleBackColor = true;
             this.roundedButton_chinhsua.Click += new System.EventHandler(this.roundedButton_chinhsua_Click);
             // 
-            // tabPage_lich
+            // roundedButton_co
             // 
-            this.tabPage_lich.Controls.Add(this.roundedButton_ok);
-            this.tabPage_lich.Controls.Add(this.dateTimePicker1);
-            this.tabPage_lich.Controls.Add(this.panel3);
-            this.tabPage_lich.Location = new System.Drawing.Point(4, 22);
-            this.tabPage_lich.Name = "tabPage_lich";
-            this.tabPage_lich.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_lich.Size = new System.Drawing.Size(939, 543);
-            this.tabPage_lich.TabIndex = 1;
-            this.tabPage_lich.Text = "Lịch";
-            this.tabPage_lich.UseVisualStyleBackColor = true;
+            this.roundedButton_co.BackColor = System.Drawing.Color.RosyBrown;
+            this.roundedButton_co.Location = new System.Drawing.Point(820, 107);
+            this.roundedButton_co.Name = "roundedButton_co";
+            this.roundedButton_co.Size = new System.Drawing.Size(140, 44);
+            this.roundedButton_co.TabIndex = 23;
+            this.roundedButton_co.Text = "Check Out";
+            this.roundedButton_co.UseVisualStyleBackColor = false;
+            this.roundedButton_co.Click += new System.EventHandler(this.roundedButton_co_Click);
             // 
-            // roundedButton_ok
+            // roundedButton_ci
             // 
-            this.roundedButton_ok.Location = new System.Drawing.Point(394, 17);
-            this.roundedButton_ok.Name = "roundedButton_ok";
-            this.roundedButton_ok.Size = new System.Drawing.Size(125, 23);
-            this.roundedButton_ok.TabIndex = 20;
-            this.roundedButton_ok.Text = "OK";
-            this.roundedButton_ok.UseVisualStyleBackColor = true;
-            this.roundedButton_ok.Click += new System.EventHandler(this.roundedButton_ok_Click);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(151, 20);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 19;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(108)))), ((int)(((byte)(225)))));
-            this.panel3.Controls.Add(this.dataGridView_lich);
-            this.panel3.Location = new System.Drawing.Point(91, 47);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(757, 448);
-            this.panel3.TabIndex = 18;
-            // 
-            // dataGridView_lich
-            // 
-            this.dataGridView_lich.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.dataGridView_lich.AllowUserToAddRows = false;
-            this.dataGridView_lich.AllowUserToDeleteRows = false;
-            this.dataGridView_lich.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView_lich.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView_lich.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dataGridView_lich.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_lich.Location = new System.Drawing.Point(3, -2);
-            this.dataGridView_lich.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView_lich.MultiSelect = false;
-            this.dataGridView_lich.Name = "dataGridView_lich";
-            this.dataGridView_lich.ReadOnly = true;
-            this.dataGridView_lich.RowHeadersVisible = false;
-            this.dataGridView_lich.RowHeadersWidth = 51;
-            this.dataGridView_lich.RowTemplate.Height = 26;
-            this.dataGridView_lich.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_lich.Size = new System.Drawing.Size(754, 450);
-            this.dataGridView_lich.TabIndex = 13;
+            this.roundedButton_ci.BackColor = System.Drawing.Color.RosyBrown;
+            this.roundedButton_ci.Location = new System.Drawing.Point(820, 45);
+            this.roundedButton_ci.Name = "roundedButton_ci";
+            this.roundedButton_ci.Size = new System.Drawing.Size(140, 44);
+            this.roundedButton_ci.TabIndex = 23;
+            this.roundedButton_ci.Text = "Check In";
+            this.roundedButton_ci.UseVisualStyleBackColor = false;
+            this.roundedButton_ci.Click += new System.EventHandler(this.roundedButton_ci_Click);
             // 
             // FormCaLamViec
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(947, 569);
+            this.ClientSize = new System.Drawing.Size(1094, 741);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.button_phanca);
             this.Name = "FormCaLamViec";
@@ -339,8 +460,13 @@
             this.tabPage_ca.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_sotuan)).EndInit();
             this.tabPage_lich.ResumeLayout(false);
+            this.tabPage_lich.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_c3)).EndInit();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_c2)).EndInit();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_lich)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_c1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -355,8 +481,7 @@
         private System.Windows.Forms.TabPage tabPage_ca;
         private System.Windows.Forms.TabPage tabPage_lich;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dataGridView_lich;
-        private RoundedButton roundedButton_ok;
+        private System.Windows.Forms.DataGridView dataGridView_c1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private RoundedButton roundedButton_chinhsua;
         private System.Windows.Forms.TextBox textBox_tonglc;
@@ -371,5 +496,14 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker_start;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private RoundedButton roundedButton_co;
+        private RoundedButton roundedButton_ci;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.DataGridView dataGridView_c3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dataGridView_c2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label3;
     }
 }

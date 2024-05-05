@@ -314,3 +314,4 @@ E:\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.FormRegister.resources
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.FormRegister.resources
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.KHACHHANG.FormKhaiBao.resources
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormXuLyKhaiBao.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormBaoCaoNgay.resources

@@ -36,13 +36,57 @@ namespace QuanLyHotel.LamVieic
                 tabControl.TabPages.Remove(tabPage_ca);
 
             }
+            int mapchientai = EMP.getMaPCHienTaiByMaNV(Info.id);
+            if (mapchientai == -1)
+            {
+                roundedButton_ci.Enabled = false;
+                roundedButton_co.Enabled = false;
+            }
+            else
+            {
+                roundedButton_ci.Enabled = !EMP.kiemtracheckInPC(Info.id, mapchientai);
+                roundedButton_co.Enabled = !EMP.kiemtracheckOutPC(Info.id, mapchientai);
+            }
+            
         }
 
-        private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
+        private void reload()
         {
+            if (Info.role == "employee")
+            {
+                int manv = Info.id;
+                DateTime date = dateTimePicker1.Value;
+                DataTable tb = EMP.getAllLichTheoNgayByMaNV_MaCa(date, manv, 1);
+                dataGridView_c1.DataSource = tb;
+                DataTable tb2 = EMP.getAllLichTheoNgayByMaNV_MaCa(date, manv, 2);
+                dataGridView_c2.DataSource = tb2;
+                DataTable tb3 = EMP.getAllLichTheoNgayByMaNV_MaCa(date, manv, 3);
+                dataGridView_c3.DataSource = tb3;
 
+            }
+            if (Info.role == "admin")
+            {
+                DateTime date = dateTimePicker1.Value;
+                DataTable tb = EMP.getAllLichTheoNgayByMaCa(date, 1);
+                dataGridView_c1.DataSource = tb;
+                DataTable tb2 = EMP.getAllLichTheoNgayByMaCa(date, 2);
+                dataGridView_c2.DataSource = tb2;
+                DataTable tb3 = EMP.getAllLichTheoNgayByMaCa(date, 3);
+                dataGridView_c3.DataSource = tb3;
+
+            }
+            int mapchientai = EMP.getMaPCHienTaiByMaNV(Info.id);
+            if (mapchientai == -1)
+            {
+                roundedButton_ci.Enabled = false;
+                roundedButton_co.Enabled = false;
+            }
+            else
+            {
+                roundedButton_ci.Enabled = !EMP.kiemtracheckInPC(Info.id, mapchientai);
+                roundedButton_co.Enabled = !EMP.kiemtracheckOutPC(Info.id, mapchientai);
+            }
         }
-
         private void button_pc_Click(object sender, EventArgs e)
         {
             DataTable ca = EMP.getDSCa();
@@ -63,17 +107,14 @@ namespace QuanLyHotel.LamVieic
 
         private void roundedButton_ok_Click(object sender, EventArgs e)
         {
-            DateTime date = dateTimePicker1.Value;
-            DataTable tb = EMP.getAllLichTheoNgay(date);
-            dataGridView_lich.DataSource = tb;
+            
+
         }
 
         private void tabControl2_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            if (e.TabPageIndex == 1)
-            {
-
-            }
+           
+            
         }
 
         private void roundedButton_chinhsua_Click(object sender, EventArgs e)
@@ -146,6 +187,97 @@ namespace QuanLyHotel.LamVieic
             catch
             {
                 MessageBox.Show("Cập nhật thất bại");
+            }
+        }
+
+        private void roundedButton_ci_Click(object sender, EventArgs e)
+        {
+            if (Info.role != "employee") return;
+            int manv = Info.id;
+            int mapchientai = EMP.getMaPCHienTaiByMaNV(manv);
+            if (mapchientai == -1)
+            {
+                MessageBox.Show("Bạn không có ca làm việc hiện tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            try { 
+            EMP.checkInPC(manv, mapchientai);
+                MessageBox.Show("Check in thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                reload();
+            }
+            catch
+            {
+                MessageBox.Show("Check in thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
+
+        private void roundedButton_co_Click(object sender, EventArgs e)
+        {
+            if (Info.role != "employee") return;
+            int manv = Info.id;
+            int mapchientai = EMP.getMaPCHienTaiByMaNV(manv);
+            if (mapchientai == -1)
+            {
+                MessageBox.Show("Bạn không có ca làm việc hiện tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            try
+            {
+                EMP.checkOutPC(manv, mapchientai);
+                MessageBox.Show("Check out thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                reload();
+            }
+            catch
+            {
+                MessageBox.Show("Check out thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            if (Info.role == "employee")
+            {
+                int manv = Info.id;
+                DateTime date = dateTimePicker1.Value;
+                DataTable tb = EMP.getAllLichTheoNgayByMaNV_MaCa(date, manv, 1);
+                dataGridView_c1.DataSource = tb;
+                DataTable tb2 = EMP.getAllLichTheoNgayByMaNV_MaCa(date, manv, 2);
+                dataGridView_c2.DataSource = tb2;
+                DataTable tb3 = EMP.getAllLichTheoNgayByMaNV_MaCa(date, manv, 3);
+                dataGridView_c3.DataSource = tb3;
+
+            }
+            if (Info.role == "admin")
+            {
+                DateTime date = dateTimePicker1.Value;
+                DataTable tb = EMP.getAllLichTheoNgayByMaCa(date, 1);
+                dataGridView_c1.DataSource = tb;
+                DataTable tb2 = EMP.getAllLichTheoNgayByMaCa(date, 2);
+                dataGridView_c2.DataSource = tb2;
+                DataTable tb3 = EMP.getAllLichTheoNgayByMaCa(date, 3);
+                dataGridView_c3.DataSource = tb3;
+
+            }
+        }
+
+        private void tabControl_Selected(object sender, TabControlEventArgs e)
+        {
+            if (e.TabPage == tabPage_lich)
+            {
+                reload();
+                int mapchientai = EMP.getMaPCHienTaiByMaNV(Info.id);
+                if (mapchientai == -1)
+                {
+                    roundedButton_ci.Enabled = false;
+                    roundedButton_co.Enabled = false;
+                }
+                else
+                {
+                    roundedButton_ci.Enabled = !EMP.kiemtracheckInPC(Info.id, mapchientai);
+                    roundedButton_co.Enabled = !EMP.kiemtracheckOutPC(Info.id, mapchientai);
+                }
+
             }
         }
     }

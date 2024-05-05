@@ -32,7 +32,6 @@ namespace QuanLyHotel.EMPLOYEE
         private void FormXuLyKhaiBao_Load(object sender, EventArgs e)
         {
             dataGridView_hoadon.DataSource = HD.getDSHoaDonKH("");
-            dataGridView_hoadon.Rows[0].DefaultCellStyle.BackColor = Color.Red;
             for (int i = 0; i < dataGridView_kb.Rows.Count; i++)
             {
                 if (Convert.ToInt32(dataGridView_kb.Rows[i].Cells[1].Value == DBNull.Value ? 0 : dataGridView_kb.Rows[i].Cells[1].Value)
