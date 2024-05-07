@@ -100,15 +100,15 @@ namespace QuanLyHotel.PHONG
         }
         public async void deleteVideoRoomAsync(string maphong)
         {
-            //try
-            //{
-            //    FirebaseResponse response = await client.DeleteTaskAsync("VideoRooms/" + maphong);
+            try
+            {
+                FirebaseResponse response = await client.DeleteTaskAsync("VideoRooms/" + maphong);
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
     }

@@ -16,24 +16,26 @@ namespace QuanLyHotel.EMPLOYEE
         List<int> listMaNVTT = new List<int>();
         List<int> listMaNVLC = new List<int>();
         Dictionary<int, int> sogiolamviec;
-        void apdunghinhphat()
-        {
-            //so gio lam viec cua nhan vien tiep tan
-            foreach (int manv in listMaNVTT)
-            {
-                if (sogiolamviec.ContainsKey(manv))
-                {
-                    DateTime dateTime = DateTime.Now.AddDays(-1);
-                    EMP.insertHinhPhat(manv, dateTime, (sogiolamviec[manv] - 8) * 120000);
-                }
-            }
 
-        }
         public FormBaoCaoNgay()
         {
             InitializeComponent();
+
+        }
+
+        private void FormBaoCaoNgay_Load(object sender, EventArgs e)
+        {
+            if (EMP.isDaTinhToanLuong(DateTime.Now.AddDays(-1)))
+            {
+                MessageBox.Show("Đã tính toán lương cho ngày hôm qua", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dataGridView_baocao.DataSource = EMP.getDSLuongNgayTheoNgay();
+                return;
+            }
+            MessageBox.Show("Đang tính toán lương cho ngày hôm qua", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DateTime dateTime = DateTime.Now.AddDays(-1);
-            sogiolamviec = EMP.getDictSoGioLamViecTheoNgay(dateTime);
+            //sogiolamviec = EMP.getDictSoGioLamViecTheoNgay(dateTime);
+            sogiolamviec = EMP.getDictSoGioLamViecCaChinhTheoNgay(dateTime);
+            MessageBox.Show(sogiolamviec.Count.ToString());
             DataTable dsTT = EMP.getDSNVTiepTan();
             foreach (DataRow row in dsTT.Rows)
             {
@@ -45,35 +47,55 @@ namespace QuanLyHotel.EMPLOYEE
                 listMaNVLC.Add(Convert.ToInt32(row["MaNV"]));
             }
 
-            Dictionary<int, double> luong = new Dictionary<int, double>();
-            DataTable luongngay = EMP.getDSLuongNgayTheoMaNVTT_Ngay();
-            foreach (DataRow row in luongngay.Rows)
+            foreach(int x in listMaNVTT)
             {
-                int manv = Convert.ToInt32(row["MaNV"]);
-                DateTime ngay = Convert.ToDateTime(row["Ngay"]);
-                double tienluong = 0;
-                if (row["LuongNgay"] != DBNull.Value)
+                double luongcachinh = 0, tienphatcachinh = 0;
+                if (sogiolamviec.ContainsKey(x))
                 {
-                    tienluong = Convert.ToDouble(row["LuongNgay"]);
+                    luongcachinh = sogiolamviec[x] * 60000;
+                    if (sogiolamviec[x] < 8)
+                    {
+                        tienphatcachinh = (sogiolamviec[x] - 8) * 120000;
+                    }
+                    DateTime date = DateTime.Now.AddDays(-1);
+                    int manv = x;
+                    EMP.insertHinhPhat(manv, date, tienphatcachinh);
+                    EMP.capnhattienthuongphat(manv, date);
+                    double tienphat = EMP.getTienThuongPhat(manv, date);
+                    double luongnv = luongcachinh + tienphat;
+                    EMP.insertLuongNV(manv, date, luongnv);
                 }
-                double tienphat = 0;
-                if (sogiolamviec.ContainsKey(manv))
-                {
-                    tienphat = (sogiolamviec[manv] - 8) * 120000;
-                }
+            }
 
-                double luongnv = tienluong + tienphat;
-                MessageBox.Show("MaNV: " + manv + " - Ngay: " + ngay + " - Luong: " + tienluong+" " +tienphat + "luong ngay" + luongnv);
-                luong.Add(manv, luongnv);
-                EMP.insertLuongNV(manv, ngay, luongnv);
+            foreach (int x in listMaNVLC)
+            {
+                double luongcachinh = 0,tienphatcachinh=0;
+                if (sogiolamviec.ContainsKey(x))
+                {
+                    luongcachinh = sogiolamviec[x] * 40000;
+                    if (sogiolamviec[x] < 8)
+                    {
+                        tienphatcachinh = (sogiolamviec[x]-8) * 80000;
+                    }
+                    DateTime date= DateTime.Now.AddDays(-1);
+                    int manv = x;
+                    EMP.insertHinhPhat(manv, date, tienphatcachinh);
+                    EMP.capnhattienthuongphat(manv, date);
+                    double tienphat = EMP.getTienThuongPhat(manv, date);
+                    double luongnv = luongcachinh + tienphat;
+                    EMP.insertLuongNV(manv, date, luongnv);
+                }
 
             }
+
+            dataGridView_baocao.DataSource = EMP.getDSLuongNgayTheoNgay();
         }
 
-        private void FormBaoCaoNgay_Load(object sender, EventArgs e)
+        private void dataGridView_baocao_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            int manv = Convert.ToInt32(dataGridView_baocao.CurrentRow.Cells[0].Value);
+            DateTime ngay = Convert.ToDateTime(dataGridView_baocao.CurrentRow.Cells[2].Value);
+            dataGridView_chitietca.DataSource= EMP.getDSChiTietCaDaLam(manv,ngay);
         }
-
     }
 }

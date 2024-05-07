@@ -44,17 +44,21 @@ namespace QuanLyHotel
             //    }
             //}
             Info.role = "employee";
-            Info.chucvu = 2;
-            Info.id = 8;
+            Info.chucvu = 1;
+            Info.id = 1;
             Info.form = "employee";
+            Application.Run(new FormMain());
+
+
 
             //Info.form = "customer";
             //Info.role = "customer";
             //Info.id = 4;
+            //Info.role = "admin";
             //Application.Run(new FormMain());
             //Application.Run(new FormMain_KhachHang());
             //Application.Run(new FormRegister());
-            Application.Run(new FormBaoCaoNgay());
+            //Application.Run(new FormBaoCaoNgay());
         }
     }
 }

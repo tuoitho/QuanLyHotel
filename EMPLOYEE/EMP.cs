@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Linq;
 using Telerik.Charting.Styles;
 using Telerik.WinControls.UI.Map.Bing;
@@ -210,7 +211,7 @@ namespace QuanLyHotel.EMPLOYEE
             }
         }
 
-        internal static DataTable getAllLichTheoNgayByMaCa(DateTime date,int maca)
+        internal static DataTable getAllLichTheoNgayByMaCa(DateTime date, int maca)
         {
             using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM PhanCa WHERE ngay = @date and MaCa=@mc", mydb.GetConnection))
             {
@@ -235,7 +236,7 @@ namespace QuanLyHotel.EMPLOYEE
                     sqlCommand.Parameters.Add("@tt", SqlDbType.Int).Value = dataTable.Rows[i]["tt"];
                     sqlCommand.Parameters.Add("@lc", SqlDbType.Int).Value = dataTable.Rows[i]["lc"];
                     sqlCommand.Parameters.Add("@maca", SqlDbType.Int).Value = dataTable.Rows[i]["maca"];
-                        mydb.OpenConnection();
+                    mydb.OpenConnection();
                     sqlCommand.ExecuteNonQuery();
                     mydb.CloseConnection();
                 }
@@ -275,11 +276,11 @@ namespace QuanLyHotel.EMPLOYEE
 
         internal static void updateNhanVien(int employeeID, string name, string gender, DateTime dOB, string address, string phone, string position, string email, int manql)
         {
-           using (SqlCommand sqlCommand = new SqlCommand("UPDATE NhanVien SET hoten = @name, phai = @gender, ngaysinh = @dob, diachi = @address, sdt = @phone, machucvu = @position, email = @email, manql = @manql WHERE manv = @employeeID", mydb.GetConnection))
+            using (SqlCommand sqlCommand = new SqlCommand("UPDATE NhanVien SET hoten = @name, phai = @gender, ngaysinh = @dob, diachi = @address, sdt = @phone, machucvu = @position, email = @email, manql = @manql WHERE manv = @employeeID", mydb.GetConnection))
             {
                 sqlCommand.Parameters.Add("@employeeID", SqlDbType.Int).Value = employeeID;
                 sqlCommand.Parameters.Add("@name", SqlDbType.NVarChar).Value = name;
-                sqlCommand.Parameters.Add("@gender", SqlDbType.NVarChar).Value= gender;
+                sqlCommand.Parameters.Add("@gender", SqlDbType.NVarChar).Value = gender;
                 sqlCommand.Parameters.Add("@dob", SqlDbType.Date).Value = dOB;
                 sqlCommand.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
                 sqlCommand.Parameters.Add("@phone", SqlDbType.VarChar).Value = phone;
@@ -350,7 +351,7 @@ namespace QuanLyHotel.EMPLOYEE
             }
         }
 
-        internal static DataTable getAllLichTheoNgayByMaNV_MaCa(DateTime date, int manv,int maca)
+        internal static DataTable getAllLichTheoNgayByMaNV_MaCa(DateTime date, int manv, int maca)
         {
             using (SqlCommand sqlCommand = new SqlCommand("SELECT PhanCa.* FROM PhanCa  WHERE Ngay = @date AND MaNV = @manv and MaCa=@maca", mydb.GetConnection))
             {
@@ -389,7 +390,7 @@ namespace QuanLyHotel.EMPLOYEE
 
         internal static bool kiemtracheckOutPC(int id, int mapchientai)
         {
-           using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM PhanCa WHERE MaNV = @manv AND MaPC = @mapc AND GioDi IS NOT NULL", mydb.GetConnection))
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM PhanCa WHERE MaNV = @manv AND MaPC = @mapc AND GioDi IS NOT NULL", mydb.GetConnection))
             {
                 sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = id;
                 sqlCommand.Parameters.Add("@mapc", SqlDbType.Int).Value = mapchientai;
@@ -410,8 +411,9 @@ namespace QuanLyHotel.EMPLOYEE
 
         internal static DataTable getDSLuongNgayTheoMaNVTT_Ngay()
         {
-            using (SqlCommand sqlCommand = new SqlCommand("SELECT MaNV, Ngay, SUM(DATEDIFF(HOUR, GioDen, GioDi) * 60000) as [LuongNgay]\r\nFROM PhanCa\r\nwhere MaNV in (select MaNV from NhanVien where MaChucVu = 2)\r\nGROUP BY MaNV, Ngay\r\nHAVING Ngay = '2024-5-4'\r\n", mydb.GetConnection))
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT MaNV, Ngay, SUM(DATEDIFF(HOUR, GioDen, GioDi) * 60000) as [LuongNgay]\r\nFROM PhanCa\r\nwhere MaNV in (select MaNV from NhanVien where MaChucVu = 2)\r\nGROUP BY MaNV, Ngay\r\nHAVING Ngay = @date\r\n", mydb.GetConnection))
             {
+                sqlCommand.Parameters.Add("@date", SqlDbType.Date).Value = DateTime.Now.AddDays(-1);
                 using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
                 {
                     DataTable table = new DataTable();
@@ -423,6 +425,7 @@ namespace QuanLyHotel.EMPLOYEE
 
         internal static Dictionary<int, int> getDictSoGioLamViecTheoNgay(DateTime dateTime)
         {
+            //truong hop lam 2 ca 1 ngay thi ko bat buoc nhan vien do phai lam, ko dc boc lot suc lao dong
             using (SqlCommand sqlCommand = new SqlCommand("SELECT MaNV, SUM(DATEDIFF(HOUR, GioDen, GioDi)) as [SoGio]\r\nFROM PhanCa\r\nWHERE Ngay = @date\r\nGROUP BY MaNV", mydb.GetConnection))
             {
                 sqlCommand.Parameters.Add("@date", SqlDbType.Date).Value = dateTime;
@@ -470,6 +473,250 @@ namespace QuanLyHotel.EMPLOYEE
                 sqlCommand.ExecuteNonQuery();
                 mydb.CloseConnection();
             }
+        }
+
+        internal static bool isDaTinhToanLuong(DateTime dateTime)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM Luong WHERE Ngay = @date", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@date", SqlDbType.Date).Value = dateTime;
+                mydb.OpenConnection();
+                using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        internal static DataTable getDSLuongNgayTheoNgay()
+        {
+            //cua nhan vien ko la quan lys
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT Luong.MaNV,NhanVien.HoTen, Luong.Ngay, Luong.TienLuong\r\nFROM Luong join phanca on Luong.MaNV = PhanCa.MaNV and Luong.Ngay = PhanCa.Ngay\r\njoin  NhanVien on Luong.MaNV = NhanVien.MaNV\r\nGROUP BY Luong.MaNV,NhanVien.HoTen, Luong.Ngay,Luong.TienLuong\r\nhaving Luong.MaNV in (select MaNV from NhanVien where MaChucVu != 1)", mydb.GetConnection))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+                {
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+            }
+        }
+
+        internal static DataTable getDSLuongNgayTheoMaNVLC_Ngay()
+        {
+
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT MaNV, Ngay, SUM(DATEDIFF(HOUR, GioDen, GioDi) * 40000) as [LuongNgay]\r\nFROM PhanCa\r\nwhere MaNV in (select MaNV from NhanVien where MaChucVu = 3)\r\nGROUP BY MaNV, Ngay\r\nHAVING Ngay = @date\r\n", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@date", SqlDbType.Date).Value = DateTime.Now.AddDays(-1);
+                using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+                {
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+            }
+        }
+
+        internal static DataTable getAllDSBaoNghi(DateTime date, int chucvu)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM PhanCa WHERE Ngay = @date AND MaNV in (SELECT MaNV FROM NhanVien WHERE MaChucVu = @chucvu) and Ghichu = N'Báo nghỉ'", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@date", SqlDbType.Date).Value = date;
+                sqlCommand.Parameters.Add("@chucvu", SqlDbType.Int).Value = chucvu;
+                using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+                {
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+            }
+        }
+        internal static DataTable getAllDSBaoNghi(DateTime date)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("  SELECT * FROM PhanCa   WHERE Ngay = @date AND (GhiChu= N'Báo nghỉ' or GhiChu= N'Đã thay thế') ", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@date", SqlDbType.Date).Value = date;
+                using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+                {
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+            }
+        }
+
+        internal static void thayThePhanCa(int mapc, int manv)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("UPDATE PhanCa SET GhiChu = N'Đã thay thế',MaNV=@manv whERE MaPC = @mapc", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = manv;
+                sqlCommand.Parameters.Add("@mapc", SqlDbType.Int).Value = mapc;
+                mydb.OpenConnection();
+                sqlCommand.ExecuteNonQuery();
+                mydb.CloseConnection();
+            }
+        }
+
+        internal static void baoNghiCa(int manv, int mapchientai)
+        {
+            //danh dau bao nghi
+            using (SqlCommand sqlCommand = new SqlCommand("UPDATE PhanCa SET GhiChu = N'Báo nghỉ' WHERE MaNV = @manv AND MaPC = @mapc", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = manv;
+                sqlCommand.Parameters.Add("@mapc", SqlDbType.Int).Value = mapchientai;
+                mydb.OpenConnection();
+                sqlCommand.ExecuteNonQuery();
+                mydb.CloseConnection();
+            }
+        }
+
+        internal static bool kiemtraCaThayThe(int mapchientai)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM PhanCa WHERE MaPC = @mapc AND GhiChu = N'Đã thay thế'", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@mapc", SqlDbType.Int).Value = mapchientai;
+                mydb.OpenConnection();
+                using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        internal static void capnhattienthuongphat(int manv, DateTime ngay)
+        {
+            DataTable tbphancathaythe = new DataTable();
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM PhanCa WHERE MaNV = @manv AND Ngay = @ngay AND GhiChu = N'Đã thay thế'", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = manv;
+                sqlCommand.Parameters.Add("@ngay", SqlDbType.Date).Value = ngay;
+                using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+                {
+                    adapter.Fill(tbphancathaythe);
+                }
+            }
+            for (int i = 0; i < tbphancathaythe.Rows.Count; i++)
+            {
+                double tienthuong = 0;
+                double bouns = 0;
+                int mcv = EMP.getChucVu(manv);
+                if (mcv == 2)
+                {
+                    bouns = 120000;
+                }
+                else if (mcv == 3)
+                {
+                    bouns = 80000;
+                }
+                if (tbphancathaythe.Rows[i]["GioDen"] != DBNull.Value && tbphancathaythe.Rows[i]["GioDi"] != DBNull.Value)
+                {
+                    //lam tron xuong
+                    tienthuong = ((int)((Convert.ToDateTime(tbphancathaythe.Rows[i]["GioDi"])
+                        - Convert.ToDateTime(tbphancathaythe.Rows[i]["GioDen"])).TotalHours)) * bouns;
+                    if (manv == 10) MessageBox.Show(tienthuong.ToString());
+
+                }
+                using (SqlCommand sqlCommand = new SqlCommand("UPDATE ThuongPhat SET Tien = Tien+@tien WHERE MaNV = @manv AND Ngay = @ngay", mydb.GetConnection))
+                {
+                    sqlCommand.Parameters.Add("@tien", SqlDbType.Float).Value = tienthuong;
+                    sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = manv;
+                    sqlCommand.Parameters.Add("@ngay", SqlDbType.Date).Value = ngay;
+                    mydb.OpenConnection();
+                    sqlCommand.ExecuteNonQuery();
+                    mydb.CloseConnection();
+
+                }
+            }
+        }
+
+        internal static double getTienThuongPhat(int manv, DateTime ngay)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT Tien FROM ThuongPhat WHERE MaNV = @manv AND Ngay = @ngay", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = manv;
+                sqlCommand.Parameters.Add("@ngay", SqlDbType.Date).Value = ngay;
+                mydb.OpenConnection();
+                double tien = Convert.ToDouble(sqlCommand.ExecuteScalar());
+                mydb.CloseConnection();
+                return tien;
+
+            }
+        }
+
+        internal static DataTable getDSLuongNgayCaChinhTheoMaNVTT_Ngay()
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT MaNV, Ngay, SUM(DATEDIFF(HOUR, GioDen, GioDi) * 60000) as [LuongNgay] FROM PhanCa where ghichu!=N'Đã thay thế' and MaNV in (select MaNV from NhanVien where MaChucVu = 2) GROUP BY MaNV, Ngay HAVING Ngay = @date ", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@date", SqlDbType.Date).Value = DateTime.Now.AddDays(-1);
+                using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+                {
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+            }
+        }
+
+        internal static Dictionary<int, int> getDictSoGioLamViecCaChinhTheoNgay(DateTime dateTime)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT MaNV, SUM(DATEDIFF(HOUR, GioDen, GioDi)) as [SoGio]\r\nFROM PhanCa\r\nWHERE Ngay = @date and (ghichu !=N'Đã thay thế' or ghichu is null)GROUP BY MaNV", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@date", SqlDbType.Date).Value = dateTime;
+                mydb.OpenConnection();
+                using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                {
+                    Dictionary<int, int> dict = new Dictionary<int, int>();
+                    while (reader.Read())
+                    {
+                        if (reader.IsDBNull(1))
+                        {
+                            dict.Add(reader.GetInt32(0), 0);
+                        }
+                        else
+                            dict.Add(reader.GetInt32(0), reader.GetInt32(1));
+                    }
+                    return dict;
+                }
+            }
+        }
+
+        internal static DataTable getDSLuongNgayCaChinhTheoMaNVLC_Ngay()
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT MaNV, Ngay, SUM(DATEDIFF(HOUR, GioDen, GioDi) * 40000) as [LuongNgay] FROM PhanCa where ghichu!=N'Đã thay thế' and MaNV in (select MaNV from NhanVien where MaChucVu = 3) GROUP BY MaNV, Ngay HAVING Ngay = @date ", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@date", SqlDbType.Date).Value = DateTime.Now.AddDays(-1);
+                using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+                {
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+            }
+        }
+
+        internal static DataTable getDSChiTietCaDaLam(int manv, DateTime ngay)
+        {
+            SqlCommand cmd = new SqlCommand("select PhanCa.MaNV,PhanCa.Ngay,SUm(ISNULL(DATEDIFF(HOUR,PhanCa.GioDen ,PhanCa.GioDi),0)) as SoGioLam,ISNULL(PhanCa.GhiChu,N'Ca chính') as 'Loại(ca chính/ca đã thay thế))'\r\nfrom PhanCa where MaNV = @manv and Ngay = @ngay GROUP BY PhanCa.MaNV,PhanCa.Ngay,PhanCa.GhiChu", mydb.GetConnection);
+            cmd.Parameters.Add("@ngay", SqlDbType.Date).Value = ngay;
+            cmd.Parameters.Add("@manv", SqlDbType.Int).Value = manv;
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
         }
     }
 }

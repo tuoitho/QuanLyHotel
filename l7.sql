@@ -42,7 +42,7 @@ GO
 CREATE TABLE [dbo].[HoaDon](
 	[MaHoaDon] int NOT NULL PRIMARY KEY IDENTITY(1,1),
 	[TenHoaDon] [nvarchar](20) DEFAULT N'Hoá Đơn Tổng' NULL,
-	[NgayLap] [datetime] DEFAULT NULL NULL,
+	[NgayLap] [datetime] DEFAUlt GETDATE() null,
     [NgayThanhToanHoanTat] [datetime]  DEFAULT NULL NULL,
     [TienDatCoc] [money] default 0 NULL,
     [TienPhong] [money] default 0 NULL,
@@ -507,3 +507,11 @@ where ChiTietHoaDonDichVu.MaHoaDon = 4 or KhaiBao.MaHD=4
 -- FULL JOIN KhaiBao ON ChiTietHoaDonDichVu.MaHoaDon = KhaiBao.MaHD AND ChiTietHoaDonDichVu.MaDichVu = KhaiBao.MaDV
 -- WHERE (ChiTietHoaDonDichVu.MaHoaDon = 4 OR KhaiBao.MaHD = 4)
 --   AND ISNULL(ChiTietHoaDonDichVu.MaHoaDon, 0) = ISNULL(KhaiBao.MaHD, 0)
+
+
+select * from PhanCa
+--lay ma phan ca hien tai theo giờ hiện tại của nhân viên đang đăng nhập
+SELECT MaPC
+FROM PhanCa join Ca on PhanCa.MaCa = Ca.MaCa
+WHERE MaNV = 9 AND CAST(Ca.BatDau AS TIME)  <= CAST(GETDATE() AS TIME) AND CAST(Ca.KetThuc as time)>= CAST(GETDATE() AS TIME) AND Ngay = CAST(GETDATE() AS DATE)
+

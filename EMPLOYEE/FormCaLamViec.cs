@@ -47,7 +47,9 @@ namespace QuanLyHotel.LamVieic
                 roundedButton_ci.Enabled = !EMP.kiemtracheckInPC(Info.id, mapchientai);
                 roundedButton_co.Enabled = !EMP.kiemtracheckOutPC(Info.id, mapchientai);
             }
-            
+            timer1.Start();
+
+
         }
 
         private void reload()
@@ -60,8 +62,17 @@ namespace QuanLyHotel.LamVieic
                 dataGridView_c1.DataSource = tb;
                 DataTable tb2 = EMP.getAllLichTheoNgayByMaNV_MaCa(date, manv, 2);
                 dataGridView_c2.DataSource = tb2;
-                DataTable tb3 = EMP.getAllLichTheoNgayByMaNV_MaCa(date, manv, 3);
-                dataGridView_c3.DataSource = tb3;
+                //get ds bao nghi theo loại nhân viên của tôi
+                int chucvu = Info.chucvu;
+                DateTime giohientai = DateTime.Now;
+                //neu sau 0h-6h thi lay ngay hom truoc
+                if (giohientai.Hour >= 0 && giohientai.Hour <= 6)
+                {
+                    date = date.AddDays(-1);
+                }
+
+                DataTable tbBaonghi = EMP.getAllDSBaoNghi(date, chucvu);
+                dataGridView_cabaonghi.DataSource = tbBaonghi;
 
             }
             if (Info.role == "admin")
@@ -71,8 +82,18 @@ namespace QuanLyHotel.LamVieic
                 dataGridView_c1.DataSource = tb;
                 DataTable tb2 = EMP.getAllLichTheoNgayByMaCa(date, 2);
                 dataGridView_c2.DataSource = tb2;
-                DataTable tb3 = EMP.getAllLichTheoNgayByMaCa(date, 3);
-                dataGridView_c3.DataSource = tb3;
+
+                //get ds bao nghi cua all
+                DateTime giohientai = DateTime.Now;
+                //neu sau 0h-6h thi lay ngay hom truoc
+                if (giohientai.Hour >= 0 && giohientai.Hour <= 6)
+                {
+                    date = date.AddDays(-1);
+                }
+
+                DataTable tbBaonghi = EMP.getAllDSBaoNghi(date);
+                dataGridView_cabaonghi.DataSource = tbBaonghi;
+
 
             }
             int mapchientai = EMP.getMaPCHienTaiByMaNV(Info.id);
@@ -244,8 +265,7 @@ namespace QuanLyHotel.LamVieic
                 dataGridView_c1.DataSource = tb;
                 DataTable tb2 = EMP.getAllLichTheoNgayByMaNV_MaCa(date, manv, 2);
                 dataGridView_c2.DataSource = tb2;
-                DataTable tb3 = EMP.getAllLichTheoNgayByMaNV_MaCa(date, manv, 3);
-                dataGridView_c3.DataSource = tb3;
+
 
             }
             if (Info.role == "admin")
@@ -255,8 +275,7 @@ namespace QuanLyHotel.LamVieic
                 dataGridView_c1.DataSource = tb;
                 DataTable tb2 = EMP.getAllLichTheoNgayByMaCa(date, 2);
                 dataGridView_c2.DataSource = tb2;
-                DataTable tb3 = EMP.getAllLichTheoNgayByMaCa(date, 3);
-                dataGridView_c3.DataSource = tb3;
+
 
             }
         }
@@ -279,6 +298,67 @@ namespace QuanLyHotel.LamVieic
                 }
 
             }
+        }
+
+        private void roundedButton_thaythe_Click(object sender, EventArgs e)
+        {
+            if (Info.role != "employee") return;
+            if (dataGridView_cabaonghi.CurrentRow == null)
+            {
+                MessageBox.Show("Vui lòng chọn báo nghỉ cần thay thế", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            int mapc = Convert.ToInt32(dataGridView_cabaonghi.CurrentRow.Cells[0].Value.ToString());
+            int manv = Info.id;
+            try
+            {
+                EMP.thayThePhanCa(mapc, manv);
+                MessageBox.Show("Thay thế thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show("Thay thế thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
+
+        private void roundedButton_baonghi_Click(object sender, EventArgs e)
+        {
+            //bao nghi ca hien tai cuar toi
+            if (Info.role != "employee") return;
+            int manv = Info.id;
+            int mapchientai = EMP.getMaPCHienTaiByMaNV(manv);
+            //neu la ca thay the thi không được báo nghỉ
+            if (EMP.kiemtraCaThayThe(mapchientai))
+            {
+                MessageBox.Show("Không thể báo nghỉ ca thay thế", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (mapchientai == -1)
+            {
+                MessageBox.Show("Bạn không có ca làm việc hiện tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            try
+            {
+                EMP.baoNghiCa(manv, mapchientai);
+                MessageBox.Show("Báo nghỉ thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show("Báo nghỉ thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            reload();
+        }
+
+        private void button_xembc_Click(object sender, EventArgs e)
+        {
+            FormBaoCaoNgay formBaoCaoNgay = new FormBaoCaoNgay();
+            formBaoCaoNgay.ShowDialog();
         }
     }
 }
