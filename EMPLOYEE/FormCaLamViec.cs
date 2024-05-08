@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Device.Location;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,82 @@ namespace QuanLyHotel.LamVieic
             InitializeComponent();
 
         }
+        private GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
+        private string kinhdo;
+        private string vido;
+        bool ondinh = false;
+        void loadToado()
+        {
+            watcher = new GeoCoordinateWatcher();
+            watcher.StatusChanged += Watcher_StatusChanged;
+            watcher.Start();
+
+        }
+        private void Watcher_StatusChanged(object sender, GeoPositionStatusChangedEventArgs e)
+        {
+
+
+            try
+            {
+                if (e.Status == GeoPositionStatus.Ready)
+                {
+                    if (watcher.Position.Location.IsUnknown)
+                    {
+                        vido = "0";
+                        kinhdo = "0";
+                    }
+                    else
+                    {
+                        vido = watcher.Position.Location.Latitude.ToString();
+                        kinhdo = watcher.Position.Location.Longitude.ToString();
+                        ondinh = true;
+                    }
+                }
+                else
+                {
+                    vido = "0";
+                    kinhdo = "0";
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+            if (ondinh)
+            {
+                watcher.Stop();
+
+                label_vd.Text = " Vĩ độ: " + vido;
+                label_kd.Text = " Kinh độ: " + kinhdo;
+                double lat = double.Parse(vido);
+                double lon = double.Parse(kinhdo);
+                double lat1 = 10.851362;
+                double lon1 = 106.772571;
+
+                double R = 6371;
+                double dLat = (lat1 - lat) * (Math.PI / 180);
+                double dLon = (lon1 - lon) * (Math.PI / 180);
+                double a = Math.Sin(dLat / 2) * Math.Sin(dLat / 2) + Math.Cos(lat * (Math.PI / 180)) * Math.Cos(lat1 * (Math.PI / 180)) * Math.Sin(dLon / 2) * Math.Sin(dLon / 2);
+                double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+                double distance = R * c;
+                label_kc.Text = distance.ToString();
+
+            }
+
+        }
+        bool kiemtrabankinh()
+        {
+            
+            //o trong ban kinh 1km
+            if (Convert.ToDouble(label_kc.Text) <= 1)
+            {
+                return true;
+
+            }
+            return false;
+        }
         private void FormCaLamViec_Load(object sender, EventArgs e)
         {
+            loadToado();
             dataGridView_calamviec.DataSource = EMP.getDSCa();
             textBox_tongnv.Text = EMP.getDSNhanVien().Rows.Count.ToString();
             textBox_tongql.Text = EMP.getDSNVQuanLy().Rows.Count.ToString();
@@ -54,6 +129,7 @@ namespace QuanLyHotel.LamVieic
 
         private void reload()
         {
+
             if (Info.role == "employee")
             {
                 int manv = Info.id;
@@ -108,6 +184,9 @@ namespace QuanLyHotel.LamVieic
                 roundedButton_co.Enabled = !EMP.kiemtracheckOutPC(Info.id, mapchientai);
             }
         }
+        int rowca1 = 1000000;
+        int rowca2 = 1000000;
+        int rowcanghi = 1000000;
         private void button_pc_Click(object sender, EventArgs e)
         {
             DataTable ca = EMP.getDSCa();
@@ -121,21 +200,21 @@ namespace QuanLyHotel.LamVieic
             int c2 = Convert.ToInt32(ca.Rows[1][5].ToString());
             int c3 = Convert.ToInt32(ca.Rows[1][6].ToString());
             int sotuan = Convert.ToInt32(numericUpDown_sotuan.Value);
-            DateTime start= dateTimePicker_start.Value;
-            PhanCaCongBang phanCa = new PhanCaCongBang(soquanly, sotieptan, solaocong, s1, s2, s3, c1, c2, c3, start,sotuan);
+            DateTime start = dateTimePicker_start.Value;
+            PhanCaCongBang phanCa = new PhanCaCongBang(soquanly, sotieptan, solaocong, s1, s2, s3, c1, c2, c3, start, sotuan);
             PhanCaCongBang.ThucHien();
         }
 
         private void roundedButton_ok_Click(object sender, EventArgs e)
         {
-            
+
 
         }
 
         private void tabControl2_Selecting(object sender, TabControlCancelEventArgs e)
         {
-           
-            
+
+
         }
 
         private void roundedButton_chinhsua_Click(object sender, EventArgs e)
@@ -221,8 +300,14 @@ namespace QuanLyHotel.LamVieic
                 MessageBox.Show("Bạn không có ca làm việc hiện tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            try { 
-            EMP.checkInPC(manv, mapchientai);
+            try
+            {
+                if (!kiemtrabankinh())
+                {
+                    MessageBox.Show("Bạn không ở trong bán kính bàn việc 1km", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                EMP.checkInPC(manv, mapchientai);
                 MessageBox.Show("Check in thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 reload();
             }
@@ -245,6 +330,11 @@ namespace QuanLyHotel.LamVieic
             }
             try
             {
+                if (!kiemtrabankinh())
+                {
+                    MessageBox.Show("Bạn không ở trong bán kính bàn việc 1km", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
                 EMP.checkOutPC(manv, mapchientai);
                 MessageBox.Show("Check out thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 reload();
@@ -353,12 +443,70 @@ namespace QuanLyHotel.LamVieic
         private void timer1_Tick(object sender, EventArgs e)
         {
             reload();
+            if (dataGridView_c1.Rows.Count > rowca1)
+            {
+                dataGridView_c1.Rows[rowca1].Selected = true;
+            }
+            if (dataGridView_c2.Rows.Count > rowca2)
+            {
+                dataGridView_c2.Rows[rowca2].Selected = true;
+            }
+            if (dataGridView_cabaonghi.Rows.Count > rowcanghi)
+            {
+                dataGridView_cabaonghi.Rows[rowcanghi].Selected = true;
+            }
         }
 
         private void button_xembc_Click(object sender, EventArgs e)
         {
             FormBaoCaoNgay formBaoCaoNgay = new FormBaoCaoNgay();
             formBaoCaoNgay.ShowDialog();
+        }
+
+
+
+        private void dataGridView_c2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        private void dataGridView_c1_Click(object sender, EventArgs e)
+        {
+            //neu click vao khoang trong
+            if (dataGridView_c1.CurrentRow == null)
+            {
+                return;
+            }
+            rowca1 = dataGridView_c1.CurrentRow.Index;
+        }
+        private void dataGridView_c2_Click(object sender, EventArgs e)
+        {
+            //neu click vao khoang trong
+            if (dataGridView_c2.CurrentRow == null)
+            {
+                return;
+            }
+            rowca2 = dataGridView_c2.CurrentRow.Index;
+        }
+
+        private void dataGridView_cabaonghi_Click(object sender, EventArgs e)
+        {
+            //neu click vao khoang trong
+            if (dataGridView_cabaonghi.CurrentRow == null)
+            {
+                return;
+            }
+            rowcanghi = dataGridView_cabaonghi.CurrentRow.Index;
+        }
+
+        private void tabPage_lich_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void roundedButton1_Click(object sender, EventArgs e)
+        {
+            FormDiemDanhKhuonMat formDiemDanhKhuonMat = new FormDiemDanhKhuonMat();
+            formDiemDanhKhuonMat.ShowDialog();
         }
     }
 }

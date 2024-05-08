@@ -107,5 +107,80 @@ namespace QuanLyHotel.DICHVU
                 return table;
             }
         }
+
+        internal static void themLDV(string tenDichVu)
+        {
+            using (SqlCommand cmd = new SqlCommand("insert into LoaiDichVu(TenLDV) values (@tenldv)", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@tenldv", SqlDbType.NVarChar).Value = tenDichVu;
+                mydb.OpenConnection();
+                cmd.ExecuteNonQuery();
+                mydb.CloseConnection();
+            }
+        }
+
+        internal static string getTenLDVByMDV(int v)
+        {
+            using (SqlCommand cmd = new SqlCommand("select TenLDV from LoaiDichVu where MaLDV=@madv", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@madv", SqlDbType.Int).Value = v;
+                mydb.OpenConnection();
+                string ten = cmd.ExecuteScalar().ToString();
+                mydb.CloseConnection();
+                return ten;
+            }
+        }
+
+        internal static void suaLDV(int maLDV, string tenDichVu)
+        {
+            using (SqlCommand cmd = new SqlCommand("update LoaiDichVu set TenLDV=@tenldv where MaLDV=@maldv", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@tenldv", SqlDbType.NVarChar).Value = tenDichVu;
+                cmd.Parameters.Add("@maldv", SqlDbType.Int).Value = maLDV;
+                mydb.OpenConnection();
+                cmd.ExecuteNonQuery();
+                mydb.CloseConnection();
+            }
+        }
+
+        internal static DataTable getDVByMaDV(int v)
+        {
+            using (SqlCommand cmd = new SqlCommand("select * from DichVu where MaDV=@madv", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@madv", SqlDbType.Int).Value = v;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                mydb.OpenConnection();
+                adapter.Fill(table);
+                mydb.CloseConnection();
+                return table;
+            }
+        }
+
+        internal static void themDV(string tenDV, int giaDV, int maLDV)
+        {
+           using (SqlCommand cmd = new SqlCommand("insert into DichVu(TenDV,GiaDV,MaLDV) values (@tendv,@giadv,@maldv)", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@tendv", SqlDbType.NVarChar).Value = tenDV;
+                cmd.Parameters.Add("@giadv", SqlDbType.Int).Value = giaDV;
+                cmd.Parameters.Add("@maldv", SqlDbType.Int).Value = maLDV;
+                mydb.OpenConnection();
+                cmd.ExecuteNonQuery();
+                mydb.CloseConnection();
+            }
+        }
+
+        internal static void suaDV(int maDV, string tenDV, double giaDV)
+        {
+            using (SqlCommand cmd = new SqlCommand("update DichVu set TenDV=@tendv,GiaDV=@giadv where MaDV=@madv", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@tendv", SqlDbType.NVarChar).Value = tenDV;
+                cmd.Parameters.Add("@giadv", SqlDbType.Float).Value = giaDV;
+                cmd.Parameters.Add("@madv", SqlDbType.Int).Value = maDV;
+                mydb.OpenConnection();
+                cmd.ExecuteNonQuery();
+                mydb.CloseConnection();
+            }
+        }
     }
 }

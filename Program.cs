@@ -1,4 +1,5 @@
-﻿using QuanLyHotel.EMPLOYEE;
+﻿using QuanLyHotel.DICHVU;
+using QuanLyHotel.EMPLOYEE;
 using QuanLyHotel.KHACHHANG;
 using QuanLyHotel.PHONG;
 using QuanLyHotel.THUETRA;
@@ -20,6 +21,7 @@ namespace QuanLyHotel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new FormDiemDanhKhuonMat());
             //FormLogin formLogin = new FormLogin();
             //if (formLogin.ShowDialog() == DialogResult.OK)
             //{
@@ -43,13 +45,14 @@ namespace QuanLyHotel
             //        Application.Run(new FormKhachHang());
             //    }
             //}
-            Info.role = "employee";
-            Info.chucvu = 1;
-            Info.id = 1;
-            Info.form = "employee";
-            Application.Run(new FormMain());
+            //Info.role = "employee";
+            //Info.chucvu = 1;
+            //Info.id = 1;
+            //Info.form = "employee";
+            Info.role = "admin";
+            //Application.Run(new FormMain());
 
-
+            //Application.Run(new FormQuanLyDichVu());
 
             //Info.form = "customer";
             //Info.role = "customer";

@@ -222,7 +222,12 @@ namespace QuanLyHotel.EMPLOYEE
         {
            
         }
-        //su kien  chuyen tab
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Import import = new Import();
+            import.ShowDialog();
+        }
 
 
     }

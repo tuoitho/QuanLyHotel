@@ -1,8 +1,10 @@
-﻿using QuanLyHotel.Resources;
+﻿using OfficeOpenXml;
+using QuanLyHotel.Resources;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -717,6 +719,48 @@ namespace QuanLyHotel.EMPLOYEE
             DataTable table = new DataTable();
             adapter.Fill(table);
             return table;
+        }
+
+        public static DataTable readExcel(string path)
+        {
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            using (ExcelPackage excelPackage = new ExcelPackage(new FileInfo(path)))
+            {
+                // Lấy sheet đầu tiên
+                ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets[0];
+
+                // Tạo DataTable
+                DataTable dataTable = new DataTable();
+
+                //thiet lap datatable giong voi databasee
+                dataTable.Columns.Add("hoten");
+                
+                dataTable.Columns.Add("phai");
+                dataTable.Columns.Add("ngaysinh");
+                dataTable.Columns.Add("diachi");
+                dataTable.Columns.Add("sdt");
+                dataTable.Columns.Add("machucvu");
+                dataTable.Columns.Add("email");
+                dataTable.Columns.Add("matk");
+                dataTable.Columns.Add("manql");
+                // thêm dữ liệu
+                for (int i = 2; i <= worksheet.Dimension.End.Row - 1; i++)
+                {
+                    DataRow row = dataTable.NewRow();
+                    for (int j = 1; j <= worksheet.Dimension.End.Column; j++)
+                    {
+                        //giong database, neu ko co thi tam thoi null co the edit sau
+                        row["hoten"] = worksheet.Cells[i, 2].Value.ToString();
+                        row["phai"] = worksheet.Cells[i, 3].Value.ToString();
+                        row["ngaysinh"] = worksheet.Cells[i, 4].Value.ToString();
+                        row["machucvu"] = worksheet.Cells[i, 5].Value.ToString();
+                    }
+                    dataTable.Rows.Add(row);
+                }
+
+                return dataTable;
+            }
         }
     }
 }
