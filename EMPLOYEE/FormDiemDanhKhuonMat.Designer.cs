@@ -60,11 +60,11 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(67, 170);
+            this.textBox1.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold);
+            this.textBox1.Location = new System.Drawing.Point(35, 200);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(107, 20);
+            this.textBox1.Size = new System.Drawing.Size(107, 28);
             this.textBox1.TabIndex = 7;
-            this.textBox1.Text = "Sergio";
             // 
             // groupBox1
             // 
@@ -73,7 +73,7 @@
             this.groupBox1.Controls.Add(this.imageBox1);
             this.groupBox1.Location = new System.Drawing.Point(652, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(184, 242);
+            this.groupBox1.Size = new System.Drawing.Size(204, 242);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Training: ";
@@ -81,11 +81,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 173);
+            this.label1.Location = new System.Drawing.Point(33, 175);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.Size = new System.Drawing.Size(109, 13);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Name: ";
+            this.label1.Text = "Nhập Mã Khách Hàng";
             // 
             // imageBox1
             // 
@@ -102,9 +102,9 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(842, 27);
+            this.groupBox2.Location = new System.Drawing.Point(870, 27);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(209, 242);
+            this.groupBox2.Size = new System.Drawing.Size(181, 242);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Results: ";
@@ -165,10 +165,11 @@
             // 
             // imageBoxFrameGrabber
             // 
+            this.imageBoxFrameGrabber.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.imageBoxFrameGrabber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.imageBoxFrameGrabber.Location = new System.Drawing.Point(44, 12);
             this.imageBoxFrameGrabber.Name = "imageBoxFrameGrabber";
-            this.imageBoxFrameGrabber.Size = new System.Drawing.Size(546, 458);
+            this.imageBoxFrameGrabber.Size = new System.Drawing.Size(529, 405);
             this.imageBoxFrameGrabber.TabIndex = 4;
             this.imageBoxFrameGrabber.TabStop = false;
             // 
@@ -183,7 +184,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "FormDiemDanhKhuonMat";
-            this.Text = "Serg3ant\'s face detector and recgonizer :D";
+            this.Text = "Nhận dạng khuôn mặt";
             this.Load += new System.EventHandler(this.FormDiemDanhKhuonMat_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

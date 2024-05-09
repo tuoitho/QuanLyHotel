@@ -49,6 +49,10 @@ namespace QuanLyHotel.THUETRA
             this.btn_add = new System.Windows.Forms.Button();
             this.button_chuyenphong = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button_ndkh = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtinputmakh = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_pdk)).BeginInit();
             this.groupBox_tacvu.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -299,7 +303,7 @@ namespace QuanLyHotel.THUETRA
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(108)))), ((int)(((byte)(225)))));
             this.panel1.Controls.Add(this.dataGridView_pdk);
-            this.panel1.Location = new System.Drawing.Point(399, 43);
+            this.panel1.Location = new System.Drawing.Point(399, 62);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(757, 448);
@@ -346,7 +350,7 @@ namespace QuanLyHotel.THUETRA
             // 
             this.button_chuyenphong.Image = global::QuanLyHotel.Properties.Resources.plus;
             this.button_chuyenphong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_chuyenphong.Location = new System.Drawing.Point(110, 341);
+            this.button_chuyenphong.Location = new System.Drawing.Point(113, 304);
             this.button_chuyenphong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_chuyenphong.Name = "button_chuyenphong";
             this.button_chuyenphong.Padding = new System.Windows.Forms.Padding(3);
@@ -360,11 +364,59 @@ namespace QuanLyHotel.THUETRA
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(108)))), ((int)(((byte)(225)))));
             this.panel3.Controls.Add(this.panel2);
-            this.panel3.Location = new System.Drawing.Point(15, 43);
+            this.panel3.Location = new System.Drawing.Point(15, 62);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(357, 448);
             this.panel3.TabIndex = 17;
+            // 
+            // button_ndkh
+            // 
+            this.button_ndkh.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.button_ndkh.Image = global::QuanLyHotel.Properties.Resources.plus;
+            this.button_ndkh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_ndkh.Location = new System.Drawing.Point(765, 11);
+            this.button_ndkh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_ndkh.Name = "button_ndkh";
+            this.button_ndkh.Padding = new System.Windows.Forms.Padding(3);
+            this.button_ndkh.Size = new System.Drawing.Size(256, 37);
+            this.button_ndkh.TabIndex = 1;
+            this.button_ndkh.Text = "Nhận dạng khuôn mặt KH";
+            this.button_ndkh.UseVisualStyleBackColor = true;
+            this.button_ndkh.Click += new System.EventHandler(this.button_ndkh_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label1.Location = new System.Drawing.Point(232, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(186, 19);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Tìm theo mã khách hàng";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.button1.Image = global::QuanLyHotel.Properties.Resources.plus;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(599, 13);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(3);
+            this.button1.Size = new System.Drawing.Size(136, 37);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "   Tìm";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtinputmakh
+            // 
+            this.txtinputmakh.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.txtinputmakh.Location = new System.Drawing.Point(448, 18);
+            this.txtinputmakh.Name = "txtinputmakh";
+            this.txtinputmakh.Size = new System.Drawing.Size(145, 28);
+            this.txtinputmakh.TabIndex = 18;
             // 
             // FormPhieuDangKy
             // 
@@ -372,9 +424,13 @@ namespace QuanLyHotel.THUETRA
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1178, 699);
+            this.Controls.Add(this.txtinputmakh);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox_tacvu);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button_ndkh);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormPhieuDangKy";
             this.Text = "Tạo Phiếu Đăng Ký";
@@ -386,6 +442,7 @@ namespace QuanLyHotel.THUETRA
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -414,5 +471,9 @@ namespace QuanLyHotel.THUETRA
         private Panel panel2;
         private Panel panel3;
         private Button button_chuyenphong;
+        private Button button_ndkh;
+        private Label label1;
+        private Button button1;
+        private TextBox txtinputmakh;
     }
 }

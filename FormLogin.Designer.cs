@@ -78,6 +78,7 @@
             // radioButton_emp
             // 
             this.radioButton_emp.AutoSize = true;
+            this.radioButton_emp.Checked = true;
             this.radioButton_emp.Location = new System.Drawing.Point(24, 35);
             this.radioButton_emp.Name = "radioButton_emp";
             this.radioButton_emp.Size = new System.Drawing.Size(71, 17);
@@ -93,7 +94,6 @@
             this.radioButton_cus.Name = "radioButton_cus";
             this.radioButton_cus.Size = new System.Drawing.Size(76, 17);
             this.radioButton_cus.TabIndex = 2;
-            this.radioButton_cus.TabStop = true;
             this.radioButton_cus.Text = "Cusstomer";
             this.radioButton_cus.UseVisualStyleBackColor = true;
             // 

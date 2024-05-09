@@ -400,5 +400,47 @@ namespace QuanLyHotel.THUETRA
         {
 
         }
+
+        private void button_ndkh_Click(object sender, EventArgs e)
+        {
+            int makh;
+            FormDiemDanhKhuonMat formDiemDanhKhuonMat = new FormDiemDanhKhuonMat();
+            if (formDiemDanhKhuonMat.ShowDialog() == DialogResult.OK)
+            {
+                makh = formDiemDanhKhuonMat.ketquanhandangkhachhang;
+                //neu co trong bang phieu dang ky thi hien thi thong tin
+                //filter datagridview
+                //search
+                //convert datagridview to datatable
+               
+
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (txtinputmakh.Text == "")
+            {
+                dataGridView_pdk.DataSource = TT.getDSPhieuDangKy();
+                return;
+            }
+            //neu la chuoi thi hien thi thong bao
+            if (!int.TryParse(txtinputmakh.Text, out int n))
+            {
+                MessageBox.Show("Trường này phải là số, hoặc rỗng", "Tìm kiếm", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            int makh = Convert.ToInt32(txtinputmakh.Text  );
+            //neu co trong bang phieu dang ky thi hien thi thong tin
+            DataTable dt = (DataTable)dataGridView_pdk.DataSource;
+            DataRow[] rows = dt.Select("[Mã Khách Hàng] = " + makh);
+            if (rows.Length > 0)
+            {
+                dataGridView_pdk.DataSource = rows.CopyToDataTable();
+
+            }
+            else
+                dataGridView_pdk.DataSource = null;
+        }
     }
 }
