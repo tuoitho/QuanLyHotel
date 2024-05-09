@@ -21,35 +21,36 @@ namespace QuanLyHotel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormDiemDanhKhuonMat());
-            //FormLogin formLogin = new FormLogin();
-            //if (formLogin.ShowDialog() == DialogResult.OK)
-            //{
-            //    if (Info.role == "admin")
-            //    {
-            //        if ( Info.form =="employee")
-            //        {
-            //            Application.Run(new FormMain());
-            //        }
-            //        else if (Info.form == "customer")
-            //        {
-            //            Application.Run(new FormKhachHang());
-            //        }
-            //    }
-            //    else if (Info.role == "employee")
-            //    {
-            //        Application.Run(new FormMain());
-            //    }
-            //    else
-            //    {
-            //        Application.Run(new FormKhachHang());
-            //    }
-            //}
+            //Application.Run(new FormDiemDanhKhuonMat());
+            FormLogin formLogin = new FormLogin();
+            if (formLogin.ShowDialog() == DialogResult.OK)
+            {
+                if (Info.role == "admin")
+                {
+                    if (Info.form == "employee")
+                    {
+                        Application.Run(new FormMain());
+                    }
+                    else if (Info.form == "customer")
+                    {
+                        Application.Run(new FormKhachHang());
+                    }
+                }
+                else if (Info.role == "employee")
+                {
+                    Application.Run(new FormMain());
+                }
+                else
+                {
+                    Application.Run(new FormMain_KhachHang());
+                }
+            }
+            //Application.Run(new FormRegister());
             //Info.role = "employee";
             //Info.chucvu = 1;
             //Info.id = 1;
             //Info.form = "employee";
-            Info.role = "admin";
+            //Info.role = "admin";
             //Application.Run(new FormMain());
 
             //Application.Run(new FormQuanLyDichVu());

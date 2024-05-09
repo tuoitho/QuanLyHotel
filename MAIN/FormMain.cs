@@ -1,5 +1,6 @@
 ﻿using QuanLyHotel.ACCOUNT;
 using QuanLyHotel.BILL;
+using QuanLyHotel.DICHVU;
 using QuanLyHotel.KHACHHANG;
 using QuanLyHotel.LamVieic;
 using QuanLyHotel.PHONG;
@@ -188,6 +189,8 @@ namespace QuanLyHotel.EMPLOYEE
 
         private void button_dichvu_Click(object sender, EventArgs e)
         {
+            FormQuanLyDichVu formDichVu = new FormQuanLyDichVu();
+            OpenChildForm(formDichVu, sender);
 
         }
 

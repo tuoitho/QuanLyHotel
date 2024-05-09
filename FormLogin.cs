@@ -78,7 +78,7 @@ namespace QuanLyHotel
                             MessageBox.Show("Bạn là khách hàng, vui lòng chọn user để tiếp tục", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
-                        int makh=Convert.ToInt32(username.Substring(2));
+                        int makh = Convert.ToInt32(ACC.getMaKHByMaTK(Convert.ToInt32(acc.Rows[0]["matk"].ToString())));
                         Info.id = makh;
                         Info.chucvu = -1;
                         Info.form = "customer";

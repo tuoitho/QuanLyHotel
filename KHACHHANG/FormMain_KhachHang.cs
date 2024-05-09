@@ -28,6 +28,11 @@ namespace QuanLyHotel.KHACHHANG
             dataGridView_mgg.DataSource = KH.getMaGiamGia(makh);
             //lay thong tin phong da thue
             DataTable phong = KH.getPhongDaThue(makh);
+            if (phong.Rows.Count == 0)
+            {
+                MessageBox.Show("Bạn chưa thuê phòng nào", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             label_xc.Text = "Xin chào, khách hàng " + KH.getNameByID(makh);
             textBox_maph.Text = phong.Rows[0][0].ToString();
             dateTimePicker_ngayvao.Text = phong.Rows[0][1].ToString();

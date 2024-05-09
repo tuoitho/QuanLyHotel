@@ -111,7 +111,7 @@
             this.button_add.Location = new System.Drawing.Point(105, 331);
             this.button_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_add.Name = "button_add";
-            this.button_add.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.button_add.Padding = new System.Windows.Forms.Padding(3);
             this.button_add.Size = new System.Drawing.Size(150, 37);
             this.button_add.TabIndex = 1;
             this.button_add.Text = "   Thêm";
@@ -148,7 +148,8 @@
             // 
             // dtpExpectedArrival
             // 
-            this.dtpExpectedArrival.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpExpectedArrival.CustomFormat = "dd/MM/yyyy";
+            this.dtpExpectedArrival.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpExpectedArrival.Location = new System.Drawing.Point(151, 93);
             this.dtpExpectedArrival.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpExpectedArrival.Name = "dtpExpectedArrival";
@@ -166,7 +167,8 @@
             // 
             // dtpExpectedDeparture
             // 
-            this.dtpExpectedDeparture.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpExpectedDeparture.CustomFormat = "dd/MM/yyyy";
+            this.dtpExpectedDeparture.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpExpectedDeparture.Location = new System.Drawing.Point(151, 134);
             this.dtpExpectedDeparture.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpExpectedDeparture.Name = "dtpExpectedDeparture";

@@ -36,6 +36,17 @@ namespace QuanLyHotel.ACCOUNT
                 return manv;
             }
         }
+        public static int getMaKHByMaTK(int matk)
+        {
+            using (SqlCommand cmd = new SqlCommand("  SELECT makh FROM TaiKhoan join khachhang on TaiKhoan.MaTK = khachhang.MaTK where TaiKhoan.MaTK = @matk", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@matk", SqlDbType.Int).Value = matk;
+                mydb.OpenConnection();
+                int makh = Convert.ToInt32(cmd.ExecuteScalar());
+                mydb.CloseConnection();
+                return makh;
+            }
+        }
         internal static void deleteAcc(string id)
         {
             using (SqlCommand cmd = new SqlCommand("DELETE FROM TaiKhoan WHERE matk = @id", mydb.GetConnection))
