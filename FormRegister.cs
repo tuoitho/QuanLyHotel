@@ -66,12 +66,12 @@ namespace QuanLyHotel
             if (time >= 0)
             {
                 button_getcode.Enabled = false;
-                labelNotice.Text = "Resend code in " + time + " seconds";
+                label_noti.Text = "Resend code in " + time + " seconds";
                 time--;
             }
             else
             {
-                labelNotice.Text = "";
+                label_noti.Text = "";
                 time = 60;
                 button_getcode.Enabled = true;
                 timerSendCode.Enabled = false;

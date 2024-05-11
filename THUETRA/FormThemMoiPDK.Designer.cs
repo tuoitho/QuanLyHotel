@@ -148,7 +148,7 @@
             // 
             // dtpExpectedArrival
             // 
-            this.dtpExpectedArrival.CustomFormat = "dd/MM/yyyy";
+            this.dtpExpectedArrival.CustomFormat = "HH:mm dd/MM/yyyy";
             this.dtpExpectedArrival.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpExpectedArrival.Location = new System.Drawing.Point(151, 93);
             this.dtpExpectedArrival.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -167,7 +167,7 @@
             // 
             // dtpExpectedDeparture
             // 
-            this.dtpExpectedDeparture.CustomFormat = "dd/MM/yyyy";
+            this.dtpExpectedDeparture.CustomFormat = "HH:mm dd/MM/yyyy";
             this.dtpExpectedDeparture.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpExpectedDeparture.Location = new System.Drawing.Point(151, 134);
             this.dtpExpectedDeparture.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

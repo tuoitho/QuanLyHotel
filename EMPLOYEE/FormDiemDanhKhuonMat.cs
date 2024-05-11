@@ -27,10 +27,12 @@ namespace QuanLyHotel.EMPLOYEE
         List<Image<Gray, byte>> trainingImages = new List<Image<Gray, byte>>();
         List<string> labels = new List<string>();
         List<string> NamePersons = new List<string>();
-        int ContTrain, NumLabels, tttt;
+        int ContTrain, NumLabels, t;
         string name, names = null;
 
         Dictionary<string, int> dic = new Dictionary<string, int>();
+        private bool isDangky = false;
+        private int makh;
         public FormDiemDanhKhuonMat()
         {
             InitializeComponent();
@@ -62,12 +64,30 @@ namespace QuanLyHotel.EMPLOYEE
 
         }
 
-        private void FormDiemDanhKhuonMat_Load(object sender, EventArgs e)
+        public FormDiemDanhKhuonMat(bool v, int makh) : this()
         {
-
+            this.isDangky = v;
+            this.makh = makh;
+            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void FormDiemDanhKhuonMat_Load(object sender, EventArgs e)
+        {
+            panel_tacvu.Enabled = isDangky;
+            if (isDangky)
+            {
+                textBox_makh.Text = makh.ToString();
+                textBox_makh.ReadOnly = true;
+            }
+            if (!isDangky)
+            {
+                label_solan.Text = "Tần suất max (tối thiểu 3)";
+                textBox_solan.Text = "0";
+                label_title.Text= "Vui lòng đưa mặt bạn vào khung hình, hệ thống sẽ nhận diện khuôn mặt của bạn!";
+            }
+        }
+
+        private void button_kichhoat_Click(object sender, EventArgs e)
         {
             //Initialize the capture device
             grabber = new Capture();
@@ -78,7 +98,7 @@ namespace QuanLyHotel.EMPLOYEE
         }
 
 
-        private void button2_Click(object sender, System.EventArgs e)
+        private void button_add_khuonmat_Click(object sender, System.EventArgs e)
         {
             try
             {
@@ -107,7 +127,7 @@ namespace QuanLyHotel.EMPLOYEE
                 //test image with cubic interpolation type method
                 TrainedFace = result.Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
                 trainingImages.Add(TrainedFace);
-                labels.Add(textBox1.Text);
+                labels.Add(textBox_makh.Text);
 
                 //Show face added in gray scale
                 imageBox1.Image = TrainedFace;
@@ -122,16 +142,16 @@ namespace QuanLyHotel.EMPLOYEE
                     File.AppendAllText(Application.StartupPath + "/TrainedFaces/TrainedLabels.txt", labels.ToArray()[i - 1] + "%");
                 }
 
-                MessageBox.Show(textBox1.Text + "´s face detected and added :)", "Training OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show(textBox_makh.Text + "´s face detected and added :)", "Training OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
             catch (Exception ee)
             {
-                MessageBox.Show(ee.ToString());
                 MessageBox.Show("Enable the face detection first", "Training Fail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
-
+        int cnt = 0;
         void FrameGrabber(object sender, EventArgs e)
         {
             label3.Text = "0";
@@ -144,7 +164,7 @@ namespace QuanLyHotel.EMPLOYEE
             MCvAvgComp[][] facesDetected = gray.DetectHaarCascade(face, 1.2, 10, Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING, new Size(20, 20));
             foreach (MCvAvgComp f in facesDetected[0])
             {
-                tttt = tttt + 1;
+                t = t + 1;
                 result = currentFrame.Copy(f.rect).Convert<Gray, byte>().Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
                 //draw the face detected in the 0th (gray) channel with blue color
                 currentFrame.Draw(f.rect, new Bgr(Color.Red), 2);
@@ -157,35 +177,47 @@ namespace QuanLyHotel.EMPLOYEE
                     name = recognizer.Recognize(result);
                     //Draw the label for each face detected and recognized
                     currentFrame.Draw(name, ref font, new Point(f.rect.X - 2, f.rect.Y - 2), new Bgr(Color.Yellow));
+                    if (isDangky)
+                    {
+                        if(cnt<10)
+                        button_add_khuonmat_Click(sender, e );
+                        cnt++;
+                        textBox_solan.Text = cnt.ToString()+ "/10";
+                        if (cnt == 10)
+                        {
+                            MessageBox.Show("Đã đăng ký khuôn mặt cho khách hàng có mã số: " + makh);
+                            this.DialogResult = DialogResult.OK;
+                            Close();
+
+                        }
+                    }
                 }
-                NamePersons[tttt - 1] = name;
+                NamePersons[t - 1] = name;
                 NamePersons.Add("");
                 ////
                 ///
                 if (name != null)
-                if (name.Length > 0)
-                {
-                    if (!dic.ContainsKey(name))
+                    if (name.Length > 0)
                     {
-                        //tao
-                        dic.Add(name, 1);
+                        if (!dic.ContainsKey(name))
+                        {
+                            //tao
+                            dic.Add(name, 1);
+                        }
+                        else
+                        {
+                            //tang 1
+                            dic[name] = dic[name] + 1;
+                        }
                     }
-                    else
-                    {
-                        //tang 1
-                        dic[name] = dic[name] + 1;
-                    }
-                }
                 label3.Text = facesDetected[0].Length.ToString();
             }
-            tttt = 0;
+            t = 0;
             names = NamePersons[0];
-            //tim max
-            //Show the faces procesed and recognized
             imageBoxFrameGrabber.Image = currentFrame;
             label4.Text = names;
             //tim tan suat max của ket trong dictionary
-            int max = -1;
+            int max = 0;
             string maxid = "";
             foreach (KeyValuePair<string, int> kvp in dic)
             {
@@ -195,20 +227,25 @@ namespace QuanLyHotel.EMPLOYEE
                     maxid = kvp.Key;
                 }
             }
-            if (max > 20 && maxid== names)
+            if (!isDangky)
             {
-                this.ketquanhandangkhachhang = Convert.ToInt32(maxid);
-                MessageBox.Show("Bạn là Khách hàng có mã số:" + maxid+"\nSố lần kiểm tra "+ max);
-                this.DialogResult = DialogResult.OK;
-            }
-            else
-            {
-                if (maxid!=names)
+                //chon so max cang lon thi xac suat dung cang cao, vd o day chon max=4
+                textBox_solan.Text = max.ToString();
+                if (max >= 3 && maxid == names)
                 {
-                    dic.Clear();
+                    this.ketquanhandangkhachhang = Convert.ToInt32(maxid);
+                    this.DialogResult = DialogResult.OK;
+                    MessageBox.Show("Bạn là Khách hàng có mã số:" + maxid + "\nSố lần kiểm tra " + max);
+                    Close();
                 }
-            }    
-            
+                else
+                {
+                    if (maxid != names)
+                    {
+                        dic.Clear();
+                    }
+                }
+            }
 
             names = "";
             NamePersons.Clear();

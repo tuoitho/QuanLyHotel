@@ -77,6 +77,7 @@
             this.button_p2_them = new System.Windows.Forms.Button();
             this.button_p2_sua = new System.Windows.Forms.Button();
             this.phongTableAdapter = new QuanLyHotel.HotelManagementDataSet1TableAdapters.PhongTableAdapter();
+            this.panel_childForm = new System.Windows.Forms.Panel();
             this.tabControl_phong.SuspendLayout();
             this.tabPage_qlphong.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -99,12 +100,13 @@
             this.tabControl_phong.Location = new System.Drawing.Point(0, 0);
             this.tabControl_phong.Name = "tabControl_phong";
             this.tabControl_phong.SelectedIndex = 0;
-            this.tabControl_phong.Size = new System.Drawing.Size(991, 721);
+            this.tabControl_phong.Size = new System.Drawing.Size(1548, 791);
             this.tabControl_phong.TabIndex = 0;
             // 
             // tabPage_qlphong
             // 
-            this.tabPage_qlphong.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage_qlphong.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.tabPage_qlphong.Controls.Add(this.panel_childForm);
             this.tabPage_qlphong.Controls.Add(this.panel4);
             this.tabPage_qlphong.Controls.Add(this.btnLoad);
             this.tabPage_qlphong.Controls.Add(this.button_chitiet);
@@ -118,7 +120,7 @@
             this.tabPage_qlphong.Location = new System.Drawing.Point(4, 27);
             this.tabPage_qlphong.Name = "tabPage_qlphong";
             this.tabPage_qlphong.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_qlphong.Size = new System.Drawing.Size(983, 690);
+            this.tabPage_qlphong.Size = new System.Drawing.Size(1540, 760);
             this.tabPage_qlphong.TabIndex = 0;
             this.tabPage_qlphong.Text = "Quản lý phòng";
             // 
@@ -128,7 +130,7 @@
             this.panel4.Controls.Add(this.groupBox1);
             this.panel4.Location = new System.Drawing.Point(4, 5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(947, 190);
+            this.panel4.Size = new System.Drawing.Size(618, 190);
             this.panel4.TabIndex = 12;
             // 
             // groupBox1
@@ -146,7 +148,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(5, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(942, 190);
+            this.groupBox1.Size = new System.Drawing.Size(612, 190);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin phòng";
@@ -176,6 +178,7 @@
             // checkBox_stt
             // 
             this.checkBox_stt.AutoSize = true;
+            this.checkBox_stt.Enabled = false;
             this.checkBox_stt.Location = new System.Drawing.Point(120, 110);
             this.checkBox_stt.Name = "checkBox_stt";
             this.checkBox_stt.Size = new System.Drawing.Size(77, 23);
@@ -244,9 +247,10 @@
             // 
             // btnLoad
             // 
+            this.btnLoad.Font = new System.Drawing.Font("Tahoma", 13F);
             this.btnLoad.Image = global::QuanLyHotel.Properties.Resources.loading;
             this.btnLoad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLoad.Location = new System.Drawing.Point(241, 602);
+            this.btnLoad.Location = new System.Drawing.Point(118, 626);
             this.btnLoad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -258,23 +262,25 @@
             // 
             // button_chitiet
             // 
+            this.button_chitiet.Font = new System.Drawing.Font("Tahoma", 13F);
             this.button_chitiet.Image = global::QuanLyHotel.Properties.Resources.trash;
             this.button_chitiet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_chitiet.Location = new System.Drawing.Point(652, 602);
+            this.button_chitiet.Location = new System.Drawing.Point(468, 626);
             this.button_chitiet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_chitiet.Name = "button_chitiet";
             this.button_chitiet.Padding = new System.Windows.Forms.Padding(3);
-            this.button_chitiet.Size = new System.Drawing.Size(249, 37);
+            this.button_chitiet.Size = new System.Drawing.Size(159, 37);
             this.button_chitiet.TabIndex = 9;
-            this.button_chitiet.Text = "   Xem video gới thiệu";
+            this.button_chitiet.Text = "   Xem video";
             this.button_chitiet.UseVisualStyleBackColor = true;
             this.button_chitiet.Click += new System.EventHandler(this.button_chitiet_Click);
             // 
             // btn_delete
             // 
+            this.btn_delete.Font = new System.Drawing.Font("Tahoma", 13F);
             this.btn_delete.Image = global::QuanLyHotel.Properties.Resources.trash;
             this.btn_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_delete.Location = new System.Drawing.Point(506, 602);
+            this.btn_delete.Location = new System.Drawing.Point(365, 626);
             this.btn_delete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Padding = new System.Windows.Forms.Padding(3);
@@ -286,9 +292,10 @@
             // 
             // btn_modify
             // 
+            this.btn_modify.Font = new System.Drawing.Font("Tahoma", 13F);
             this.btn_modify.Image = global::QuanLyHotel.Properties.Resources.edit;
             this.btn_modify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_modify.Location = new System.Drawing.Point(374, 602);
+            this.btn_modify.Location = new System.Drawing.Point(241, 626);
             this.btn_modify.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_modify.Name = "btn_modify";
             this.btn_modify.Padding = new System.Windows.Forms.Padding(3);
@@ -300,9 +307,10 @@
             // 
             // btn_add
             // 
+            this.btn_add.Font = new System.Drawing.Font("Tahoma", 13F);
             this.btn_add.Image = global::QuanLyHotel.Properties.Resources.plus;
             this.btn_add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_add.Location = new System.Drawing.Point(109, 602);
+            this.btn_add.Location = new System.Drawing.Point(4, 626);
             this.btn_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_add.Name = "btn_add";
             this.btn_add.Padding = new System.Windows.Forms.Padding(3);
@@ -315,7 +323,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(396, 224);
+            this.checkBox1.Location = new System.Drawing.Point(324, 224);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(91, 22);
             this.checkBox1.TabIndex = 4;
@@ -324,16 +332,16 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(510, 219);
+            this.button1.Location = new System.Drawing.Point(419, 221);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(319, 27);
+            this.button1.Size = new System.Drawing.Size(202, 27);
             this.button1.TabIndex = 3;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(168, 222);
+            this.textBox6.Location = new System.Drawing.Point(67, 219);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(213, 26);
             this.textBox6.TabIndex = 2;
@@ -344,7 +352,7 @@
             this.panel1.Controls.Add(this.dataGridView_phong);
             this.panel1.Location = new System.Drawing.Point(6, 269);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(943, 304);
+            this.panel1.Size = new System.Drawing.Size(616, 304);
             this.panel1.TabIndex = 0;
             // 
             // dataGridView_phong
@@ -369,7 +377,7 @@
             this.dataGridView_phong.RowHeadersVisible = false;
             this.dataGridView_phong.RowHeadersWidth = 51;
             this.dataGridView_phong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_phong.Size = new System.Drawing.Size(942, 304);
+            this.dataGridView_phong.Size = new System.Drawing.Size(613, 304);
             this.dataGridView_phong.TabIndex = 0;
             this.dataGridView_phong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_phong_CellClick);
             this.dataGridView_phong.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_phong_CellContentClick);
@@ -614,11 +622,22 @@
             // 
             this.phongTableAdapter.ClearBeforeFill = true;
             // 
+            // panel_childForm
+            // 
+            this.panel_childForm.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel_childForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel_childForm.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel_childForm.Location = new System.Drawing.Point(632, 3);
+            this.panel_childForm.Margin = new System.Windows.Forms.Padding(2);
+            this.panel_childForm.Name = "panel_childForm";
+            this.panel_childForm.Size = new System.Drawing.Size(905, 754);
+            this.panel_childForm.TabIndex = 13;
+            // 
             // FormPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(991, 721);
+            this.ClientSize = new System.Drawing.Size(1548, 791);
             this.Controls.Add(this.tabControl_phong);
             this.Name = "FormPhong";
             this.Text = "FormPhong";
@@ -691,5 +710,6 @@
         private System.Windows.Forms.Button button_p2_sua;
         private System.Windows.Forms.Button button_p2_them;
         private System.Windows.Forms.Button button_chitiet;
+        private System.Windows.Forms.Panel panel_childForm;
     }
 }

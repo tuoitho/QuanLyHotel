@@ -45,11 +45,37 @@ namespace QuanLyHotel.EMPLOYEE
         private void dataGridView_hoadon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int maHD = Convert.ToInt32(dataGridView_hoadon.CurrentRow.Cells[0].Value);
-            dataGridView_kb.DataSource = KH.getDSKhaiBaoDayDu(maHD);
+            DataTable dt = KH.getDSKhaiBaoDayDu(maHD);
+            dataGridView_kb.DataSource = null;
+            dataGridView_kb.Rows.Clear();
+            dataGridView_kb.Columns.Clear();
+            dataGridView_kb.Columns.Add("Mã DV", "Mã DV");
+            dataGridView_kb.Columns.Add("Số lượng nhân viên cập nhật", "Số lượng NV đã khai báo");
+            dataGridView_kb.Columns.Add("Số lượng khách hàng khai báo", "Số lượng KH đã khai báo");
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                dataGridView_kb.Rows.Add();
+                dataGridView_kb.Rows[i].Cells[0].Value = dt.Rows[i][0].ToString();
+                dataGridView_kb.Rows[i].Cells[1].Value = dt.Rows[i][1].ToString();
+                dataGridView_kb.Rows[i].Cells[2].Value = dt.Rows[i][2].ToString();
+
+            }
+            //dataGridView_kb.DataSource = KH.getDSKhaiBaoDayDu(maHD);
+            //dataGridView_kb.Columns[2].ValueType = typeof(String);
+            //dataGridView_kb.Columns[1].ValueType = typeof(String);
             for (int i = 0; i < dataGridView_kb.Rows.Count; i++)
             {
-                if (Convert.ToInt32(dataGridView_kb.Rows[i].Cells[1].Value == DBNull.Value ? 0 : dataGridView_kb.Rows[i].Cells[1].Value)
-                    != Convert.ToInt32(dataGridView_kb.Rows[i].Cells[2].Value == DBNull.Value ? 0 : dataGridView_kb.Rows[i].Cells[2].Value))
+                if (dataGridView_kb.Rows[i].Cells[1].Value == DBNull.Value  ||dataGridView_kb.Rows[i].Cells[1].Value == "" || dataGridView_kb.Rows[i].Cells[1].Value ==null)
+                    dataGridView_kb.Rows[i].Cells[1].Value = "Chưa khai báo";
+                if (dataGridView_kb.Rows[i].Cells[2].Value == DBNull.Value|| dataGridView_kb.Rows[i].Cells[2].Value == "" || dataGridView_kb.Rows[i].Cells[2].Value ==null)
+                    dataGridView_kb.Rows[i].Cells[2].Value = "Chưa khai báo";
+                //if (Convert.ToInt32(dataGridView_kb.Rows[i].Cells[1].Value == DBNull.Value ? "0" : dataGridView_kb.Rows[i].Cells[1].Value)
+                //    != Convert.ToInt32(dataGridView_kb.Rows[i].Cells[2].Value == DBNull.Value ? 0 : dataGridView_kb.Rows[i].Cells[2].Value))
+                //{
+                //    dataGridView_kb.Rows[i].DefaultCellStyle.BackColor = Color.Yellow;
+                //}
+                if (dataGridView_kb.Rows[i].Cells[1].Value.ToString() != dataGridView_kb.Rows[i].Cells[2].Value.ToString())
                 {
                     dataGridView_kb.Rows[i].DefaultCellStyle.BackColor = Color.Yellow;
                 }

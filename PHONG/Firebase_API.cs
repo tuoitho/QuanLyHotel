@@ -87,7 +87,7 @@ namespace QuanLyHotel.PHONG
             try
             {
                 FirebaseResponse response = await client.GetTaskAsync("VideoRooms/");
-                MessageBox.Show(response.Body);
+                //MessageBox.Show(response.Body);
                 Dictionary<string, PhongModel> data = response.ResultAs<Dictionary<string, PhongModel>>();
                 PhongModel result = data.Where(i => i.Value.id == maphong).Select(i => i.Value).FirstOrDefault();
                 return result;

@@ -44,10 +44,10 @@
             this.button_register = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.timerSendCode = new System.Windows.Forms.Timer(this.components);
-            this.labelNotice = new System.Windows.Forms.Label();
             this.button_check = new System.Windows.Forms.Button();
             this.button_checkcode = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label_noti = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -189,15 +189,6 @@
             this.timerSendCode.Interval = 1000;
             this.timerSendCode.Tick += new System.EventHandler(this.timerSendCode_Tick);
             // 
-            // labelNotice
-            // 
-            this.labelNotice.AutoSize = true;
-            this.labelNotice.Location = new System.Drawing.Point(23, 147);
-            this.labelNotice.Name = "labelNotice";
-            this.labelNotice.Size = new System.Drawing.Size(35, 13);
-            this.labelNotice.TabIndex = 5;
-            this.labelNotice.Text = "label6";
-            // 
             // button_check
             // 
             this.button_check.Location = new System.Drawing.Point(392, 78);
@@ -214,14 +205,14 @@
             this.button_checkcode.Name = "button_checkcode";
             this.button_checkcode.Size = new System.Drawing.Size(75, 23);
             this.button_checkcode.TabIndex = 3;
-            this.button_checkcode.Text = "Check email";
+            this.button_checkcode.Text = "Xác minh OTP";
             this.button_checkcode.UseVisualStyleBackColor = true;
             this.button_checkcode.Click += new System.EventHandler(this.button_checkcode_Click);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label_noti);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.labelNotice);
             this.panel1.Controls.Add(this.radioButton_nv);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.radioButton_kh);
@@ -234,14 +225,23 @@
             this.panel1.Controls.Add(this.textBoxCode);
             this.panel1.Location = new System.Drawing.Point(54, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(684, 411);
+            this.panel1.Size = new System.Drawing.Size(587, 390);
             this.panel1.TabIndex = 6;
+            // 
+            // label_noti
+            // 
+            this.label_noti.AutoSize = true;
+            this.label_noti.Location = new System.Drawing.Point(23, 150);
+            this.label_noti.Name = "label_noti";
+            this.label_noti.Size = new System.Drawing.Size(35, 13);
+            this.label_noti.TabIndex = 4;
+            this.label_noti.Text = "label6";
             // 
             // FormRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(808, 485);
             this.Controls.Add(this.panel1);
             this.Name = "FormRegister";
             this.Text = "FormRegister";
@@ -271,9 +271,9 @@
         private System.Windows.Forms.Button button_register;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Timer timerSendCode;
-        private System.Windows.Forms.Label labelNotice;
         private System.Windows.Forms.Button button_check;
         private System.Windows.Forms.Button button_checkcode;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label_noti;
     }
 }

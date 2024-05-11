@@ -268,7 +268,14 @@ namespace QuanLyHotel.EMPLOYEE
                 sqlCommand.Parameters.Add("@phone", SqlDbType.VarChar).Value = phone;
                 sqlCommand.Parameters.Add("@position", SqlDbType.VarChar).Value = position;
                 sqlCommand.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
-                sqlCommand.Parameters.Add("@manql", SqlDbType.Int).Value = manql;
+                if (position == "1")
+                {
+                    sqlCommand.Parameters.Add("@manql", SqlDbType.Int).Value = DBNull.Value;
+                }
+                else
+                {
+                    sqlCommand.Parameters.Add("@manql", SqlDbType.Int).Value = manql;
+                }
                 mydb.OpenConnection();
                 sqlCommand.ExecuteNonQuery();
                 mydb.CloseConnection();
@@ -298,7 +305,11 @@ namespace QuanLyHotel.EMPLOYEE
 
         internal static int getMaPCHienTaiByMaNV(int manv)
         {
-            using (SqlCommand sqlCommand = new SqlCommand("SELECT MaPC\r\nFROM PhanCa join Ca on PhanCa.MaCa = Ca.MaCa\r\nWHERE MaNV = @manv AND CAST(Ca.BatDau AS TIME)  <= CAST(GETDATE() AS TIME) AND CAST(Ca.KetThuc as time)>= CAST(GETDATE() AS TIME) AND Ngay = CAST(GETDATE() AS DATE)", mydb.GetConnection))
+            using (
+                //SqlCommand sqlCommand = new SqlCommand("SELECT MaPC FROM PhanCa join Ca on PhanCa.MaCa = Ca.MaCa WHERE MaNV = @manv AND CAST(Ca.BatDau AS TIME)  <= CAST(GETDATE() AS TIME) AND CAST(Ca.KetThuc as time)>= CAST(GETDATE() AS TIME) AND Ngay = CAST(GETDATE() AS DATE)", mydb.GetConnection)
+                SqlCommand sqlCommand = new SqlCommand(" SELECT MaPC FROM PhanCa join Ca on PhanCa.MaCa = Ca.MaCa \r\n  WHERE MaNV = 2\r\n   AND \r\n   DATEADD(HOUR,-7,CAST(Ca.BatDau AS TIME))  <= DATEADD(HOUR, -7, CAST(GETDATE() AS time)) \r\n   AND DATEADD(HOUR,-7,CAST(Ca.KetThuc as time))>= DATEADD(HOUR, -7, CAST(GETDATE() AS time))\r\n  AND Ngay = CAST(GETDATE() AS DATE)", mydb.GetConnection)
+                //phương pháp tịnh tiến thời gian.
+                )
             {
                 sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = manv;
                 mydb.OpenConnection();
@@ -339,7 +350,7 @@ namespace QuanLyHotel.EMPLOYEE
             DateTime gioDen = getGioDenByMaPC(mapchientai);
             if (gioDen.AddHours(8) < DateTime.Now)
             {
-                throw new Exception("Không thể check out sau 8 tiếng kể từ giờ check in");
+                //throw new Exception("Không thể check out sau 8 tiếng kể từ giờ check in");
                 gioDi = gioDen.AddHours(8);
             }
             using (SqlCommand sqlCommand = new SqlCommand("UPDATE PhanCa SET GioDi =@giodi WHERE MaNV = @manv AND MaPC = @mapc", mydb.GetConnection))
@@ -413,7 +424,7 @@ namespace QuanLyHotel.EMPLOYEE
 
         internal static DataTable getDSLuongNgayTheoMaNVTT_Ngay()
         {
-            using (SqlCommand sqlCommand = new SqlCommand("SELECT MaNV, Ngay, SUM(DATEDIFF(HOUR, GioDen, GioDi) * 60000) as [LuongNgay]\r\nFROM PhanCa\r\nwhere MaNV in (select MaNV from NhanVien where MaChucVu = 2)\r\nGROUP BY MaNV, Ngay\r\nHAVING Ngay = @date\r\n", mydb.GetConnection))
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT MaNV, Ngay, SUM(DATEDIFF(HOUR, GioDen, GioDi) * 60000) as [LuongNgay] FROM PhanCa where MaNV in (select MaNV from NhanVien where MaChucVu = 2) GROUP BY MaNV, Ngay HAVING Ngay = @date ", mydb.GetConnection))
             {
                 sqlCommand.Parameters.Add("@date", SqlDbType.Date).Value = DateTime.Now.AddDays(-1);
                 using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
@@ -428,7 +439,7 @@ namespace QuanLyHotel.EMPLOYEE
         internal static Dictionary<int, int> getDictSoGioLamViecTheoNgay(DateTime dateTime)
         {
             //truong hop lam 2 ca 1 ngay thi ko bat buoc nhan vien do phai lam, ko dc boc lot suc lao dong
-            using (SqlCommand sqlCommand = new SqlCommand("SELECT MaNV, SUM(DATEDIFF(HOUR, GioDen, GioDi)) as [SoGio]\r\nFROM PhanCa\r\nWHERE Ngay = @date\r\nGROUP BY MaNV", mydb.GetConnection))
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT MaNV, SUM(DATEDIFF(HOUR, GioDen, GioDi)) as [SoGio] FROM PhanCa WHERE Ngay = @date GROUP BY MaNV", mydb.GetConnection))
             {
                 sqlCommand.Parameters.Add("@date", SqlDbType.Date).Value = dateTime;
                 mydb.OpenConnection();
@@ -500,7 +511,7 @@ namespace QuanLyHotel.EMPLOYEE
         internal static DataTable getDSLuongNgayTheoNgay()
         {
             //cua nhan vien ko la quan lys
-            using (SqlCommand sqlCommand = new SqlCommand("SELECT Luong.MaNV,NhanVien.HoTen, Luong.Ngay, Luong.TienLuong\r\nFROM Luong join phanca on Luong.MaNV = PhanCa.MaNV and Luong.Ngay = PhanCa.Ngay\r\njoin  NhanVien on Luong.MaNV = NhanVien.MaNV\r\nGROUP BY Luong.MaNV,NhanVien.HoTen, Luong.Ngay,Luong.TienLuong\r\nhaving Luong.MaNV in (select MaNV from NhanVien where MaChucVu != 1)", mydb.GetConnection))
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT Luong.MaNV,NhanVien.HoTen, Luong.Ngay, Luong.TienLuong FROM Luong join phanca on Luong.MaNV = PhanCa.MaNV and Luong.Ngay = PhanCa.Ngay join  NhanVien on Luong.MaNV = NhanVien.MaNV GROUP BY Luong.MaNV,NhanVien.HoTen, Luong.Ngay,Luong.TienLuong having Luong.MaNV in (select MaNV from NhanVien where MaChucVu != 1)", mydb.GetConnection))
             {
                 using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
                 {
@@ -514,7 +525,7 @@ namespace QuanLyHotel.EMPLOYEE
         internal static DataTable getDSLuongNgayTheoMaNVLC_Ngay()
         {
 
-            using (SqlCommand sqlCommand = new SqlCommand("SELECT MaNV, Ngay, SUM(DATEDIFF(HOUR, GioDen, GioDi) * 40000) as [LuongNgay]\r\nFROM PhanCa\r\nwhere MaNV in (select MaNV from NhanVien where MaChucVu = 3)\r\nGROUP BY MaNV, Ngay\r\nHAVING Ngay = @date\r\n", mydb.GetConnection))
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT MaNV, Ngay, SUM(DATEDIFF(HOUR, GioDen, GioDi) * 40000) as [LuongNgay] FROM PhanCa where MaNV in (select MaNV from NhanVien where MaChucVu = 3) GROUP BY MaNV, Ngay HAVING Ngay = @date ", mydb.GetConnection))
             {
                 sqlCommand.Parameters.Add("@date", SqlDbType.Date).Value = DateTime.Now.AddDays(-1);
                 using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
@@ -675,7 +686,7 @@ namespace QuanLyHotel.EMPLOYEE
 
         internal static Dictionary<int, int> getDictSoGioLamViecCaChinhTheoNgay(DateTime dateTime)
         {
-            using (SqlCommand sqlCommand = new SqlCommand("SELECT MaNV, SUM(DATEDIFF(HOUR, GioDen, GioDi)) as [SoGio]\r\nFROM PhanCa\r\nWHERE Ngay = @date and (ghichu !=N'Đã thay thế' or ghichu is null)GROUP BY MaNV", mydb.GetConnection))
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT MaNV, SUM(DATEDIFF(HOUR, GioDen, GioDi)) as [SoGio] FROM PhanCa WHERE Ngay = @date and (ghichu !=N'Đã thay thế' or ghichu is null)GROUP BY MaNV", mydb.GetConnection))
             {
                 sqlCommand.Parameters.Add("@date", SqlDbType.Date).Value = dateTime;
                 mydb.OpenConnection();
@@ -712,7 +723,7 @@ namespace QuanLyHotel.EMPLOYEE
 
         internal static DataTable getDSChiTietCaDaLam(int manv, DateTime ngay)
         {
-            SqlCommand cmd = new SqlCommand("select PhanCa.MaNV,PhanCa.Ngay,SUm(ISNULL(DATEDIFF(HOUR,PhanCa.GioDen ,PhanCa.GioDi),0)) as SoGioLam,ISNULL(PhanCa.GhiChu,N'Ca chính') as 'Loại(ca chính/ca đã thay thế))'\r\nfrom PhanCa where MaNV = @manv and Ngay = @ngay GROUP BY PhanCa.MaNV,PhanCa.Ngay,PhanCa.GhiChu", mydb.GetConnection);
+            SqlCommand cmd = new SqlCommand("select PhanCa.MaNV,PhanCa.Ngay,SUm(ISNULL(DATEDIFF(HOUR,PhanCa.GioDen ,PhanCa.GioDi),0)) as SoGioLam,ISNULL(PhanCa.GhiChu,N'Ca chính') as 'Loại(ca chính/ca đã thay thế))' from PhanCa where MaNV = @manv and Ngay = @ngay GROUP BY PhanCa.MaNV,PhanCa.Ngay,PhanCa.GhiChu", mydb.GetConnection);
             cmd.Parameters.Add("@ngay", SqlDbType.Date).Value = ngay;
             cmd.Parameters.Add("@manv", SqlDbType.Int).Value = manv;
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);

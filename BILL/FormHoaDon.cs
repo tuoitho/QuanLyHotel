@@ -29,7 +29,7 @@ namespace QuanLyHotel.BILL
             }
             daclick = true;
             dataGridView_hoadon.DataSource = HD.getDSHoaDonKH(inp);
-
+            dataGridView_hoadon.DefaultCellStyle.SelectionBackColor = Color.Purple;
         }
 
         private void textBox_inputkhachhang_TextChanged(object sender, EventArgs e)
@@ -46,6 +46,13 @@ namespace QuanLyHotel.BILL
 
         private void roundedButton1_Click(object sender, EventArgs e)
         {
+            //neu data rong
+            if (dataGridView_hoadon.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để xem");
+                return;
+            }
+
             int maHD = Convert.ToInt32(dataGridView_hoadon.CurrentRow.Cells[0].Value);
             FormThongTinHoaDon f = new FormThongTinHoaDon(maHD);
             f.ShowDialog();
@@ -63,7 +70,8 @@ namespace QuanLyHotel.BILL
         {
             if (Info.role == "employee" && Info.chucvu != 1 || Info.role != "admin" && Info.role != "employee")
             {
-                //hide tabpage
+                //hide
+                MessageBox.Show(Info.role+ " " + Info.chucvu);
                 roundedButton_xemkhaibao.Visible = false;
 
             }

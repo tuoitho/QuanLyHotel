@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_makh = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel_tacvu = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.imageBox1 = new Emgu.CV.UI.ImageBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -41,47 +41,50 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.imageBoxFrameGrabber = new Emgu.CV.UI.ImageBox();
+            this.label_title = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label_solan = new System.Windows.Forms.Label();
+            this.textBox_solan = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            this.panel_tacvu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageBoxFrameGrabber)).BeginInit();
             this.SuspendLayout();
             // 
-            // button2
+            // textBox_makh
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button2.Location = new System.Drawing.Point(802, 401);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(110, 53);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "2. Add face";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold);
-            this.textBox1.Location = new System.Drawing.Point(35, 200);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(107, 28);
-            this.textBox1.TabIndex = 7;
+            this.textBox_makh.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold);
+            this.textBox_makh.Location = new System.Drawing.Point(17, 33);
+            this.textBox_makh.Name = "textBox_makh";
+            this.textBox_makh.Size = new System.Drawing.Size(126, 28);
+            this.textBox_makh.TabIndex = 7;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.panel_tacvu);
             this.groupBox1.Controls.Add(this.imageBox1);
-            this.groupBox1.Location = new System.Drawing.Point(652, 27);
+            this.groupBox1.Location = new System.Drawing.Point(523, 60);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(204, 242);
+            this.groupBox1.Size = new System.Drawing.Size(212, 326);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Training: ";
             // 
+            // panel_tacvu
+            // 
+            this.panel_tacvu.Controls.Add(this.label1);
+            this.panel_tacvu.Controls.Add(this.textBox_makh);
+            this.panel_tacvu.Controls.Add(this.button2);
+            this.panel_tacvu.Location = new System.Drawing.Point(15, 163);
+            this.panel_tacvu.Name = "panel_tacvu";
+            this.panel_tacvu.Size = new System.Drawing.Size(163, 148);
+            this.panel_tacvu.TabIndex = 10;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 175);
+            this.label1.Location = new System.Drawing.Point(14, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 13);
             this.label1.TabIndex = 8;
@@ -102,9 +105,9 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(870, 27);
+            this.groupBox2.Location = new System.Drawing.Point(741, 60);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(181, 242);
+            this.groupBox2.Size = new System.Drawing.Size(188, 326);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Results: ";
@@ -155,53 +158,98 @@
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button1.Location = new System.Drawing.Point(641, 401);
+            this.button1.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.button1.Location = new System.Drawing.Point(155, 392);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 53);
+            this.button1.Size = new System.Drawing.Size(182, 39);
             this.button1.TabIndex = 2;
-            this.button1.Text = "1. Detect and recognize";
+            this.button1.Text = "Kích hoạt ";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.button_kichhoat_Click);
             // 
             // imageBoxFrameGrabber
             // 
             this.imageBoxFrameGrabber.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.imageBoxFrameGrabber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imageBoxFrameGrabber.Location = new System.Drawing.Point(44, 12);
+            this.imageBoxFrameGrabber.Location = new System.Drawing.Point(36, 65);
             this.imageBoxFrameGrabber.Name = "imageBoxFrameGrabber";
-            this.imageBoxFrameGrabber.Size = new System.Drawing.Size(529, 405);
+            this.imageBoxFrameGrabber.Size = new System.Drawing.Size(456, 242);
             this.imageBoxFrameGrabber.TabIndex = 4;
             this.imageBoxFrameGrabber.TabStop = false;
+            // 
+            // label_title
+            // 
+            this.label_title.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label_title.Location = new System.Drawing.Point(151, 2);
+            this.label_title.Name = "label_title";
+            this.label_title.Size = new System.Drawing.Size(660, 55);
+            this.label_title.TabIndex = 10;
+            this.label_title.Text = "Vui lòng đưa măt vào khung hình để đăng ký, hệ thống sẽ tự động chụp 10 bức ảnh c" +
+    "ủa bạn để training data";
+            // 
+            // button2
+            // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button2.Location = new System.Drawing.Point(17, 80);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(126, 53);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Thêm khuôn mặt";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button_add_khuonmat_Click);
+            // 
+            // label_solan
+            // 
+            this.label_solan.AutoSize = true;
+            this.label_solan.Font = new System.Drawing.Font("Tahoma", 23F);
+            this.label_solan.Location = new System.Drawing.Point(12, 334);
+            this.label_solan.Name = "label_solan";
+            this.label_solan.Size = new System.Drawing.Size(187, 37);
+            this.label_solan.TabIndex = 13;
+            this.label_solan.Text = "Số lần chụp:";
+            // 
+            // textBox_solan
+            // 
+            this.textBox_solan.AutoSize = true;
+            this.textBox_solan.Font = new System.Drawing.Font("Tahoma", 43F);
+            this.textBox_solan.ForeColor = System.Drawing.Color.Red;
+            this.textBox_solan.Location = new System.Drawing.Point(384, 316);
+            this.textBox_solan.Name = "textBox_solan";
+            this.textBox_solan.Size = new System.Drawing.Size(148, 70);
+            this.textBox_solan.TabIndex = 14;
+            this.textBox_solan.Text = "0/10";
             // 
             // FormDiemDanhKhuonMat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1071, 524);
+            this.ClientSize = new System.Drawing.Size(957, 443);
+            this.Controls.Add(this.textBox_solan);
+            this.Controls.Add(this.label_solan);
+            this.Controls.Add(this.label_title);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.imageBoxFrameGrabber);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "FormDiemDanhKhuonMat";
             this.Text = "Nhận dạng khuôn mặt";
             this.Load += new System.EventHandler(this.FormDiemDanhKhuonMat_Load);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.panel_tacvu.ResumeLayout(false);
+            this.panel_tacvu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageBoxFrameGrabber)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button2;
         private Emgu.CV.UI.ImageBox imageBoxFrameGrabber;
         private Emgu.CV.UI.ImageBox imageBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_makh;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -210,5 +258,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel_tacvu;
+        private System.Windows.Forms.Label label_title;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label_solan;
+        private System.Windows.Forms.Label textBox_solan;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using QuanLyHotel.BILL;
+using QuanLyHotel.EMPLOYEE;
 using QuanLyHotel.THUETRA;
 using System;
 using System.Collections.Generic;
@@ -54,6 +55,11 @@ namespace QuanLyHotel.KHACHHANG
         private void FormKhachHang_Load(object sender, EventArgs e)
         {
             load();
+            if (dataGridView_kh.Rows.Count > 0)
+            {
+                dataGridView_kh.Rows[0].Selected = true;
+                dataGridView_kh_CellClick(sender, new DataGridViewCellEventArgs(0, 0));
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -219,12 +225,24 @@ namespace QuanLyHotel.KHACHHANG
             textBox_input.ForeColor = Color.Black;
         }
 
-        private void button_xemphong_Click(object sender, EventArgs e)
+        private void button_dkkm_Click(object sender, EventArgs e)
+        {
+            int makh = Convert.ToInt32(textBox_makh.Text);
+            FormDiemDanhKhuonMat f = new FormDiemDanhKhuonMat(true,makh);
+            f.Show();
+        }
+
+        private void lblDepositAmount_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void lblDepositAmount_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_xemhd_Click(object sender, EventArgs e)
         {
 
         }

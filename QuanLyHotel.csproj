@@ -411,6 +411,12 @@
     <Compile Include="EMPLOYEE\FormDiemDanhKhuonMat.Designer.cs">
       <DependentUpon>FormDiemDanhKhuonMat.cs</DependentUpon>
     </Compile>
+    <Compile Include="EMPLOYEE\FormInBangLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EMPLOYEE\FormInBangLuong.Designer.cs">
+      <DependentUpon>FormInBangLuong.cs</DependentUpon>
+    </Compile>
     <Compile Include="EMPLOYEE\FormNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -432,11 +438,11 @@
     <Compile Include="EMPLOYEE\PhanCa.cs" />
     <Compile Include="EMPLOYEE\PhanCaCongBang.cs" />
     <Compile Include="EMPLOYEE\PhanCaCongBang3Ca.cs" />
-    <Compile Include="FormLogin.cs">
+    <Compile Include="FormDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogin.Designer.cs">
-      <DependentUpon>FormLogin.cs</DependentUpon>
+    <Compile Include="FormDangNhap.Designer.cs">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
     </Compile>
     <Compile Include="FormRegister.cs">
       <SubType>Form</SubType>
@@ -444,10 +450,19 @@
     <Compile Include="FormRegister.Designer.cs">
       <DependentUpon>FormRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="HotelManagementDataSet.Designer.cs">
+    <Compile Include="BangLuongDataSet.cs">
+      <DependentUpon>BangLuongDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BangLuongDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HotelManagementDataSet.xsd</DependentUpon>
+      <DependentUpon>BangLuongDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FormTrangChu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTrangChu.Designer.cs">
+      <DependentUpon>FormTrangChu.cs</DependentUpon>
     </Compile>
     <Compile Include="HotelManagementDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -504,6 +519,23 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MyDB.cs" />
+    <Compile Include="ReportDoanhThu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportDoanhThu.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Riengbiet\FormBaoCaoDoanhthu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Riengbiet\FormBaoCaoDoanhthu.Designer.cs">
+      <DependentUpon>FormBaoCaoDoanhthu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Riengbiet\FormBieuDoDoanhThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Riengbiet\FormBieuDoDoanhThu.Designer.cs">
+      <DependentUpon>FormBieuDoDoanhThu.cs</DependentUpon>
+    </Compile>
     <Compile Include="RoundedButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -562,6 +594,9 @@
     <EmbeddedResource Include="EMPLOYEE\FormDiemDanhKhuonMat.resx">
       <DependentUpon>FormDiemDanhKhuonMat.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EMPLOYEE\FormInBangLuong.resx">
+      <DependentUpon>FormInBangLuong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EMPLOYEE\FormNhanVien.resx">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -571,11 +606,15 @@
     <EmbeddedResource Include="EMPLOYEE\Import.resx">
       <DependentUpon>Import.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLogin.resx">
-      <DependentUpon>FormLogin.cs</DependentUpon>
+    <EmbeddedResource Include="EMPLOYEE\ReportLuong.rdlc" />
+    <EmbeddedResource Include="FormDangNhap.resx">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRegister.resx">
       <DependentUpon>FormRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTrangChu.resx">
+      <DependentUpon>FormTrangChu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KHACHHANG\FormKhachHang.resx">
       <DependentUpon>FormKhachHang.cs</DependentUpon>
@@ -610,6 +649,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Riengbiet\FormBaoCaoDoanhthu.resx">
+      <DependentUpon>FormBaoCaoDoanhthu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Riengbiet\FormBieuDoDoanhThu.resx">
+      <DependentUpon>FormBieuDoDoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Riengbiet\ReportDoanhThu.rdlc" />
     <EmbeddedResource Include="THUETRA\FormChuyenPhong.resx">
       <DependentUpon>FormChuyenPhong.cs</DependentUpon>
     </EmbeddedResource>
@@ -628,16 +674,16 @@
     <EmbeddedResource Include="THUETRA\FormTraPhong.resx">
       <DependentUpon>FormTraPhong.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="HotelManagementDataSet.xsc">
-      <DependentUpon>HotelManagementDataSet.xsd</DependentUpon>
+    <None Include="BangLuongDataSet.xsc">
+      <DependentUpon>BangLuongDataSet.xsd</DependentUpon>
     </None>
-    <None Include="HotelManagementDataSet.xsd">
+    <None Include="BangLuongDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HotelManagementDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>BangLuongDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="HotelManagementDataSet.xss">
-      <DependentUpon>HotelManagementDataSet.xsd</DependentUpon>
+    <None Include="BangLuongDataSet.xss">
+      <DependentUpon>BangLuongDataSet.xsd</DependentUpon>
     </None>
     <None Include="HotelManagementDataSet1.xsc">
       <DependentUpon>HotelManagementDataSet1.xsd</DependentUpon>
@@ -729,6 +775,17 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ReportDoanhThu.xsc">
+      <DependentUpon>ReportDoanhThu.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDoanhThu.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportDoanhThu.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ReportDoanhThu.xss">
+      <DependentUpon>ReportDoanhThu.xsd</DependentUpon>
+    </None>
     <None Include="Resources\6u2ywY.jpeg" />
   </ItemGroup>
   <ItemGroup>

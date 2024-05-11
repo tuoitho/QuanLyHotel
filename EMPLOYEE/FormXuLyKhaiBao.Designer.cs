@@ -39,7 +39,7 @@
             this.dataGridView_hoadon.AllowUserToAddRows = false;
             this.dataGridView_hoadon.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridView_hoadon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_hoadon.Location = new System.Drawing.Point(34, 93);
+            this.dataGridView_hoadon.Location = new System.Drawing.Point(44, 70);
             this.dataGridView_hoadon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView_hoadon.Name = "dataGridView_hoadon";
             this.dataGridView_hoadon.RowHeadersWidth = 51;
@@ -53,7 +53,7 @@
             this.dataGridView_kb.AllowUserToAddRows = false;
             this.dataGridView_kb.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView_kb.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_kb.Location = new System.Drawing.Point(630, 93);
+            this.dataGridView_kb.Location = new System.Drawing.Point(630, 70);
             this.dataGridView_kb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView_kb.Name = "dataGridView_kb";
             this.dataGridView_kb.RowHeadersWidth = 51;
@@ -65,7 +65,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1190, 642);
+            this.ClientSize = new System.Drawing.Size(1126, 565);
             this.Controls.Add(this.dataGridView_kb);
             this.Controls.Add(this.dataGridView_hoadon);
             this.Name = "FormXuLyKhaiBao";

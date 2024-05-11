@@ -412,12 +412,14 @@ namespace QuanLyHotel.THUETRA
                 //filter datagridview
                 //search
                 //convert datagridview to datatable
-               
+                txtinputmakh.Text = makh.ToString();
+                button_timtheomakh_Click(sender, e);
+
 
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_timtheomakh_Click(object sender, EventArgs e)
         {
             if (txtinputmakh.Text == "")
             {
@@ -433,6 +435,10 @@ namespace QuanLyHotel.THUETRA
             int makh = Convert.ToInt32(txtinputmakh.Text  );
             //neu co trong bang phieu dang ky thi hien thi thong tin
             DataTable dt = (DataTable)dataGridView_pdk.DataSource;
+            if (dt == null)
+            {
+                return;
+            }
             DataRow[] rows = dt.Select("[Mã Khách Hàng] = " + makh);
             if (rows.Length > 0)
             {

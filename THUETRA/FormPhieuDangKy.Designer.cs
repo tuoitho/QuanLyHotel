@@ -271,7 +271,7 @@ namespace QuanLyHotel.THUETRA
             // 
             this.btn_modify.Image = global::QuanLyHotel.Properties.Resources.edit;
             this.btn_modify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_modify.Location = new System.Drawing.Point(304, 126);
+            this.btn_modify.Location = new System.Drawing.Point(307, 126);
             this.btn_modify.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_modify.Name = "btn_modify";
             this.btn_modify.Padding = new System.Windows.Forms.Padding(3);
@@ -408,7 +408,7 @@ namespace QuanLyHotel.THUETRA
             this.button1.TabIndex = 1;
             this.button1.Text = "   Tìm";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.button_timtheomakh_Click);
             // 
             // txtinputmakh
             // 

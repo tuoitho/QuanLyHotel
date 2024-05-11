@@ -124,6 +124,15 @@ namespace QuanLyHotel.LamVieic
             }
             timer1.Start();
 
+            //ko dc chọn 4 cột đầu
+            for (int i = 0; i < dataGridView_calamviec.Columns.Count; i++)
+            {
+                if (i < 4)
+                {
+                    dataGridView_calamviec.Columns[i].ReadOnly = true;
+                    dataGridView_calamviec.Columns[i].DefaultCellStyle.BackColor = Color.Green;
+                }
+            }
 
         }
 

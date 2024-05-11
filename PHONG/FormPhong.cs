@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Telerik.WinControls.VirtualKeyboard;
 
 namespace QuanLyHotel.PHONG
 {
@@ -32,8 +33,17 @@ namespace QuanLyHotel.PHONG
             comboBox_p2_loai.ValueMember = "maloaiphong";
             dataGridView_phong.DefaultCellStyle.SelectionBackColor = Color.Purple;
             loaded=true;
-            
-
+            if (dataGridView_phong.Rows.Count > 0)
+            {
+                Form form = new FormChiTietPhong(txt_maphong.Text);
+                form.TopLevel = false;
+                form.FormBorderStyle = FormBorderStyle.None;
+                form.Dock = DockStyle.Fill;
+                panel_childForm.Controls.Add(form);
+                panel_childForm.Tag = form;
+                form.BringToFront();
+                form.Show();
+            }
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -181,6 +191,12 @@ namespace QuanLyHotel.PHONG
         private void btn_modify_Click(object sender, EventArgs e)
         {
             int maphong = Convert.ToInt32(txt_maphong.Text);
+            //neu co nguoi o trong phong thi ko sua
+            if (PH.getTrangThai(maphong))
+            {
+                MessageBox.Show("Phòng đã có khách, không thể sửa", "Sửa phòng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             string tenphong = txt_tenphong.Text;
             bool stt = checkBox_stt.Checked ? true : false;
             string maloai = comboBox_maloai.Text;
@@ -203,8 +219,24 @@ namespace QuanLyHotel.PHONG
 
         private void button_chitiet_Click(object sender, EventArgs e)
         {
-            FormChiTietPhong formChiTietPhong = new FormChiTietPhong(txt_maphong.Text);
-            formChiTietPhong.Show();
+            //FormChiTietPhong formChiTietPhong = new FormChiTietPhong(txt_maphong.Text);
+            //formChiTietPhong.Show();
+            //clear panel
+            foreach (Control item in panel_childForm.Controls)
+            {
+                item.Dispose();
+            }
+            Form form = new FormChiTietPhong(txt_maphong.Text);
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            panel_childForm.Controls.Add(form);
+            panel_childForm.Tag = form;
+            form.BringToFront();
+            form.Show();
+
+
+
         }
 
         private void dataGridView_phong_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -30,6 +30,9 @@
         {
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.datetimePicker_NgaySinh = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox_email = new System.Windows.Forms.TextBox();
             this.textBox_quoctich = new System.Windows.Forms.TextBox();
             this.textBox_cccd = new System.Windows.Forms.TextBox();
             this.textBox_sdt = new System.Windows.Forms.TextBox();
@@ -41,6 +44,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblExpectedArrival = new System.Windows.Forms.Label();
             this.lblExpectedDeparture = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblEmployee = new System.Windows.Forms.Label();
             this.lblDepositAmount = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -49,16 +53,10 @@
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_modify = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
-            this.button_xemhd = new System.Windows.Forms.Button();
-            this.button_xemphong = new System.Windows.Forms.Button();
             this.textBox_input = new System.Windows.Forms.TextBox();
             this.button_timkiem = new System.Windows.Forms.Button();
             this.groupBox_tacvu = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.datetimePicker_NgaySinh = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox_email = new System.Windows.Forms.TextBox();
+            this.button_dkkm = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -103,6 +101,33 @@
             this.panel2.Size = new System.Drawing.Size(355, 448);
             this.panel2.TabIndex = 16;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // datetimePicker_NgaySinh
+            // 
+            this.datetimePicker_NgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datetimePicker_NgaySinh.Location = new System.Drawing.Point(100, 162);
+            this.datetimePicker_NgaySinh.Name = "datetimePicker_NgaySinh";
+            this.datetimePicker_NgaySinh.Size = new System.Drawing.Size(151, 20);
+            this.datetimePicker_NgaySinh.TabIndex = 17;
+            this.datetimePicker_NgaySinh.Value = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(27, 168);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(58, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Ngày sinh:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBox_email
+            // 
+            this.textBox_email.Location = new System.Drawing.Point(99, 235);
+            this.textBox_email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox_email.Name = "textBox_email";
+            this.textBox_email.Size = new System.Drawing.Size(198, 20);
+            this.textBox_email.TabIndex = 13;
             // 
             // textBox_quoctich
             // 
@@ -204,6 +229,15 @@
             this.lblExpectedDeparture.TabIndex = 2;
             this.lblExpectedDeparture.Text = "SĐT";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(26, 237);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Email";
+            // 
             // lblEmployee
             // 
             this.lblEmployee.AutoSize = true;
@@ -260,11 +294,11 @@
             // 
             this.btnLoad.Image = global::QuanLyHotel.Properties.Resources.loading;
             this.btnLoad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLoad.Location = new System.Drawing.Point(135, 62);
+            this.btnLoad.Location = new System.Drawing.Point(182, 36);
             this.btnLoad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnLoad.Size = new System.Drawing.Size(98, 37);
+            this.btnLoad.Size = new System.Drawing.Size(112, 37);
             this.btnLoad.TabIndex = 23;
             this.btnLoad.Text = "   Reload";
             this.btnLoad.UseVisualStyleBackColor = true;
@@ -273,7 +307,7 @@
             // 
             this.btn_delete.Image = global::QuanLyHotel.Properties.Resources.trash;
             this.btn_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_delete.Location = new System.Drawing.Point(400, 62);
+            this.btn_delete.Location = new System.Drawing.Point(447, 36);
             this.btn_delete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Padding = new System.Windows.Forms.Padding(3);
@@ -287,7 +321,7 @@
             // 
             this.btn_modify.Image = global::QuanLyHotel.Properties.Resources.edit;
             this.btn_modify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_modify.Location = new System.Drawing.Point(268, 62);
+            this.btn_modify.Location = new System.Drawing.Point(315, 36);
             this.btn_modify.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_modify.Name = "btn_modify";
             this.btn_modify.Padding = new System.Windows.Forms.Padding(3);
@@ -301,49 +335,23 @@
             // 
             this.btn_add.Image = global::QuanLyHotel.Properties.Resources.plus;
             this.btn_add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_add.Location = new System.Drawing.Point(3, 62);
+            this.btn_add.Location = new System.Drawing.Point(50, 36);
             this.btn_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_add.Name = "btn_add";
             this.btn_add.Padding = new System.Windows.Forms.Padding(3);
-            this.btn_add.Size = new System.Drawing.Size(97, 37);
+            this.btn_add.Size = new System.Drawing.Size(113, 37);
             this.btn_add.TabIndex = 20;
             this.btn_add.Text = "   Thêm";
             this.btn_add.UseVisualStyleBackColor = true;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
-            // button_xemhd
-            // 
-            this.button_xemhd.Image = global::QuanLyHotel.Properties.Resources.plus;
-            this.button_xemhd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_xemhd.Location = new System.Drawing.Point(211, 18);
-            this.button_xemhd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button_xemhd.Name = "button_xemhd";
-            this.button_xemhd.Padding = new System.Windows.Forms.Padding(3);
-            this.button_xemhd.Size = new System.Drawing.Size(127, 37);
-            this.button_xemhd.TabIndex = 20;
-            this.button_xemhd.Text = "   Xem hoá đơn";
-            this.button_xemhd.UseVisualStyleBackColor = true;
-            // 
-            // button_xemphong
-            // 
-            this.button_xemphong.Image = global::QuanLyHotel.Properties.Resources.plus;
-            this.button_xemphong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_xemphong.Location = new System.Drawing.Point(362, 18);
-            this.button_xemphong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button_xemphong.Name = "button_xemphong";
-            this.button_xemphong.Padding = new System.Windows.Forms.Padding(3);
-            this.button_xemphong.Size = new System.Drawing.Size(116, 37);
-            this.button_xemphong.TabIndex = 20;
-            this.button_xemphong.Text = "   Tra phong";
-            this.button_xemphong.UseVisualStyleBackColor = true;
-            this.button_xemphong.Click += new System.EventHandler(this.button_xemphong_Click);
-            // 
             // textBox_input
             // 
-            this.textBox_input.Location = new System.Drawing.Point(425, 11);
+            this.textBox_input.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.textBox_input.Location = new System.Drawing.Point(355, 11);
             this.textBox_input.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_input.Name = "textBox_input";
-            this.textBox_input.Size = new System.Drawing.Size(180, 20);
+            this.textBox_input.Size = new System.Drawing.Size(402, 30);
             this.textBox_input.TabIndex = 24;
             this.textBox_input.Click += new System.EventHandler(this.textBox_input_Click);
             this.textBox_input.TextChanged += new System.EventHandler(this.textBox_input_TextChanged);
@@ -352,7 +360,7 @@
             // 
             this.button_timkiem.Image = global::QuanLyHotel.Properties.Resources.plus;
             this.button_timkiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_timkiem.Location = new System.Drawing.Point(639, 1);
+            this.button_timkiem.Location = new System.Drawing.Point(778, 4);
             this.button_timkiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_timkiem.Name = "button_timkiem";
             this.button_timkiem.Padding = new System.Windows.Forms.Padding(3);
@@ -364,68 +372,31 @@
             // 
             // groupBox_tacvu
             // 
-            this.groupBox_tacvu.Controls.Add(this.button2);
-            this.groupBox_tacvu.Controls.Add(this.button_xemhd);
             this.groupBox_tacvu.Controls.Add(this.btn_add);
-            this.groupBox_tacvu.Controls.Add(this.button_xemphong);
+            this.groupBox_tacvu.Controls.Add(this.button_dkkm);
             this.groupBox_tacvu.Controls.Add(this.btnLoad);
             this.groupBox_tacvu.Controls.Add(this.btn_modify);
             this.groupBox_tacvu.Controls.Add(this.btn_delete);
-            this.groupBox_tacvu.Location = new System.Drawing.Point(309, 516);
+            this.groupBox_tacvu.Location = new System.Drawing.Point(192, 517);
             this.groupBox_tacvu.Name = "groupBox_tacvu";
-            this.groupBox_tacvu.Size = new System.Drawing.Size(575, 100);
+            this.groupBox_tacvu.Size = new System.Drawing.Size(816, 112);
             this.groupBox_tacvu.TabIndex = 26;
             this.groupBox_tacvu.TabStop = false;
             this.groupBox_tacvu.Text = "Tác vụ";
             // 
-            // button2
+            // button_dkkm
             // 
-            this.button2.Image = global::QuanLyHotel.Properties.Resources.plus;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(59, 18);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(3);
-            this.button2.Size = new System.Drawing.Size(127, 37);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "   Xem DS PDK";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // datetimePicker_NgaySinh
-            // 
-            this.datetimePicker_NgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.datetimePicker_NgaySinh.Location = new System.Drawing.Point(100, 162);
-            this.datetimePicker_NgaySinh.Name = "datetimePicker_NgaySinh";
-            this.datetimePicker_NgaySinh.Size = new System.Drawing.Size(151, 20);
-            this.datetimePicker_NgaySinh.TabIndex = 17;
-            this.datetimePicker_NgaySinh.Value = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 168);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 13);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Ngày sinh:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 237);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Email";
-            // 
-            // textBox_email
-            // 
-            this.textBox_email.Location = new System.Drawing.Point(99, 235);
-            this.textBox_email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox_email.Name = "textBox_email";
-            this.textBox_email.Size = new System.Drawing.Size(198, 20);
-            this.textBox_email.TabIndex = 13;
+            this.button_dkkm.Image = global::QuanLyHotel.Properties.Resources.plus;
+            this.button_dkkm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_dkkm.Location = new System.Drawing.Point(566, 36);
+            this.button_dkkm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_dkkm.Name = "button_dkkm";
+            this.button_dkkm.Padding = new System.Windows.Forms.Padding(3);
+            this.button_dkkm.Size = new System.Drawing.Size(185, 37);
+            this.button_dkkm.TabIndex = 20;
+            this.button_dkkm.Text = "   Đăng Ký Khuôn Mặt";
+            this.button_dkkm.UseVisualStyleBackColor = true;
+            this.button_dkkm.Click += new System.EventHandler(this.button_dkkm_Click);
             // 
             // FormKhachHang
             // 
@@ -476,15 +447,13 @@
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_modify;
         private System.Windows.Forms.Button btn_add;
-        private System.Windows.Forms.Button button_xemhd;
-        private System.Windows.Forms.Button button_xemphong;
         private System.Windows.Forms.TextBox textBox_input;
         private System.Windows.Forms.Button button_timkiem;
         private System.Windows.Forms.GroupBox groupBox_tacvu;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DateTimePicker datetimePicker_NgaySinh;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox_email;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button_dkkm;
     }
 }

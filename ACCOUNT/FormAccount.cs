@@ -21,6 +21,8 @@ namespace QuanLyHotel.ACCOUNT
         {
             dataGridView1.DataSource = ACC.getListAcc();
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.Purple;
+            //change header text
+            dataGridView1.Columns[0].HeaderText = "Mã Tài Khoản";
 
         }
         //reload

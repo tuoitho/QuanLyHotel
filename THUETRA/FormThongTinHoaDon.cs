@@ -79,6 +79,17 @@ namespace QuanLyHotel.THUETRA
                 MessageBox.Show("Số lượng dịch vụ phải lớn hơn 0", "Đăng ký dịch vụ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (comboBox_dv.SelectedValue == null)
+            {
+                
+                MessageBox.Show("Loại dv ko có dịch vụ nào, hãy chọn loại dịch vụ khác", "Đăng ký dịch vụ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (comboBox_dv.SelectedValue.ToString()=="")
+            {
+                MessageBox.Show("Loại dv ko có dịch vụ nào, hãy chọn loại dịch vụ khác", "Đăng ký dịch vụ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             int madv = Convert.ToInt32( comboBox_dv.SelectedValue.ToString());
             int mhd = Convert.ToInt32(txtMaHoaDon.Text);
             int sl = Convert.ToInt32(numericUpDown_sldv.Value);
@@ -109,8 +120,10 @@ namespace QuanLyHotel.THUETRA
         private void comboBox_loaidv_SelectedValueChanged(object sender, EventArgs e)
         {
             if (!isLoaded) return;
-            comboBox_dv.DataSource = DV.getDSDichVu(Convert.ToInt32(comboBox_loaidv.SelectedValue.ToString()));
-            comboBox_dv.SelectedIndex = 0;
+            if (DV.getDSDichVu(Convert.ToInt32(comboBox_loaidv.SelectedValue.ToString())) != null)
+                comboBox_dv.DataSource = DV.getDSDichVu(Convert.ToInt32(comboBox_loaidv.SelectedValue.ToString()));
+            else return;
+                comboBox_dv.SelectedIndex = -1;
 
         }
 
@@ -122,6 +135,7 @@ namespace QuanLyHotel.THUETRA
         private void comboBox_dv_SelectedValueChanged(object sender, EventArgs e)
         {
             if (!isLoaded) return;
+            if (comboBox_dv.SelectedValue == null   ) return;
             int madv = Convert.ToInt32(comboBox_dv.SelectedValue.ToString());
             double dv = DV.getGiaDV(madv);
             textBox_giadv.Text = dv.ToString();

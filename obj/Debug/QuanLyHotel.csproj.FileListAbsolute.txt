@@ -152,7 +152,6 @@ D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.THUETRA.FormChuyenPhong.
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.THUETRA.FormTraPhong.resources
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.THUETRA.FormThanhToan.resources
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.KHACHHANG.FormMain_KhachHang.resources
-D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.FormLogin.resources
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.LamVieic.FormCaLamViec.resources
 E:\QuanLyHotel\QuanLyHotel\bin\Debug\SqlServerTypes\x64\msvcr120.dll
 E:\QuanLyHotel\QuanLyHotel\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
@@ -349,3 +348,8 @@ D:\github\QuanLyHotel\QuanLyHotel\bin\Debug\Microsoft.Extensions.Features.xml
 D:\github\QuanLyHotel\QuanLyHotel\bin\Debug\Microsoft.Extensions.Options.xml
 D:\github\QuanLyHotel\QuanLyHotel\bin\Debug\Microsoft.Extensions.Primitives.xml
 D:\github\QuanLyHotel\QuanLyHotel\bin\Debug\System.IO.Pipelines.xml
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormInBangLuong.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.Riengbiet.FormBaoCaoDoanhthu.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.Riengbiet.FormBieuDoDoanhThu.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.FormDangNhap.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.FormTrangChu.resources

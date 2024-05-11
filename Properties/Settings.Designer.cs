@@ -33,5 +33,16 @@ namespace QuanLyHotel.Properties {
                 return ((string)(this["HotelManagementConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=TUOITHO\\SQLEXPRESS;Initial Catalog=l7;Integrated Security=True;TrustS" +
+            "erverCertificate=True")]
+        public string l7ConnectionBangluong {
+            get {
+                return ((string)(this["l7ConnectionBangluong"]));
+            }
+        }
     }
 }

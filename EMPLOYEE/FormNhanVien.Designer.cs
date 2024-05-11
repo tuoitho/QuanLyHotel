@@ -31,10 +31,6 @@ namespace QuanLyHotel.EMPLOYEE
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.hotelManagementDataSet = new QuanLyHotel.HotelManagementDataSet();
-            this.employeesTableAdapter = new QuanLyHotel.HotelManagementDataSetTableAdapters.EmployeesTableAdapter();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage_quanlynv = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dataGridView_employee = new System.Windows.Forms.DataGridView();
@@ -62,13 +58,11 @@ namespace QuanLyHotel.EMPLOYEE
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnLoad = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_modify = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.tabControl_nhanvien = new System.Windows.Forms.TabControl();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelManagementDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.tabPage_quanlynv.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_employee)).BeginInit();
@@ -78,20 +72,6 @@ namespace QuanLyHotel.EMPLOYEE
             this.groupBox3.SuspendLayout();
             this.tabControl_nhanvien.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // hotelManagementDataSet
-            // 
-            this.hotelManagementDataSet.DataSetName = "HotelManagementDataSet";
-            this.hotelManagementDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // employeesTableAdapter
-            // 
-            this.employeesTableAdapter.ClearBeforeFill = true;
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataMember = "Employees";
-            this.bindingSource1.DataSource = this.hotelManagementDataSet;
             // 
             // tabPage_quanlynv
             // 
@@ -419,6 +399,20 @@ namespace QuanLyHotel.EMPLOYEE
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
+            // button1
+            // 
+            this.button1.Image = global::QuanLyHotel.Properties.Resources.trash;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(713, 31);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(3);
+            this.button1.Size = new System.Drawing.Size(174, 37);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Import Từ File";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btn_delete
             // 
             this.btn_delete.Image = global::QuanLyHotel.Properties.Resources.trash;
@@ -474,33 +468,17 @@ namespace QuanLyHotel.EMPLOYEE
             this.tabControl_nhanvien.TabIndex = 7;
             this.tabControl_nhanvien.SelectedIndexChanged += new System.EventHandler(this.tabControl_nhanvien_SelectedIndexChanged);
             // 
-            // button1
-            // 
-            this.button1.Image = global::QuanLyHotel.Properties.Resources.trash;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(713, 31);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(3);
-            this.button1.Size = new System.Drawing.Size(174, 37);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Import Từ File";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // FormNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1152, 774);
+            this.ClientSize = new System.Drawing.Size(1440, 967);
             this.Controls.Add(this.tabControl_nhanvien);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormNhanVien";
             this.Text = "FormNhanVien";
             this.Load += new System.EventHandler(this.FormNhanVien_Load);
             this.Click += new System.EventHandler(this.FormNhanVien_Click);
-            ((System.ComponentModel.ISupportInitialize)(this.hotelManagementDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.tabPage_quanlynv.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_employee)).EndInit();
@@ -534,9 +512,7 @@ namespace QuanLyHotel.EMPLOYEE
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private HotelManagementDataSet hotelManagementDataSet;
-        private HotelManagementDataSetTableAdapters.EmployeesTableAdapter employeesTableAdapter;
-        private BindingSource bindingSource1;
+        private BangLuongDataSet hotelManagementDataSet;
         private TabPage tabPage_quanlynv;
         private GroupBox groupBox5;
         private DataGridView dataGridView_employee;
