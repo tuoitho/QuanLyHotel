@@ -8,6 +8,7 @@ using Emgu.CV.CvEnum;
 using System.IO;
 using System.Diagnostics;
 using stdole;
+using Telerik.WinControls.Svg;
 namespace QuanLyHotel.EMPLOYEE
 {
     public partial class FormDiemDanhKhuonMat : Form
@@ -235,7 +236,7 @@ namespace QuanLyHotel.EMPLOYEE
                 {
                     this.ketquanhandangkhachhang = Convert.ToInt32(maxid);
                     this.DialogResult = DialogResult.OK;
-                    MessageBox.Show("Bạn là Khách hàng có mã số:" + maxid + "\nSố lần kiểm tra " + max);
+                    //MessageBox.Show("Bạn là Khách hàng có mã số:" + maxid + "\nSố lần kiểm tra " + max);
                     Close();
                 }
                 else

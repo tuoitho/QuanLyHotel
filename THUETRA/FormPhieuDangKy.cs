@@ -408,6 +408,7 @@ namespace QuanLyHotel.THUETRA
             if (formDiemDanhKhuonMat.ShowDialog() == DialogResult.OK)
             {
                 makh = formDiemDanhKhuonMat.ketquanhandangkhachhang;
+                MessageBox.Show("Bạn là Khách hàng có mã số:" + makh);
                 //neu co trong bang phieu dang ky thi hien thi thong tin
                 //filter datagridview
                 //search
