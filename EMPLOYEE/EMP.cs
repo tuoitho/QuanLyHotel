@@ -307,7 +307,7 @@ namespace QuanLyHotel.EMPLOYEE
         {
             using (
                 //SqlCommand sqlCommand = new SqlCommand("SELECT MaPC FROM PhanCa join Ca on PhanCa.MaCa = Ca.MaCa WHERE MaNV = @manv AND CAST(Ca.BatDau AS TIME)  <= CAST(GETDATE() AS TIME) AND CAST(Ca.KetThuc as time)>= CAST(GETDATE() AS TIME) AND Ngay = CAST(GETDATE() AS DATE)", mydb.GetConnection)
-                SqlCommand sqlCommand = new SqlCommand(" SELECT MaPC FROM PhanCa join Ca on PhanCa.MaCa = Ca.MaCa \r\n  WHERE MaNV = 2\r\n   AND \r\n   DATEADD(HOUR,-7,CAST(Ca.BatDau AS TIME))  <= DATEADD(HOUR, -7, CAST(GETDATE() AS time)) \r\n   AND DATEADD(HOUR,-7,CAST(Ca.KetThuc as time))>= DATEADD(HOUR, -7, CAST(GETDATE() AS time))\r\n  AND Ngay = CAST(GETDATE() AS DATE)", mydb.GetConnection)
+                SqlCommand sqlCommand = new SqlCommand(" SELECT MaPC FROM PhanCa join Ca on PhanCa.MaCa = Ca.MaCa   WHERE MaNV = @manv   AND    DATEADD(HOUR,-7,CAST(Ca.BatDau AS TIME))  <= DATEADD(HOUR, -7, CAST(GETDATE() AS time))    AND DATEADD(HOUR,-7,CAST(Ca.KetThuc as time))>= DATEADD(HOUR, -7, CAST(GETDATE() AS time))  AND Ngay = CAST(GETDATE() AS DATE)", mydb.GetConnection)
                 //phương pháp tịnh tiến thời gian.
                 )
             {

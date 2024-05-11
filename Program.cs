@@ -22,33 +22,33 @@ namespace QuanLyHotel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-      
-            //FormDangNhap formDangNhap = new FormDangNhap();
-            //if (formDangNhap.ShowDialog() == DialogResult.OK)
-            //{
-            //    if (Info.role == "admin")
-            //    {
-            //        if (Info.form == "employee")
-            //        {
-            //            Application.Run(new FormMain());
-            //        }
-            //        else if (Info.form == "customer")
-            //        {
-            //            Application.Run(new FormKhachHang());
-            //        }
-            //    }
-            //    else if (Info.role == "employee")
-            //    {
-            //        Application.Run(new FormMain());
-            //    }
-            //    else
-            //    {
-            //        Application.Run(new FormMain_KhachHang());
-            //    }
-            //}
-            Info.role = "admin";
 
-            Application.Run(new FormMain());
+            FormDangNhap formDangNhap = new FormDangNhap();
+            if (formDangNhap.ShowDialog() == DialogResult.OK)
+            {
+                if (Info.role == "admin")
+                {
+                    if (Info.form == "employee")
+                    {
+                        Application.Run(new FormMain());
+                    }
+                    else if (Info.form == "customer")
+                    {
+                        Application.Run(new FormKhachHang());
+                    }
+                }
+                else if (Info.role == "employee")
+                {
+                    Application.Run(new FormMain());
+                }
+                else
+                {
+                    Application.Run(new FormMain_KhachHang());
+                }
+            }
+            //Info.role = "admin";
+
+            //Application.Run(new FormMain());
 
             //Application.Run(new FormRegister());
             //Info.role = "employee";
