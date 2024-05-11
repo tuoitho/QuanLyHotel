@@ -10,8 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using Telerik.Charting.Styles;
-using Telerik.WinControls.UI.Map.Bing;
+
 
 namespace QuanLyHotel.EMPLOYEE
 {

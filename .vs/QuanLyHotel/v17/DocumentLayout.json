@@ -1,0 +1,262 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\QLKS_DOAN\\QuanLyHotel\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|d:\\qlks_doan\\quanlyhotel\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|d:\\qlks_doan\\quanlyhotel\\mydb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|solutionrelative:mydb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|d:\\qlks_doan\\quanlyhotel\\employee\\formcalamviec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|solutionrelative:employee\\formcalamviec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|d:\\qlks_doan\\quanlyhotel\\thuetra\\tt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|solutionrelative:thuetra\\tt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|d:\\qlks_doan\\quanlyhotel\\thuetra\\formphieudangky.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|solutionrelative:thuetra\\formphieudangky.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|D:\\QLKS_DOAN\\QuanLyHotel\\employee\\formdiemdanhkhuonmat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|solutionrelative:employee\\formdiemdanhkhuonmat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|d:\\qlks_doan\\quanlyhotel\\phong\\firebase_api.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|solutionrelative:phong\\firebase_api.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|d:\\qlks_doan\\quanlyhotel\\khachhang\\kh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|solutionrelative:khachhang\\kh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|d:\\qlks_doan\\quanlyhotel\\phong\\formphong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|solutionrelative:phong\\formphong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|d:\\qlks_doan\\quanlyhotel\\employee\\emp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|solutionrelative:employee\\emp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|D:\\QLKS_DOAN\\QuanLyHotel\\thuetra\\formphieudangky.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|solutionrelative:thuetra\\formphieudangky.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|D:\\QLKS_DOAN\\QuanLyHotel\\employee\\formdiemdanhkhuonmat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|solutionrelative:employee\\formdiemdanhkhuonmat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|D:\\QLKS_DOAN\\QuanLyHotel\\employee\\formbaocaongay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C6E1458E-7194-4CB7-8738-7681A24B689B}|QuanLyHotel.csproj|solutionrelative:employee\\formbaocaongay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 359,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\QLKS_DOAN\\QuanLyHotel\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\QLKS_DOAN\\QuanLyHotel\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAwDIAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T08:01:48.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormCaLamViec.cs",
+              "DocumentMoniker": "D:\\QLKS_DOAN\\QuanLyHotel\\EMPLOYEE\\FormCaLamViec.cs",
+              "RelativeDocumentMoniker": "EMPLOYEE\\FormCaLamViec.cs",
+              "ToolTip": "D:\\QLKS_DOAN\\QuanLyHotel\\EMPLOYEE\\FormCaLamViec.cs",
+              "RelativeToolTip": "EMPLOYEE\\FormCaLamViec.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T07:58:09.808Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TT.cs",
+              "DocumentMoniker": "D:\\QLKS_DOAN\\QuanLyHotel\\THUETRA\\TT.cs",
+              "RelativeDocumentMoniker": "THUETRA\\TT.cs",
+              "ToolTip": "D:\\QLKS_DOAN\\QuanLyHotel\\THUETRA\\TT.cs",
+              "RelativeToolTip": "THUETRA\\TT.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T07:58:05.49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Firebase_API.cs",
+              "DocumentMoniker": "D:\\QLKS_DOAN\\QuanLyHotel\\PHONG\\Firebase_API.cs",
+              "RelativeDocumentMoniker": "PHONG\\Firebase_API.cs",
+              "ToolTip": "D:\\QLKS_DOAN\\QuanLyHotel\\PHONG\\Firebase_API.cs",
+              "RelativeToolTip": "PHONG\\Firebase_API.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T07:57:30.731Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "KH.cs",
+              "DocumentMoniker": "D:\\QLKS_DOAN\\QuanLyHotel\\KHACHHANG\\KH.cs",
+              "RelativeDocumentMoniker": "KHACHHANG\\KH.cs",
+              "ToolTip": "D:\\QLKS_DOAN\\QuanLyHotel\\KHACHHANG\\KH.cs",
+              "RelativeToolTip": "KHACHHANG\\KH.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T07:57:25.483Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FormPhong.cs",
+              "DocumentMoniker": "D:\\QLKS_DOAN\\QuanLyHotel\\PHONG\\FormPhong.cs",
+              "RelativeDocumentMoniker": "PHONG\\FormPhong.cs",
+              "ToolTip": "D:\\QLKS_DOAN\\QuanLyHotel\\PHONG\\FormPhong.cs",
+              "RelativeToolTip": "PHONG\\FormPhong.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T07:57:20.874Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MyDB.cs",
+              "DocumentMoniker": "D:\\QLKS_DOAN\\QuanLyHotel\\MyDB.cs",
+              "RelativeDocumentMoniker": "MyDB.cs",
+              "ToolTip": "D:\\QLKS_DOAN\\QuanLyHotel\\MyDB.cs",
+              "RelativeToolTip": "MyDB.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAsAAACTAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T07:55:51.491Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormDiemDanhKhuonMat.cs",
+              "DocumentMoniker": "D:\\QLKS_DOAN\\QuanLyHotel\\EMPLOYEE\\FormDiemDanhKhuonMat.cs",
+              "RelativeDocumentMoniker": "EMPLOYEE\\FormDiemDanhKhuonMat.cs",
+              "ToolTip": "D:\\QLKS_DOAN\\QuanLyHotel\\EMPLOYEE\\FormDiemDanhKhuonMat.cs",
+              "RelativeToolTip": "EMPLOYEE\\FormDiemDanhKhuonMat.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T07:55:36.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormPhieuDangKy.cs",
+              "DocumentMoniker": "D:\\QLKS_DOAN\\QuanLyHotel\\THUETRA\\FormPhieuDangKy.cs",
+              "RelativeDocumentMoniker": "THUETRA\\FormPhieuDangKy.cs",
+              "ToolTip": "D:\\QLKS_DOAN\\QuanLyHotel\\THUETRA\\FormPhieuDangKy.cs",
+              "RelativeToolTip": "THUETRA\\FormPhieuDangKy.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T07:55:36.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "EMP.cs",
+              "DocumentMoniker": "D:\\QLKS_DOAN\\QuanLyHotel\\EMPLOYEE\\EMP.cs",
+              "RelativeDocumentMoniker": "EMPLOYEE\\EMP.cs",
+              "ToolTip": "D:\\QLKS_DOAN\\QuanLyHotel\\EMPLOYEE\\EMP.cs",
+              "RelativeToolTip": "EMPLOYEE\\EMP.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T07:56:50.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FormDiemDanhKhuonMat.cs [Design]",
+              "DocumentMoniker": "D:\\QLKS_DOAN\\QuanLyHotel\\EMPLOYEE\\FormDiemDanhKhuonMat.cs",
+              "RelativeDocumentMoniker": "EMPLOYEE\\FormDiemDanhKhuonMat.cs",
+              "ToolTip": "D:\\QLKS_DOAN\\QuanLyHotel\\EMPLOYEE\\FormDiemDanhKhuonMat.cs [Design]",
+              "RelativeToolTip": "EMPLOYEE\\FormDiemDanhKhuonMat.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T07:55:36.521Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "FormPhieuDangKy.cs [Design]",
+              "DocumentMoniker": "D:\\QLKS_DOAN\\QuanLyHotel\\THUETRA\\FormPhieuDangKy.cs",
+              "RelativeDocumentMoniker": "THUETRA\\FormPhieuDangKy.cs",
+              "ToolTip": "D:\\github\\QuanLyHotel\\QuanLyHotel\\THUETRA\\FormPhieuDangKy.cs [Design]",
+              "RelativeToolTip": "..\\..\\github\\QuanLyHotel\\QuanLyHotel\\THUETRA\\FormPhieuDangKy.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-05-11T07:55:36.504Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "FormBaoCaoNgay.cs [Design]",
+              "DocumentMoniker": "D:\\QLKS_DOAN\\QuanLyHotel\\EMPLOYEE\\FormBaoCaoNgay.cs",
+              "RelativeDocumentMoniker": "EMPLOYEE\\FormBaoCaoNgay.cs",
+              "ToolTip": "D:\\github\\QuanLyHotel\\QuanLyHotel\\EMPLOYEE\\FormBaoCaoNgay.cs [Design]",
+              "RelativeToolTip": "..\\..\\github\\QuanLyHotel\\QuanLyHotel\\EMPLOYEE\\FormBaoCaoNgay.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-05-11T07:55:36.521Z"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 66,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
