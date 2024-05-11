@@ -639,7 +639,7 @@ namespace QuanLyHotel.EMPLOYEE
                     //lam tron xuong
                     tienthuong = ((int)((Convert.ToDateTime(tbphancathaythe.Rows[i]["GioDi"])
                         - Convert.ToDateTime(tbphancathaythe.Rows[i]["GioDen"])).TotalHours)) * bouns;
-                    if (manv == 10) MessageBox.Show(tienthuong.ToString());
+                    if (manv == 5) MessageBox.Show(tienthuong.ToString());
 
                 }
                 using (SqlCommand sqlCommand = new SqlCommand("UPDATE ThuongPhat SET Tien = Tien+@tien WHERE MaNV = @manv AND Ngay = @ngay", mydb.GetConnection))

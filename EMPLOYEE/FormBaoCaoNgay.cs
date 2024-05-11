@@ -37,7 +37,7 @@ namespace QuanLyHotel.EMPLOYEE
             DateTime dateTime = DateTime.Now.AddDays(-1);
             //sogiolamviec = EMP.getDictSoGioLamViecTheoNgay(dateTime);
             sogiolamviec = EMP.getDictSoGioLamViecCaChinhTheoNgay(dateTime);
-            MessageBox.Show(sogiolamviec.Count.ToString());
+            //MessageBox.Show(sogiolamviec.Count.ToString());
             DataTable dsTT = EMP.getDSNVTiepTan();
             foreach (DataRow row in dsTT.Rows)
             {

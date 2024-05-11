@@ -43,9 +43,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(277, 551);
+            this.label1.Location = new System.Drawing.Point(322, 603);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 29);
+            this.label1.Size = new System.Drawing.Size(160, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tiến trình";
             this.label1.Visible = false;
@@ -55,10 +56,11 @@
             this.axWindowsMediaPlayer1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.axWindowsMediaPlayer1.CausesValidation = false;
             this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(12, 34);
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(13, 43);
+            this.axWindowsMediaPlayer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Padding = new System.Windows.Forms.Padding(10);
+            this.axWindowsMediaPlayer1.Padding = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(835, 505);
             this.axWindowsMediaPlayer1.TabIndex = 3;
             // 
@@ -67,11 +69,11 @@
             this.btn_delete.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold);
             this.btn_delete.Image = global::QuanLyHotel.Properties.Resources.trash;
             this.btn_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_delete.Location = new System.Drawing.Point(428, 544);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_delete.Location = new System.Drawing.Point(498, 595);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Padding = new System.Windows.Forms.Padding(3);
-            this.btn_delete.Size = new System.Drawing.Size(154, 45);
+            this.btn_delete.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_delete.Size = new System.Drawing.Size(180, 55);
             this.btn_delete.TabIndex = 13;
             this.btn_delete.Text = "   Gỡ xuống";
             this.btn_delete.UseVisualStyleBackColor = true;
@@ -82,11 +84,11 @@
             this.button_choose.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold);
             this.button_choose.Image = global::QuanLyHotel.Properties.Resources.plus;
             this.button_choose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_choose.Location = new System.Drawing.Point(12, 545);
-            this.button_choose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_choose.Location = new System.Drawing.Point(13, 596);
+            this.button_choose.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.button_choose.Name = "button_choose";
-            this.button_choose.Padding = new System.Windows.Forms.Padding(3);
-            this.button_choose.Size = new System.Drawing.Size(259, 44);
+            this.button_choose.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_choose.Size = new System.Drawing.Size(302, 54);
             this.button_choose.TabIndex = 11;
             this.button_choose.Text = "   Choose and Preview";
             this.button_choose.UseVisualStyleBackColor = true;
@@ -97,11 +99,11 @@
             this.button_upload.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold);
             this.button_upload.Image = global::QuanLyHotel.Properties.Resources.plus;
             this.button_upload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_upload.Location = new System.Drawing.Point(12, 604);
-            this.button_upload.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_upload.Location = new System.Drawing.Point(13, 668);
+            this.button_upload.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.button_upload.Name = "button_upload";
-            this.button_upload.Padding = new System.Windows.Forms.Padding(3);
-            this.button_upload.Size = new System.Drawing.Size(259, 42);
+            this.button_upload.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_upload.Size = new System.Drawing.Size(302, 52);
             this.button_upload.TabIndex = 11;
             this.button_upload.Text = "   Upload to server ";
             this.button_upload.UseVisualStyleBackColor = true;
@@ -112,24 +114,26 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 22F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(227, -5);
+            this.label2.Location = new System.Drawing.Point(265, -6);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(355, 36);
+            this.label2.Size = new System.Drawing.Size(438, 45);
             this.label2.TabIndex = 14;
             this.label2.Text = "Video giới thiệu phòng";
             // 
             // FormChiTietPhong
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(857, 740);
+            this.ClientSize = new System.Drawing.Size(956, 911);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.button_upload);
             this.Controls.Add(this.button_choose);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormChiTietPhong";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormChiTietPhong_Load_1);

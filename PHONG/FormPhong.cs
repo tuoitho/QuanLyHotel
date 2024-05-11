@@ -228,7 +228,7 @@ namespace QuanLyHotel.PHONG
             Form form = new FormChiTietPhong(txt_maphong.Text);
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
-            form.Dock = DockStyle.Fill;
+            form.Dock = DockStyle.Top;
             panel_childForm.Controls.Add(form);
             panel_childForm.Tag = form;
             form.BringToFront();
