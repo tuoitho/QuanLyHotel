@@ -8,7 +8,6 @@ using Emgu.CV.CvEnum;
 using System.IO;
 using System.Diagnostics;
 using stdole;
-using Telerik.WinControls.Svg;
 namespace QuanLyHotel.EMPLOYEE
 {
     public partial class FormDiemDanhKhuonMat : Form

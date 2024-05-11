@@ -10,8 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Telerik.WinControls.FileDialogs;
-
 namespace QuanLyHotel.LamVieic
 {
     public partial class FormCaLamViec : Form
