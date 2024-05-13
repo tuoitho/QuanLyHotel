@@ -131,30 +131,37 @@ namespace QuanLyHotel.THUETRA
 
         private void button_taoqr_Click(object sender, EventArgs e)
         {
-            var apiRequest = new ApiRequest();
-            apiRequest.acqId = Convert.ToInt32(cb_nganhang.SelectedValue.ToString());
-            apiRequest.accountNo = txtSTK.Text;
-            apiRequest.accountName = txtTenTaiKhoan.Text;
-            apiRequest.amount = Convert.ToInt32(txtSoTien.Text);
-            apiRequest.format = "text";
-            apiRequest.template = cb_template.Text;
-            var jsonRequest = JsonConvert.SerializeObject(apiRequest);
-            // use restsharp for request api.
-            var client = new RestClient("https://api.vietqr.io/v2/generate");
-            var request = new RestRequest();
+            try
+            {
+                var apiRequest = new ApiRequest();
+                apiRequest.acqId = Convert.ToInt32(cb_nganhang.SelectedValue.ToString());
+                apiRequest.accountNo = txtSTK.Text;
+                apiRequest.accountName = txtTenTaiKhoan.Text;
+                apiRequest.amount = Convert.ToInt32(txtSoTien.Text);
+                apiRequest.format = "text";
+                apiRequest.template = cb_template.Text;
+                var jsonRequest = JsonConvert.SerializeObject(apiRequest);
+                // use restsharp for request api.
+                var client = new RestClient("https://api.vietqr.io/v2/generate");
+                var request = new RestRequest();
 
-            request.Method = Method.POST;
-            request.AddHeader("Accept", "application/json");
+                request.Method = Method.POST;
+                request.AddHeader("Accept", "application/json");
 
-            request.AddParameter("application/json", jsonRequest, ParameterType.RequestBody);
+                request.AddParameter("application/json", jsonRequest, ParameterType.RequestBody);
 
-            var response = client.Execute(request);
-            var content = response.Content;
-            var dataResult = JsonConvert.DeserializeObject<ApiResponse>(content);
+                var response = client.Execute(request);
+                var content = response.Content;
+                var dataResult = JsonConvert.DeserializeObject<ApiResponse>(content);
 
 
-            var image = Base64ToImage(dataResult.data.qrDataURL.Replace("data:image/png;base64,", ""));
-            pictureBox1.Image = image;
+                var image = Base64ToImage(dataResult.data.qrDataURL.Replace("data:image/png;base64,", ""));
+                pictureBox1.Image = image;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Vui lòng kiểm tra lại thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         public Image Base64ToImage(string base64String)
         {

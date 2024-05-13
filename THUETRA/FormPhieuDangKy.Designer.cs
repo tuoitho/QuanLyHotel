@@ -127,6 +127,7 @@ namespace QuanLyHotel.THUETRA
             // cboCustomer
             // 
             this.cboCustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCustomer.Enabled = false;
             this.cboCustomer.FormattingEnabled = true;
             this.cboCustomer.Location = new System.Drawing.Point(151, 228);
             this.cboCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

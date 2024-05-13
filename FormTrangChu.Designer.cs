@@ -36,7 +36,7 @@
             this.textBox_solan.AutoSize = true;
             this.textBox_solan.Font = new System.Drawing.Font("Tahoma", 43F);
             this.textBox_solan.ForeColor = System.Drawing.Color.White;
-            this.textBox_solan.Location = new System.Drawing.Point(137, 40);
+            this.textBox_solan.Location = new System.Drawing.Point(135, 65);
             this.textBox_solan.Name = "textBox_solan";
             this.textBox_solan.Size = new System.Drawing.Size(500, 70);
             this.textBox_solan.TabIndex = 15;

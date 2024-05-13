@@ -208,5 +208,18 @@ namespace QuanLyHotel.EMPLOYEE
             OpenChildForm(formBaoCaoDoanhthu, sender);
             lblTiltle.Text = "Báo cáo doanh thu";
         }
+
+        private void button_trangchu_Click(object sender, EventArgs e)
+        {
+            FormTrangChu formTrangChu = new FormTrangChu();
+            OpenChildForm(formTrangChu, sender);
+            lblTiltle.Text = "Trang chủ";
+        }
+
+        private void btn_dangxuat_Click(object sender, EventArgs e)
+        {
+            //logout
+            Application.Restart();
+        }
     }
 }

@@ -66,5 +66,31 @@ namespace QuanLyHotel.THUETRA
                 MessageBox.Show(ex.Message, "Thêm phiếu đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void roundedButton_selet_Click(object sender, EventArgs e)
+        {
+
+            FormSelectKhachHang formSelectKhachHang = new FormSelectKhachHang();
+            formSelectKhachHang.dataGridView_kh.DataSource = KH.getDSKhachHang();
+            formSelectKhachHang.dataGridView_kh.CellClick += (s, ev) =>
+            {
+                cboCustomer.SelectedValue = formSelectKhachHang.dataGridView_kh.CurrentRow.Cells[0].Value.ToString();
+            };
+            formSelectKhachHang.Show();
+
+
+        }
+
+        private void roundedButton_selectroom_Click(object sender, EventArgs e)
+        {
+            FormSelectPhong formSelectPhong = new FormSelectPhong();
+            formSelectPhong.dataGridView_phong.DataSource = PH.getDSPhongTrong();
+            formSelectPhong.dataGridView_phong.CellClick += (s, ev) =>
+            {
+                cboRoom.SelectedValue = formSelectPhong.dataGridView_phong.CurrentRow.Cells[0].Value.ToString();
+            };
+            formSelectPhong.Show();
+
+        }
     }
 }

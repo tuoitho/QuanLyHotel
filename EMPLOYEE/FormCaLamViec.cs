@@ -17,6 +17,9 @@ namespace QuanLyHotel.LamVieic
         public FormCaLamViec()
         {
             InitializeComponent();
+            if (Info.role == "employee" && Info.chucvu == 1 || Info.role=="admin")
+                linkLabel_showall.Enabled = true;
+            else linkLabel_showall.Enabled = false;
 
         }
         private GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
@@ -94,6 +97,7 @@ namespace QuanLyHotel.LamVieic
         }
         private void FormCaLamViec_Load(object sender, EventArgs e)
         {
+
             loadToado();
             dataGridView_calamviec.DataSource = EMP.getDSCa();
             textBox_tongnv.Text = EMP.getDSNhanVien().Rows.Count.ToString();
@@ -156,6 +160,9 @@ namespace QuanLyHotel.LamVieic
 
                 DataTable tbBaonghi = EMP.getAllDSBaoNghi(date, chucvu);
                 dataGridView_cabaonghi.DataSource = tbBaonghi;
+                //DataTable tbCabosung=EMP.getAllDSCaBoSung(date, chucvu);
+                DataTable tbCabosung = EMP.getAllDSCaBoSung(date);
+                dataGridView_cabs.DataSource = tbCabosung;
 
             }
             if (Info.role == "admin")
@@ -176,6 +183,8 @@ namespace QuanLyHotel.LamVieic
 
                 DataTable tbBaonghi = EMP.getAllDSBaoNghi(date);
                 dataGridView_cabaonghi.DataSource = tbBaonghi;
+                DataTable dscabs=EMP.getAllDSCaBoSung(date,Info.chucvu);
+                dataGridView_cabs.DataSource = dscabs;
 
 
             }
@@ -190,6 +199,19 @@ namespace QuanLyHotel.LamVieic
                 roundedButton_ci.Enabled = !EMP.kiemtracheckInPC(Info.id, mapchientai);
                 roundedButton_co.Enabled = !EMP.kiemtracheckOutPC(Info.id, mapchientai);
             }
+            //hide column 3
+            dataGridView_c1.Columns[3].Visible = false;
+            dataGridView_c2.Columns[3].Visible = false;
+            dataGridView_c1.Columns[0].HeaderText = "Mã Phân Ca";
+            dataGridView_c2.Columns[0].HeaderText = "Mã Phân Ca";
+            dataGridView_c1.Columns[1].HeaderText = dataGridView_c2.Columns[1].HeaderText = dataGridView_cabaonghi.Columns[1].HeaderText = "Mã Ca";
+            dataGridView_c1.Columns[2].HeaderText = dataGridView_c2.Columns[2].HeaderText = dataGridView_cabaonghi.Columns[2].HeaderText = "Mã NV";
+            dataGridView_c1.Columns[4].HeaderText = dataGridView_c2.Columns[4].HeaderText = dataGridView_cabaonghi.Columns[4].HeaderText = "Check in";
+            dataGridView_c1.Columns[5].HeaderText = dataGridView_c2.Columns[5].HeaderText = dataGridView_cabaonghi.Columns[5].HeaderText = "Check out";
+            dataGridView_c1.Columns[6].HeaderText = dataGridView_c2.Columns[6].HeaderText = dataGridView_cabaonghi.Columns[6].HeaderText = "Ghi Chú";
+            dataGridView_c1.Columns[7].HeaderText = dataGridView_c2.Columns[7].HeaderText = dataGridView_cabaonghi.Columns[7].HeaderText = "Start";
+            dataGridView_c1.Columns[8].HeaderText = dataGridView_c2.Columns[8].HeaderText = dataGridView_cabaonghi.Columns[8].HeaderText = "End";
+
         }
         int rowca1 = 1000000;
         int rowca2 = 1000000;
@@ -206,10 +228,8 @@ namespace QuanLyHotel.LamVieic
             int c1 = Convert.ToInt32(ca.Rows[1][4].ToString());
             int c2 = Convert.ToInt32(ca.Rows[1][5].ToString());
             int c3 = Convert.ToInt32(ca.Rows[1][6].ToString());
-            int sotuan = Convert.ToInt32(numericUpDown_sotuan.Value);
             DateTime start = dateTimePicker_start.Value;
          
-            //MessageBox.Show(s1+ " " + s2 + " " + s3 + " " + c1 + " " + c2 + " " + c3 + " " + start + " " + sotuan);
             PHANCA_CHINHTHUC pc = new PHANCA_CHINHTHUC(soquanly, sotieptan, solaocong, s1, s2, s3, c1, c2, c3, start);
             PHANCA_CHINHTHUC.ThucHien();
         }
@@ -409,6 +429,12 @@ namespace QuanLyHotel.LamVieic
             }
             int mapc = Convert.ToInt32(dataGridView_cabaonghi.CurrentRow.Cells[0].Value.ToString());
             int manv = Info.id;
+            //neu bi trung lich thi k dc thay the
+            if (EMP.kiemtraTrungLich(mapc, manv))
+            {
+                MessageBox.Show("Không thể thay thế ca báo nghỉ trùng lịch", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             try
             {
                 EMP.thayThePhanCa(mapc, manv);
@@ -424,29 +450,31 @@ namespace QuanLyHotel.LamVieic
         private void roundedButton_baonghi_Click(object sender, EventArgs e)
         {
             //bao nghi ca hien tai cuar toi
-            if (Info.role != "employee") return;
-            int manv = Info.id;
-            int mapchientai = EMP.getMaPCHienTaiByMaNV(manv);
-            //neu la ca thay the thi không được báo nghỉ
-            if (EMP.kiemtraCaThayThe(mapchientai))
-            {
-                MessageBox.Show("Không thể báo nghỉ ca thay thế", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            if (mapchientai == -1)
-            {
-                MessageBox.Show("Bạn không có ca làm việc hiện tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            try
-            {
-                EMP.baoNghiCa(manv, mapchientai);
-                MessageBox.Show("Báo nghỉ thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch
-            {
-                MessageBox.Show("Báo nghỉ thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            //if (Info.role != "employee") return;
+            //int manv = Info.id;
+            //int mapchientai = EMP.getMaPCHienTaiByMaNV(manv);
+            ////neu la ca thay the thi không được báo nghỉ
+            //if (EMP.kiemtraCaThayThe(mapchientai))
+            //{
+            //    MessageBox.Show("Không thể báo nghỉ ca thay thế", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    return;
+            //}
+            //if (mapchientai == -1)
+            //{
+            //    MessageBox.Show("Bạn không có ca làm việc hiện tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    return;
+            //}
+            //try
+            //{
+            //    EMP.baoNghiCa(manv, mapchientai);
+            //    MessageBox.Show("Báo nghỉ thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Báo nghỉ thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            FormBaoNghi formBaoNghi = new FormBaoNghi();
+            formBaoNghi.ShowDialog();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -516,6 +544,59 @@ namespace QuanLyHotel.LamVieic
         {
             FormDiemDanhKhuonMat formDiemDanhKhuonMat = new FormDiemDanhKhuonMat();
             formDiemDanhKhuonMat.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormThemCaBoSung formThemCaBoSung = new FormThemCaBoSung();
+            formThemCaBoSung.ShowDialog();
+        }
+
+        private void roundedButton_dangky_Click(object sender, EventArgs e)
+        {
+            if (dataGridView_cabs.CurrentRow == null)
+            {
+                MessageBox.Show("Vui lòng chọn ca bổ sung để đăng ký", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            int mapc = Convert.ToInt32(dataGridView_cabs.CurrentRow.Cells[0].Value.ToString());
+            int manv = Info.id;
+            int machucvu = Info.chucvu;
+            //neu ko cùng loại nhân viên thì ko cho đăng ký
+            string ssghichu = "";
+            if (machucvu == 2)
+            {
+                ssghichu = "Ca bổ sung tiếp tân";
+            }
+            else if (machucvu == 3)
+            {
+                ssghichu = "Ca bổ sung lao công";
+            }
+            if (ssghichu !=dataGridView_cabs.CurrentRow.Cells[6].Value.ToString())
+            {
+                MessageBox.Show("Không thể đăng ký vì bạn không phải loại nhân viên này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            //neu bi trung lich thi k dc thay the
+            if (EMP.kiemtraTrungLich(mapc, manv))
+            {
+                MessageBox.Show("Không thể đăng kí vì bạn bị trùng lịch", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            try
+            {
+                EMP.dangKyCaBoSung(mapc, manv);
+                MessageBox.Show("Đăng ký thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void linkLabel_showall_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }

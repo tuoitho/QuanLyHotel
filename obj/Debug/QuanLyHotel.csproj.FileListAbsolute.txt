@@ -545,3 +545,7 @@ D:\QLKS_DOAN\QuanLyHotel\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resour
 D:\QLKS_DOAN\QuanLyHotel\bin\Debug\Interop.WMPLib.dll
 D:\QLKS_DOAN\QuanLyHotel\bin\Debug\AxInterop.WMPLib.dll
 D:\QLKS_DOAN\QuanLyHotel\obj\Debug\QuanLyHo.C9E40E75.Up2Date
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormBaoNghi.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormThemCaBoSung.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormSelectKhachHang.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormSelectPhong.resources

@@ -405,6 +405,12 @@
     <Compile Include="EMPLOYEE\FormBaoCaoNgay.Designer.cs">
       <DependentUpon>FormBaoCaoNgay.cs</DependentUpon>
     </Compile>
+    <Compile Include="EMPLOYEE\FormBaoNghi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EMPLOYEE\FormBaoNghi.Designer.cs">
+      <DependentUpon>FormBaoNghi.cs</DependentUpon>
+    </Compile>
     <Compile Include="EMPLOYEE\FormDiemDanhKhuonMat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -422,6 +428,24 @@
     </Compile>
     <Compile Include="EMPLOYEE\FormNhanVien.Designer.cs">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EMPLOYEE\FormSelectKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EMPLOYEE\FormSelectKhachHang.Designer.cs">
+      <DependentUpon>FormSelectKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EMPLOYEE\FormSelectPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EMPLOYEE\FormSelectPhong.Designer.cs">
+      <DependentUpon>FormSelectPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EMPLOYEE\FormThemCaBoSung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EMPLOYEE\FormThemCaBoSung.Designer.cs">
+      <DependentUpon>FormThemCaBoSung.cs</DependentUpon>
     </Compile>
     <Compile Include="EMPLOYEE\FormXuLyKhaiBao.cs">
       <SubType>Form</SubType>
@@ -592,6 +616,9 @@
     <EmbeddedResource Include="EMPLOYEE\FormBaoCaoNgay.resx">
       <DependentUpon>FormBaoCaoNgay.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EMPLOYEE\FormBaoNghi.resx">
+      <DependentUpon>FormBaoNghi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EMPLOYEE\FormDiemDanhKhuonMat.resx">
       <DependentUpon>FormDiemDanhKhuonMat.cs</DependentUpon>
     </EmbeddedResource>
@@ -600,6 +627,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EMPLOYEE\FormNhanVien.resx">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EMPLOYEE\FormSelectKhachHang.resx">
+      <DependentUpon>FormSelectKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EMPLOYEE\FormSelectPhong.resx">
+      <DependentUpon>FormSelectPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EMPLOYEE\FormThemCaBoSung.resx">
+      <DependentUpon>FormThemCaBoSung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EMPLOYEE\FormXuLyKhaiBao.resx">
       <DependentUpon>FormXuLyKhaiBao.cs</DependentUpon>

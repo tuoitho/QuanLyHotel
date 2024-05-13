@@ -80,7 +80,11 @@ namespace QuanLyHotel
 
         private void button_check_Click(object sender, EventArgs e)
         {
-
+            if (textBoxEmail.Text.Trim() == "")
+            {
+                MessageBox.Show("Please enter your email", "Forget Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             mydb.OpenConnection();
 
             if (radioButton_nv.Checked)

@@ -90,7 +90,6 @@
             this.label21 = new System.Windows.Forms.Label();
             this.txtSTK = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.cb_template = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
@@ -758,14 +757,6 @@
             this.label22.TabIndex = 7;
             this.label22.Text = "Số TK";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(0, 0);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 24;
-            // 
             // cb_template
             // 
             this.cb_template.FormattingEnabled = true;
@@ -795,7 +786,6 @@
             this.ClientSize = new System.Drawing.Size(1129, 720);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.cb_template);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.txtSTK);
             this.Controls.Add(this.txtTenTaiKhoan);
             this.Controls.Add(this.txtSoTien);
@@ -903,7 +893,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtSTK;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox cb_template;
         private System.Windows.Forms.Label label23;
     }
