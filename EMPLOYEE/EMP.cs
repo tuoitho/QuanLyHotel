@@ -772,5 +772,54 @@ namespace QuanLyHotel.EMPLOYEE
                 return dataTable;
             }
         }
+
+        internal static void insertPhanCa(int maca, int manhanvien, DateTime ngay, DateTime start, DateTime end)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("INSERT INTO PhanCa (maca, manv, ngay,batdau,ketthuc) VALUES (@maca, @manv, @ngay,@batdau,@ketthuc)", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@maca", SqlDbType.Int).Value = maca;
+                sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = manhanvien;
+                sqlCommand.Parameters.Add("@ngay", SqlDbType.Date).Value = ngay;
+                sqlCommand.Parameters.Add("@batdau", SqlDbType.DateTime).Value = start;
+                sqlCommand.Parameters.Add("@ketthuc", SqlDbType.DateTime).Value = end;
+                mydb.OpenConnection();
+                sqlCommand.ExecuteNonQuery();
+                mydb.CloseConnection();
+            }
+        }
+
+        internal static bool isDaPhanCa(DateTime ngaybatdau, DateTime ngayketthuc)
+        {
+            //chi can co 1 ngay trong khoang thoi gian da phan ca la da phan
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT top(1) * FROM PhanCa WHERE Ngay >= @ngaybatdau AND Ngay <= @ngayketthuc", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@ngaybatdau", SqlDbType.Date).Value = ngaybatdau;
+                sqlCommand.Parameters.Add("@ngayketthuc", SqlDbType.Date).Value = ngayketthuc;
+                mydb.OpenConnection();
+                using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        internal static void deletePhanCaTrongKhoang(DateTime ngaybatdau, DateTime ngayketthuc)
+        {
+           using (SqlCommand sqlCommand = new SqlCommand("DELETE FROM PhanCa WHERE Ngay >= @ngaybatdau AND Ngay <= @ngayketthuc", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@ngaybatdau", SqlDbType.Date).Value = ngaybatdau;
+                sqlCommand.Parameters.Add("@ngayketthuc", SqlDbType.Date).Value = ngayketthuc;
+                mydb.OpenConnection();
+                sqlCommand.ExecuteNonQuery();
+                mydb.CloseConnection();
+            }
+        }
     }
 }

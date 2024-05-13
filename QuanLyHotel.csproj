@@ -438,6 +438,7 @@
     <Compile Include="EMPLOYEE\PhanCa.cs" />
     <Compile Include="EMPLOYEE\PhanCaCongBang.cs" />
     <Compile Include="EMPLOYEE\PhanCaCongBang3Ca.cs" />
+    <Compile Include="EMPLOYEE\PHANCA_CHINHTHUC.cs" />
     <Compile Include="FormDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>

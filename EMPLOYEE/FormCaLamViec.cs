@@ -208,8 +208,10 @@ namespace QuanLyHotel.LamVieic
             int c3 = Convert.ToInt32(ca.Rows[1][6].ToString());
             int sotuan = Convert.ToInt32(numericUpDown_sotuan.Value);
             DateTime start = dateTimePicker_start.Value;
-            PhanCaCongBang phanCa = new PhanCaCongBang(soquanly, sotieptan, solaocong, s1, s2, s3, c1, c2, c3, start, sotuan);
-            PhanCaCongBang.ThucHien();
+         
+            //MessageBox.Show(s1+ " " + s2 + " " + s3 + " " + c1 + " " + c2 + " " + c3 + " " + start + " " + sotuan);
+            PHANCA_CHINHTHUC pc = new PHANCA_CHINHTHUC(soquanly, sotieptan, solaocong, s1, s2, s3, c1, c2, c3, start);
+            PHANCA_CHINHTHUC.ThucHien();
         }
 
         private void roundedButton_ok_Click(object sender, EventArgs e)
