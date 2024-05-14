@@ -478,14 +478,61 @@ namespace QuanLyHotel.EMPLOYEE
 
         internal static void insertHinhPhat(int manv, DateTime dateTime, double tien)
         {
-            using (SqlCommand sqlCommand = new SqlCommand("INSERT INTO Thuongphat (MaNV, Ngay, Tien) VALUES (@manv, @ngay, @tienphat)", mydb.GetConnection))
+            //using (SqlCommand sqlCommand = new SqlCommand("INSERT INTO Thuongphat (MaNV, Ngay, Tien) VALUES (@manv, @ngay, @tienphat)", mydb.GetConnection))
+            //{
+            //    sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = manv;
+            //    sqlCommand.Parameters.Add("@ngay", SqlDbType.Date).Value = dateTime;
+            //    sqlCommand.Parameters.Add("@tienphat", SqlDbType.Float).Value = tien;
+            //    mydb.OpenConnection();
+            //    sqlCommand.ExecuteNonQuery();
+            //    mydb.CloseConnection();
+            //}
+            //neu da co thi cap nhat
+            if (isDaPhat(manv, dateTime))
+            {
+                using (SqlCommand sqlCommand = new SqlCommand("UPDATE ThuongPhat SET Tien = Tien+@tien WHERE MaNV = @manv AND Ngay = @ngay", mydb.GetConnection))
+                {
+                    sqlCommand.Parameters.Add("@tien", SqlDbType.Float).Value = tien;
+                    sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = manv;
+                    sqlCommand.Parameters.Add("@ngay", SqlDbType.Date).Value = dateTime;
+                    mydb.OpenConnection();
+                    sqlCommand.ExecuteNonQuery();
+                    mydb.CloseConnection();
+                }
+            }
+            else
+            {
+                using (SqlCommand sqlCommand = new SqlCommand("INSERT INTO Thuongphat (MaNV, Ngay, Tien) VALUES (@manv, @ngay, @tienphat)", mydb.GetConnection))
+                {
+                    sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = manv;
+                    sqlCommand.Parameters.Add("@ngay", SqlDbType.Date).Value = dateTime;
+                    sqlCommand.Parameters.Add("@tienphat", SqlDbType.Float).Value = tien;
+                    mydb.OpenConnection();
+                    sqlCommand.ExecuteNonQuery();
+                    mydb.CloseConnection();
+                }
+            }
+
+        }
+
+        private static bool isDaPhat(int manv, DateTime dateTime)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM ThuongPhat WHERE MaNV = @manv AND Ngay = @ngay", mydb.GetConnection))
             {
                 sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = manv;
                 sqlCommand.Parameters.Add("@ngay", SqlDbType.Date).Value = dateTime;
-                sqlCommand.Parameters.Add("@tienphat", SqlDbType.Float).Value = tien;
                 mydb.OpenConnection();
-                sqlCommand.ExecuteNonQuery();
-                mydb.CloseConnection();
+                using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
             }
         }
 
@@ -653,7 +700,6 @@ namespace QuanLyHotel.EMPLOYEE
                     //lam tron xuong
                     tienthuong = ((int)((Convert.ToDateTime(tbphancathaythe.Rows[i]["GioDi"])
                         - Convert.ToDateTime(tbphancathaythe.Rows[i]["GioDen"])).TotalHours)) * bouns;
-                    if (manv == 5) MessageBox.Show(tienthuong.ToString());
 
                 }
                 using (SqlCommand sqlCommand = new SqlCommand("UPDATE ThuongPhat SET Tien = Tien+@tien WHERE MaNV = @manv AND Ngay = @ngay", mydb.GetConnection))
@@ -895,11 +941,11 @@ namespace QuanLyHotel.EMPLOYEE
             {
                 DateTime batdaucanxet1 = Convert.ToDateTime(getAllPC.Rows[i]["Batdau"]);
                 DateTime ketthuccanxet1 = Convert.ToDateTime(getAllPC.Rows[i]["Ketthuc"]);
-                if (batdaucacankiemtra >= batdaucanxet1 && batdaucacankiemtra <= ketthuccanxet1)
+                if (batdaucacankiemtra > batdaucanxet1 && batdaucacankiemtra < ketthuccanxet1)
                 {
                     return true;
                 }
-                if (ketthuccacankiemtra >= batdaucanxet1 && ketthuccacankiemtra <= ketthuccanxet1)
+                if (ketthuccacankiemtra > batdaucanxet1 && ketthuccacankiemtra < ketthuccanxet1)
                 {
                     return true;
                 }
@@ -908,10 +954,7 @@ namespace QuanLyHotel.EMPLOYEE
                     return true;
                 }
                 //nam trong
-                if (batdaucacankiemtra >= batdaucanxet1 && ketthuccacankiemtra <= ketthuccanxet1)
-                {
-                    return true;
-                }
+
             }
             return false;
 
@@ -1072,6 +1115,60 @@ namespace QuanLyHotel.EMPLOYEE
                 mydb.OpenConnection();
                 sqlCommand.ExecuteNonQuery();
                 mydb.CloseConnection();
+            }
+        }
+
+        internal static string getTenNVByMaNV(int v)
+        {
+           using (SqlCommand sqlCommand = new SqlCommand("SELECT hoten FROM NhanVien WHERE manv = @manv", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = v;
+                mydb.OpenConnection();
+                string ten = sqlCommand.ExecuteScalar().ToString();
+                mydb.CloseConnection();
+                return ten;
+            }
+        }
+
+        internal static bool isDaPhatTienHomNay(int v)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM thuongphat WHERE MaNV = @manv AND Ngay = @date", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = v;
+                sqlCommand.Parameters.Add("@date", SqlDbType.Date).Value = DateTime.Now;
+                mydb.OpenConnection();
+                using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        internal static bool kiemTraThuocQuyenQuanLy(int id, int manv)
+        {
+           using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM NhanVien WHERE MaNV = @manv AND MaNQL = @id", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@manv", SqlDbType.Int).Value = manv;
+                sqlCommand.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                mydb.OpenConnection();
+                using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
             }
         }
     }

@@ -417,6 +417,12 @@
     <Compile Include="EMPLOYEE\FormBaoNghi.Designer.cs">
       <DependentUpon>FormBaoNghi.cs</DependentUpon>
     </Compile>
+    <Compile Include="EMPLOYEE\FormCaLamViecNhanVienDuoiCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EMPLOYEE\FormCaLamViecNhanVienDuoiCap.Designer.cs">
+      <DependentUpon>FormCaLamViecNhanVienDuoiCap.cs</DependentUpon>
+    </Compile>
     <Compile Include="EMPLOYEE\FormDiemDanhKhuonMat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -513,12 +519,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BangLuongDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FormTrangChu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormTrangChu.Designer.cs">
-      <DependentUpon>FormTrangChu.cs</DependentUpon>
-    </Compile>
     <Compile Include="HotelManagementDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -557,6 +557,12 @@
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="PHONG\Firebase_API.cs" />
+    <Compile Include="PHONG\FormCapThucPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PHONG\FormCapThucPham.Designer.cs">
+      <DependentUpon>FormCapThucPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="PHONG\FormChiTietPhong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -652,6 +658,9 @@
     <EmbeddedResource Include="EMPLOYEE\FormBaoNghi.resx">
       <DependentUpon>FormBaoNghi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EMPLOYEE\FormCaLamViecNhanVienDuoiCap.resx">
+      <DependentUpon>FormCaLamViecNhanVienDuoiCap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EMPLOYEE\FormDiemDanhKhuonMat.resx">
       <DependentUpon>FormDiemDanhKhuonMat.cs</DependentUpon>
     </EmbeddedResource>
@@ -666,6 +675,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EMPLOYEE\FormNhanVien.resx">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EMPLOYEE\FormPhatTien.resx">
+      <DependentUpon>FormPhatTien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EMPLOYEE\FormSelectKhachHang.resx">
       <DependentUpon>FormSelectKhachHang.cs</DependentUpon>
@@ -692,9 +704,6 @@
     <EmbeddedResource Include="FormRegister.resx">
       <DependentUpon>FormRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormTrangChu.resx">
-      <DependentUpon>FormTrangChu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="KHACHHANG\FormKhachHang.resx">
       <DependentUpon>FormKhachHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -709,6 +718,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MAIN\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PHONG\FormCapThucPham.resx">
+      <DependentUpon>FormCapThucPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PHONG\FormChiTietPhong.resx">
       <DependentUpon>FormChiTietPhong.cs</DependentUpon>
@@ -1117,6 +1129,9 @@
     <None Include="Resources\logout.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\restaurant.png" />
+    <None Include="Resources\schedule.png" />
+    <None Include="Resources\report.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -94,5 +94,18 @@ namespace QuanLyHotel.BILL
             return count > 0;
 
         }
+
+        internal static int getMaNVLCPhuTrachByMaHD(int mahd)
+        {
+            using (SqlCommand cmd = new SqlCommand("select MaNV from [PhanCongPhong] where maHD=@mahd", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@mahd", SqlDbType.Int).Value = mahd;
+                mydb.OpenConnection();
+                int manv = Convert.ToInt32(cmd.ExecuteScalar());
+                mydb.CloseConnection();
+                return manv;
+            }
+
+        }
     }
 }

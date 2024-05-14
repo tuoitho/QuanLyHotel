@@ -54,7 +54,7 @@
             this.roundedButton_dangky = new QuanLyHotel.RoundedButton();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dataGridView_cabs = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button_addca = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label_kc = new System.Windows.Forms.Label();
             this.label_vd = new System.Windows.Forms.Label();
@@ -109,7 +109,7 @@
             this.panel1.Location = new System.Drawing.Point(44, 18);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(680, 448);
+            this.panel1.Size = new System.Drawing.Size(851, 448);
             this.panel1.TabIndex = 18;
             // 
             // dataGridView_calamviec
@@ -130,7 +130,7 @@
             this.dataGridView_calamviec.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridView_calamviec.RowTemplate.Height = 60;
             this.dataGridView_calamviec.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView_calamviec.Size = new System.Drawing.Size(677, 448);
+            this.dataGridView_calamviec.Size = new System.Drawing.Size(848, 448);
             this.dataGridView_calamviec.TabIndex = 13;
             // 
             // button1
@@ -153,7 +153,7 @@
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1426, 926);
+            this.tabControl.Size = new System.Drawing.Size(1782, 1061);
             this.tabControl.TabIndex = 20;
             this.tabControl.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl_Selecting);
             this.tabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl_Selected);
@@ -178,7 +178,7 @@
             this.tabPage_ca.Location = new System.Drawing.Point(4, 33);
             this.tabPage_ca.Name = "tabPage_ca";
             this.tabPage_ca.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_ca.Size = new System.Drawing.Size(1418, 889);
+            this.tabPage_ca.Size = new System.Drawing.Size(1774, 1024);
             this.tabPage_ca.TabIndex = 0;
             this.tabPage_ca.Text = "Ca";
             // 
@@ -187,7 +187,7 @@
             this.dateTimePicker_start.CustomFormat = "dd/MM/yyyy";
             this.dateTimePicker_start.Font = new System.Drawing.Font("Tahoma", 14F);
             this.dateTimePicker_start.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_start.Location = new System.Drawing.Point(929, 334);
+            this.dateTimePicker_start.Location = new System.Drawing.Point(1085, 326);
             this.dateTimePicker_start.Name = "dateTimePicker_start";
             this.dateTimePicker_start.Size = new System.Drawing.Size(141, 30);
             this.dateTimePicker_start.TabIndex = 24;
@@ -196,7 +196,7 @@
             // 
             this.textBox_tonglc.Enabled = false;
             this.textBox_tonglc.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.textBox_tonglc.Location = new System.Drawing.Point(919, 167);
+            this.textBox_tonglc.Location = new System.Drawing.Point(1075, 159);
             this.textBox_tonglc.Name = "textBox_tonglc";
             this.textBox_tonglc.Size = new System.Drawing.Size(100, 30);
             this.textBox_tonglc.TabIndex = 23;
@@ -205,7 +205,7 @@
             // 
             this.textBox_tongtt.Enabled = false;
             this.textBox_tongtt.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.textBox_tongtt.Location = new System.Drawing.Point(919, 131);
+            this.textBox_tongtt.Location = new System.Drawing.Point(1075, 123);
             this.textBox_tongtt.Name = "textBox_tongtt";
             this.textBox_tongtt.Size = new System.Drawing.Size(100, 30);
             this.textBox_tongtt.TabIndex = 23;
@@ -214,7 +214,7 @@
             // 
             this.textBox_tongql.Enabled = false;
             this.textBox_tongql.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.textBox_tongql.Location = new System.Drawing.Point(919, 92);
+            this.textBox_tongql.Location = new System.Drawing.Point(1075, 84);
             this.textBox_tongql.Name = "textBox_tongql";
             this.textBox_tongql.Size = new System.Drawing.Size(100, 30);
             this.textBox_tongql.TabIndex = 23;
@@ -223,7 +223,7 @@
             // 
             this.textBox_tongnv.Enabled = false;
             this.textBox_tongnv.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.textBox_tongnv.Location = new System.Drawing.Point(919, 57);
+            this.textBox_tongnv.Location = new System.Drawing.Point(1075, 49);
             this.textBox_tongnv.Name = "textBox_tongnv";
             this.textBox_tongnv.Size = new System.Drawing.Size(100, 30);
             this.textBox_tongnv.TabIndex = 23;
@@ -234,7 +234,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Tahoma", 14F);
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(745, 340);
+            this.label1.Location = new System.Drawing.Point(901, 332);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(178, 23);
             this.label1.TabIndex = 21;
@@ -246,7 +246,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Tahoma", 14F);
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(753, 170);
+            this.label7.Location = new System.Drawing.Point(909, 162);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(154, 23);
             this.label7.TabIndex = 21;
@@ -258,7 +258,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Tahoma", 14F);
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(750, 131);
+            this.label6.Location = new System.Drawing.Point(906, 123);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(147, 23);
             this.label6.TabIndex = 21;
@@ -270,7 +270,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Tahoma", 14F);
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(750, 92);
+            this.label5.Location = new System.Drawing.Point(906, 84);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(145, 23);
             this.label5.TabIndex = 21;
@@ -282,7 +282,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Tahoma", 14F);
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(750, 57);
+            this.label4.Location = new System.Drawing.Point(906, 49);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(114, 23);
             this.label4.TabIndex = 21;
@@ -314,7 +314,7 @@
             // 
             this.tabPage_lich.Controls.Add(this.linkLabel_showall);
             this.tabPage_lich.Controls.Add(this.panel6);
-            this.tabPage_lich.Controls.Add(this.button2);
+            this.tabPage_lich.Controls.Add(this.button_addca);
             this.tabPage_lich.Controls.Add(this.label12);
             this.tabPage_lich.Controls.Add(this.label_kc);
             this.tabPage_lich.Controls.Add(this.label_vd);
@@ -332,7 +332,7 @@
             this.tabPage_lich.Location = new System.Drawing.Point(4, 33);
             this.tabPage_lich.Name = "tabPage_lich";
             this.tabPage_lich.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_lich.Size = new System.Drawing.Size(1418, 889);
+            this.tabPage_lich.Size = new System.Drawing.Size(1774, 1024);
             this.tabPage_lich.TabIndex = 1;
             this.tabPage_lich.Text = "Lịch";
             this.tabPage_lich.UseVisualStyleBackColor = true;
@@ -397,7 +397,7 @@
             this.dataGridView_cabs.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.dataGridView_cabs.AllowUserToAddRows = false;
             this.dataGridView_cabs.AllowUserToDeleteRows = false;
-            this.dataGridView_cabs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_cabs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView_cabs.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView_cabs.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView_cabs.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
@@ -415,17 +415,17 @@
             this.dataGridView_cabs.TabIndex = 13;
             this.dataGridView_cabs.Click += new System.EventHandler(this.dataGridView_cabs_Click);
             // 
-            // button2
+            // button_addca
             // 
-            this.button2.BackColor = System.Drawing.Color.SeaGreen;
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(1220, 283);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(170, 111);
-            this.button2.TabIndex = 27;
-            this.button2.Text = "Thêm ca bổ sung (yêu cầu quản lý trở lên)";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button_addca.BackColor = System.Drawing.Color.SeaGreen;
+            this.button_addca.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button_addca.Location = new System.Drawing.Point(1220, 283);
+            this.button_addca.Name = "button_addca";
+            this.button_addca.Size = new System.Drawing.Size(170, 111);
+            this.button_addca.TabIndex = 27;
+            this.button_addca.Text = "Thêm ca bổ sung (yêu cầu quản lý trở lên)";
+            this.button_addca.UseVisualStyleBackColor = false;
+            this.button_addca.Click += new System.EventHandler(this.button2_Click);
             // 
             // label12
             // 
@@ -530,7 +530,7 @@
             this.dataGridView_cabaonghi.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.dataGridView_cabaonghi.AllowUserToAddRows = false;
             this.dataGridView_cabaonghi.AllowUserToDeleteRows = false;
-            this.dataGridView_cabaonghi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_cabaonghi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView_cabaonghi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView_cabaonghi.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView_cabaonghi.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
@@ -692,7 +692,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1426, 926);
+            this.ClientSize = new System.Drawing.Size(1782, 1061);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.button_phanca);
             this.Name = "FormCaLamViec";
@@ -761,7 +761,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label_kc;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button_addca;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label2;
         private RoundedButton roundedButton_dangky;

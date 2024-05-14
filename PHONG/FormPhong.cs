@@ -43,6 +43,10 @@ namespace QuanLyHotel.PHONG
                 form.BringToFront();
                 form.Show();
             }
+            dataGridView_phong.Columns[0].HeaderText = "Mã Phòng";
+            dataGridView_phong.Columns[1].HeaderText = "Tên Phòng";
+            dataGridView_phong.Columns[2].HeaderText = "Trạng Thái";
+            dataGridView_phong.Columns[3].HeaderText = "Mã Loại Phòng";
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -285,6 +289,12 @@ namespace QuanLyHotel.PHONG
                     MessageBox.Show(ex.Message, "Xóa phòng", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void button_captp_Click(object sender, EventArgs e)
+        {
+            FormCapThucPham formCapThucPham = new FormCapThucPham(Convert.ToInt32(txt_maphong.Text));
+            formCapThucPham.Show();
         }
     }
 }

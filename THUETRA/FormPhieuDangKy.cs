@@ -74,9 +74,15 @@ namespace QuanLyHotel.THUETRA
                     button_xemhd.Enabled = false;
                 }
 
-            }            
+            }
 
-
+            dataGridView_pdk.Columns[0].HeaderText = "Mã PĐK";
+            dataGridView_pdk.Columns[1].HeaderText = "Dự kiến đến";
+            dataGridView_pdk.Columns[2].HeaderText = "Dự kiến đi";
+            dataGridView_pdk.Columns[3].HeaderText = "Tiền cọc";
+            dataGridView_pdk.Columns[4].HeaderText = "Mã KH";
+            dataGridView_pdk.Columns[5].HeaderText = "Mã Phòng";
+            dataGridView_pdk.Columns[6].HeaderText = "Trạng thái";
         }
 
         private void button_hoanthanh_Click(object sender, EventArgs e)

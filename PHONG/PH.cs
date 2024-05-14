@@ -225,5 +225,95 @@ namespace QuanLyHotel.PHONG
                 mydb.CloseConnection();
             }
         }
+
+        internal static int getSLThucPhamByMaPhong_MaTP(int v1, int v2)
+        {
+            using (SqlCommand command = new SqlCommand("select soluong from Phong_SoLuongThucPham where maphong = @maph and matp = @matp\r\n", mydb.GetConnection))
+            {
+                command.Parameters.Add("@maph", SqlDbType.Int).Value = v1;
+                command.Parameters.Add("@matp", SqlDbType.Int).Value = v2;
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable table = new DataTable();
+                mydb.OpenConnection();
+                adapter.Fill(table);
+                mydb.CloseConnection();
+                if (table.Rows.Count > 0)
+                {
+                    return Convert.ToInt32(table.Rows[0][0]);
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+
+        internal static void capTP(int v1, int v2, int s3)
+        {
+            //neu vuot qua so luong trong kho thi bao loi
+            using (SqlCommand command = new SqlCommand("select TONKHO from ThucPham where matp =@matp", mydb.GetConnection))
+            {
+                command.Parameters.Add("@matp", SqlDbType.Int).Value = v2;
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable table = new DataTable();
+                mydb.OpenConnection();
+                adapter.Fill(table);
+                mydb.CloseConnection();
+                if (table.Rows.Count > 0)
+                {
+                    if (Convert.ToInt32(table.Rows[0][0]) < s3)
+                    {
+                        throw new Exception("Số lượng thực phẩm trong kho không đủ");
+                    }
+                }
+                
+            }
+            //neu chua co thi insert, da co thi update
+            using (SqlCommand command = new SqlCommand("select * from Phong_SoLuongThucPham where maphong = @maph and matp = @matp", mydb.GetConnection))
+            {
+                command.Parameters.Add("@maph", SqlDbType.Int).Value = v1;
+                command.Parameters.Add("@matp", SqlDbType.Int).Value = v2;
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable table = new DataTable();
+                mydb.OpenConnection();
+                adapter.Fill(table);
+                mydb.CloseConnection();
+                if (table.Rows.Count > 0)
+                {
+                    //update
+                    using (SqlCommand command1 = new SqlCommand("UPDATE Phong_SoLuongThucPham SET soluong = soluong+@sl WHERE maphong = @maph and matp = @matp", mydb.GetConnection))
+                    {
+                        command1.Parameters.Add("@maph", SqlDbType.Int).Value = v1;
+                        command1.Parameters.Add("@matp", SqlDbType.Int).Value = v2;
+                        command1.Parameters.Add("@sl", SqlDbType.Int).Value = s3;
+                        mydb.OpenConnection();
+                        command1.ExecuteNonQuery();
+                        mydb.CloseConnection();
+                    }
+                }
+                else
+                {
+                    //insert
+                    using (SqlCommand command1 = new SqlCommand("INSERT INTO Phong_SoLuongThucPham (maphong, matp, soluong) VALUES (@maph, @matp, @sl)", mydb.GetConnection))
+                    {
+                        command1.Parameters.Add("@maph", SqlDbType.Int).Value = v1;
+                        command1.Parameters.Add("@matp", SqlDbType.Int).Value = v2;
+                        command1.Parameters.Add("@sl", SqlDbType.Int).Value = s3;
+                        mydb.OpenConnection();
+                        command1.ExecuteNonQuery();
+                        mydb.CloseConnection();
+                    }
+                }
+                //tru so luong thuc pham trong kho
+                using (SqlCommand command1 = new SqlCommand("UPDATE ThucPham SET tonkho = tonkho-@sl WHERE matp = @matp", mydb.GetConnection))
+                {
+                    command1.Parameters.Add("@matp", SqlDbType.Int).Value = v2;
+                    command1.Parameters.Add("@sl", SqlDbType.Int).Value = s3;
+                    mydb.OpenConnection();
+                    command1.ExecuteNonQuery();
+                    mydb.CloseConnection();
+                }
+            }
+        }
     }
 }

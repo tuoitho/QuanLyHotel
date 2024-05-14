@@ -50,6 +50,14 @@ namespace QuanLyHotel.KHACHHANG
             picCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
             dataGridView_kh.AllowUserToAddRows = false;
 
+            dataGridView_kh.Columns[0].HeaderText = "Mã KH";
+            dataGridView_kh.Columns[1].HeaderText = "Họ tên";
+            dataGridView_kh.Columns[2].HeaderText = "SĐT";
+            dataGridView_kh.Columns[3].HeaderText = "Ngày sinh";
+            dataGridView_kh.Columns[4].HeaderText = "CCCD";
+            dataGridView_kh.Columns[5].HeaderText = "Email";
+            dataGridView_kh.Columns[6].HeaderText = "Quốc tịch";
+            dataGridView_kh.Columns[7].HeaderText = "Ảnh";
 
         }
         private void FormKhachHang_Load(object sender, EventArgs e)

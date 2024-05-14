@@ -35,6 +35,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dataGridView_employee = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.roundedButton_showall = new QuanLyHotel.RoundedButton();
             this.comboBox_manql = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioButton_lc = new System.Windows.Forms.RadioButton();
@@ -63,7 +64,6 @@ namespace QuanLyHotel.EMPLOYEE
             this.btn_modify = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.tabControl_nhanvien = new System.Windows.Forms.TabControl();
-            this.roundedButton_showall = new QuanLyHotel.RoundedButton();
             this.tabPage_quanlynv.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_employee)).BeginInit();
@@ -144,6 +144,17 @@ namespace QuanLyHotel.EMPLOYEE
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin nhân viên";
+            // 
+            // roundedButton_showall
+            // 
+            this.roundedButton_showall.BackColor = System.Drawing.Color.LimeGreen;
+            this.roundedButton_showall.Location = new System.Drawing.Point(1022, 159);
+            this.roundedButton_showall.Name = "roundedButton_showall";
+            this.roundedButton_showall.Size = new System.Drawing.Size(122, 37);
+            this.roundedButton_showall.TabIndex = 20;
+            this.roundedButton_showall.Text = "Show All";
+            this.roundedButton_showall.UseVisualStyleBackColor = false;
+            this.roundedButton_showall.Click += new System.EventHandler(this.roundedButton_showall_Click);
             // 
             // comboBox_manql
             // 
@@ -403,16 +414,18 @@ namespace QuanLyHotel.EMPLOYEE
             // 
             // button1
             // 
-            this.button1.Image = global::QuanLyHotel.Properties.Resources.trash;
+            this.button1.BackColor = System.Drawing.Color.Chocolate;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.75F);
+            this.button1.Image = global::QuanLyHotel.Properties.Resources.add32px;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(713, 31);
+            this.button1.Location = new System.Drawing.Point(898, 15);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(3);
-            this.button1.Size = new System.Drawing.Size(174, 37);
+            this.button1.Size = new System.Drawing.Size(183, 69);
             this.button1.TabIndex = 4;
             this.button1.Text = "Import Từ File";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_delete
@@ -469,17 +482,6 @@ namespace QuanLyHotel.EMPLOYEE
             this.tabControl_nhanvien.Size = new System.Drawing.Size(1440, 967);
             this.tabControl_nhanvien.TabIndex = 7;
             this.tabControl_nhanvien.SelectedIndexChanged += new System.EventHandler(this.tabControl_nhanvien_SelectedIndexChanged);
-            // 
-            // roundedButton_showall
-            // 
-            this.roundedButton_showall.BackColor = System.Drawing.Color.LimeGreen;
-            this.roundedButton_showall.Location = new System.Drawing.Point(1022, 159);
-            this.roundedButton_showall.Name = "roundedButton_showall";
-            this.roundedButton_showall.Size = new System.Drawing.Size(122, 37);
-            this.roundedButton_showall.TabIndex = 20;
-            this.roundedButton_showall.Text = "Show All";
-            this.roundedButton_showall.UseVisualStyleBackColor = false;
-            this.roundedButton_showall.Click += new System.EventHandler(this.roundedButton_showall_Click);
             // 
             // FormNhanVien
             // 

@@ -98,6 +98,7 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Tahoma", 12F);
             this.button1.Image = global::QuanLyHotel.Properties.Resources.plus;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(12, 235);
@@ -112,6 +113,7 @@
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Tahoma", 12F);
             this.button2.Image = global::QuanLyHotel.Properties.Resources.edit;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(115, 235);
@@ -126,6 +128,7 @@
             // 
             // button3
             // 
+            this.button3.Font = new System.Drawing.Font("Tahoma", 12F);
             this.button3.Image = global::QuanLyHotel.Properties.Resources.trash;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(218, 235);
@@ -139,35 +142,39 @@
             // 
             // textBox_tenldv
             // 
-            this.textBox_tenldv.Location = new System.Drawing.Point(134, 148);
+            this.textBox_tenldv.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.textBox_tenldv.Location = new System.Drawing.Point(185, 151);
             this.textBox_tenldv.Name = "textBox_tenldv";
-            this.textBox_tenldv.Size = new System.Drawing.Size(121, 20);
+            this.textBox_tenldv.Size = new System.Drawing.Size(142, 27);
             this.textBox_tenldv.TabIndex = 2;
             // 
             // comboBox_maldv
             // 
+            this.comboBox_maldv.Font = new System.Drawing.Font("Tahoma", 12F);
             this.comboBox_maldv.FormattingEnabled = true;
-            this.comboBox_maldv.Location = new System.Drawing.Point(134, 87);
+            this.comboBox_maldv.Location = new System.Drawing.Point(185, 90);
             this.comboBox_maldv.Name = "comboBox_maldv";
-            this.comboBox_maldv.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_maldv.Size = new System.Drawing.Size(142, 27);
             this.comboBox_maldv.TabIndex = 1;
             this.comboBox_maldv.SelectedValueChanged += new System.EventHandler(this.comboBox_maldv_SelectedValueChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 12F);
             this.label2.Location = new System.Drawing.Point(37, 154);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 13);
+            this.label2.Size = new System.Drawing.Size(130, 19);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên Loại Dịch Vụ";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F);
             this.label1.Location = new System.Drawing.Point(37, 95);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(81, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã loại dv";
             // 
@@ -186,6 +193,7 @@
             this.panel2.Controls.Add(this.textBox_giadv);
             this.panel2.Controls.Add(this.textBox_tendv);
             this.panel2.Controls.Add(this.label3);
+            this.panel2.Font = new System.Drawing.Font("Tahoma", 12F);
             this.panel2.Location = new System.Drawing.Point(27, 331);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(387, 326);
@@ -204,6 +212,7 @@
             // 
             // btn_add
             // 
+            this.btn_add.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_add.Image = global::QuanLyHotel.Properties.Resources.plus;
             this.btn_add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_add.Location = new System.Drawing.Point(12, 262);
@@ -218,6 +227,7 @@
             // 
             // btn_modify
             // 
+            this.btn_modify.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_modify.Image = global::QuanLyHotel.Properties.Resources.edit;
             this.btn_modify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_modify.Location = new System.Drawing.Point(116, 262);
@@ -232,6 +242,7 @@
             // 
             // btn_delete
             // 
+            this.btn_delete.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_delete.Image = global::QuanLyHotel.Properties.Resources.trash;
             this.btn_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_delete.Location = new System.Drawing.Point(219, 262);
@@ -246,9 +257,10 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 12F);
             this.label8.Location = new System.Drawing.Point(30, 77);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(92, 13);
+            this.label8.Size = new System.Drawing.Size(140, 19);
             this.label8.TabIndex = 16;
             this.label8.Text = "Chọn Loại Dịch Vụ";
             // 
@@ -267,63 +279,70 @@
             // 
             // comboBox_dv
             // 
+            this.comboBox_dv.Font = new System.Drawing.Font("Tahoma", 12F);
             this.comboBox_dv.FormattingEnabled = true;
-            this.comboBox_dv.Location = new System.Drawing.Point(157, 123);
+            this.comboBox_dv.Location = new System.Drawing.Point(185, 123);
             this.comboBox_dv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox_dv.Name = "comboBox_dv";
-            this.comboBox_dv.Size = new System.Drawing.Size(151, 21);
+            this.comboBox_dv.Size = new System.Drawing.Size(151, 27);
             this.comboBox_dv.TabIndex = 21;
             this.comboBox_dv.SelectedIndexChanged += new System.EventHandler(this.comboBox_dv_SelectedIndexChanged);
             this.comboBox_dv.SelectionChangeCommitted += new System.EventHandler(this.comboBox_dv_SelectionChangeCommitted);
             // 
             // comboBox_loaidv
             // 
+            this.comboBox_loaidv.Font = new System.Drawing.Font("Tahoma", 12F);
             this.comboBox_loaidv.FormattingEnabled = true;
-            this.comboBox_loaidv.Location = new System.Drawing.Point(157, 77);
+            this.comboBox_loaidv.Location = new System.Drawing.Point(185, 77);
             this.comboBox_loaidv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox_loaidv.Name = "comboBox_loaidv";
-            this.comboBox_loaidv.Size = new System.Drawing.Size(151, 21);
+            this.comboBox_loaidv.Size = new System.Drawing.Size(151, 27);
             this.comboBox_loaidv.TabIndex = 22;
             this.comboBox_loaidv.SelectedIndexChanged += new System.EventHandler(this.comboBox_loaidv_SelectedIndexChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 12F);
             this.label9.Location = new System.Drawing.Point(30, 129);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(70, 13);
+            this.label9.Size = new System.Drawing.Size(104, 19);
             this.label9.TabIndex = 17;
             this.label9.Text = "Chọn Dịch vụ";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Tahoma", 12F);
             this.label12.Location = new System.Drawing.Point(30, 219);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(60, 13);
+            this.label12.Size = new System.Drawing.Size(92, 19);
             this.label12.TabIndex = 19;
             this.label12.Text = "Giá Dịch Vụ";
             // 
             // textBox_giadv
             // 
-            this.textBox_giadv.Location = new System.Drawing.Point(157, 216);
+            this.textBox_giadv.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.textBox_giadv.Location = new System.Drawing.Point(185, 216);
             this.textBox_giadv.Name = "textBox_giadv";
-            this.textBox_giadv.Size = new System.Drawing.Size(151, 20);
+            this.textBox_giadv.Size = new System.Drawing.Size(151, 27);
             this.textBox_giadv.TabIndex = 2;
             // 
             // textBox_tendv
             // 
-            this.textBox_tendv.Location = new System.Drawing.Point(157, 171);
+            this.textBox_tendv.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.textBox_tendv.Location = new System.Drawing.Point(185, 171);
             this.textBox_tendv.Name = "textBox_tendv";
-            this.textBox_tendv.Size = new System.Drawing.Size(151, 20);
+            this.textBox_tendv.Size = new System.Drawing.Size(151, 27);
             this.textBox_tendv.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 12F);
             this.label3.Location = new System.Drawing.Point(30, 178);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.Size = new System.Drawing.Size(96, 19);
             this.label3.TabIndex = 0;
             this.label3.Text = "Tên Dịch Vụ";
             // 
@@ -481,6 +500,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Turquoise;
             this.ClientSize = new System.Drawing.Size(1178, 688);
             this.Controls.Add(this.roundedButton_kb);
             this.Controls.Add(this.numericUpDown4);

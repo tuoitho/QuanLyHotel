@@ -200,7 +200,7 @@ namespace QuanLyHotel.THUETRA
             // 
             // button_hethan
             // 
-            this.button_hethan.Image = global::QuanLyHotel.Properties.Resources.plus;
+            this.button_hethan.BackColor = System.Drawing.Color.Tomato;
             this.button_hethan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_hethan.Location = new System.Drawing.Point(509, 43);
             this.button_hethan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -209,13 +209,13 @@ namespace QuanLyHotel.THUETRA
             this.button_hethan.Size = new System.Drawing.Size(221, 43);
             this.button_hethan.TabIndex = 17;
             this.button_hethan.Text = "Đánh dấu hết hạn";
-            this.button_hethan.UseVisualStyleBackColor = true;
+            this.button_hethan.UseVisualStyleBackColor = false;
             this.button_hethan.Click += new System.EventHandler(this.button_hethan_Click);
             // 
             // button_xemhd
             // 
+            this.button_xemhd.BackColor = System.Drawing.Color.Yellow;
             this.button_xemhd.Enabled = false;
-            this.button_xemhd.Image = global::QuanLyHotel.Properties.Resources.plus;
             this.button_xemhd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_xemhd.Location = new System.Drawing.Point(923, 43);
             this.button_xemhd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -224,12 +224,12 @@ namespace QuanLyHotel.THUETRA
             this.button_xemhd.Size = new System.Drawing.Size(221, 43);
             this.button_xemhd.TabIndex = 16;
             this.button_xemhd.Text = "Xem thông tin hoá đơn";
-            this.button_xemhd.UseVisualStyleBackColor = true;
+            this.button_xemhd.UseVisualStyleBackColor = false;
             this.button_xemhd.Click += new System.EventHandler(this.button_xemhd_Click);
             // 
             // button_hoanthanh
             // 
-            this.button_hoanthanh.Image = global::QuanLyHotel.Properties.Resources.plus;
+            this.button_hoanthanh.BackColor = System.Drawing.Color.SpringGreen;
             this.button_hoanthanh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_hoanthanh.Location = new System.Drawing.Point(244, 43);
             this.button_hoanthanh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -238,7 +238,7 @@ namespace QuanLyHotel.THUETRA
             this.button_hoanthanh.Size = new System.Drawing.Size(221, 43);
             this.button_hoanthanh.TabIndex = 16;
             this.button_hoanthanh.Text = "Đánh dấu hoàn thành";
-            this.button_hoanthanh.UseVisualStyleBackColor = true;
+            this.button_hoanthanh.UseVisualStyleBackColor = false;
             this.button_hoanthanh.Click += new System.EventHandler(this.button_hoanthanh_Click);
             // 
             // btnLoad
@@ -350,7 +350,7 @@ namespace QuanLyHotel.THUETRA
             // 
             // button_chuyenphong
             // 
-            this.button_chuyenphong.Image = global::QuanLyHotel.Properties.Resources.plus;
+            this.button_chuyenphong.BackColor = System.Drawing.Color.IndianRed;
             this.button_chuyenphong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_chuyenphong.Location = new System.Drawing.Point(113, 304);
             this.button_chuyenphong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -359,7 +359,7 @@ namespace QuanLyHotel.THUETRA
             this.button_chuyenphong.Size = new System.Drawing.Size(150, 37);
             this.button_chuyenphong.TabIndex = 1;
             this.button_chuyenphong.Text = "   Chuyển phòng";
-            this.button_chuyenphong.UseVisualStyleBackColor = true;
+            this.button_chuyenphong.UseVisualStyleBackColor = false;
             this.button_chuyenphong.Click += new System.EventHandler(this.button_chuyenphong_Click);
             // 
             // panel3

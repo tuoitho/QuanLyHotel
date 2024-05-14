@@ -42,7 +42,7 @@
             this.dataGridView_baocao.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_baocao.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView_baocao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_baocao.Location = new System.Drawing.Point(48, 57);
+            this.dataGridView_baocao.Location = new System.Drawing.Point(54, 53);
             this.dataGridView_baocao.Name = "dataGridView_baocao";
             this.dataGridView_baocao.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_baocao.Size = new System.Drawing.Size(541, 445);
@@ -57,7 +57,7 @@
             this.dataGridView_chitietca.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_chitietca.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView_chitietca.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_chitietca.Location = new System.Drawing.Point(641, 57);
+            this.dataGridView_chitietca.Location = new System.Drawing.Point(647, 53);
             this.dataGridView_chitietca.Name = "dataGridView_chitietca";
             this.dataGridView_chitietca.Size = new System.Drawing.Size(439, 445);
             this.dataGridView_chitietca.TabIndex = 0;
@@ -77,6 +77,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(1176, 585);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView_chitietca);

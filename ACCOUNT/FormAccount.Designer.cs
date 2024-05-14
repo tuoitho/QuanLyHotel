@@ -54,6 +54,7 @@
             // 
             // roundedButton_tuchoi
             // 
+            this.roundedButton_tuchoi.Font = new System.Drawing.Font("Tahoma", 13F);
             this.roundedButton_tuchoi.Location = new System.Drawing.Point(515, 549);
             this.roundedButton_tuchoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.roundedButton_tuchoi.Name = "roundedButton_tuchoi";
@@ -65,6 +66,7 @@
             // 
             // roundedButton_duyet
             // 
+            this.roundedButton_duyet.Font = new System.Drawing.Font("Tahoma", 13F);
             this.roundedButton_duyet.Location = new System.Drawing.Point(261, 549);
             this.roundedButton_duyet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.roundedButton_duyet.Name = "roundedButton_duyet";
@@ -76,6 +78,7 @@
             // 
             // roundedButton_xoa
             // 
+            this.roundedButton_xoa.Font = new System.Drawing.Font("Tahoma", 13F);
             this.roundedButton_xoa.Location = new System.Drawing.Point(764, 549);
             this.roundedButton_xoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.roundedButton_xoa.Name = "roundedButton_xoa";
@@ -89,6 +92,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(1195, 652);
             this.Controls.Add(this.roundedButton_xoa);
             this.Controls.Add(this.roundedButton_tuchoi);

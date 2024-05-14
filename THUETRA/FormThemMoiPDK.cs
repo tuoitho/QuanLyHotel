@@ -33,6 +33,7 @@ namespace QuanLyHotel.THUETRA
         }
         private void button_add_Click(object sender, EventArgs e)
         {
+
             //anh xa
             DateTime expectedArrival = dtpExpectedArrival.Value;
             DateTime expectedDeparture = dtpExpectedDeparture.Value;
@@ -49,6 +50,16 @@ namespace QuanLyHotel.THUETRA
             }
 
             string depositAmount = txtDepositAmount.Text;
+            try
+            {
+                Convert.ToDouble(depositAmount);
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Số tiền cọc phải là số", "Thêm phiếu đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             int customer = Convert.ToInt32(cboCustomer.SelectedValue.ToString());
             int room = Convert.ToInt32(cboRoom.SelectedValue.ToString());
             //them

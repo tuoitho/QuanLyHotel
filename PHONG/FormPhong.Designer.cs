@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl_phong = new System.Windows.Forms.TabControl();
             this.tabPage_qlphong = new System.Windows.Forms.TabPage();
+            this.panel_childForm = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button_editloaiphong = new System.Windows.Forms.Button();
@@ -77,7 +78,7 @@
             this.button_p2_them = new System.Windows.Forms.Button();
             this.button_p2_sua = new System.Windows.Forms.Button();
             this.phongTableAdapter = new QuanLyHotel.HotelManagementDataSet1TableAdapters.PhongTableAdapter();
-            this.panel_childForm = new System.Windows.Forms.Panel();
+            this.button_captp = new System.Windows.Forms.Button();
             this.tabControl_phong.SuspendLayout();
             this.tabPage_qlphong.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -100,7 +101,7 @@
             this.tabControl_phong.Location = new System.Drawing.Point(0, 0);
             this.tabControl_phong.Name = "tabControl_phong";
             this.tabControl_phong.SelectedIndex = 0;
-            this.tabControl_phong.Size = new System.Drawing.Size(1548, 791);
+            this.tabControl_phong.Size = new System.Drawing.Size(1924, 988);
             this.tabControl_phong.TabIndex = 0;
             // 
             // tabPage_qlphong
@@ -112,6 +113,7 @@
             this.tabPage_qlphong.Controls.Add(this.button_chitiet);
             this.tabPage_qlphong.Controls.Add(this.btn_delete);
             this.tabPage_qlphong.Controls.Add(this.btn_modify);
+            this.tabPage_qlphong.Controls.Add(this.button_captp);
             this.tabPage_qlphong.Controls.Add(this.btn_add);
             this.tabPage_qlphong.Controls.Add(this.checkBox1);
             this.tabPage_qlphong.Controls.Add(this.button1);
@@ -120,9 +122,20 @@
             this.tabPage_qlphong.Location = new System.Drawing.Point(4, 27);
             this.tabPage_qlphong.Name = "tabPage_qlphong";
             this.tabPage_qlphong.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_qlphong.Size = new System.Drawing.Size(1540, 760);
+            this.tabPage_qlphong.Size = new System.Drawing.Size(1916, 957);
             this.tabPage_qlphong.TabIndex = 0;
             this.tabPage_qlphong.Text = "Quản lý phòng";
+            // 
+            // panel_childForm
+            // 
+            this.panel_childForm.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel_childForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel_childForm.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel_childForm.Location = new System.Drawing.Point(1008, 3);
+            this.panel_childForm.Margin = new System.Windows.Forms.Padding(2);
+            this.panel_childForm.Name = "panel_childForm";
+            this.panel_childForm.Size = new System.Drawing.Size(905, 951);
+            this.panel_childForm.TabIndex = 13;
             // 
             // panel4
             // 
@@ -262,17 +275,17 @@
             // 
             // button_chitiet
             // 
+            this.button_chitiet.BackColor = System.Drawing.Color.GreenYellow;
             this.button_chitiet.Font = new System.Drawing.Font("Tahoma", 13F);
-            this.button_chitiet.Image = global::QuanLyHotel.Properties.Resources.trash;
             this.button_chitiet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_chitiet.Location = new System.Drawing.Point(468, 626);
+            this.button_chitiet.Location = new System.Drawing.Point(490, 626);
             this.button_chitiet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_chitiet.Name = "button_chitiet";
             this.button_chitiet.Padding = new System.Windows.Forms.Padding(3);
-            this.button_chitiet.Size = new System.Drawing.Size(159, 37);
+            this.button_chitiet.Size = new System.Drawing.Size(137, 37);
             this.button_chitiet.TabIndex = 9;
             this.button_chitiet.Text = "   Xem video";
-            this.button_chitiet.UseVisualStyleBackColor = true;
+            this.button_chitiet.UseVisualStyleBackColor = false;
             this.button_chitiet.Click += new System.EventHandler(this.button_chitiet_Click);
             // 
             // btn_delete
@@ -436,7 +449,7 @@
             this.tabPage_qlloaiphong.Location = new System.Drawing.Point(4, 27);
             this.tabPage_qlloaiphong.Name = "tabPage_qlloaiphong";
             this.tabPage_qlloaiphong.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_qlloaiphong.Size = new System.Drawing.Size(983, 690);
+            this.tabPage_qlloaiphong.Size = new System.Drawing.Size(1540, 759);
             this.tabPage_qlloaiphong.TabIndex = 1;
             this.tabPage_qlloaiphong.Text = "Loại phòng";
             this.tabPage_qlloaiphong.UseVisualStyleBackColor = true;
@@ -622,22 +635,26 @@
             // 
             this.phongTableAdapter.ClearBeforeFill = true;
             // 
-            // panel_childForm
+            // button_captp
             // 
-            this.panel_childForm.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel_childForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel_childForm.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel_childForm.Location = new System.Drawing.Point(632, 3);
-            this.panel_childForm.Margin = new System.Windows.Forms.Padding(2);
-            this.panel_childForm.Name = "panel_childForm";
-            this.panel_childForm.Size = new System.Drawing.Size(905, 754);
-            this.panel_childForm.TabIndex = 13;
+            this.button_captp.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.button_captp.Image = global::QuanLyHotel.Properties.Resources.plus;
+            this.button_captp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_captp.Location = new System.Drawing.Point(183, 682);
+            this.button_captp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_captp.Name = "button_captp";
+            this.button_captp.Padding = new System.Windows.Forms.Padding(3);
+            this.button_captp.Size = new System.Drawing.Size(188, 37);
+            this.button_captp.TabIndex = 7;
+            this.button_captp.Text = "   Cấp Thực Phẩm";
+            this.button_captp.UseVisualStyleBackColor = true;
+            this.button_captp.Click += new System.EventHandler(this.button_captp_Click);
             // 
             // FormPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1548, 791);
+            this.ClientSize = new System.Drawing.Size(1924, 988);
             this.Controls.Add(this.tabControl_phong);
             this.Name = "FormPhong";
             this.Text = "FormPhong";
@@ -711,5 +728,6 @@
         private System.Windows.Forms.Button button_p2_them;
         private System.Windows.Forms.Button button_chitiet;
         private System.Windows.Forms.Panel panel_childForm;
+        private System.Windows.Forms.Button button_captp;
     }
 }

@@ -32,12 +32,17 @@ namespace QuanLyHotel.EMPLOYEE
                 if (Info.chucvu == 1)
                 {
                     button_account.Visible = false;
+                    roundedButton_khaibaotp.Visible = false;
                 }
                 else
                 if (Info.chucvu == 2)
                 {
                     button_nv.Visible = false;
                     button_account.Visible = false;
+                    roundedButton_khaibaotp.Visible = false;
+                    button_dichvu.Visible = false;
+                    roundedButton_bc_thu_chi.Visible = false;
+
                 }
                 else if (Info.chucvu == 3)
                 {
@@ -45,6 +50,10 @@ namespace QuanLyHotel.EMPLOYEE
                     button_account.Visible = false;
                     button_bill.Visible = false;
                     button_phong.Visible = false;
+                    button_dichvu.Visible = false;
+                    roundedButton_bc_thu_chi.Visible = false;
+                    button_khachhang.Visible = false;
+                    button_dangkythuetra.Visible = false;
                 }
             }
         }
@@ -136,6 +145,8 @@ namespace QuanLyHotel.EMPLOYEE
                 button_dangkythuetra.Text = "  Đăng ký thuê trả";
                 roundedButton_ca_lich.Text = "  Ca, lich làm việc";
                 roundedButton_bc_thu_chi.Text = "  Báo cáo thu chi";
+                roundedButton_khaibaotp.Text = "  Khai báo thực phẩm";
+
             }
 
         }
@@ -211,12 +222,7 @@ namespace QuanLyHotel.EMPLOYEE
             lblTiltle.Text = "Báo cáo doanh thu";
         }
 
-        private void button_trangchu_Click(object sender, EventArgs e)
-        {
-            FormTrangChu formTrangChu = new FormTrangChu();
-            OpenChildForm(formTrangChu, sender);
-            lblTiltle.Text = "Trang chủ";
-        }
+
 
         private void btn_dangxuat_Click(object sender, EventArgs e)
         {

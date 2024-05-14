@@ -45,6 +45,7 @@ namespace QuanLyHotel.EMPLOYEE
 
         private void dataGridView_hoadon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            vipham = false;
             int maHD = Convert.ToInt32(dataGridView_hoadon.CurrentRow.Cells[0].Value);
             DataTable dtLaoCongKB=DV.getDSLCKhaiBao(maHD);
             DataTable dtKhachHangKB = DV.getDSKHKhaiBao(maHD);
@@ -75,7 +76,6 @@ namespace QuanLyHotel.EMPLOYEE
                     vipham = true;
                     dataGridView_kb.Rows[i].DefaultCellStyle.BackColor = Color.Red;
                 }
-                vipham = false;
             }
         }
         bool vipham = false;
@@ -93,7 +93,8 @@ namespace QuanLyHotel.EMPLOYEE
                 return;
             }
             int mahd = Convert.ToInt32(dataGridView_hoadon.CurrentRow.Cells[0].Value);
-            FormPhatTien formPhatTien = new FormPhatTien(mahd);
+            int maph = Convert.ToInt32(dataGridView_hoadon.CurrentRow.Cells[9].Value);
+            FormPhatTien formPhatTien = new FormPhatTien(mahd,maph);
             formPhatTien.ShowDialog();
         }
     }

@@ -61,7 +61,9 @@
             // 
             // numericUpDown4
             // 
+            this.numericUpDown4.BackColor = System.Drawing.Color.Teal;
             this.numericUpDown4.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.numericUpDown4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.numericUpDown4.Location = new System.Drawing.Point(393, 361);
             this.numericUpDown4.Maximum = new decimal(new int[] {
             100000,
@@ -74,7 +76,9 @@
             // 
             // numericUpDown3
             // 
+            this.numericUpDown3.BackColor = System.Drawing.Color.Teal;
             this.numericUpDown3.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.numericUpDown3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.numericUpDown3.Location = new System.Drawing.Point(393, 302);
             this.numericUpDown3.Maximum = new decimal(new int[] {
             100000,
@@ -87,7 +91,9 @@
             // 
             // numericUpDown2
             // 
+            this.numericUpDown2.BackColor = System.Drawing.Color.Teal;
             this.numericUpDown2.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.numericUpDown2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.numericUpDown2.Location = new System.Drawing.Point(393, 249);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             100000,
@@ -100,7 +106,9 @@
             // 
             // numericUpDown1
             // 
+            this.numericUpDown1.BackColor = System.Drawing.Color.Teal;
             this.numericUpDown1.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.numericUpDown1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.numericUpDown1.Location = new System.Drawing.Point(393, 202);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             100000,
@@ -115,6 +123,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label7.Location = new System.Drawing.Point(161, 361);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(109, 22);
@@ -125,6 +134,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label10.Location = new System.Drawing.Point(161, 302);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(85, 22);
@@ -135,6 +145,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label11.Location = new System.Drawing.Point(161, 249);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(75, 22);
@@ -145,6 +156,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label15.Location = new System.Drawing.Point(351, 149);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(338, 22);
@@ -155,6 +167,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label14.Location = new System.Drawing.Point(142, 149);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(149, 22);
@@ -165,6 +178,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label13.Location = new System.Drawing.Point(161, 202);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(93, 22);
@@ -175,6 +189,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 17F);
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label6.Location = new System.Drawing.Point(186, 85);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(272, 28);
@@ -185,6 +200,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(717, 552);
             this.Controls.Add(this.roundedButton_kb);
             this.Controls.Add(this.numericUpDown4);

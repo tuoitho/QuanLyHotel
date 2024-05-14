@@ -352,7 +352,6 @@ D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormInBangLuong
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.Riengbiet.FormBaoCaoDoanhthu.resources
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.Riengbiet.FormBieuDoDoanhThu.resources
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.FormDangNhap.resources
-D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.FormTrangChu.resources
 D:\QLKS_DOAN\QuanLyHotel\obj\Debug\QuanLyHotel.csproj.AssemblyReference.cache
 D:\QLKS_DOAN\QuanLyHotel\obj\Debug\Interop.MediaPlayer.dll
 D:\QLKS_DOAN\QuanLyHotel\obj\Debug\Interop.WMLSS.dll
@@ -553,3 +552,6 @@ D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormShowAllNhan
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormKhaiBaoThucPham.resources
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormKhaiBaoThucPhamDialog.resources
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.DICHVU.FormNhapKhoThucPham.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormPhatTien.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormCaLamViecNhanVienDuoiCap.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.PHONG.FormCapThucPham.resources

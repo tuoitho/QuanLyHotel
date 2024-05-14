@@ -40,6 +40,17 @@ namespace QuanLyHotel.EMPLOYEE
             }
                 dataGridView_employee.DefaultCellStyle.SelectionBackColor = Color.Purple;
 
+            dataGridView_employee.Columns[0].HeaderText = "Mã NV";
+            dataGridView_employee.Columns[1].HeaderText = "Họ tên";
+            dataGridView_employee.Columns[2].HeaderText = "Giới tính";
+            dataGridView_employee.Columns[3].HeaderText = "Ngày sinh";
+            dataGridView_employee.Columns[4].HeaderText = "Địa chỉ";
+            dataGridView_employee.Columns[5].HeaderText = "SĐT";
+            dataGridView_employee.Columns[6].HeaderText = "Mã Chức vụ";
+            dataGridView_employee.Columns[7].HeaderText = "Email";
+
+            dataGridView_employee.Columns[9].HeaderText = "Mã NV Quản Lý";
+
         }
 
         private void FormNhanVien_Click(object sender, EventArgs e)
