@@ -36,10 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox_loainv = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDown_sl = new System.Windows.Forms.NumericUpDown();
             this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_sl)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePicker_ngay
@@ -129,47 +126,12 @@
             this.label4.TabIndex = 29;
             this.label4.Text = "Chọn loại nhân viên:";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(182, 358);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(206, 23);
-            this.label5.TabIndex = 29;
-            this.label5.Text = "Chọn số lượng cần tạo:";
-            // 
-            // numericUpDown_sl
-            // 
-            this.numericUpDown_sl.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.numericUpDown_sl.Location = new System.Drawing.Point(436, 356);
-            this.numericUpDown_sl.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.numericUpDown_sl.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown_sl.Name = "numericUpDown_sl";
-            this.numericUpDown_sl.Size = new System.Drawing.Size(141, 30);
-            this.numericUpDown_sl.TabIndex = 32;
-            this.numericUpDown_sl.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.SeaGreen;
             this.button2.Font = new System.Drawing.Font("Tahoma", 15F);
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(325, 436);
+            this.button2.Location = new System.Drawing.Point(316, 417);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(228, 98);
             this.button2.TabIndex = 33;
@@ -184,10 +146,8 @@
             this.BackColor = System.Drawing.Color.Cyan;
             this.ClientSize = new System.Drawing.Size(898, 564);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.numericUpDown_sl);
             this.Controls.Add(this.comboBox_loainv);
             this.Controls.Add(this.dateTimePicker_e);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dateTimePicker_s);
@@ -196,7 +156,6 @@
             this.Controls.Add(this.label1);
             this.Name = "FormThemCaBoSung";
             this.Text = "FormThemCaBoSung";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_sl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,8 +171,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox_loainv;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown numericUpDown_sl;
         private System.Windows.Forms.Button button2;
     }
 }

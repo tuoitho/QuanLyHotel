@@ -1,5 +1,6 @@
 ﻿using Microsoft.Kiota.Abstractions;
 using QuanLyHotel.EMPLOYEE;
+using QuanLyHotel.THUETRA;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,7 @@ namespace QuanLyHotel.LamVieic
         public FormCaLamViec()
         {
             InitializeComponent();
-            if (Info.role == "employee" && Info.chucvu == 1 || Info.role=="admin")
+            if (Info.role == "employee" && Info.chucvu == 1 || Info.role == "admin")
                 linkLabel_showall.Enabled = true;
             else linkLabel_showall.Enabled = false;
 
@@ -86,7 +87,7 @@ namespace QuanLyHotel.LamVieic
         }
         bool kiemtrabankinh()
         {
-            
+
             //o trong ban kinh 1km
             if (Convert.ToDouble(label_kc.Text) <= 1)
             {
@@ -124,7 +125,6 @@ namespace QuanLyHotel.LamVieic
                 roundedButton_ci.Enabled = !EMP.kiemtracheckInPC(Info.id, mapchientai);
                 roundedButton_co.Enabled = !EMP.kiemtracheckOutPC(Info.id, mapchientai);
             }
-            timer1.Start();
 
             //ko dc chọn 4 cột đầu
             for (int i = 0; i < dataGridView_calamviec.Columns.Count; i++)
@@ -135,6 +135,15 @@ namespace QuanLyHotel.LamVieic
                     dataGridView_calamviec.Columns[i].DefaultCellStyle.BackColor = Color.Green;
                 }
             }
+            DateTime date = dateTimePicker1.Value;
+            DateTime giohientai = DateTime.Now;
+
+            if (giohientai.Hour >= 0 && giohientai.Hour <= 6)
+            {
+                date = date.AddDays(-1);
+            }
+            DataTable tbCabosung = EMP.getAllDSCaBoSung(date);
+            dataGridView_cabs.DataSource = tbCabosung;
 
         }
 
@@ -183,8 +192,9 @@ namespace QuanLyHotel.LamVieic
 
                 DataTable tbBaonghi = EMP.getAllDSBaoNghi(date);
                 dataGridView_cabaonghi.DataSource = tbBaonghi;
-                DataTable dscabs=EMP.getAllDSCaBoSung(date,Info.chucvu);
+                DataTable dscabs = EMP.getAllDSCaBoSung(date, Info.chucvu);
                 dataGridView_cabs.DataSource = dscabs;
+                dataGridView_cabs.Refresh();
 
 
             }
@@ -215,6 +225,7 @@ namespace QuanLyHotel.LamVieic
         }
         int rowca1 = 1000000;
         int rowca2 = 1000000;
+        int rowcabs = 1000000;
         int rowcanghi = 1000000;
         private void button_pc_Click(object sender, EventArgs e)
         {
@@ -229,7 +240,7 @@ namespace QuanLyHotel.LamVieic
             int c2 = Convert.ToInt32(ca.Rows[1][5].ToString());
             int c3 = Convert.ToInt32(ca.Rows[1][6].ToString());
             DateTime start = dateTimePicker_start.Value;
-         
+
             PHANCA_CHINHTHUC pc = new PHANCA_CHINHTHUC(soquanly, sotieptan, solaocong, s1, s2, s3, c1, c2, c3, start);
             PHANCA_CHINHTHUC.ThucHien();
         }
@@ -427,7 +438,9 @@ namespace QuanLyHotel.LamVieic
                 MessageBox.Show("Vui lòng chọn báo nghỉ cần thay thế", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            int mapc = Convert.ToInt32(dataGridView_cabaonghi.CurrentRow.Cells[0].Value.ToString());
+            //int mapc = Convert.ToInt32(dataGridView_cabaonghi.CurrentRow.Cells[0].Value.ToString());
+            int mapc = Convert.ToInt32(dataGridView_cabaonghi.Rows[rowcanghi].Cells[0].Value.ToString());
+
             int manv = Info.id;
             //neu bi trung lich thi k dc thay the
             if (EMP.kiemtraTrungLich(mapc, manv))
@@ -483,6 +496,9 @@ namespace QuanLyHotel.LamVieic
             if (dataGridView_c1.Rows.Count > rowca1)
             {
                 dataGridView_c1.Rows[rowca1].Selected = true;
+                //click vao dong rowca1
+
+
             }
             if (dataGridView_c2.Rows.Count > rowca2)
             {
@@ -491,6 +507,11 @@ namespace QuanLyHotel.LamVieic
             if (dataGridView_cabaonghi.Rows.Count > rowcanghi)
             {
                 dataGridView_cabaonghi.Rows[rowcanghi].Selected = true;
+            }
+            if (dataGridView_cabs.Rows.Count > rowcabs)
+            {
+                dataGridView_cabs.Rows[rowcabs].Selected = true;
+                //ckicj vao dong rowcabs
             }
         }
 
@@ -559,7 +580,7 @@ namespace QuanLyHotel.LamVieic
                 MessageBox.Show("Vui lòng chọn ca bổ sung để đăng ký", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            int mapc = Convert.ToInt32(dataGridView_cabs.CurrentRow.Cells[0].Value.ToString());
+            int mapc = Convert.ToInt32(dataGridView_cabs.Rows[rowcabs].Cells[0].Value.ToString());
             int manv = Info.id;
             int machucvu = Info.chucvu;
             //neu ko cùng loại nhân viên thì ko cho đăng ký
@@ -572,7 +593,7 @@ namespace QuanLyHotel.LamVieic
             {
                 ssghichu = "Ca bổ sung lao công";
             }
-            if (ssghichu !=dataGridView_cabs.CurrentRow.Cells[6].Value.ToString())
+            if (ssghichu != dataGridView_cabs.Rows[rowcabs].Cells[6].Value.ToString())
             {
                 MessageBox.Show("Không thể đăng ký vì bạn không phải loại nhân viên này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -588,7 +609,7 @@ namespace QuanLyHotel.LamVieic
                 EMP.dangKyCaBoSung(mapc, manv);
                 MessageBox.Show("Đăng ký thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -597,6 +618,30 @@ namespace QuanLyHotel.LamVieic
         private void linkLabel_showall_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
+        }
+
+        private void dataGridView_cabs_Click(object sender, EventArgs e)
+        {
+            //neu click vao khoang trong
+            if (dataGridView_cabs.CurrentRow == null)
+            {
+                return;
+            }
+            rowcabs = dataGridView_cabs.CurrentRow.Index;
+        }
+
+        private void tabControl_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if (e.TabPage == tabPage_lich)
+            {
+                timer1.Start();
+
+
+            }
+            else
+            {
+                timer1.Stop();
+            }
         }
     }
 }

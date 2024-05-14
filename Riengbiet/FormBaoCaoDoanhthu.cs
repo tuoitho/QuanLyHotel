@@ -61,6 +61,21 @@ namespace QuanLyHotel.Riengbiet
             res = double.Parse(dt.Rows[0][0].ToString());
             return res;
         }
+        double getTienNhapThucPham(DateTime d)
+        {
+            double res = 0;
+            DataTable dt = new DataTable();
+            using (SqlCommand cmd = new SqlCommand("select ISNULL(SUM(TongTien),0) TienNhap from [PhieuNhapThucPham] where cast(NgayNhap as date)=cast(@d as date)\r\n;", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@d", SqlDbType.Date).Value = d;
+                using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                {
+                    adapter.Fill(dt);
+                }
+            }
+            res = double.Parse(dt.Rows[0][0].ToString());
+            return res;
+        }
         public FormBaoCaoDoanhthu()
         {
             InitializeComponent();
@@ -73,9 +88,10 @@ namespace QuanLyHotel.Riengbiet
             dt.Columns.Add("tiencoc", typeof(double));
             dt.Columns.Add("tienthanhtoanhoadon", typeof(double));
             dt.Columns.Add("tienluongnv", typeof(double));
+            dt.Columns.Add("tiennhapthucpham", typeof(double));
             for (DateTime d = DateTime.Now.AddDays(-8); d <= DateTime.Now.AddDays(-1); d = d.AddDays(1))
             {
-                dt.Rows.Add(d, getTienCoc(d), getTienThanhToan(d), getTienLuongNV(d));
+                dt.Rows.Add(d, getTienCoc(d), getTienThanhToan(d), getTienLuongNV(d), getTienNhapThucPham(d));
 
             }
             dataGridView1.DataSource = dt;
@@ -83,6 +99,7 @@ namespace QuanLyHotel.Riengbiet
             dataGridView1.Columns[1].HeaderText = "Tiền cọc từ PĐK";
             dataGridView1.Columns[2].HeaderText = "Tiền thanh toán hoá đơn";
             dataGridView1.Columns[3].HeaderText = "Tiền lương NV";
+            dataGridView1.Columns[4].HeaderText = "Tiền nhập kho thực phẩm";
             dataGridView1.Columns[0].DefaultCellStyle.Format = "dd/MM/yyyy";
         }
 

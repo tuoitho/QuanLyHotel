@@ -63,6 +63,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.btn_modify = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.tabControl_nhanvien = new System.Windows.Forms.TabControl();
+            this.roundedButton_showall = new QuanLyHotel.RoundedButton();
             this.tabPage_quanlynv.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_employee)).BeginInit();
@@ -82,7 +83,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.tabPage_quanlynv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage_quanlynv.Name = "tabPage_quanlynv";
             this.tabPage_quanlynv.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage_quanlynv.Size = new System.Drawing.Size(1144, 744);
+            this.tabPage_quanlynv.Size = new System.Drawing.Size(1432, 937);
             this.tabPage_quanlynv.TabIndex = 0;
             this.tabPage_quanlynv.Text = "Quản lý nhân viên";
             this.tabPage_quanlynv.UseVisualStyleBackColor = true;
@@ -95,7 +96,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox5.Size = new System.Drawing.Size(1138, 415);
+            this.groupBox5.Size = new System.Drawing.Size(1426, 608);
             this.groupBox5.TabIndex = 7;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Danh sách nhân viên:";
@@ -111,13 +112,14 @@ namespace QuanLyHotel.EMPLOYEE
             this.dataGridView_employee.RowHeadersWidth = 51;
             this.dataGridView_employee.RowTemplate.Height = 26;
             this.dataGridView_employee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_employee.Size = new System.Drawing.Size(1132, 393);
+            this.dataGridView_employee.Size = new System.Drawing.Size(1420, 586);
             this.dataGridView_employee.TabIndex = 6;
             this.dataGridView_employee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_employee_CellContentClick);
             this.dataGridView_employee.Click += new System.EventHandler(this.dataGridView_employee_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.roundedButton_showall);
             this.groupBox1.Controls.Add(this.comboBox_manql);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.groupBox4);
@@ -138,7 +140,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1138, 209);
+            this.groupBox1.Size = new System.Drawing.Size(1426, 209);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin nhân viên";
@@ -377,9 +379,9 @@ namespace QuanLyHotel.EMPLOYEE
             this.groupBox3.Controls.Add(this.btn_add);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(3, 626);
+            this.groupBox3.Location = new System.Drawing.Point(3, 819);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1138, 116);
+            this.groupBox3.Size = new System.Drawing.Size(1426, 116);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tác vụ";
@@ -464,9 +466,20 @@ namespace QuanLyHotel.EMPLOYEE
             this.tabControl_nhanvien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl_nhanvien.Name = "tabControl_nhanvien";
             this.tabControl_nhanvien.SelectedIndex = 0;
-            this.tabControl_nhanvien.Size = new System.Drawing.Size(1152, 774);
+            this.tabControl_nhanvien.Size = new System.Drawing.Size(1440, 967);
             this.tabControl_nhanvien.TabIndex = 7;
             this.tabControl_nhanvien.SelectedIndexChanged += new System.EventHandler(this.tabControl_nhanvien_SelectedIndexChanged);
+            // 
+            // roundedButton_showall
+            // 
+            this.roundedButton_showall.BackColor = System.Drawing.Color.LimeGreen;
+            this.roundedButton_showall.Location = new System.Drawing.Point(1022, 159);
+            this.roundedButton_showall.Name = "roundedButton_showall";
+            this.roundedButton_showall.Size = new System.Drawing.Size(122, 37);
+            this.roundedButton_showall.TabIndex = 20;
+            this.roundedButton_showall.Text = "Show All";
+            this.roundedButton_showall.UseVisualStyleBackColor = false;
+            this.roundedButton_showall.Click += new System.EventHandler(this.roundedButton_showall_Click);
             // 
             // FormNhanVien
             // 
@@ -545,5 +558,6 @@ namespace QuanLyHotel.EMPLOYEE
         private TextBox textBox_email;
         private Label label7;
         private Button button1;
+        private RoundedButton roundedButton_showall;
     }
 }

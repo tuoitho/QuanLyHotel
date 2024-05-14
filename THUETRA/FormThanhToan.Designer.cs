@@ -74,7 +74,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.textBox_sotiengiamgia = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox_sotiencantra = new System.Windows.Forms.TextBox();
+            this.textBox_sotienhoadoncantra = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.button_print = new System.Windows.Forms.Button();
             this.button_hoanthanh = new System.Windows.Forms.Button();
@@ -92,6 +92,8 @@
             this.label22 = new System.Windows.Forms.Label();
             this.cb_template = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
+            this.textBox_sotienthucpham = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_dv)).BeginInit();
@@ -577,7 +579,7 @@
             // textBox_sotiengiamgia
             // 
             this.textBox_sotiengiamgia.Enabled = false;
-            this.textBox_sotiengiamgia.Location = new System.Drawing.Point(169, 539);
+            this.textBox_sotiengiamgia.Location = new System.Drawing.Point(169, 569);
             this.textBox_sotiengiamgia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_sotiengiamgia.Name = "textBox_sotiengiamgia";
             this.textBox_sotiengiamgia.ReadOnly = true;
@@ -587,26 +589,26 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(27, 542);
+            this.label13.Location = new System.Drawing.Point(27, 572);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(86, 13);
             this.label13.TabIndex = 7;
             this.label13.Text = "Số Tiền Giảm Giá";
             // 
-            // textBox_sotiencantra
+            // textBox_sotienhoadoncantra
             // 
-            this.textBox_sotiencantra.Enabled = false;
-            this.textBox_sotiencantra.Location = new System.Drawing.Point(169, 582);
-            this.textBox_sotiencantra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox_sotiencantra.Name = "textBox_sotiencantra";
-            this.textBox_sotiencantra.ReadOnly = true;
-            this.textBox_sotiencantra.Size = new System.Drawing.Size(172, 20);
-            this.textBox_sotiencantra.TabIndex = 6;
+            this.textBox_sotienhoadoncantra.Enabled = false;
+            this.textBox_sotienhoadoncantra.Location = new System.Drawing.Point(169, 612);
+            this.textBox_sotienhoadoncantra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox_sotienhoadoncantra.Name = "textBox_sotienhoadoncantra";
+            this.textBox_sotienhoadoncantra.ReadOnly = true;
+            this.textBox_sotienhoadoncantra.Size = new System.Drawing.Size(172, 20);
+            this.textBox_sotienhoadoncantra.TabIndex = 6;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(27, 585);
+            this.label17.Location = new System.Drawing.Point(27, 615);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(83, 13);
             this.label17.TabIndex = 7;
@@ -779,6 +781,25 @@
             this.label23.TabIndex = 26;
             this.label23.Text = "Temple";
             // 
+            // textBox_sotienthucpham
+            // 
+            this.textBox_sotienthucpham.Enabled = false;
+            this.textBox_sotienthucpham.Location = new System.Drawing.Point(169, 541);
+            this.textBox_sotienthucpham.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox_sotienthucpham.Name = "textBox_sotienthucpham";
+            this.textBox_sotienthucpham.ReadOnly = true;
+            this.textBox_sotienthucpham.Size = new System.Drawing.Size(172, 20);
+            this.textBox_sotienthucpham.TabIndex = 6;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(27, 541);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(98, 13);
+            this.label24.TabIndex = 7;
+            this.label24.Text = "Số Tiền Thực Phẩm";
+            // 
             // FormThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -797,6 +818,7 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label17);
+            this.Controls.Add(this.label24);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label22);
@@ -804,7 +826,8 @@
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox_sotiencantra);
+            this.Controls.Add(this.textBox_sotienhoadoncantra);
+            this.Controls.Add(this.textBox_sotienthucpham);
             this.Controls.Add(this.textBox_sotiengiamgia);
             this.Controls.Add(this.textBox_tttt);
             this.Controls.Add(this.textBox_tongtienhd);
@@ -877,7 +900,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox_sotiengiamgia;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox_sotiencantra;
+        private System.Windows.Forms.TextBox textBox_sotienhoadoncantra;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button button_print;
         private System.Windows.Forms.Button button_hoanthanh;
@@ -895,5 +918,7 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ComboBox cb_template;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox textBox_sotienthucpham;
+        private System.Windows.Forms.Label label24;
     }
 }

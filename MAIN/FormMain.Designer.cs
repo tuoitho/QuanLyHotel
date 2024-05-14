@@ -32,8 +32,9 @@ namespace QuanLyHotel.EMPLOYEE
         private void InitializeComponent()
         {
             this.panel_menu = new System.Windows.Forms.Panel();
-            this.roundedButton3 = new QuanLyHotel.RoundedButton();
             this.roundedButton2 = new QuanLyHotel.RoundedButton();
+            this.roundedButton_bc_thu_chi = new QuanLyHotel.RoundedButton();
+            this.roundedButton_ca_lich = new QuanLyHotel.RoundedButton();
             this.button_dangkythuetra = new QuanLyHotel.RoundedButton();
             this.button_dichvu = new QuanLyHotel.RoundedButton();
             this.button_phong = new QuanLyHotel.RoundedButton();
@@ -56,8 +57,9 @@ namespace QuanLyHotel.EMPLOYEE
             // panel_menu
             // 
             this.panel_menu.BackColor = System.Drawing.Color.White;
-            this.panel_menu.Controls.Add(this.roundedButton3);
             this.panel_menu.Controls.Add(this.roundedButton2);
+            this.panel_menu.Controls.Add(this.roundedButton_bc_thu_chi);
+            this.panel_menu.Controls.Add(this.roundedButton_ca_lich);
             this.panel_menu.Controls.Add(this.button_dangkythuetra);
             this.panel_menu.Controls.Add(this.button_dichvu);
             this.panel_menu.Controls.Add(this.button_phong);
@@ -77,28 +79,6 @@ namespace QuanLyHotel.EMPLOYEE
             this.panel_menu.Size = new System.Drawing.Size(225, 844);
             this.panel_menu.TabIndex = 0;
             // 
-            // roundedButton3
-            // 
-            this.roundedButton3.BackColor = System.Drawing.Color.Transparent;
-            this.roundedButton3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.roundedButton3.FlatAppearance.BorderSize = 0;
-            this.roundedButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButton3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedButton3.ForeColor = System.Drawing.Color.Black;
-            this.roundedButton3.Image = global::QuanLyHotel.Properties.Resources.service32;
-            this.roundedButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roundedButton3.Location = new System.Drawing.Point(0, 512);
-            this.roundedButton3.Margin = new System.Windows.Forms.Padding(2);
-            this.roundedButton3.Name = "roundedButton3";
-            this.roundedButton3.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.roundedButton3.Size = new System.Drawing.Size(225, 49);
-            this.roundedButton3.TabIndex = 18;
-            this.roundedButton3.Text = "  Báo cáo thu, chi";
-            this.roundedButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roundedButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.roundedButton3.UseVisualStyleBackColor = false;
-            this.roundedButton3.Click += new System.EventHandler(this.roundedButton3_Click);
-            // 
             // roundedButton2
             // 
             this.roundedButton2.BackColor = System.Drawing.Color.Transparent;
@@ -107,19 +87,63 @@ namespace QuanLyHotel.EMPLOYEE
             this.roundedButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundedButton2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roundedButton2.ForeColor = System.Drawing.Color.Black;
-            this.roundedButton2.Image = global::QuanLyHotel.Properties.Resources.service32;
+            this.roundedButton2.Image = global::QuanLyHotel.Properties.Resources.bill32;
             this.roundedButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roundedButton2.Location = new System.Drawing.Point(0, 463);
+            this.roundedButton2.Location = new System.Drawing.Point(0, 561);
             this.roundedButton2.Margin = new System.Windows.Forms.Padding(2);
             this.roundedButton2.Name = "roundedButton2";
             this.roundedButton2.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.roundedButton2.Size = new System.Drawing.Size(225, 49);
-            this.roundedButton2.TabIndex = 17;
-            this.roundedButton2.Text = "  Ca, lịch làm việ";
+            this.roundedButton2.TabIndex = 19;
+            this.roundedButton2.Text = "  Khai Báo Thực Phẩm";
             this.roundedButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.roundedButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.roundedButton2.UseVisualStyleBackColor = false;
-            this.roundedButton2.Click += new System.EventHandler(this.roundedButton2_Click);
+            this.roundedButton2.Click += new System.EventHandler(this.roundedButton2_Click_1);
+            // 
+            // roundedButton_bc_thu_chi
+            // 
+            this.roundedButton_bc_thu_chi.BackColor = System.Drawing.Color.Transparent;
+            this.roundedButton_bc_thu_chi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.roundedButton_bc_thu_chi.FlatAppearance.BorderSize = 0;
+            this.roundedButton_bc_thu_chi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundedButton_bc_thu_chi.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButton_bc_thu_chi.ForeColor = System.Drawing.Color.Black;
+            this.roundedButton_bc_thu_chi.Image = global::QuanLyHotel.Properties.Resources.service32;
+            this.roundedButton_bc_thu_chi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.roundedButton_bc_thu_chi.Location = new System.Drawing.Point(0, 512);
+            this.roundedButton_bc_thu_chi.Margin = new System.Windows.Forms.Padding(2);
+            this.roundedButton_bc_thu_chi.Name = "roundedButton_bc_thu_chi";
+            this.roundedButton_bc_thu_chi.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.roundedButton_bc_thu_chi.Size = new System.Drawing.Size(225, 49);
+            this.roundedButton_bc_thu_chi.TabIndex = 18;
+            this.roundedButton_bc_thu_chi.Text = "  Báo cáo thu, chi";
+            this.roundedButton_bc_thu_chi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.roundedButton_bc_thu_chi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.roundedButton_bc_thu_chi.UseVisualStyleBackColor = false;
+            this.roundedButton_bc_thu_chi.Click += new System.EventHandler(this.roundedButton3_Click);
+            // 
+            // roundedButton_ca_lich
+            // 
+            this.roundedButton_ca_lich.BackColor = System.Drawing.Color.Transparent;
+            this.roundedButton_ca_lich.Dock = System.Windows.Forms.DockStyle.Top;
+            this.roundedButton_ca_lich.FlatAppearance.BorderSize = 0;
+            this.roundedButton_ca_lich.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundedButton_ca_lich.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButton_ca_lich.ForeColor = System.Drawing.Color.Black;
+            this.roundedButton_ca_lich.Image = global::QuanLyHotel.Properties.Resources.service32;
+            this.roundedButton_ca_lich.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.roundedButton_ca_lich.Location = new System.Drawing.Point(0, 463);
+            this.roundedButton_ca_lich.Margin = new System.Windows.Forms.Padding(2);
+            this.roundedButton_ca_lich.Name = "roundedButton_ca_lich";
+            this.roundedButton_ca_lich.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.roundedButton_ca_lich.Size = new System.Drawing.Size(225, 49);
+            this.roundedButton_ca_lich.TabIndex = 17;
+            this.roundedButton_ca_lich.Text = "  Ca, lịch làm việ";
+            this.roundedButton_ca_lich.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.roundedButton_ca_lich.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.roundedButton_ca_lich.UseVisualStyleBackColor = false;
+            this.roundedButton_ca_lich.Click += new System.EventHandler(this.roundedButton2_Click);
             // 
             // button_dangkythuetra
             // 
@@ -159,7 +183,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.button_dichvu.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.button_dichvu.Size = new System.Drawing.Size(225, 49);
             this.button_dichvu.TabIndex = 14;
-            this.button_dichvu.Text = "  Dịch Vụ";
+            this.button_dichvu.Text = "  Dịch Vụ, Thực Phẩm";
             this.button_dichvu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_dichvu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button_dichvu.UseVisualStyleBackColor = false;
@@ -423,7 +447,8 @@ namespace QuanLyHotel.EMPLOYEE
         private RoundedButton button_bill;
         private RoundedButton button_dichvu;
         private RoundedButton button_dangkythuetra;
+        private RoundedButton roundedButton_ca_lich;
+        private RoundedButton roundedButton_bc_thu_chi;
         private RoundedButton roundedButton2;
-        private RoundedButton roundedButton3;
     }
 }

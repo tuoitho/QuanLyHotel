@@ -48,6 +48,12 @@
             this.roundedButton_chinhsua = new QuanLyHotel.RoundedButton();
             this.button_xembc = new System.Windows.Forms.Button();
             this.tabPage_lich = new System.Windows.Forms.TabPage();
+            this.linkLabel_showall = new System.Windows.Forms.LinkLabel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.roundedButton_dangky = new QuanLyHotel.RoundedButton();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.dataGridView_cabs = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label_kc = new System.Windows.Forms.Label();
@@ -70,17 +76,14 @@
             this.roundedButton_co = new QuanLyHotel.RoundedButton();
             this.roundedButton_ci = new QuanLyHotel.RoundedButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.roundedButton_dangky = new QuanLyHotel.RoundedButton();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.dataGridView_cabs = new System.Windows.Forms.DataGridView();
-            this.linkLabel_showall = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_calamviec)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabPage_ca.SuspendLayout();
             this.tabPage_lich.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_cabs)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_cabaonghi)).BeginInit();
@@ -88,9 +91,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_c2)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_c1)).BeginInit();
-            this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_cabs)).BeginInit();
             this.SuspendLayout();
             // 
             // button_phanca
@@ -153,8 +153,9 @@
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1298, 926);
+            this.tabControl.Size = new System.Drawing.Size(1426, 926);
             this.tabControl.TabIndex = 20;
+            this.tabControl.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl_Selecting);
             this.tabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl_Selected);
             // 
             // tabPage_ca
@@ -177,7 +178,7 @@
             this.tabPage_ca.Location = new System.Drawing.Point(4, 33);
             this.tabPage_ca.Name = "tabPage_ca";
             this.tabPage_ca.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_ca.Size = new System.Drawing.Size(1290, 889);
+            this.tabPage_ca.Size = new System.Drawing.Size(1418, 889);
             this.tabPage_ca.TabIndex = 0;
             this.tabPage_ca.Text = "Ca";
             // 
@@ -331,71 +332,153 @@
             this.tabPage_lich.Location = new System.Drawing.Point(4, 33);
             this.tabPage_lich.Name = "tabPage_lich";
             this.tabPage_lich.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_lich.Size = new System.Drawing.Size(1290, 889);
+            this.tabPage_lich.Size = new System.Drawing.Size(1418, 889);
             this.tabPage_lich.TabIndex = 1;
             this.tabPage_lich.Text = "Lịch";
             this.tabPage_lich.UseVisualStyleBackColor = true;
             this.tabPage_lich.Click += new System.EventHandler(this.tabPage_lich_Click);
             // 
+            // linkLabel_showall
+            // 
+            this.linkLabel_showall.AutoSize = true;
+            this.linkLabel_showall.Location = new System.Drawing.Point(492, 2);
+            this.linkLabel_showall.Name = "linkLabel_showall";
+            this.linkLabel_showall.Size = new System.Drawing.Size(86, 24);
+            this.linkLabel_showall.TabIndex = 29;
+            this.linkLabel_showall.TabStop = true;
+            this.linkLabel_showall.Text = "Show All";
+            this.linkLabel_showall.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_showall_LinkClicked);
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel6.Controls.Add(this.label2);
+            this.panel6.Controls.Add(this.roundedButton_dangky);
+            this.panel6.Controls.Add(this.panel7);
+            this.panel6.Location = new System.Drawing.Point(8, 653);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1382, 235);
+            this.panel6.TabIndex = 28;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(18, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(459, 27);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Danh sách phân ca mở đăng ký";
+            // 
+            // roundedButton_dangky
+            // 
+            this.roundedButton_dangky.BackColor = System.Drawing.Color.RosyBrown;
+            this.roundedButton_dangky.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.roundedButton_dangky.Location = new System.Drawing.Point(1203, 112);
+            this.roundedButton_dangky.Name = "roundedButton_dangky";
+            this.roundedButton_dangky.Size = new System.Drawing.Size(140, 44);
+            this.roundedButton_dangky.TabIndex = 23;
+            this.roundedButton_dangky.Text = "Đăng ký";
+            this.roundedButton_dangky.UseVisualStyleBackColor = false;
+            this.roundedButton_dangky.Click += new System.EventHandler(this.roundedButton_dangky_Click);
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(108)))), ((int)(((byte)(225)))));
+            this.panel7.Controls.Add(this.dataGridView_cabs);
+            this.panel7.Location = new System.Drawing.Point(83, 44);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1101, 180);
+            this.panel7.TabIndex = 22;
+            // 
+            // dataGridView_cabs
+            // 
+            this.dataGridView_cabs.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.dataGridView_cabs.AllowUserToAddRows = false;
+            this.dataGridView_cabs.AllowUserToDeleteRows = false;
+            this.dataGridView_cabs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_cabs.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView_cabs.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView_cabs.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dataGridView_cabs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_cabs.Location = new System.Drawing.Point(0, -4);
+            this.dataGridView_cabs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView_cabs.MultiSelect = false;
+            this.dataGridView_cabs.Name = "dataGridView_cabs";
+            this.dataGridView_cabs.ReadOnly = true;
+            this.dataGridView_cabs.RowHeadersVisible = false;
+            this.dataGridView_cabs.RowHeadersWidth = 51;
+            this.dataGridView_cabs.RowTemplate.Height = 26;
+            this.dataGridView_cabs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_cabs.Size = new System.Drawing.Size(1101, 182);
+            this.dataGridView_cabs.TabIndex = 13;
+            this.dataGridView_cabs.Click += new System.EventHandler(this.dataGridView_cabs_Click);
+            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.SeaGreen;
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(1076, 281);
+            this.button2.Location = new System.Drawing.Point(1220, 283);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(171, 111);
+            this.button2.Size = new System.Drawing.Size(170, 111);
             this.button2.TabIndex = 27;
-            this.button2.Text = "Thêm ca bổ sung (chỉ quản lý có quyền này)";
+            this.button2.Text = "Thêm ca bổ sung (yêu cầu quản lý trở lên)";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(1097, 79);
+            this.label12.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.label12.Location = new System.Drawing.Point(1227, 81);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(103, 19);
+            this.label12.Size = new System.Drawing.Size(116, 19);
             this.label12.TabIndex = 26;
             this.label12.Text = "khoảng cách:";
             // 
             // label_kc
             // 
             this.label_kc.AutoSize = true;
-            this.label_kc.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_kc.Location = new System.Drawing.Point(1206, 79);
+            this.label_kc.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_kc.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.label_kc.Location = new System.Drawing.Point(1336, 81);
             this.label_kc.Name = "label_kc";
-            this.label_kc.Size = new System.Drawing.Size(24, 19);
+            this.label_kc.Size = new System.Drawing.Size(27, 19);
             this.label_kc.TabIndex = 26;
             this.label_kc.Text = "kc";
             // 
             // label_vd
             // 
             this.label_vd.AutoSize = true;
-            this.label_vd.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_vd.Location = new System.Drawing.Point(1097, 60);
+            this.label_vd.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_vd.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.label_vd.Location = new System.Drawing.Point(1227, 62);
             this.label_vd.Name = "label_vd";
-            this.label_vd.Size = new System.Drawing.Size(52, 19);
+            this.label_vd.Size = new System.Drawing.Size(56, 19);
             this.label_vd.TabIndex = 26;
             this.label_vd.Text = "Vĩ độ:";
             // 
             // label_kd
             // 
             this.label_kd.AutoSize = true;
-            this.label_kd.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_kd.Location = new System.Drawing.Point(1097, 32);
+            this.label_kd.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_kd.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.label_kd.Location = new System.Drawing.Point(1227, 34);
             this.label_kd.Name = "label_kd";
-            this.label_kd.Size = new System.Drawing.Size(63, 19);
+            this.label_kd.Size = new System.Drawing.Size(70, 19);
             this.label_kd.TabIndex = 26;
             this.label_kd.Text = "Kinh độ";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(1097, 8);
+            this.label10.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.label10.Location = new System.Drawing.Point(1229, 5);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(101, 19);
+            this.label10.Size = new System.Drawing.Size(115, 19);
             this.label10.TabIndex = 26;
             this.label10.Text = "Vị trí của tôi:";
             // 
@@ -407,7 +490,7 @@
             this.panel5.Controls.Add(this.panel4);
             this.panel5.Location = new System.Drawing.Point(6, 412);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1264, 235);
+            this.panel5.Size = new System.Drawing.Size(1382, 235);
             this.panel5.TabIndex = 25;
             // 
             // label9
@@ -418,13 +501,13 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(459, 27);
             this.label9.TabIndex = 24;
-            this.label9.Text = "Danh sách phân ca báo nghỉ ";
+            this.label9.Text = "Danh sách phân ca báo nghỉ  (bao gồm cả ca thay thế)";
             // 
             // roundedButton_thaythe
             // 
             this.roundedButton_thaythe.BackColor = System.Drawing.Color.RosyBrown;
             this.roundedButton_thaythe.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.roundedButton_thaythe.Location = new System.Drawing.Point(1095, 89);
+            this.roundedButton_thaythe.Location = new System.Drawing.Point(1214, 106);
             this.roundedButton_thaythe.Name = "roundedButton_thaythe";
             this.roundedButton_thaythe.Size = new System.Drawing.Size(140, 44);
             this.roundedButton_thaythe.TabIndex = 23;
@@ -439,7 +522,7 @@
             this.panel4.Location = new System.Drawing.Point(83, 44);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(979, 180);
+            this.panel4.Size = new System.Drawing.Size(1103, 180);
             this.panel4.TabIndex = 22;
             // 
             // dataGridView_cabaonghi
@@ -448,6 +531,7 @@
             this.dataGridView_cabaonghi.AllowUserToAddRows = false;
             this.dataGridView_cabaonghi.AllowUserToDeleteRows = false;
             this.dataGridView_cabaonghi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_cabaonghi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView_cabaonghi.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView_cabaonghi.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridView_cabaonghi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -460,7 +544,7 @@
             this.dataGridView_cabaonghi.RowHeadersWidth = 51;
             this.dataGridView_cabaonghi.RowTemplate.Height = 26;
             this.dataGridView_cabaonghi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_cabaonghi.Size = new System.Drawing.Size(979, 182);
+            this.dataGridView_cabaonghi.Size = new System.Drawing.Size(1103, 182);
             this.dataGridView_cabaonghi.TabIndex = 13;
             this.dataGridView_cabaonghi.Click += new System.EventHandler(this.dataGridView_cabaonghi_Click);
             // 
@@ -491,7 +575,7 @@
             this.panel2.Location = new System.Drawing.Point(91, 225);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(979, 182);
+            this.panel2.Size = new System.Drawing.Size(1101, 182);
             this.panel2.TabIndex = 21;
             // 
             // dataGridView_c2
@@ -500,6 +584,7 @@
             this.dataGridView_c2.AllowUserToAddRows = false;
             this.dataGridView_c2.AllowUserToDeleteRows = false;
             this.dataGridView_c2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView_c2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView_c2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView_c2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridView_c2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -512,7 +597,7 @@
             this.dataGridView_c2.RowHeadersWidth = 51;
             this.dataGridView_c2.RowTemplate.Height = 26;
             this.dataGridView_c2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_c2.Size = new System.Drawing.Size(976, 182);
+            this.dataGridView_c2.Size = new System.Drawing.Size(1098, 182);
             this.dataGridView_c2.TabIndex = 13;
             this.dataGridView_c2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_c2_CellContentClick);
             this.dataGridView_c2.Click += new System.EventHandler(this.dataGridView_c2_Click);
@@ -535,7 +620,7 @@
             this.panel3.Location = new System.Drawing.Point(91, 32);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(979, 189);
+            this.panel3.Size = new System.Drawing.Size(1101, 189);
             this.panel3.TabIndex = 18;
             // 
             // dataGridView_c1
@@ -544,6 +629,7 @@
             this.dataGridView_c1.AllowUserToAddRows = false;
             this.dataGridView_c1.AllowUserToDeleteRows = false;
             this.dataGridView_c1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView_c1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView_c1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView_c1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridView_c1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -556,17 +642,18 @@
             this.dataGridView_c1.RowHeadersWidth = 51;
             this.dataGridView_c1.RowTemplate.Height = 26;
             this.dataGridView_c1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_c1.Size = new System.Drawing.Size(976, 195);
+            this.dataGridView_c1.Size = new System.Drawing.Size(1098, 195);
             this.dataGridView_c1.TabIndex = 13;
             this.dataGridView_c1.Click += new System.EventHandler(this.dataGridView_c1_Click);
             // 
             // roundedButton_baonghi
             // 
-            this.roundedButton_baonghi.BackColor = System.Drawing.Color.RosyBrown;
+            this.roundedButton_baonghi.BackColor = System.Drawing.Color.Maroon;
             this.roundedButton_baonghi.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.roundedButton_baonghi.Location = new System.Drawing.Point(1090, 231);
+            this.roundedButton_baonghi.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.roundedButton_baonghi.Location = new System.Drawing.Point(1220, 233);
             this.roundedButton_baonghi.Name = "roundedButton_baonghi";
-            this.roundedButton_baonghi.Size = new System.Drawing.Size(140, 44);
+            this.roundedButton_baonghi.Size = new System.Drawing.Size(168, 44);
             this.roundedButton_baonghi.TabIndex = 23;
             this.roundedButton_baonghi.Text = "Báo nghỉ";
             this.roundedButton_baonghi.UseVisualStyleBackColor = false;
@@ -574,11 +661,11 @@
             // 
             // roundedButton_co
             // 
-            this.roundedButton_co.BackColor = System.Drawing.Color.RosyBrown;
+            this.roundedButton_co.BackColor = System.Drawing.Color.IndianRed;
             this.roundedButton_co.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.roundedButton_co.Location = new System.Drawing.Point(1090, 166);
+            this.roundedButton_co.Location = new System.Drawing.Point(1220, 168);
             this.roundedButton_co.Name = "roundedButton_co";
-            this.roundedButton_co.Size = new System.Drawing.Size(140, 44);
+            this.roundedButton_co.Size = new System.Drawing.Size(168, 44);
             this.roundedButton_co.TabIndex = 23;
             this.roundedButton_co.Text = "Check Out";
             this.roundedButton_co.UseVisualStyleBackColor = false;
@@ -586,11 +673,11 @@
             // 
             // roundedButton_ci
             // 
-            this.roundedButton_ci.BackColor = System.Drawing.Color.RosyBrown;
+            this.roundedButton_ci.BackColor = System.Drawing.Color.Lime;
             this.roundedButton_ci.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.roundedButton_ci.Location = new System.Drawing.Point(1090, 104);
+            this.roundedButton_ci.Location = new System.Drawing.Point(1220, 106);
             this.roundedButton_ci.Name = "roundedButton_ci";
-            this.roundedButton_ci.Size = new System.Drawing.Size(140, 44);
+            this.roundedButton_ci.Size = new System.Drawing.Size(168, 44);
             this.roundedButton_ci.TabIndex = 23;
             this.roundedButton_ci.Text = "Check In";
             this.roundedButton_ci.UseVisualStyleBackColor = false;
@@ -601,86 +688,11 @@
             this.timer1.Interval = 2000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.DarkGreen;
-            this.panel6.Controls.Add(this.label2);
-            this.panel6.Controls.Add(this.roundedButton_dangky);
-            this.panel6.Controls.Add(this.panel7);
-            this.panel6.Location = new System.Drawing.Point(8, 653);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1264, 235);
-            this.panel6.TabIndex = 28;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(18, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(459, 27);
-            this.label2.TabIndex = 24;
-            this.label2.Text = "Danh sách phân ca mở đăng ký";
-            // 
-            // roundedButton_dangky
-            // 
-            this.roundedButton_dangky.BackColor = System.Drawing.Color.RosyBrown;
-            this.roundedButton_dangky.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.roundedButton_dangky.Location = new System.Drawing.Point(1095, 89);
-            this.roundedButton_dangky.Name = "roundedButton_dangky";
-            this.roundedButton_dangky.Size = new System.Drawing.Size(140, 44);
-            this.roundedButton_dangky.TabIndex = 23;
-            this.roundedButton_dangky.Text = "Đăng ký";
-            this.roundedButton_dangky.UseVisualStyleBackColor = false;
-            this.roundedButton_dangky.Click += new System.EventHandler(this.roundedButton_dangky_Click);
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(108)))), ((int)(((byte)(225)))));
-            this.panel7.Controls.Add(this.dataGridView_cabs);
-            this.panel7.Location = new System.Drawing.Point(83, 44);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(979, 180);
-            this.panel7.TabIndex = 22;
-            // 
-            // dataGridView_cabs
-            // 
-            this.dataGridView_cabs.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.dataGridView_cabs.AllowUserToAddRows = false;
-            this.dataGridView_cabs.AllowUserToDeleteRows = false;
-            this.dataGridView_cabs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView_cabs.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView_cabs.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dataGridView_cabs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_cabs.Location = new System.Drawing.Point(0, -4);
-            this.dataGridView_cabs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView_cabs.MultiSelect = false;
-            this.dataGridView_cabs.Name = "dataGridView_cabs";
-            this.dataGridView_cabs.ReadOnly = true;
-            this.dataGridView_cabs.RowHeadersVisible = false;
-            this.dataGridView_cabs.RowHeadersWidth = 51;
-            this.dataGridView_cabs.RowTemplate.Height = 26;
-            this.dataGridView_cabs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_cabs.Size = new System.Drawing.Size(979, 182);
-            this.dataGridView_cabs.TabIndex = 13;
-            // 
-            // linkLabel_showall
-            // 
-            this.linkLabel_showall.AutoSize = true;
-            this.linkLabel_showall.Location = new System.Drawing.Point(492, 2);
-            this.linkLabel_showall.Name = "linkLabel_showall";
-            this.linkLabel_showall.Size = new System.Drawing.Size(86, 24);
-            this.linkLabel_showall.TabIndex = 29;
-            this.linkLabel_showall.TabStop = true;
-            this.linkLabel_showall.Text = "Show All";
-            this.linkLabel_showall.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_showall_LinkClicked);
-            // 
             // FormCaLamViec
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1298, 926);
+            this.ClientSize = new System.Drawing.Size(1426, 926);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.button_phanca);
             this.Name = "FormCaLamViec";
@@ -693,6 +705,9 @@
             this.tabPage_ca.PerformLayout();
             this.tabPage_lich.ResumeLayout(false);
             this.tabPage_lich.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_cabs)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_cabaonghi)).EndInit();
@@ -700,9 +715,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_c2)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_c1)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_cabs)).EndInit();
             this.ResumeLayout(false);
 
         }

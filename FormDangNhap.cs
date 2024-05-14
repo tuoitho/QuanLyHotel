@@ -23,7 +23,8 @@ namespace QuanLyHotel
 
         private void FormDangNhap_Load(object sender, EventArgs e)
         {
-
+            //chon mac dinh vao textBox_username
+            textBox_username.Select();
         }
         private void button_dangnhap_Click(object sender, EventArgs e)
         {

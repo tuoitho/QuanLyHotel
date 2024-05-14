@@ -55,6 +55,12 @@ namespace QuanLyHotel.EMPLOYEE
                 MessageBox.Show("Không thể báo nghỉ ca thay thế", "Thông báo");
                 return;
             }
+            //ko the bao nghi ca bo sung, de tranh truong hop gianh cua nguoi ta
+            if (EMP.kiemtraCaBoSung(maCa))
+            {
+                MessageBox.Show("Không thể báo nghỉ ca bổ sung", "Thông báo");
+                return;
+            }
             try
             {
                 EMP.baoNghiCa(maNV, maCa);

@@ -85,7 +85,10 @@ namespace QuanLyHotel.DICHVU
 
         private void FormQuanLyDichVu_Load(object sender, EventArgs e)
         {
-
+            numericUpDown1.Value = DV.getSLThucPhamTonKho(1);
+            numericUpDown2.Value = DV.getSLThucPhamTonKho(2);
+            numericUpDown3.Value = DV.getSLThucPhamTonKho(3);
+            numericUpDown4.Value = DV.getSLThucPhamTonKho(4);
         }
 
         private void comboBox_dv_SelectedIndexChanged(object sender, EventArgs e)
@@ -131,6 +134,73 @@ namespace QuanLyHotel.DICHVU
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void roundedButton_kb_Click(object sender, EventArgs e)
+        {
+            FormNhapKhoThucPham formNhapKhoThucPham = new FormNhapKhoThucPham();
+            if (formNhapKhoThucPham.ShowDialog() == DialogResult.OK)
+            {
+                numericUpDown1.Value = DV.getSLThucPhamTonKho(1);
+                numericUpDown2.Value = DV.getSLThucPhamTonKho(2);
+                numericUpDown3.Value = DV.getSLThucPhamTonKho(3);
+                numericUpDown4.Value = DV.getSLThucPhamTonKho(4);
+            }
+        }
+
+        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown4_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

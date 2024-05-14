@@ -182,5 +182,55 @@ namespace QuanLyHotel.DICHVU
                 mydb.CloseConnection();
             }
         }
+
+        internal static int getSLThucPhamTonKho(int v)
+        {
+            using (SqlCommand cmd = new SqlCommand("select tonkho from thucpham where matp=@matp", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@matp", SqlDbType.Int).Value = v;
+                mydb.OpenConnection();
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                mydb.CloseConnection();
+                return count;
+            }
+        }
+
+        internal static void nhapKhoThucPham(int v, int s1)
+        {
+            using (SqlCommand cmd = new SqlCommand("INSERT into PhieuNhapThucPham(MATP, SoLuong, TongTien) values(@matp,@soluong,@tongtien)", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@matp", SqlDbType.Int).Value = v;
+                cmd.Parameters.Add("@soluong", SqlDbType.Int).Value = s1;
+                double gia = giaGiaTP(v);
+                cmd.Parameters.Add("@tongtien", SqlDbType.Int).Value = s1 * gia;
+                mydb.OpenConnection();
+                cmd.ExecuteNonQuery();
+                mydb.CloseConnection();
+            }
+        }
+
+        private static double giaGiaTP(int v)
+        {
+           using (SqlCommand cmd = new SqlCommand("select giatp from thucpham where matp=@matp", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@matp", SqlDbType.Int).Value = v;
+                mydb.OpenConnection();
+                double gia = Convert.ToDouble(cmd.ExecuteScalar());
+                mydb.CloseConnection();
+                return gia;
+            }
+        }
+
+        internal static double getTongTienThucPhamByMaHD(int mahoadon)
+        {
+            using (SqlCommand cmd = new SqlCommand("select sum(KHAIBAOTHUCPHAM.SoLuong*THUCPHAM.GiaBan)\r\nfrom KHAIBAOTHUCPHAM\r\njoin THUCPHAM on KHAIBAOTHUCPHAM.MaTP=THUCPHAM.MaTP\r\ngroup BY KHAIBAOTHUCPHAM.MaHD,KHAIBAOTHUCPHAM.isLaoCong\r\nhaving KHAIBAOTHUCPHAM.MaHD=@mahd", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@mahd", SqlDbType.Int).Value = mahoadon;
+                mydb.OpenConnection();
+                double tongtien = Convert.ToDouble(cmd.ExecuteScalar());
+                mydb.CloseConnection();
+                return tongtien;
+            }
+        }
     }
 }

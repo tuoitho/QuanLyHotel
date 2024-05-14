@@ -287,6 +287,8 @@ namespace QuanLyHotel {
             
             private global::System.Data.DataColumn columntienluongnv;
             
+            private global::System.Data.DataColumn columntiennhapthucpham;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DataTable1DataTable() {
@@ -354,6 +356,14 @@ namespace QuanLyHotel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn tiennhapthucphamColumn {
+                get {
+                    return this.columntiennhapthucpham;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -389,13 +399,14 @@ namespace QuanLyHotel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string Ngay, string tiencoc, string tienthanhtoanhoadon, string tienluongnv) {
+            public DataTable1Row AddDataTable1Row(string Ngay, string tiencoc, string tienthanhtoanhoadon, string tienluongnv, string tiennhapthucpham) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Ngay,
                         tiencoc,
                         tienthanhtoanhoadon,
-                        tienluongnv};
+                        tienluongnv,
+                        tiennhapthucpham};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -422,6 +433,7 @@ namespace QuanLyHotel {
                 this.columntiencoc = base.Columns["tiencoc"];
                 this.columntienthanhtoanhoadon = base.Columns["tienthanhtoanhoadon"];
                 this.columntienluongnv = base.Columns["tienluongnv"];
+                this.columntiennhapthucpham = base.Columns["tiennhapthucpham"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -435,6 +447,8 @@ namespace QuanLyHotel {
                 base.Columns.Add(this.columntienthanhtoanhoadon);
                 this.columntienluongnv = new global::System.Data.DataColumn("tienluongnv", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntienluongnv);
+                this.columntiennhapthucpham = new global::System.Data.DataColumn("tiennhapthucpham", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntiennhapthucpham);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -641,6 +655,22 @@ namespace QuanLyHotel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string tiennhapthucpham {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.tiennhapthucphamColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'tiennhapthucpham\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.tiennhapthucphamColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsNgayNull() {
                 return this.IsNull(this.tableDataTable1.NgayColumn);
             }
@@ -685,6 +715,18 @@ namespace QuanLyHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SettienluongnvNull() {
                 this[this.tableDataTable1.tienluongnvColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IstiennhapthucphamNull() {
+                return this.IsNull(this.tableDataTable1.tiennhapthucphamColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SettiennhapthucphamNull() {
+                this[this.tableDataTable1.tiennhapthucphamColumn] = global::System.Convert.DBNull;
             }
         }
         

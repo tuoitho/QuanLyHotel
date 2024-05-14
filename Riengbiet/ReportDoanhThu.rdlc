@@ -33,6 +33,10 @@
           <DataField>tienluongnv</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="tiennhapthucpham">
+          <DataField>tiennhapthucpham</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ReportDoanhThu</rd:DataSetName>
@@ -78,7 +82,10 @@
                   <Label>tienluongnv</Label>
                 </ChartMember>
                 <ChartMember>
-                  <Label>tienluongnv</Label>
+                  <Label>tiennhapthucpham</Label>
+                </ChartMember>
+                <ChartMember>
+                  <Label>tiennhapthucpham</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartSeriesHierarchy>
@@ -198,11 +205,49 @@
                     <MinMovingDistance>0pt</MinMovingDistance>
                   </ChartSmartLabel>
                 </ChartSeries>
+                <ChartSeries Name="tiennhapthucpham">
+                  <ChartDataPoints>
+                    <ChartDataPoint>
+                      <ChartDataPointValues>
+                        <Y>=Sum(Fields!tiennhapthucpham.Value)</Y>
+                      </ChartDataPointValues>
+                      <ChartDataLabel>
+                        <Style />
+                        <UseValueAsLabel>true</UseValueAsLabel>
+                        <Visible>true</Visible>
+                      </ChartDataLabel>
+                      <Style />
+                      <ChartMarker>
+                        <Style />
+                      </ChartMarker>
+                      <DataElementOutput>Output</DataElementOutput>
+                    </ChartDataPoint>
+                  </ChartDataPoints>
+                  <Style />
+                  <ChartEmptyPoints>
+                    <Style />
+                    <ChartMarker>
+                      <Style />
+                    </ChartMarker>
+                    <ChartDataLabel>
+                      <Style />
+                    </ChartDataLabel>
+                  </ChartEmptyPoints>
+                  <ChartItemInLegend>
+                    <LegendText>Tiền nhập kho thực phẩm</LegendText>
+                  </ChartItemInLegend>
+                  <ValueAxisName>Primary</ValueAxisName>
+                  <CategoryAxisName>Primary</CategoryAxisName>
+                  <ChartSmartLabel>
+                    <CalloutLineColor>Black</CalloutLineColor>
+                    <MinMovingDistance>0pt</MinMovingDistance>
+                  </ChartSmartLabel>
+                </ChartSeries>
                 <ChartSeries Name="Series">
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Fields!tiencoc.Value+Fields!tienthanhtoanhoadon.Value-Fields!tienluongnv.Value</Y>
+                        <Y>=Fields!tiencoc.Value+Fields!tienthanhtoanhoadon.Value-Fields!tienluongnv.Value-Fields!tiennhapthucpham.Value</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />

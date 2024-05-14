@@ -391,6 +391,12 @@
     </Compile>
     <Compile Include="BILL\HD.cs" />
     <Compile Include="DICHVU\DV.cs" />
+    <Compile Include="DICHVU\FormNhapKhoThucPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DICHVU\FormNhapKhoThucPham.Designer.cs">
+      <DependentUpon>FormNhapKhoThucPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="DICHVU\FormQuanLyDichVu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -423,6 +429,18 @@
     <Compile Include="EMPLOYEE\FormInBangLuong.Designer.cs">
       <DependentUpon>FormInBangLuong.cs</DependentUpon>
     </Compile>
+    <Compile Include="EMPLOYEE\FormKhaiBaoThucPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EMPLOYEE\FormKhaiBaoThucPham.Designer.cs">
+      <DependentUpon>FormKhaiBaoThucPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EMPLOYEE\FormKhaiBaoThucPhamDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EMPLOYEE\FormKhaiBaoThucPhamDialog.Designer.cs">
+      <DependentUpon>FormKhaiBaoThucPhamDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="EMPLOYEE\FormNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -440,6 +458,12 @@
     </Compile>
     <Compile Include="EMPLOYEE\FormSelectPhong.Designer.cs">
       <DependentUpon>FormSelectPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EMPLOYEE\FormShowAllNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EMPLOYEE\FormShowAllNhanVien.Designer.cs">
+      <DependentUpon>FormShowAllNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="EMPLOYEE\FormThemCaBoSung.cs">
       <SubType>Form</SubType>
@@ -610,6 +634,9 @@
     <EmbeddedResource Include="BILL\FormHoaDon.resx">
       <DependentUpon>FormHoaDon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DICHVU\FormNhapKhoThucPham.resx">
+      <DependentUpon>FormNhapKhoThucPham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DICHVU\FormQuanLyDichVu.resx">
       <DependentUpon>FormQuanLyDichVu.cs</DependentUpon>
     </EmbeddedResource>
@@ -625,6 +652,12 @@
     <EmbeddedResource Include="EMPLOYEE\FormInBangLuong.resx">
       <DependentUpon>FormInBangLuong.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EMPLOYEE\FormKhaiBaoThucPham.resx">
+      <DependentUpon>FormKhaiBaoThucPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EMPLOYEE\FormKhaiBaoThucPhamDialog.resx">
+      <DependentUpon>FormKhaiBaoThucPhamDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EMPLOYEE\FormNhanVien.resx">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -633,6 +666,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EMPLOYEE\FormSelectPhong.resx">
       <DependentUpon>FormSelectPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EMPLOYEE\FormShowAllNhanVien.resx">
+      <DependentUpon>FormShowAllNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EMPLOYEE\FormThemCaBoSung.resx">
       <DependentUpon>FormThemCaBoSung.cs</DependentUpon>

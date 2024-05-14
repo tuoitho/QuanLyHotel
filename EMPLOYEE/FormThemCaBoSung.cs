@@ -25,11 +25,10 @@ namespace QuanLyHotel.EMPLOYEE
             DateTime start = dateTimePicker_s.Value;
             DateTime end = dateTimePicker_e.Value;
             DateTime day = dateTimePicker_ngay.Value;
-            int number = Convert.ToInt32(numericUpDown_sl.Value);
             int machucvu = Convert.ToInt32(comboBox_loainv.SelectedValue);
             try
             {
-                EMP.addPhanCa(day, start, end, number, machucvu);
+                EMP.addPhanCa(day, start, end, machucvu);
                 MessageBox.Show("Thêm ca bổ sung thành công");
             }
             catch (Exception ex)

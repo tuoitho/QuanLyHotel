@@ -70,13 +70,16 @@ namespace QuanLyHotel.THUETRA
                 magiamgia = Convert.ToInt32(dsmgg.Rows[0]["MaGiamGia"].ToString());
                 sotiengiamgia = Convert.ToDouble(dsmgg.Rows[0]["SoTien"].ToString());
             }
+            textBox_sotienthucpham.Text = DV.getTongTienThucPhamByMaHD(mahoadon).ToString();
+            double sotienthucpham= Convert.ToDouble(textBox_sotienthucpham.Text);
             textBox_sotiengiamgia.Text=sotiengiamgia.ToString();
-            textBox_sotiencantra.Text = (Convert.ToDouble(txtTongTien.Text) - sotiengiamgia).ToString();
+            textBox_sotienhoadoncantra.Text = (Convert.ToDouble(txtTongTien.Text) - sotiengiamgia+ sotienthucpham).ToString();
 
 
             button_print.Enabled=(textBox_tttt.Text=="Đã thanh toán");
             button_hoanthanh.Enabled = (textBox_tttt.Text != "Đã thanh toán");
             dataGridView_dv.DataSource = DV.getDSDichVuByMaHD(mahoadon);
+
 
         }
         private void FormThanhToan_Load(object sender, EventArgs e)
@@ -105,7 +108,7 @@ namespace QuanLyHotel.THUETRA
         {
             try
             {
-                TT.InsertThanhToan(mahoadon, DateTime.Now, Convert.ToDouble(textBox_tongtienhd.Text), Convert.ToDouble(textBox_sotiengiamgia.Text), Convert.ToDouble(textBox_sotiencantra.Text));
+                TT.InsertThanhToan(mahoadon, DateTime.Now, Convert.ToDouble(textBox_tongtienhd.Text), Convert.ToDouble(textBox_sotiengiamgia.Text), Convert.ToDouble(textBox_sotienhoadoncantra.Text));
                 if (magiamgia != -1)
                     try
                     {

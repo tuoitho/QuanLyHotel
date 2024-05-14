@@ -1,4 +1,6 @@
-﻿using QuanLyHotel.DICHVU;
+﻿using QuanLyHotel.BILL;
+using QuanLyHotel.DICHVU;
+using QuanLyHotel.THUETRA;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,51 +24,50 @@ namespace QuanLyHotel.KHACHHANG
         {
             this.mahd = mahd;
         }
-        bool loaded=false;
         bool dakhaibao = false;
         private void FormKhaiBao_Load(object sender, EventArgs e)
         {
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.DataSource = DV.getDSLoaiDichVu();
-            comboBox1.DisplayMember = "tenldv";
-            comboBox1.ValueMember = "maldv";
-            loaded = true;
-            dataGridView1.DataSource=KH.getDSKhaiBaoByMaHD(mahd);
+            textBox_mahd.Text = mahd.ToString();
+
+
+
             
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!loaded) return;
-            int maloaidv = (int)comboBox1.SelectedValue;
-            listBox_ds.DataSource = DV.getDSDichVu(maloaidv);
-            listBox_ds.DisplayMember = "tendv";
-            listBox_ds.ValueMember = "madv";
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int madv = (int)listBox_ds.SelectedValue;
-            //neu da khai bao dich vu nay thi khong cho khai bao nua
-            if (KH.checkKhaiBao(mahd, madv))
-            {
-                MessageBox.Show("Dịch vụ này đã được khai báo rồi, không thể khai báo thêm");
-                return;
-            }
-            int soluong = (int)numericUpDown1.Value;
-            try { 
-                KH.insertKhaiBao(Info.id,mahd, madv, soluong);
-                dataGridView1.DataSource = KH.getDSKhaiBaoByMaHD(mahd);
+           
+        }
 
+        private void button_f5_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void roundedButton_kb_Click(object sender, EventArgs e)
+        {
+            int s1 = Convert.ToInt32(numericUpDown1.Value);
+            int s2 = Convert.ToInt32(numericUpDown2.Value);
+            int s3 = Convert.ToInt32(numericUpDown3.Value);
+            int s4 = Convert.ToInt32(numericUpDown4.Value);
+            try
+            {
+                HD.insertKhaiBao(mahd, 1, s1, false);
+                HD.insertKhaiBao(mahd, 2, s2, false);
+                HD.insertKhaiBao(mahd, 3, s3, false);
+                HD.insertKhaiBao(mahd, 4, s4, false);
+                MessageBox.Show("Khai báo thành công, chúc mừng bạn đã nhận được 1 Mã Giảm Giá ");
+                KH.addMaGiamGia(Info.id);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
 
-        private void button_f5_Click(object sender, EventArgs e)
-        {
         }
     }
 }

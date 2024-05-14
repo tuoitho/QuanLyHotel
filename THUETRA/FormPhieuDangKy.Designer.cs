@@ -147,6 +147,7 @@ namespace QuanLyHotel.THUETRA
             // cboRoom
             // 
             this.cboRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboRoom.Enabled = false;
             this.cboRoom.FormattingEnabled = true;
             this.cboRoom.Location = new System.Drawing.Point(151, 269);
             this.cboRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

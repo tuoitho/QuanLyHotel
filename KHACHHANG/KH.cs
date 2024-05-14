@@ -145,21 +145,7 @@ namespace QuanLyHotel.KHACHHANG
             }
         }
 
-        internal static DataTable getPhongDaThue(int makh)
-        {
-            using (SqlCommand cmd = new SqlCommand("SELECT PhieuDangKy.[MaPhong]      , PhieuDangKy.DuKienDen  , [PhieuDangKy].DuKienDi  FROM phong join PhieuDangKy on phong.MaPhong = PhieuDangKy.MaPhong join KhachHang on PhieuDangKy.MaKH = KhachHang.MaKH join HoaDon on PhieuDangKy.Maphieudk = HoaDon.maphieudk and HoaDon.TrangThai like N'Chưa thanh toán' where KhachHang.MaKH = @makh", myDB.GetConnection))
-            {
-                myDB.OpenConnection();
-                cmd.Parameters.Add("@makh", SqlDbType.Int).Value = makh;
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-
-                DataTable table = new DataTable();
-                myDB.OpenConnection();
-                adapter.Fill(table);
-                myDB.CloseConnection();
-                return table;
-            }
-        }
+        
 
         internal static string getNameByID(int makh)
         {
@@ -244,6 +230,16 @@ namespace QuanLyHotel.KHACHHANG
             adapter.Fill(table);
             myDB.CloseConnection();
             return table;
+        }
+
+        internal static void addMaGiamGia(int id)
+        {
+            SqlCommand cmd = new SqlCommand(" INSERT INTO MaGiamGia (MaKH, NgayNhan, SoTien) VALUES(@makh, GETDATE(), FLOOR(RAND()*(999999-100000+1)+100000))", myDB.GetConnection);
+            myDB.OpenConnection();
+            cmd.Parameters.Add("@makh", SqlDbType.Int).Value = id;
+            cmd.ExecuteNonQuery();
+            myDB.CloseConnection();
+
         }
     }
 }

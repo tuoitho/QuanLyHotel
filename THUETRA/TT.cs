@@ -246,5 +246,56 @@ namespace QuanLyHotel.THUETRA
                 return trangthai;
             }
         }
+
+        internal static DataTable getLichSuPDKHoanThanh(int makh)
+        {
+            using (SqlCommand cmd = new SqlCommand("SELECT PhieuDangKy.MaPhieuDK 'Mã PĐK',PhieuDangKy.NgayTao AS [Ngày đăng kí], PhieuDangKy.DuKienDen AS [Ngày đến], CASE          WHEN DATEDIFF(HOUR, GETDATE(),DuKienDi) < 0 THEN 0          ELSE DATEDIFF(HOUR, GETDATE(),GETDATE())     END AS [Số giờ còn lại], HoaDon.TrangThai AS [Trạng thái thanh toán HĐ]\r\nFROM PhieuDangKy JOIN HoaDon ON PhieuDangKy.MaPhieuDK = HoaDon.MaPhieuDK\r\nWHERE      PhieuDangKy.MaKH = @makh", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@makh", SqlDbType.Int).Value = makh;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                return table;
+            }
+        }
+
+        internal static DataTable getDSPhongCanKhaiBao()
+        {
+            using (SqlCommand cmd = new SqlCommand("select HoaDon.MaHoaDon as'Mã Hoá Đơn', HoaDon.MaPhong as 'Mã Phòng', PhieuDangKy.DuKienDi as [Dự Kiến Trả Phòng], case    when DATEDIFF(HOUR, GETDATE(), PhieuDangKy.DuKienDi) > 0 then DATEDIFF(HOUR, GETDATE(), PhieuDangKy.DuKienDi)    else 0 end as [Thời Gian Còn Lại (Hour)], PhanCongPhong.MaNV as [Lao công phụ trách], case    when (select Count(*)\r\n    from KHAIBAOTHUCPHAM\r\n    where mahd=HoaDon.MaHoaDon )>0 then N'Lao công đã khai báo'    else N'Lao công chưa khai báo'    end as [Trạng Thái Khai Báo Của Lao Công]\r\nFROM PhieuDangKy join HoaDon on PhieuDangKy.MaPhieuDK=HoaDon.MaPhieuDK join PhanCongPhong on HoaDon.MaHoaDon=PhanCongPhong.MaHD\r\nwhere  HoaDon.NgayThanhToanHoanTat is null\r\n", mydb.GetConnection))
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                return table;
+            }
+        }
+
+        internal static bool isHoaDonDaThanhToan(int v)
+        {
+            using (SqlCommand cmd = new SqlCommand("select count(*) from HoaDon where MaHoaDon=@mahd and NgayThanhToanHoanTat is not null", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@mahd", SqlDbType.Int).Value = v;
+                mydb.OpenConnection();
+                int count = (int)cmd.ExecuteScalar();
+                mydb.CloseConnection();
+                if (count > 0)
+                    return true;
+                return false;
+            }
+        }
+
+        internal static bool isKHDaKhaiBao(int v)
+        {
+            using (SqlCommand cmd = new SqlCommand("select count(*) from KHAIBAOTHUCPHAM where mahd=@mahd and isLaocong=0", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@mahd", SqlDbType.Int).Value = v;
+                mydb.OpenConnection();
+                int count = (int)cmd.ExecuteScalar();
+                mydb.CloseConnection();
+                if (count > 0)
+                    return true;
+                return false;
+            }
+        }
     }
 }

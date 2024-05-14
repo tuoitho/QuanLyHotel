@@ -60,6 +60,11 @@ namespace QuanLyHotel.BILL
 
         private void roundedButton2_Click(object sender, EventArgs e)
         {
+            if (dataGridView_hoadon.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để xem");
+                return;
+            }
             int maHD = Convert.ToInt32(dataGridView_hoadon.CurrentRow.Cells[0].Value);
 
             FormXuLyKhaiBao f = new FormXuLyKhaiBao(maHD);
@@ -71,7 +76,6 @@ namespace QuanLyHotel.BILL
             if (Info.role == "employee" && Info.chucvu != 1 || Info.role != "admin" && Info.role != "employee")
             {
                 //hide
-                MessageBox.Show(Info.role+ " " + Info.chucvu);
                 roundedButton_xemkhaibao.Visible = false;
 
             }

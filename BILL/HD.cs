@@ -57,5 +57,42 @@ namespace QuanLyHotel.BILL
                 return trangthai;
             }
         }
+
+        internal static DataTable getDSHoaDonByMaKH(int makh)
+        {
+            using (SqlCommand cmd = new SqlCommand("select * from HoaDon where MaKH=@makh", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@makh", SqlDbType.Int).Value = makh;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                return table;
+            }
+        }
+
+        internal static void insertKhaiBao(int mahd, int v1, int sl2, bool v2)
+        {
+            using (SqlCommand cmd = new SqlCommand("insert into KhaiBaoThucPham values(@mahd,@matp,@soluong,@isLaoCong)", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@mahd", SqlDbType.Int).Value = mahd;
+                cmd.Parameters.Add("@matp", SqlDbType.Int).Value = v1;
+                cmd.Parameters.Add("@soluong", SqlDbType.Int).Value = sl2;
+                cmd.Parameters.Add("@isLaoCong", SqlDbType.Bit).Value = v2;
+                mydb.OpenConnection();
+                cmd.ExecuteNonQuery();
+                mydb.CloseConnection();
+            }
+        }
+
+        internal static bool checkLaoCongDaKBThucPham(int mahd)
+        {
+            SqlCommand sqlCommand = new SqlCommand("select Count(*) from KHAIBAOTHUCPHAM where KHAIBAOTHUCPHAM.mahd=@mahd and isLaocong=1", mydb.GetConnection);
+            mydb.OpenConnection();
+            sqlCommand.Parameters.Add("@mahd", SqlDbType.Int).Value = mahd;
+            int count = Convert.ToInt32(sqlCommand.ExecuteScalar());
+            mydb.CloseConnection();
+            return count > 0;
+
+        }
     }
 }

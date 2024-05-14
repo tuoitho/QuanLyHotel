@@ -133,7 +133,9 @@ namespace QuanLyHotel.EMPLOYEE
                 button_dichvu.Text = "  Dịch vụ";
                 btn_dangxuat.Text = "  Đăng xuất";
                 button_bill.Text = "  Hoá đơn";
-
+                button_dangkythuetra.Text = "  Đăng ký thuê trả";
+                roundedButton_ca_lich.Text = "  Ca, lich làm việc";
+                roundedButton_bc_thu_chi.Text = "  Báo cáo thu chi";
             }
 
         }
@@ -220,6 +222,13 @@ namespace QuanLyHotel.EMPLOYEE
         {
             //logout
             Application.Restart();
+        }
+
+        private void roundedButton2_Click_1(object sender, EventArgs e)
+        {
+            FormKhaiBaoThucPham formKhaiBaoThucPham = new FormKhaiBaoThucPham();
+            OpenChildForm(formKhaiBaoThucPham, sender);
+            lblTiltle.Text = "Khai báo thực phẩm";
         }
     }
 }

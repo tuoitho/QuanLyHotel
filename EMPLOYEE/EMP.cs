@@ -696,7 +696,7 @@ namespace QuanLyHotel.EMPLOYEE
             }
         }
 
-        internal static Dictionary<int, int> getDictSoGioLamViecCaChinhTheoNgay(DateTime dateTime)
+        internal static Dictionary<int, int> getDictSoGioLamViecCaChinh_CaBoSungTheoNgay(DateTime dateTime)
         {
             using (SqlCommand sqlCommand = new SqlCommand("SELECT MaNV, SUM(DATEDIFF(HOUR, GioDen, GioDi)) as [SoGio] FROM PhanCa WHERE Ngay = @date and (ghichu !=N'Đã thay thế' or ghichu is null)GROUP BY MaNV", mydb.GetConnection))
             {
@@ -707,13 +707,19 @@ namespace QuanLyHotel.EMPLOYEE
                     Dictionary<int, int> dict = new Dictionary<int, int>();
                     while (reader.Read())
                     {
+                        if (reader.IsDBNull(0)) continue;
                         if (reader.IsDBNull(1))
                         {
                             dict.Add(reader.GetInt32(0), 0);
                         }
                         else
                             dict.Add(reader.GetInt32(0), reader.GetInt32(1));
+
+
+                            
                     }
+                    reader.Close();
+                    mydb.CloseConnection();
                     return dict;
                 }
             }
@@ -735,7 +741,7 @@ namespace QuanLyHotel.EMPLOYEE
 
         internal static DataTable getDSChiTietCaDaLam(int manv, DateTime ngay)
         {
-            SqlCommand cmd = new SqlCommand("select PhanCa.MaNV,PhanCa.Ngay,SUm(ISNULL(DATEDIFF(HOUR,PhanCa.GioDen ,PhanCa.GioDi),0)) as SoGioLam,ISNULL(PhanCa.GhiChu,N'Ca chính') as 'Loại(ca chính/ca đã thay thế))' from PhanCa where MaNV = @manv and Ngay = @ngay GROUP BY PhanCa.MaNV,PhanCa.Ngay,PhanCa.GhiChu", mydb.GetConnection);
+            SqlCommand cmd = new SqlCommand("select PhanCa.MaNV,PhanCa.Ngay,SUm(ISNULL(DATEDIFF(HOUR,PhanCa.GioDen ,PhanCa.GioDi),0)) as SoGioLam,ISNULL(PhanCa.GhiChu,N'Ca chính') as 'Loại ca' from PhanCa where MaNV = @manv and Ngay = @ngay GROUP BY PhanCa.MaNV,PhanCa.Ngay,PhanCa.GhiChu", mydb.GetConnection);
             cmd.Parameters.Add("@ngay", SqlDbType.Date).Value = ngay;
             cmd.Parameters.Add("@manv", SqlDbType.Int).Value = manv;
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -923,7 +929,7 @@ namespace QuanLyHotel.EMPLOYEE
             }
         }
 
-        internal static void addPhanCa(DateTime day, DateTime start, DateTime end, int number, int machucvu)
+        internal static void addPhanCa(DateTime day, DateTime start, DateTime end, int machucvu)
         {
             using (SqlCommand sqlCommand = new SqlCommand("INSERT INTO PhanCa (MaCa, Ngay, GhiChu,Batdau, Ketthuc ) " +
                 "                                       VALUES (null, @ngay,@ghichu,@batdau, @ketthuc)", mydb.GetConnection))
@@ -949,7 +955,7 @@ namespace QuanLyHotel.EMPLOYEE
             }
             if (Info.role == "admin")
             {
-                ghichu = "";
+                ghichu = "bổ sung";
             }
             using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM PhanCa WHERE Ngay = @date AND Ghichu like N'%"+ghichu+"%'", mydb.GetConnection))
             {
@@ -1006,6 +1012,40 @@ namespace QuanLyHotel.EMPLOYEE
             using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM PhanCa WHERE Ngay = @date AND Ghichu like N'%bổ sung%'", mydb.GetConnection))
             {
                 sqlCommand.Parameters.Add("@date", SqlDbType.Date).Value = date;
+                using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+                {
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+            }
+        }
+
+        internal static bool kiemtraCaBoSung(int maCa)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM PhanCa WHERE MaPC = @mapc AND Ghichu like N'%bổ sung%'", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@mapc", SqlDbType.Int).Value = maCa;
+                mydb.OpenConnection();
+                using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        internal static DataTable getDSNhanVienByMaNQL(int id)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM NhanVien WHERE machucvu!=1 and ( MaNQL = @id or MaNQL is null)", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@id", SqlDbType.Int).Value = id;
                 using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
                 {
                     DataTable table = new DataTable();

@@ -47,7 +47,7 @@ namespace QuanLyHotel
                 }
             }
             //Info.role = "admin";
-            //Info.form= "employee";
+            //Info.form = "employee";
             //Application.Run(new FormMain());
 
             //Application.Run(new FormRegister());

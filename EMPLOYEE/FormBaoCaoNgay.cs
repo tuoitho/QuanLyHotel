@@ -36,7 +36,7 @@ namespace QuanLyHotel.EMPLOYEE
             //MessageBox.Show("Đang tính toán lương cho ngày hôm qua", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DateTime dateTime = DateTime.Now.AddDays(-1);
             //sogiolamviec = EMP.getDictSoGioLamViecTheoNgay(dateTime);
-            sogiolamviec = EMP.getDictSoGioLamViecCaChinhTheoNgay(dateTime);
+            sogiolamviec = EMP.getDictSoGioLamViecCaChinh_CaBoSungTheoNgay(dateTime);
             //MessageBox.Show(sogiolamviec.Count.ToString());
             DataTable dsTT = EMP.getDSNVTiepTan();
             foreach (DataRow row in dsTT.Rows)

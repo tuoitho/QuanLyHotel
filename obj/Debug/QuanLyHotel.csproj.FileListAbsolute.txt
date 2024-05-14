@@ -549,3 +549,7 @@ D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormBaoNghi.res
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormThemCaBoSung.resources
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormSelectKhachHang.resources
 D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormSelectPhong.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormShowAllNhanVien.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormKhaiBaoThucPham.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.EMPLOYEE.FormKhaiBaoThucPhamDialog.resources
+D:\github\QuanLyHotel\QuanLyHotel\obj\Debug\QuanLyHotel.DICHVU.FormNhapKhoThucPham.resources

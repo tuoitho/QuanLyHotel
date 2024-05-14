@@ -28,143 +28,166 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.listBox_ds = new System.Windows.Forms.ListBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.textBox_mahd = new System.Windows.Forms.TextBox();
+            this.roundedButton_kb = new QuanLyHotel.RoundedButton();
+            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // textBox_mahd
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(162, 58);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.textBox_mahd.Enabled = false;
+            this.textBox_mahd.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.textBox_mahd.Location = new System.Drawing.Point(245, 30);
+            this.textBox_mahd.Name = "textBox_mahd";
+            this.textBox_mahd.Size = new System.Drawing.Size(313, 28);
+            this.textBox_mahd.TabIndex = 16;
             // 
-            // label1
+            // roundedButton_kb
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(79, 61);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Loại DV:";
+            this.roundedButton_kb.BackColor = System.Drawing.Color.LemonChiffon;
+            this.roundedButton_kb.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.roundedButton_kb.ForeColor = System.Drawing.Color.Brown;
+            this.roundedButton_kb.Location = new System.Drawing.Point(290, 321);
+            this.roundedButton_kb.Name = "roundedButton_kb";
+            this.roundedButton_kb.Size = new System.Drawing.Size(216, 101);
+            this.roundedButton_kb.TabIndex = 14;
+            this.roundedButton_kb.Text = "OK";
+            this.roundedButton_kb.UseVisualStyleBackColor = false;
+            this.roundedButton_kb.Click += new System.EventHandler(this.roundedButton_kb_Click);
             // 
-            // listBox_ds
+            // numericUpDown4
             // 
-            this.listBox_ds.FormattingEnabled = true;
-            this.listBox_ds.Location = new System.Drawing.Point(162, 130);
-            this.listBox_ds.Name = "listBox_ds";
-            this.listBox_ds.Size = new System.Drawing.Size(121, 147);
-            this.listBox_ds.TabIndex = 2;
+            this.numericUpDown4.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.numericUpDown4.Location = new System.Drawing.Point(438, 264);
+            this.numericUpDown4.Name = "numericUpDown4";
+            this.numericUpDown4.Size = new System.Drawing.Size(120, 28);
+            this.numericUpDown4.TabIndex = 10;
             // 
-            // label2
+            // numericUpDown3
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(79, 130);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "DSDV:";
+            this.numericUpDown3.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.numericUpDown3.Location = new System.Drawing.Point(438, 205);
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(120, 28);
+            this.numericUpDown3.TabIndex = 11;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.numericUpDown2.Location = new System.Drawing.Point(438, 152);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(120, 28);
+            this.numericUpDown2.TabIndex = 12;
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(162, 317);
+            this.numericUpDown1.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.numericUpDown1.Location = new System.Drawing.Point(438, 105);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(79, 317);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Chọn số lượng";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 28);
+            this.numericUpDown1.TabIndex = 13;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(343, 23);
+            this.label4.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.label4.Location = new System.Drawing.Point(236, 264);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Khai báo sử dụng:";
+            this.label4.Size = new System.Drawing.Size(109, 22);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Nho sấy khô";
             // 
-            // button1
+            // label3
             // 
-            this.button1.Location = new System.Drawing.Point(146, 378);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.label3.Location = new System.Drawing.Point(236, 205);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 22);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Bánh bao";
             // 
-            // dataGridView1
+            // label2
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(390, 74);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(398, 289);
-            this.dataGridView1.TabIndex = 5;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.label2.Location = new System.Drawing.Point(236, 152);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 22);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Bánh mì";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(387, 58);
+            this.label5.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.label5.Location = new System.Drawing.Point(112, 33);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "DS đã khai báo";
+            this.label5.Size = new System.Drawing.Size(109, 22);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Mã Hoá Đơn";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.label1.Location = new System.Drawing.Point(236, 105);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 22);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Nước ngọt";
             // 
             // FormKhaiBao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox_mahd);
+            this.Controls.Add(this.roundedButton_kb);
+            this.Controls.Add(this.numericUpDown4);
+            this.Controls.Add(this.numericUpDown3);
+            this.Controls.Add(this.numericUpDown2);
             this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.listBox_ds);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
             this.Name = "FormKhaiBao";
             this.Text = "FormKhaiBao";
             this.Load += new System.EventHandler(this.FormKhaiBao_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox_ds;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox_mahd;
+        private RoundedButton roundedButton_kb;
+        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label1;
     }
 }

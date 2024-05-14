@@ -27,8 +27,18 @@ namespace QuanLyHotel.EMPLOYEE
             comboBox_manql.DisplayMember = "manv";
             comboBox_manql.ValueMember = "manv";
             dataGridView_employee.AllowUserToAddRows = false;
-            dataGridView_employee.DataSource = EMP.getDSNhanVien();
-            dataGridView_employee.DefaultCellStyle.SelectionBackColor = Color.Purple;
+            //dataGridView_employee.DataSource = EMP.getDSNhanVien();
+            if (Info.role == "admin")
+            {
+                dataGridView_employee.DataSource = EMP.getDSNhanVien();
+                radioButton_ql.Enabled = true;
+            }
+            else
+            {
+                dataGridView_employee.DataSource = EMP.getDSNhanVienByMaNQL(Info.id);
+                radioButton_ql.Enabled = false;
+            }
+                dataGridView_employee.DefaultCellStyle.SelectionBackColor = Color.Purple;
 
         }
 
@@ -144,7 +154,10 @@ namespace QuanLyHotel.EMPLOYEE
         private void btnLoad_Click(object sender, EventArgs e)
         {
             //refresh datagridview
-            dataGridView_employee.DataSource = EMP.getDSNhanVien();
+            if (Info.role == "admin")
+                dataGridView_employee.DataSource = EMP.getDSNhanVien();
+            else
+                dataGridView_employee.DataSource = EMP.getDSNhanVienByMaNQL(Info.id);
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
@@ -229,6 +242,10 @@ namespace QuanLyHotel.EMPLOYEE
             import.ShowDialog();
         }
 
-
+        private void roundedButton_showall_Click(object sender, EventArgs e)
+        {
+            FormShowAllNhanVien formShowAllNhanVien = new FormShowAllNhanVien();
+            formShowAllNhanVien.ShowDialog();
+        }
     }
 }
