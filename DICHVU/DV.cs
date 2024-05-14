@@ -232,5 +232,33 @@ namespace QuanLyHotel.DICHVU
                 return tongtien;
             }
         }
+
+        internal static DataTable getDSLCKhaiBao(int maHD)
+        {
+            using (SqlCommand cmd = new SqlCommand("select tp.MaTP as [Mã Thực Phẩm],TenTP as [Tên Thực Phẩm],GiaBan as [Giá Bán] ,SoLuong as [Số Lượng Lao Công Khai Báo]\r\nfrom KHAIBAOTHUCPHAM kt join THUCPHAM tp on kt.MaTP=tp.MaTP where MaHD=@mahd and isLaoCong=1", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@mahd", SqlDbType.Int).Value = maHD;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                mydb.OpenConnection();
+                adapter.Fill(table);
+                mydb.CloseConnection();
+                return table;
+            }
+        }
+
+        internal static DataTable getDSKHKhaiBao(int maHD)
+        {
+            using (SqlCommand cmd = new SqlCommand("select tp.MaTP as [Mã Thực Phẩm],TenTP as [Tên Thực Phẩm],GiaBan as [Giá Bán] ,SoLuong as [Số Lượng Lao Công Khai Báo]\r\nfrom KHAIBAOTHUCPHAM kt join THUCPHAM tp on kt.MaTP=tp.MaTP where MaHD=@mahd and isLaoCong=0", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@mahd", SqlDbType.Int).Value = maHD;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                mydb.OpenConnection();
+                adapter.Fill(table);
+                mydb.CloseConnection();
+                return table;
+            }
+        }
     }
 }

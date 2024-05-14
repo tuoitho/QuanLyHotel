@@ -128,7 +128,7 @@ namespace QuanLyHotel.EMPLOYEE
                 button_account.Text = "  Quản lý tài khoản";
                 button_khachhang.Text = "  Khách hàng";
                 button_nv.Text = "  Nhân viên";
-                button_trangchu.Text = "  Trang chủ";
+                //button_trangchu.Text = "  Trang chủ";
                 button_phong.Text = "  Phòng";
                 button_dichvu.Text = "  Dịch vụ";
                 btn_dangxuat.Text = "  Đăng xuất";

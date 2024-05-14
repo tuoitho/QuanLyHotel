@@ -1,4 +1,5 @@
 ﻿using QuanLyHotel.BILL;
+using QuanLyHotel.DICHVU;
 using QuanLyHotel.KHACHHANG;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace QuanLyHotel.EMPLOYEE
         {
             InitializeComponent();
             this.maHD = mahd;
-            dataGridView_kb.DataSource = KH.getDSKhaiBaoDayDu(maHD);
+            //dataGridView_kb.DataSource = KH.getDSKhaiBaoDayDu(maHD);
             
 
 
@@ -45,41 +46,55 @@ namespace QuanLyHotel.EMPLOYEE
         private void dataGridView_hoadon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int maHD = Convert.ToInt32(dataGridView_hoadon.CurrentRow.Cells[0].Value);
-            DataTable dt = KH.getDSKhaiBaoDayDu(maHD);
+            DataTable dtLaoCongKB=DV.getDSLCKhaiBao(maHD);
+            DataTable dtKhachHangKB = DV.getDSKHKhaiBao(maHD);
+            //DataTable dt = KH.getDSKhaiBaoDayDu(maHD);
             dataGridView_kb.DataSource = null;
             dataGridView_kb.Rows.Clear();
             dataGridView_kb.Columns.Clear();
-            dataGridView_kb.Columns.Add("Mã DV", "Mã DV");
-            dataGridView_kb.Columns.Add("Số lượng nhân viên cập nhật", "Số lượng NV đã khai báo");
-            dataGridView_kb.Columns.Add("Số lượng khách hàng khai báo", "Số lượng KH đã khai báo");
-
-            for (int i = 0; i < dt.Rows.Count; i++)
+            dataGridView_kb.DataSource = dtLaoCongKB;
+            dataGridView_kb.Columns.Add("slkhkb", "Số Lượng Khách Hàng Khai Báo");
+            if (dtLaoCongKB.Rows.Count == 0)
             {
-                dataGridView_kb.Rows.Add();
-                dataGridView_kb.Rows[i].Cells[0].Value = dt.Rows[i][0].ToString();
-                dataGridView_kb.Rows[i].Cells[1].Value = dt.Rows[i][1].ToString();
-                dataGridView_kb.Rows[i].Cells[2].Value = dt.Rows[i][2].ToString();
-
+                MessageBox.Show("Hóa đơn này chưa có lao công khai báo");
+                return;
             }
-            //dataGridView_kb.DataSource = KH.getDSKhaiBaoDayDu(maHD);
-            //dataGridView_kb.Columns[2].ValueType = typeof(String);
-            //dataGridView_kb.Columns[1].ValueType = typeof(String);
             for (int i = 0; i < dataGridView_kb.Rows.Count; i++)
             {
-                if (dataGridView_kb.Rows[i].Cells[1].Value == DBNull.Value  ||dataGridView_kb.Rows[i].Cells[1].Value == "" || dataGridView_kb.Rows[i].Cells[1].Value ==null)
-                    dataGridView_kb.Rows[i].Cells[1].Value = "Chưa khai báo";
-                if (dataGridView_kb.Rows[i].Cells[2].Value == DBNull.Value|| dataGridView_kb.Rows[i].Cells[2].Value == "" || dataGridView_kb.Rows[i].Cells[2].Value ==null)
-                    dataGridView_kb.Rows[i].Cells[2].Value = "Chưa khai báo";
-                //if (Convert.ToInt32(dataGridView_kb.Rows[i].Cells[1].Value == DBNull.Value ? "0" : dataGridView_kb.Rows[i].Cells[1].Value)
-                //    != Convert.ToInt32(dataGridView_kb.Rows[i].Cells[2].Value == DBNull.Value ? 0 : dataGridView_kb.Rows[i].Cells[2].Value))
-                //{
-                //    dataGridView_kb.Rows[i].DefaultCellStyle.BackColor = Color.Yellow;
-                //}
-                if (dataGridView_kb.Rows[i].Cells[1].Value.ToString() != dataGridView_kb.Rows[i].Cells[2].Value.ToString())
-                {
-                    dataGridView_kb.Rows[i].DefaultCellStyle.BackColor = Color.Yellow;
-                }
+                dataGridView_kb.Rows[i].Cells[4].Value = dtKhachHangKB.Rows.Count==0?"Chưa khai báo":dtKhachHangKB.Rows[i][3];
             }
+            for (int i = 0; i < dataGridView_kb.Rows.Count; i++)
+            {
+                if (dataGridView_kb.Rows[i].Cells[3].Value == DBNull.Value  ||dataGridView_kb.Rows[i].Cells[3].Value == "" || dataGridView_kb.Rows[i].Cells[3].Value ==null)
+                    dataGridView_kb.Rows[i].Cells[3].Value = "Chưa khai báo";
+                if (dataGridView_kb.Rows[i].Cells[4].Value == DBNull.Value|| dataGridView_kb.Rows[i].Cells[4].Value == "" || dataGridView_kb.Rows[i].Cells[4].Value ==null)
+                    dataGridView_kb.Rows[i].Cells[4].Value = "Chưa khai báo";
+
+                if (dataGridView_kb.Rows[i].Cells[3].Value.ToString() != dataGridView_kb.Rows[i].Cells[4].Value.ToString())
+                {
+                    vipham = true;
+                    dataGridView_kb.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                }
+                vipham = false;
+            }
+        }
+        bool vipham = false;
+        private void dataGridView_hoadon_CellClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //lay ma hoa don hien tai
+            if (!vipham)
+            {
+                MessageBox.Show("Không có vi phạm, bạn không được vô cớ phạt");
+                return;
+            }
+            int mahd = Convert.ToInt32(dataGridView_hoadon.CurrentRow.Cells[0].Value);
+            FormPhatTien formPhatTien = new FormPhatTien(mahd);
+            formPhatTien.ShowDialog();
         }
     }
 }

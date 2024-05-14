@@ -447,6 +447,12 @@
     <Compile Include="EMPLOYEE\FormNhanVien.Designer.cs">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="EMPLOYEE\FormPhatTien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EMPLOYEE\FormPhatTien.Designer.cs">
+      <DependentUpon>FormPhatTien.cs</DependentUpon>
+    </Compile>
     <Compile Include="EMPLOYEE\FormSelectKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>

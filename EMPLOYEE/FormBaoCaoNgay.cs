@@ -31,7 +31,9 @@ namespace QuanLyHotel.EMPLOYEE
             {
                 //MessageBox.Show("Đã tính toán lương cho ngày hôm qua", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dataGridView_baocao.DataSource = EMP.getDSLuongNgayTheoNgay();
-                return;
+                EMP.xoaLuongNgay(DateTime.Now.AddDays(-1));
+                
+                //return;
             }
             //MessageBox.Show("Đang tính toán lương cho ngày hôm qua", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DateTime dateTime = DateTime.Now.AddDays(-1);
@@ -133,6 +135,11 @@ namespace QuanLyHotel.EMPLOYEE
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView_baocao_Click(object sender, EventArgs e)
         {
 
         }

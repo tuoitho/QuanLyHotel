@@ -512,8 +512,9 @@ namespace QuanLyHotel.EMPLOYEE
         internal static DataTable getDSLuongNgayTheoNgay()
         {
             //cua nhan vien ko la quan lys
-            using (SqlCommand sqlCommand = new SqlCommand("SELECT Luong.MaNV,NhanVien.HoTen, Luong.Ngay, Luong.TienLuong FROM Luong join phanca on Luong.MaNV = PhanCa.MaNV and Luong.Ngay = PhanCa.Ngay join  NhanVien on Luong.MaNV = NhanVien.MaNV GROUP BY Luong.MaNV,NhanVien.HoTen, Luong.Ngay,Luong.TienLuong having Luong.MaNV in (select MaNV from NhanVien where MaChucVu != 1)", mydb.GetConnection))
+            using (SqlCommand sqlCommand = new SqlCommand("SELECT Luong.MaNV,NhanVien.HoTen, Luong.Ngay, Luong.TienLuong \r\nFROM Luong join phanca on Luong.MaNV = PhanCa.MaNV and Luong.Ngay = PhanCa.Ngay join \r\n NhanVien on Luong.MaNV = NhanVien.MaNV GROUP BY Luong.MaNV,NhanVien.HoTen, Luong.Ngay,Luong.TienLuong\r\n  having Luong.MaNV in (select MaNV from NhanVien where MaChucVu != 1) and Luong.Ngay = @ngay", mydb.GetConnection))
             {
+                sqlCommand.Parameters.Add("@ngay", SqlDbType.Date).Value = DateTime.Now.AddDays(-1);
                 using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
                 {
                     DataTable table = new DataTable();
@@ -1052,6 +1053,25 @@ namespace QuanLyHotel.EMPLOYEE
                     adapter.Fill(table);
                     return table;
                 }
+            }
+        }
+
+        internal static void xoaLuongNgay(DateTime dateTime)
+        {
+           using (SqlCommand sqlCommand = new SqlCommand("DELETE FROM Luong WHERE Ngay = @date", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@date", SqlDbType.Date).Value = dateTime;
+                mydb.OpenConnection();
+                sqlCommand.ExecuteNonQuery();
+                mydb.CloseConnection();
+            }
+            //xoa trong bang thuong phat
+            using (SqlCommand sqlCommand = new SqlCommand("DELETE FROM ThuongPhat WHERE Ngay = @date", mydb.GetConnection))
+            {
+                sqlCommand.Parameters.Add("@date", SqlDbType.Date).Value = dateTime;
+                mydb.OpenConnection();
+                sqlCommand.ExecuteNonQuery();
+                mydb.CloseConnection();
             }
         }
     }

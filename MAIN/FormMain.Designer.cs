@@ -43,7 +43,6 @@ namespace QuanLyHotel.EMPLOYEE
             this.button_account = new QuanLyHotel.RoundedButton();
             this.button_khachhang = new QuanLyHotel.RoundedButton();
             this.button_nv = new QuanLyHotel.RoundedButton();
-            this.button_trangchu = new QuanLyHotel.RoundedButton();
             this.panel_logo = new System.Windows.Forms.Panel();
             this.roundedButton1 = new QuanLyHotel.RoundedButton();
             this.panelTitleBar = new System.Windows.Forms.Panel();
@@ -68,7 +67,6 @@ namespace QuanLyHotel.EMPLOYEE
             this.panel_menu.Controls.Add(this.button_account);
             this.panel_menu.Controls.Add(this.button_khachhang);
             this.panel_menu.Controls.Add(this.button_nv);
-            this.panel_menu.Controls.Add(this.button_trangchu);
             this.panel_menu.Controls.Add(this.panel_logo);
             this.panel_menu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_menu.Location = new System.Drawing.Point(0, 0);
@@ -89,7 +87,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.roundedButton2.ForeColor = System.Drawing.Color.Black;
             this.roundedButton2.Image = global::QuanLyHotel.Properties.Resources.bill32;
             this.roundedButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roundedButton2.Location = new System.Drawing.Point(0, 561);
+            this.roundedButton2.Location = new System.Drawing.Point(0, 515);
             this.roundedButton2.Margin = new System.Windows.Forms.Padding(2);
             this.roundedButton2.Name = "roundedButton2";
             this.roundedButton2.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -111,7 +109,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.roundedButton_bc_thu_chi.ForeColor = System.Drawing.Color.Black;
             this.roundedButton_bc_thu_chi.Image = global::QuanLyHotel.Properties.Resources.service32;
             this.roundedButton_bc_thu_chi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roundedButton_bc_thu_chi.Location = new System.Drawing.Point(0, 512);
+            this.roundedButton_bc_thu_chi.Location = new System.Drawing.Point(0, 466);
             this.roundedButton_bc_thu_chi.Margin = new System.Windows.Forms.Padding(2);
             this.roundedButton_bc_thu_chi.Name = "roundedButton_bc_thu_chi";
             this.roundedButton_bc_thu_chi.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -133,7 +131,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.roundedButton_ca_lich.ForeColor = System.Drawing.Color.Black;
             this.roundedButton_ca_lich.Image = global::QuanLyHotel.Properties.Resources.service32;
             this.roundedButton_ca_lich.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roundedButton_ca_lich.Location = new System.Drawing.Point(0, 463);
+            this.roundedButton_ca_lich.Location = new System.Drawing.Point(0, 417);
             this.roundedButton_ca_lich.Margin = new System.Windows.Forms.Padding(2);
             this.roundedButton_ca_lich.Name = "roundedButton_ca_lich";
             this.roundedButton_ca_lich.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -155,7 +153,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.button_dangkythuetra.ForeColor = System.Drawing.Color.Black;
             this.button_dangkythuetra.Image = global::QuanLyHotel.Properties.Resources.service32;
             this.button_dangkythuetra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_dangkythuetra.Location = new System.Drawing.Point(0, 414);
+            this.button_dangkythuetra.Location = new System.Drawing.Point(0, 368);
             this.button_dangkythuetra.Margin = new System.Windows.Forms.Padding(2);
             this.button_dangkythuetra.Name = "button_dangkythuetra";
             this.button_dangkythuetra.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -177,7 +175,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.button_dichvu.ForeColor = System.Drawing.Color.Black;
             this.button_dichvu.Image = global::QuanLyHotel.Properties.Resources.service32;
             this.button_dichvu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_dichvu.Location = new System.Drawing.Point(0, 365);
+            this.button_dichvu.Location = new System.Drawing.Point(0, 319);
             this.button_dichvu.Margin = new System.Windows.Forms.Padding(2);
             this.button_dichvu.Name = "button_dichvu";
             this.button_dichvu.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -199,7 +197,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.button_phong.ForeColor = System.Drawing.Color.Black;
             this.button_phong.Image = global::QuanLyHotel.Properties.Resources.room32;
             this.button_phong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_phong.Location = new System.Drawing.Point(0, 316);
+            this.button_phong.Location = new System.Drawing.Point(0, 270);
             this.button_phong.Margin = new System.Windows.Forms.Padding(2);
             this.button_phong.Name = "button_phong";
             this.button_phong.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -221,7 +219,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.button_bill.ForeColor = System.Drawing.Color.Black;
             this.button_bill.Image = global::QuanLyHotel.Properties.Resources.bill32;
             this.button_bill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_bill.Location = new System.Drawing.Point(0, 267);
+            this.button_bill.Location = new System.Drawing.Point(0, 221);
             this.button_bill.Margin = new System.Windows.Forms.Padding(2);
             this.button_bill.Name = "button_bill";
             this.button_bill.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -263,7 +261,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.button_account.ForeColor = System.Drawing.Color.Black;
             this.button_account.Image = global::QuanLyHotel.Properties.Resources.userden;
             this.button_account.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_account.Location = new System.Drawing.Point(0, 218);
+            this.button_account.Location = new System.Drawing.Point(0, 172);
             this.button_account.Margin = new System.Windows.Forms.Padding(2);
             this.button_account.Name = "button_account";
             this.button_account.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -284,7 +282,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.button_khachhang.ForeColor = System.Drawing.Color.Black;
             this.button_khachhang.Image = global::QuanLyHotel.Properties.Resources.khachhangden;
             this.button_khachhang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_khachhang.Location = new System.Drawing.Point(0, 169);
+            this.button_khachhang.Location = new System.Drawing.Point(0, 123);
             this.button_khachhang.Margin = new System.Windows.Forms.Padding(2);
             this.button_khachhang.Name = "button_khachhang";
             this.button_khachhang.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -305,7 +303,7 @@ namespace QuanLyHotel.EMPLOYEE
             this.button_nv.ForeColor = System.Drawing.Color.Black;
             this.button_nv.Image = global::QuanLyHotel.Properties.Resources.employeeden;
             this.button_nv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_nv.Location = new System.Drawing.Point(0, 120);
+            this.button_nv.Location = new System.Drawing.Point(0, 74);
             this.button_nv.Margin = new System.Windows.Forms.Padding(2);
             this.button_nv.Name = "button_nv";
             this.button_nv.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -316,27 +314,6 @@ namespace QuanLyHotel.EMPLOYEE
             this.button_nv.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button_nv.UseVisualStyleBackColor = true;
             this.button_nv.Click += new System.EventHandler(this.button_nv_Click);
-            // 
-            // button_trangchu
-            // 
-            this.button_trangchu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button_trangchu.FlatAppearance.BorderSize = 0;
-            this.button_trangchu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_trangchu.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_trangchu.ForeColor = System.Drawing.Color.Black;
-            this.button_trangchu.Image = global::QuanLyHotel.Properties.Resources.home3;
-            this.button_trangchu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_trangchu.Location = new System.Drawing.Point(0, 74);
-            this.button_trangchu.Margin = new System.Windows.Forms.Padding(2);
-            this.button_trangchu.Name = "button_trangchu";
-            this.button_trangchu.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.button_trangchu.Size = new System.Drawing.Size(225, 46);
-            this.button_trangchu.TabIndex = 1;
-            this.button_trangchu.Text = "  Trang chủ";
-            this.button_trangchu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_trangchu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button_trangchu.UseVisualStyleBackColor = true;
-            this.button_trangchu.Click += new System.EventHandler(this.button_trangchu_Click);
             // 
             // panel_logo
             // 
@@ -438,7 +415,6 @@ namespace QuanLyHotel.EMPLOYEE
         private System.Windows.Forms.Panel panel_childForm;
         private RoundedButton button_nv;
         private RoundedButton button_khachhang;
-        private RoundedButton button_trangchu;
         private RoundedButton button_account;
         private RoundedButton btn_dangxuat;
         private Panel panel_logo;

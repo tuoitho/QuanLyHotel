@@ -30,6 +30,7 @@
         {
             this.dataGridView_hoadon = new System.Windows.Forms.DataGridView();
             this.dataGridView_kb = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_hoadon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_kb)).BeginInit();
             this.SuspendLayout();
@@ -47,6 +48,7 @@
             this.dataGridView_hoadon.Size = new System.Drawing.Size(559, 413);
             this.dataGridView_hoadon.TabIndex = 3;
             this.dataGridView_hoadon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_hoadon_CellClick);
+            this.dataGridView_hoadon.Click += new System.EventHandler(this.dataGridView_hoadon_CellClick);
             // 
             // dataGridView_kb
             // 
@@ -61,11 +63,25 @@
             this.dataGridView_kb.Size = new System.Drawing.Size(447, 413);
             this.dataGridView_kb.TabIndex = 4;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.SeaGreen;
+            this.button2.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Location = new System.Drawing.Point(748, 488);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(228, 70);
+            this.button2.TabIndex = 34;
+            this.button2.Text = "Phạt Tiền Nhân Viên";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FormXuLyKhaiBao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1126, 565);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView_kb);
             this.Controls.Add(this.dataGridView_hoadon);
             this.Name = "FormXuLyKhaiBao";
@@ -81,5 +97,6 @@
 
         private System.Windows.Forms.DataGridView dataGridView_hoadon;
         private System.Windows.Forms.DataGridView dataGridView_kb;
+        private System.Windows.Forms.Button button2;
     }
 }

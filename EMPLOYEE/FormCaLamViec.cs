@@ -438,8 +438,8 @@ namespace QuanLyHotel.LamVieic
                 MessageBox.Show("Vui lòng chọn báo nghỉ cần thay thế", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            //int mapc = Convert.ToInt32(dataGridView_cabaonghi.CurrentRow.Cells[0].Value.ToString());
-            int mapc = Convert.ToInt32(dataGridView_cabaonghi.Rows[rowcanghi].Cells[0].Value.ToString());
+            int mapc = Convert.ToInt32(dataGridView_cabaonghi.CurrentRow.Cells[0].Value.ToString());
+            //int mapc = Convert.ToInt32(dataGridView_cabaonghi.Rows[rowcanghi].Cells[0].Value.ToString());
 
             int manv = Info.id;
             //neu bi trung lich thi k dc thay the

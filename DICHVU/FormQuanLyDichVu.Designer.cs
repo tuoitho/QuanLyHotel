@@ -29,12 +29,21 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.textBox_tenldv = new System.Windows.Forms.TextBox();
             this.comboBox_maldv = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btn_add = new System.Windows.Forms.Button();
+            this.btn_modify = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.btn_dangkidv = new System.Windows.Forms.Button();
             this.comboBox_dv = new System.Windows.Forms.ComboBox();
             this.comboBox_loaidv = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -42,8 +51,6 @@
             this.textBox_giadv = new System.Windows.Forms.TextBox();
             this.textBox_tendv = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
@@ -55,13 +62,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.btn_add = new System.Windows.Forms.Button();
-            this.btn_modify = new System.Windows.Forms.Button();
-            this.btn_delete = new System.Windows.Forms.Button();
-            this.btn_dangkidv = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.roundedButton_kb = new QuanLyHotel.RoundedButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -85,6 +85,57 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(387, 291);
             this.panel1.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 17F);
+            this.label4.Location = new System.Drawing.Point(35, 17);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(292, 28);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "DANH SÁCH LOẠI DỊCH VỤ";
+            // 
+            // button1
+            // 
+            this.button1.Image = global::QuanLyHotel.Properties.Resources.plus;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(12, 235);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(3);
+            this.button1.Size = new System.Drawing.Size(97, 37);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "   Thêm";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Image = global::QuanLyHotel.Properties.Resources.edit;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(115, 235);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(3);
+            this.button2.Size = new System.Drawing.Size(97, 37);
+            this.button2.TabIndex = 27;
+            this.button2.Text = "   Sửa";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Image = global::QuanLyHotel.Properties.Resources.trash;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(218, 235);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Name = "button3";
+            this.button3.Padding = new System.Windows.Forms.Padding(3);
+            this.button3.Size = new System.Drawing.Size(103, 37);
+            this.button3.TabIndex = 28;
+            this.button3.Text = "   Xóa";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // textBox_tenldv
             // 
@@ -141,6 +192,57 @@
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 17F);
+            this.label5.Location = new System.Drawing.Point(35, 17);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(242, 28);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "DANH SÁCH  DỊCH VỤ";
+            // 
+            // btn_add
+            // 
+            this.btn_add.Image = global::QuanLyHotel.Properties.Resources.plus;
+            this.btn_add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_add.Location = new System.Drawing.Point(12, 262);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Padding = new System.Windows.Forms.Padding(3);
+            this.btn_add.Size = new System.Drawing.Size(97, 37);
+            this.btn_add.TabIndex = 23;
+            this.btn_add.Text = "   Thêm";
+            this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
+            // 
+            // btn_modify
+            // 
+            this.btn_modify.Image = global::QuanLyHotel.Properties.Resources.edit;
+            this.btn_modify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_modify.Location = new System.Drawing.Point(116, 262);
+            this.btn_modify.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_modify.Name = "btn_modify";
+            this.btn_modify.Padding = new System.Windows.Forms.Padding(3);
+            this.btn_modify.Size = new System.Drawing.Size(97, 37);
+            this.btn_modify.TabIndex = 24;
+            this.btn_modify.Text = "   Sửa";
+            this.btn_modify.UseVisualStyleBackColor = true;
+            this.btn_modify.Click += new System.EventHandler(this.btn_modify_Click);
+            // 
+            // btn_delete
+            // 
+            this.btn_delete.Image = global::QuanLyHotel.Properties.Resources.trash;
+            this.btn_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_delete.Location = new System.Drawing.Point(219, 262);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Padding = new System.Windows.Forms.Padding(3);
+            this.btn_delete.Size = new System.Drawing.Size(103, 37);
+            this.btn_delete.TabIndex = 25;
+            this.btn_delete.Text = "   Xóa";
+            this.btn_delete.UseVisualStyleBackColor = true;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -149,6 +251,19 @@
             this.label8.Size = new System.Drawing.Size(92, 13);
             this.label8.TabIndex = 16;
             this.label8.Text = "Chọn Loại Dịch Vụ";
+            // 
+            // btn_dangkidv
+            // 
+            this.btn_dangkidv.Image = global::QuanLyHotel.Properties.Resources.plus;
+            this.btn_dangkidv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_dangkidv.Location = new System.Drawing.Point(116, 464);
+            this.btn_dangkidv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_dangkidv.Name = "btn_dangkidv";
+            this.btn_dangkidv.Padding = new System.Windows.Forms.Padding(3);
+            this.btn_dangkidv.Size = new System.Drawing.Size(152, 37);
+            this.btn_dangkidv.TabIndex = 20;
+            this.btn_dangkidv.Text = "Đăng Kí Dịch Vụ";
+            this.btn_dangkidv.UseVisualStyleBackColor = true;
             // 
             // comboBox_dv
             // 
@@ -212,26 +327,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Tên Dịch Vụ";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 17F);
-            this.label4.Location = new System.Drawing.Point(35, 17);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(292, 28);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "DANH SÁCH LOẠI DỊCH VỤ";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 17F);
-            this.label5.Location = new System.Drawing.Point(35, 17);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(242, 28);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "DANH SÁCH  DỊCH VỤ";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -248,6 +343,11 @@
             this.numericUpDown4.Enabled = false;
             this.numericUpDown4.Font = new System.Drawing.Font("Tahoma", 13F);
             this.numericUpDown4.Location = new System.Drawing.Point(863, 341);
+            this.numericUpDown4.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numericUpDown4.Name = "numericUpDown4";
             this.numericUpDown4.Size = new System.Drawing.Size(120, 28);
             this.numericUpDown4.TabIndex = 31;
@@ -258,6 +358,11 @@
             this.numericUpDown3.Enabled = false;
             this.numericUpDown3.Font = new System.Drawing.Font("Tahoma", 13F);
             this.numericUpDown3.Location = new System.Drawing.Point(863, 282);
+            this.numericUpDown3.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numericUpDown3.Name = "numericUpDown3";
             this.numericUpDown3.Size = new System.Drawing.Size(120, 28);
             this.numericUpDown3.TabIndex = 32;
@@ -268,6 +373,11 @@
             this.numericUpDown2.Enabled = false;
             this.numericUpDown2.Font = new System.Drawing.Font("Tahoma", 13F);
             this.numericUpDown2.Location = new System.Drawing.Point(863, 229);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(120, 28);
             this.numericUpDown2.TabIndex = 33;
@@ -278,6 +388,11 @@
             this.numericUpDown1.Enabled = false;
             this.numericUpDown1.Font = new System.Drawing.Font("Tahoma", 13F);
             this.numericUpDown1.Location = new System.Drawing.Point(863, 182);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 28);
             this.numericUpDown1.TabIndex = 34;
@@ -348,101 +463,6 @@
             this.label15.TabIndex = 30;
             this.label15.Text = "TỒN KHO";
             this.label15.Click += new System.EventHandler(this.label15_Click);
-            // 
-            // btn_add
-            // 
-            this.btn_add.Image = global::QuanLyHotel.Properties.Resources.plus;
-            this.btn_add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_add.Location = new System.Drawing.Point(12, 262);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Padding = new System.Windows.Forms.Padding(3);
-            this.btn_add.Size = new System.Drawing.Size(97, 37);
-            this.btn_add.TabIndex = 23;
-            this.btn_add.Text = "   Thêm";
-            this.btn_add.UseVisualStyleBackColor = true;
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
-            // 
-            // btn_modify
-            // 
-            this.btn_modify.Image = global::QuanLyHotel.Properties.Resources.edit;
-            this.btn_modify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_modify.Location = new System.Drawing.Point(116, 262);
-            this.btn_modify.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_modify.Name = "btn_modify";
-            this.btn_modify.Padding = new System.Windows.Forms.Padding(3);
-            this.btn_modify.Size = new System.Drawing.Size(97, 37);
-            this.btn_modify.TabIndex = 24;
-            this.btn_modify.Text = "   Sửa";
-            this.btn_modify.UseVisualStyleBackColor = true;
-            this.btn_modify.Click += new System.EventHandler(this.btn_modify_Click);
-            // 
-            // btn_delete
-            // 
-            this.btn_delete.Image = global::QuanLyHotel.Properties.Resources.trash;
-            this.btn_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_delete.Location = new System.Drawing.Point(219, 262);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Padding = new System.Windows.Forms.Padding(3);
-            this.btn_delete.Size = new System.Drawing.Size(103, 37);
-            this.btn_delete.TabIndex = 25;
-            this.btn_delete.Text = "   Xóa";
-            this.btn_delete.UseVisualStyleBackColor = true;
-            // 
-            // btn_dangkidv
-            // 
-            this.btn_dangkidv.Image = global::QuanLyHotel.Properties.Resources.plus;
-            this.btn_dangkidv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_dangkidv.Location = new System.Drawing.Point(116, 464);
-            this.btn_dangkidv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_dangkidv.Name = "btn_dangkidv";
-            this.btn_dangkidv.Padding = new System.Windows.Forms.Padding(3);
-            this.btn_dangkidv.Size = new System.Drawing.Size(152, 37);
-            this.btn_dangkidv.TabIndex = 20;
-            this.btn_dangkidv.Text = "Đăng Kí Dịch Vụ";
-            this.btn_dangkidv.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Image = global::QuanLyHotel.Properties.Resources.plus;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(12, 235);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(3);
-            this.button1.Size = new System.Drawing.Size(97, 37);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "   Thêm";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Image = global::QuanLyHotel.Properties.Resources.edit;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(115, 235);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(3);
-            this.button2.Size = new System.Drawing.Size(97, 37);
-            this.button2.TabIndex = 27;
-            this.button2.Text = "   Sửa";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Image = global::QuanLyHotel.Properties.Resources.trash;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(218, 235);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(3);
-            this.button3.Size = new System.Drawing.Size(103, 37);
-            this.button3.TabIndex = 28;
-            this.button3.Text = "   Xóa";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // roundedButton_kb
             // 

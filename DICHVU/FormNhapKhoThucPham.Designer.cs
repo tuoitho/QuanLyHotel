@@ -63,6 +63,11 @@
             // 
             this.numericUpDown4.Font = new System.Drawing.Font("Tahoma", 13F);
             this.numericUpDown4.Location = new System.Drawing.Point(393, 361);
+            this.numericUpDown4.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.numericUpDown4.Name = "numericUpDown4";
             this.numericUpDown4.Size = new System.Drawing.Size(120, 28);
             this.numericUpDown4.TabIndex = 43;
@@ -71,6 +76,11 @@
             // 
             this.numericUpDown3.Font = new System.Drawing.Font("Tahoma", 13F);
             this.numericUpDown3.Location = new System.Drawing.Point(393, 302);
+            this.numericUpDown3.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.numericUpDown3.Name = "numericUpDown3";
             this.numericUpDown3.Size = new System.Drawing.Size(120, 28);
             this.numericUpDown3.TabIndex = 44;
@@ -79,6 +89,11 @@
             // 
             this.numericUpDown2.Font = new System.Drawing.Font("Tahoma", 13F);
             this.numericUpDown2.Location = new System.Drawing.Point(393, 249);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(120, 28);
             this.numericUpDown2.TabIndex = 45;
@@ -87,6 +102,11 @@
             // 
             this.numericUpDown1.Font = new System.Drawing.Font("Tahoma", 13F);
             this.numericUpDown1.Location = new System.Drawing.Point(393, 202);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 28);
             this.numericUpDown1.TabIndex = 46;

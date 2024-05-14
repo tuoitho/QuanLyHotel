@@ -48,6 +48,7 @@
             this.dataGridView_baocao.Size = new System.Drawing.Size(541, 445);
             this.dataGridView_baocao.TabIndex = 0;
             this.dataGridView_baocao.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_baocao_CellClick);
+            this.dataGridView_baocao.Click += new System.EventHandler(this.dataGridView_baocao_Click);
             // 
             // dataGridView_chitietca
             // 
