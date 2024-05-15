@@ -615,7 +615,7 @@
             // 
             // button_hoanthanh
             // 
-            this.button_hoanthanh.Image = global::QuanLyHotel.Properties.Resources.plus;
+            this.button_hoanthanh.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.button_hoanthanh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_hoanthanh.Location = new System.Drawing.Point(382, 647);
             this.button_hoanthanh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -624,7 +624,7 @@
             this.button_hoanthanh.Size = new System.Drawing.Size(221, 43);
             this.button_hoanthanh.TabIndex = 18;
             this.button_hoanthanh.Text = "Xác nhận thanh toán";
-            this.button_hoanthanh.UseVisualStyleBackColor = true;
+            this.button_hoanthanh.UseVisualStyleBackColor = false;
             this.button_hoanthanh.Click += new System.EventHandler(this.button_hoanthanh_Click);
             // 
             // label18
@@ -658,7 +658,7 @@
             // 
             // button_taoqr
             // 
-            this.button_taoqr.Image = global::QuanLyHotel.Properties.Resources.plus;
+            this.button_taoqr.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_taoqr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_taoqr.Location = new System.Drawing.Point(382, 585);
             this.button_taoqr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -667,7 +667,7 @@
             this.button_taoqr.Size = new System.Drawing.Size(221, 43);
             this.button_taoqr.TabIndex = 18;
             this.button_taoqr.Text = "Tạo QR cho khách hàng";
-            this.button_taoqr.UseVisualStyleBackColor = true;
+            this.button_taoqr.UseVisualStyleBackColor = false;
             this.button_taoqr.Click += new System.EventHandler(this.button_taoqr_Click);
             // 
             // cb_nganhang

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.comboBox_phongmuonchyyen = new System.Windows.Forms.ComboBox();
+            this.label_phongmuonchuyen = new System.Windows.Forms.Label();
+            this.button_chuyenphong = new System.Windows.Forms.Button();
+            this.textBox_room = new System.Windows.Forms.TextBox();
             this.tb_mapdk = new System.Windows.Forms.TextBox();
             this.lblRoom = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button_chuyenphong = new System.Windows.Forms.Button();
-            this.comboBox_phongmuonchyyen = new System.Windows.Forms.ComboBox();
-            this.label_phongmuonchuyen = new System.Windows.Forms.Label();
-            this.textBox_room = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,6 +54,48 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(374, 234);
             this.panel2.TabIndex = 19;
+            // 
+            // comboBox_phongmuonchyyen
+            // 
+            this.comboBox_phongmuonchyyen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_phongmuonchyyen.FormattingEnabled = true;
+            this.comboBox_phongmuonchyyen.Location = new System.Drawing.Point(152, 132);
+            this.comboBox_phongmuonchyyen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox_phongmuonchyyen.Name = "comboBox_phongmuonchyyen";
+            this.comboBox_phongmuonchyyen.Size = new System.Drawing.Size(151, 21);
+            this.comboBox_phongmuonchyyen.TabIndex = 14;
+            // 
+            // label_phongmuonchuyen
+            // 
+            this.label_phongmuonchuyen.AutoSize = true;
+            this.label_phongmuonchuyen.Location = new System.Drawing.Point(28, 134);
+            this.label_phongmuonchuyen.Name = "label_phongmuonchuyen";
+            this.label_phongmuonchuyen.Size = new System.Drawing.Size(104, 13);
+            this.label_phongmuonchuyen.TabIndex = 13;
+            this.label_phongmuonchuyen.Text = "Phòng muốn chuyển";
+            // 
+            // button_chuyenphong
+            // 
+            this.button_chuyenphong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_chuyenphong.Location = new System.Drawing.Point(118, 160);
+            this.button_chuyenphong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_chuyenphong.Name = "button_chuyenphong";
+            this.button_chuyenphong.Padding = new System.Windows.Forms.Padding(3);
+            this.button_chuyenphong.Size = new System.Drawing.Size(150, 37);
+            this.button_chuyenphong.TabIndex = 12;
+            this.button_chuyenphong.Text = "   Chuyển phòng";
+            this.button_chuyenphong.UseVisualStyleBackColor = true;
+            this.button_chuyenphong.Click += new System.EventHandler(this.button_chuyenphong_Click);
+            // 
+            // textBox_room
+            // 
+            this.textBox_room.Enabled = false;
+            this.textBox_room.Location = new System.Drawing.Point(151, 96);
+            this.textBox_room.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox_room.Name = "textBox_room";
+            this.textBox_room.Size = new System.Drawing.Size(152, 20);
+            this.textBox_room.TabIndex = 5;
+            this.textBox_room.TextChanged += new System.EventHandler(this.tb_mapdk_TextChanged);
             // 
             // tb_mapdk
             // 
@@ -82,49 +124,6 @@
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã PĐK";
-            // 
-            // button_chuyenphong
-            // 
-            this.button_chuyenphong.Image = global::QuanLyHotel.Properties.Resources.plus;
-            this.button_chuyenphong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_chuyenphong.Location = new System.Drawing.Point(118, 160);
-            this.button_chuyenphong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button_chuyenphong.Name = "button_chuyenphong";
-            this.button_chuyenphong.Padding = new System.Windows.Forms.Padding(3);
-            this.button_chuyenphong.Size = new System.Drawing.Size(150, 37);
-            this.button_chuyenphong.TabIndex = 12;
-            this.button_chuyenphong.Text = "   Chuyển phòng";
-            this.button_chuyenphong.UseVisualStyleBackColor = true;
-            this.button_chuyenphong.Click += new System.EventHandler(this.button_chuyenphong_Click);
-            // 
-            // comboBox_phongmuonchyyen
-            // 
-            this.comboBox_phongmuonchyyen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_phongmuonchyyen.FormattingEnabled = true;
-            this.comboBox_phongmuonchyyen.Location = new System.Drawing.Point(152, 132);
-            this.comboBox_phongmuonchyyen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox_phongmuonchyyen.Name = "comboBox_phongmuonchyyen";
-            this.comboBox_phongmuonchyyen.Size = new System.Drawing.Size(151, 21);
-            this.comboBox_phongmuonchyyen.TabIndex = 14;
-            // 
-            // label_phongmuonchuyen
-            // 
-            this.label_phongmuonchuyen.AutoSize = true;
-            this.label_phongmuonchuyen.Location = new System.Drawing.Point(28, 134);
-            this.label_phongmuonchuyen.Name = "label_phongmuonchuyen";
-            this.label_phongmuonchuyen.Size = new System.Drawing.Size(104, 13);
-            this.label_phongmuonchuyen.TabIndex = 13;
-            this.label_phongmuonchuyen.Text = "Phòng muốn chuyển";
-            // 
-            // textBox_room
-            // 
-            this.textBox_room.Enabled = false;
-            this.textBox_room.Location = new System.Drawing.Point(151, 96);
-            this.textBox_room.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox_room.Name = "textBox_room";
-            this.textBox_room.Size = new System.Drawing.Size(152, 20);
-            this.textBox_room.TabIndex = 5;
-            this.textBox_room.TextChanged += new System.EventHandler(this.tb_mapdk_TextChanged);
             // 
             // FormChuyenPhong
             // 
