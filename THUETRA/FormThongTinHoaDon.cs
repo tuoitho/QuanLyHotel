@@ -158,5 +158,11 @@ namespace QuanLyHotel.THUETRA
         {
 
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            FormThanhToan ftt = new FormThanhToan(Convert.ToInt32(txtMaHoaDon.Text));
+            ftt.ShowDialog();
+        }
     }
 }

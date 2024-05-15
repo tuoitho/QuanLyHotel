@@ -24,7 +24,7 @@ namespace QuanLyHotel.EMPLOYEE
         private void FormKhaiBaoThucPhamDialog_Load(object sender, EventArgs e)
         {
             textBox1.Text = mahd.ToString();
-            textBox2.Text = maphong.ToString();
+            textBox_maphong.Text = maphong.ToString();
             roundedButton_kb.Enabled = !HD.checkLaoCongDaKBThucPham(mahd);
         }
 
@@ -34,12 +34,13 @@ namespace QuanLyHotel.EMPLOYEE
             int sl2 = Convert.ToInt32(numericUpDown2.Value);
             int sl3 = Convert.ToInt32(numericUpDown3.Value);
             int sl4 = Convert.ToInt32(numericUpDown4.Value);
+            int maphong= Convert.ToInt32(textBox_maphong.Text);
             try
             {
-                HD.insertKhaiBao(mahd, 1, sl1, true);
-                HD.insertKhaiBao(mahd, 2, sl2, true);
-                HD.insertKhaiBao(mahd, 3, sl3, true);
-                HD.insertKhaiBao(mahd, 4, sl4, true);
+                HD.insertKhaiBao(mahd, 1, sl1, true, maphong);
+                HD.insertKhaiBao(mahd, 2, sl2, true, maphong);
+                HD.insertKhaiBao(mahd, 3, sl3, true, maphong);
+                HD.insertKhaiBao(mahd, 4, sl4, true, maphong);
                 MessageBox.Show("Khai báo thực phẩm thành công");
             }
             catch (Exception ex)

@@ -39,7 +39,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox_maphong = new System.Windows.Forms.TextBox();
             this.roundedButton_kb = new QuanLyHotel.RoundedButton();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -148,14 +148,14 @@
             this.textBox1.Size = new System.Drawing.Size(100, 28);
             this.textBox1.TabIndex = 3;
             // 
-            // textBox2
+            // textBox_maphong
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Tahoma", 13F);
-            this.textBox2.Location = new System.Drawing.Point(505, 57);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 28);
-            this.textBox2.TabIndex = 3;
+            this.textBox_maphong.Enabled = false;
+            this.textBox_maphong.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.textBox_maphong.Location = new System.Drawing.Point(505, 57);
+            this.textBox_maphong.Name = "textBox_maphong";
+            this.textBox_maphong.Size = new System.Drawing.Size(100, 28);
+            this.textBox_maphong.TabIndex = 3;
             // 
             // roundedButton_kb
             // 
@@ -176,7 +176,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Chartreuse;
             this.ClientSize = new System.Drawing.Size(866, 508);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox_maphong);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.roundedButton_kb);
             this.Controls.Add(this.numericUpDown4);
@@ -215,6 +215,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox_maphong;
     }
 }

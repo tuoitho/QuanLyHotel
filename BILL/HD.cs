@@ -1,4 +1,6 @@
-﻿using QuanLyHotel.Resources;
+﻿using QuanLyHotel.PHONG;
+using QuanLyHotel.Resources;
+using QuanLyHotel.THUETRA;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -70,6 +72,29 @@ namespace QuanLyHotel.BILL
             }
         }
 
+        internal static void insertKhaiBao(int mahd, int v1, int sl2, bool v2,int maphong)
+        {
+            using (SqlCommand cmd = new SqlCommand("insert into KhaiBaoThucPham values(@mahd,@matp,@soluong,@isLaoCong)", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@mahd", SqlDbType.Int).Value = mahd;
+                cmd.Parameters.Add("@matp", SqlDbType.Int).Value = v1;
+                cmd.Parameters.Add("@soluong", SqlDbType.Int).Value = sl2;
+                cmd.Parameters.Add("@isLaoCong", SqlDbType.Bit).Value = v2;
+                mydb.OpenConnection();
+                cmd.ExecuteNonQuery();
+                mydb.CloseConnection();
+            }
+            //dong thoi giam so luong thuc pham trong phong tung ung
+            using (SqlCommand cmd = new SqlCommand("  update Phong_SoLuongThucPham set SoLuong =SoLuong- @sl where MaPhong = @maph and MaTP = @matp", mydb.GetConnection))
+            {
+                cmd.Parameters.Add("@sl", SqlDbType.Int).Value = sl2;
+                cmd.Parameters.Add("@maph", SqlDbType.Int).Value = maphong;
+                cmd.Parameters.Add("@matp", SqlDbType.Int).Value = v1;
+                mydb.OpenConnection();
+                cmd.ExecuteNonQuery();
+                mydb.CloseConnection();
+            }
+        }
         internal static void insertKhaiBao(int mahd, int v1, int sl2, bool v2)
         {
             using (SqlCommand cmd = new SqlCommand("insert into KhaiBaoThucPham values(@mahd,@matp,@soluong,@isLaoCong)", mydb.GetConnection))
@@ -82,6 +107,7 @@ namespace QuanLyHotel.BILL
                 cmd.ExecuteNonQuery();
                 mydb.CloseConnection();
             }
+            
         }
 
         internal static bool checkLaoCongDaKBThucPham(int mahd)

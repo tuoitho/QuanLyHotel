@@ -76,7 +76,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.textBox_sotienhoadoncantra = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.button_print = new System.Windows.Forms.Button();
             this.button_hoanthanh = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.textBox_tttt = new System.Windows.Forms.TextBox();
@@ -614,19 +613,6 @@
             this.label17.TabIndex = 7;
             this.label17.Text = "Số Tiền Cần Trả";
             // 
-            // button_print
-            // 
-            this.button_print.Image = global::QuanLyHotel.Properties.Resources.plus;
-            this.button_print.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_print.Location = new System.Drawing.Point(117, 646);
-            this.button_print.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button_print.Name = "button_print";
-            this.button_print.Padding = new System.Windows.Forms.Padding(3);
-            this.button_print.Size = new System.Drawing.Size(221, 43);
-            this.button_print.TabIndex = 19;
-            this.button_print.Text = "In hoá đơn";
-            this.button_print.UseVisualStyleBackColor = true;
-            // 
             // button_hoanthanh
             // 
             this.button_hoanthanh.Image = global::QuanLyHotel.Properties.Resources.plus;
@@ -812,7 +798,6 @@
             this.Controls.Add(this.txtSoTien);
             this.Controls.Add(this.cb_nganhang);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button_print);
             this.Controls.Add(this.button_taoqr);
             this.Controls.Add(this.button_hoanthanh);
             this.Controls.Add(this.panel4);
@@ -902,7 +887,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox_sotienhoadoncantra;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button button_print;
         private System.Windows.Forms.Button button_hoanthanh;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBox_tttt;

@@ -76,7 +76,6 @@ namespace QuanLyHotel.THUETRA
             textBox_sotienhoadoncantra.Text = (Convert.ToDouble(txtTongTien.Text) - sotiengiamgia+ sotienthucpham).ToString();
 
 
-            button_print.Enabled=(textBox_tttt.Text=="Đã thanh toán");
             button_hoanthanh.Enabled = (textBox_tttt.Text != "Đã thanh toán");
             dataGridView_dv.DataSource = DV.getDSDichVuByMaHD(mahoadon);
 
@@ -122,7 +121,6 @@ namespace QuanLyHotel.THUETRA
                 
                 MessageBox.Show("Thanh toán thành công", "Thanh toán", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 textBox_tttt.Text = HD.getStatus(mahoadon);
-                button_print.Enabled = true;
                 button_hoanthanh.Enabled = false;
 
             }
@@ -173,6 +171,11 @@ namespace QuanLyHotel.THUETRA
             ms.Write(imageBytes, 0, imageBytes.Length);
             System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
             return image;
+        }
+
+        private void button_print_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

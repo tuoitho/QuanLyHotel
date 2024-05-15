@@ -31,9 +31,13 @@
             this.dataGridView_dv = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker_ngaythanhtoan = new System.Windows.Forms.DateTimePicker();
+            this.label_ngaythanhtoan = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.textBox_tthd = new System.Windows.Forms.TextBox();
             this.txt_tiendv = new System.Windows.Forms.TextBox();
             this.txt_tienphong = new System.Windows.Forms.TextBox();
             this.txt_tiencoc = new System.Windows.Forms.TextBox();
@@ -71,10 +75,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox_tthd = new System.Windows.Forms.TextBox();
-            this.label_ngaythanhtoan = new System.Windows.Forms.Label();
-            this.dateTimePicker_ngaythanhtoan = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_dv)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -195,6 +196,36 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin hoá đơn";
             // 
+            // dateTimePicker_ngaythanhtoan
+            // 
+            this.dateTimePicker_ngaythanhtoan.CustomFormat = "HH:mm dd/MM/yyyy";
+            this.dateTimePicker_ngaythanhtoan.Enabled = false;
+            this.dateTimePicker_ngaythanhtoan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_ngaythanhtoan.Location = new System.Drawing.Point(123, 242);
+            this.dateTimePicker_ngaythanhtoan.Name = "dateTimePicker_ngaythanhtoan";
+            this.dateTimePicker_ngaythanhtoan.Size = new System.Drawing.Size(172, 20);
+            this.dateTimePicker_ngaythanhtoan.TabIndex = 8;
+            this.dateTimePicker_ngaythanhtoan.Visible = false;
+            // 
+            // label_ngaythanhtoan
+            // 
+            this.label_ngaythanhtoan.AutoSize = true;
+            this.label_ngaythanhtoan.Location = new System.Drawing.Point(21, 248);
+            this.label_ngaythanhtoan.Name = "label_ngaythanhtoan";
+            this.label_ngaythanhtoan.Size = new System.Drawing.Size(92, 13);
+            this.label_ngaythanhtoan.TabIndex = 7;
+            this.label_ngaythanhtoan.Text = "Ngày thanh toán:";
+            this.label_ngaythanhtoan.Visible = false;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(21, 215);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(58, 13);
+            this.label17.TabIndex = 7;
+            this.label17.Text = "Tinh Trạng";
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -221,6 +252,16 @@
             this.label14.Size = new System.Drawing.Size(48, 13);
             this.label14.TabIndex = 7;
             this.label14.Text = "Tiền Cọc";
+            // 
+            // textBox_tthd
+            // 
+            this.textBox_tthd.Enabled = false;
+            this.textBox_tthd.Location = new System.Drawing.Point(123, 210);
+            this.textBox_tthd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox_tthd.Name = "textBox_tthd";
+            this.textBox_tthd.ReadOnly = true;
+            this.textBox_tthd.Size = new System.Drawing.Size(172, 20);
+            this.textBox_tthd.TabIndex = 6;
             // 
             // txt_tiendv
             // 
@@ -384,6 +425,7 @@
             this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel3.Controls.Add(this.groupBox3);
             this.panel3.Controls.Add(this.panel5);
+            this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.button_traphong);
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Controls.Add(this.panel1);
@@ -628,45 +670,19 @@
             this.label6.Text = "Danh Sách Dịch Vụ Sử Dụng";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // label17
+            // button1
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(21, 215);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(58, 13);
-            this.label17.TabIndex = 7;
-            this.label17.Text = "Tinh Trạng";
-            // 
-            // textBox_tthd
-            // 
-            this.textBox_tthd.Enabled = false;
-            this.textBox_tthd.Location = new System.Drawing.Point(123, 210);
-            this.textBox_tthd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox_tthd.Name = "textBox_tthd";
-            this.textBox_tthd.ReadOnly = true;
-            this.textBox_tthd.Size = new System.Drawing.Size(172, 20);
-            this.textBox_tthd.TabIndex = 6;
-            // 
-            // label_ngaythanhtoan
-            // 
-            this.label_ngaythanhtoan.AutoSize = true;
-            this.label_ngaythanhtoan.Location = new System.Drawing.Point(21, 248);
-            this.label_ngaythanhtoan.Name = "label_ngaythanhtoan";
-            this.label_ngaythanhtoan.Size = new System.Drawing.Size(92, 13);
-            this.label_ngaythanhtoan.TabIndex = 7;
-            this.label_ngaythanhtoan.Text = "Ngày thanh toán:";
-            this.label_ngaythanhtoan.Visible = false;
-            // 
-            // dateTimePicker_ngaythanhtoan
-            // 
-            this.dateTimePicker_ngaythanhtoan.CustomFormat = "HH:mm dd/MM/yyyy";
-            this.dateTimePicker_ngaythanhtoan.Enabled = false;
-            this.dateTimePicker_ngaythanhtoan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_ngaythanhtoan.Location = new System.Drawing.Point(123, 242);
-            this.dateTimePicker_ngaythanhtoan.Name = "dateTimePicker_ngaythanhtoan";
-            this.dateTimePicker_ngaythanhtoan.Size = new System.Drawing.Size(172, 20);
-            this.dateTimePicker_ngaythanhtoan.TabIndex = 8;
-            this.dateTimePicker_ngaythanhtoan.Visible = false;
+            this.button1.Image = global::QuanLyHotel.Properties.Resources.plus;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(396, 254);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(3);
+            this.button1.Size = new System.Drawing.Size(193, 37);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Xem phiếu thanh toán";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // FormThongTinHoaDon
             // 
@@ -752,5 +768,6 @@
         private System.Windows.Forms.TextBox textBox_tthd;
         private System.Windows.Forms.DateTimePicker dateTimePicker_ngaythanhtoan;
         private System.Windows.Forms.Label label_ngaythanhtoan;
+        private System.Windows.Forms.Button button1;
     }
 }
