@@ -6,6 +6,7 @@ Phân quyền:
 -	Tiếp Tân
 -	Lao Công
 -	Khách Hàng
+-	
 Trường hợp sử dụng:
 Thêm, sửa, xóa nhân viên
 Import nhân viên từ File excel
