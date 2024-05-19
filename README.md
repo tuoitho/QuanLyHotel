@@ -145,29 +145,29 @@ Thêm, sửa, xóa Khách hàng
 
 Xem thông tin hóa đơn
 
-     Đăng ký dịch vụ cho hoá đơn.
+Đăng ký dịch vụ cho hoá đơn.
+
+Thanh toán hoá đơn.
      
-     Thanh toán hoá đơn.
-     
-     Tạo mã Viet QR thanh toán.
+Tạo mã Viet QR thanh toán.
 
 Xem khai báo thực phẩm (Phạt tiền lao công)
 
 Thêm, xóa, sửa phòng
 
-     Upload video giới thiệu phòng lên Firebase
+Upload video giới thiệu phòng lên Firebase
      
-     Gỡ video giới thiệu phòng.
+Gỡ video giới thiệu phòng.
      
-     Thêm, sửa, xóa loại dịch vụ, dịch vụ
+Thêm, sửa, xóa loại dịch vụ, dịch vụ
 
 Nhập thực phẩm
 
-     Cấp thực phẩm cho phòng
+Cấp thực phẩm cho phòng
 
 Tạo phiếu đăng ký
 
-     Chuyển phòng trong phiếu đăng ký
+Chuyển phòng trong phiếu đăng ký
 
 Xử lý phiếu đăng ký (đánh dấu hết hạn, hoàn thành)
 
@@ -177,7 +177,7 @@ In bảng lương
 
 Xem báo cáo doanh thu (kèm biểu đồ)
 
-     Thêm ca làm bổ sung cho nhân viên
+Thêm ca làm bổ sung cho nhân viên
 
 3.	Tiếp tân	
 
@@ -193,15 +193,15 @@ Thêm, sửa, xóa Khách hàng
 
 Xem thông tin hóa đơn
 
-     Đăng ký dịch vụ cho hoá đơn.
+Đăng ký dịch vụ cho hoá đơn.
      
-     Thanh toán hoá đơn.
+Thanh toán hoá đơn.
      
-     Tạo mã Viet QR thanh toán.
+Tạo mã Viet QR thanh toán.
 
 Tạo phiếu đăng ký
 
-     Chuyển phòng trong phiếu đăng ký
+Chuyển phòng trong phiếu đăng ký
 
 Xử lý phiếu đăng ký (đánh dấu hết hạn, hoàn thành)
 
